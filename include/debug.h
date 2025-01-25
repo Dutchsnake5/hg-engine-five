@@ -53,7 +53,16 @@
 // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES will cause any crash from a heap overflow to display error information
 //#define DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 
+// DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL will cause any GF_AssertFail call to display error information, even those that would normally in vanilla work fine
+//#define DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL
+
 // DEBUG_ALWAYS_OBEY will force all battlers to obey regardless of badges owned
 //#define DEBUG_ALWAYS_OBEY
+
+// DEBUG_ENDTURN_LOGIC turns on a number of debug prints related to the end-turn logic
+//#define DEBUG_ENDTURN_LOGIC
+
+// NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
+//#define NOCASH_GBA_PRINT
 
 #endif // DEBUG_H

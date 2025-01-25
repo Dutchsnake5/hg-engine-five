@@ -40,7 +40,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     int side           = IsClientEnemy(bw, sp->attack_client);
     switch (itemHoldEffect) {
         // vanilla gen4 effects
-        case HOLD_EFFECT_DAMAGE_HOLDER_TRANSFER_ON_CONTACT:     // Sticky Barb
+        case HOLD_EFFECT_DMG_USER_CONTACT_XFR:     // Sticky Barb
             // Attacker is alive after the attack
             if ((sp->battlemon[sp->attack_client].hp)
                 // Attacker has no item
@@ -55,7 +55,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker is not U-turning
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 // Attacker used a move that makes contact
-                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
+                && (IsContactBeingMade(bw, sp))) {
                 seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
                 ret       = TRUE;
             }
@@ -91,7 +91,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-        case HOLD_EFFECT_RESTORE_HP_ON_SE:                      // Enigma Berry
+        case HOLD_EFFECT_HP_RESTORE_SE:                      // Enigma Berry
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Super Effective attack
@@ -193,11 +193,16 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
                 // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
                 && (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)
+                // Attacker is not U-turning
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                // punching glove & punching move foundation
+                // && ((HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && 
+                // IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0]))))
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // Attacker used a move that makes contact
-                && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT)) {
+                && (IsContactBeingMade(bw, sp))) {
                 sp->hp_calc_work         = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
                 seq_no[0]                = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret                      = TRUE;

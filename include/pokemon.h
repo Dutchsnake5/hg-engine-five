@@ -4,6 +4,7 @@
 #include "config.h"
 //#include "save.h"
 #include "types.h"
+#include "trainer_data.h"
 
 #define POKEMON_GENDER_MALE 0
 #define POKEMON_GENDER_FEMALE 1
@@ -1101,14 +1102,6 @@ BOOL LONG_CALL MonHasMove(struct PartyPokemon *mon, u16 move);
 BOOL LONG_CALL does_species_have_dimorphism(u32 species);
 
 /**
- *  @brief grab the base overworld data file number for a species
- *
- *  @param species species index
- *  @return requested base overworld data file number
- */
-u32 LONG_CALL get_ow_data_file_num(u32 species);
-
-/**
  *  @brief intialize various values to a PartyPokemon (location caught, caught ball, etc.)
  *
  *  @param pp PartyPokemon to initialize
@@ -1195,7 +1188,7 @@ void LONG_CALL TT_TrainerPokeDataGet(int tr_id, void *tpd);
  *  @param trtype trainer class
  *  @return trainer sex; 1 if female, 0 if male
  */
-u8 LONG_CALL TT_TrainerTypeSexGet(int trtype);
+TrainerGender LONG_CALL TT_TrainerTypeSexGet(int trtype);
 
 /**
  *  @brief set ball seal on a trainer PartyPokemon
@@ -1422,6 +1415,14 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no);
  *  @return base species
  */
 u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no);
+
+/**
+ *  @brief pass adjusted species and return form of the base species it applies to
+ *
+ *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
+ *  @return form of adjusted species
+ */
+u16 LONG_CALL GetFormBasedOnAdjustedForm(u32 mons_no);
 
 /**
  *  @brief grab index in ARC_POKEICON from original species, egg status, and form number
@@ -1763,5 +1764,7 @@ BOOL LONG_CALL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defau
 void LONG_CALL Mon_UpdateShayminForm(struct PartyPokemon *mon, int form);
 
 void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **boxmons);
+
+BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
 
 #endif
