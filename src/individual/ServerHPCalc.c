@@ -55,6 +55,9 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->battlerIdTemp = sp->defence_client;
+#ifdef DEBUG_BATTLE_SCENARIOS
+            TestBattle_CheckHPBarExpectation(sp);
+#endif
         } else {
             BOOL negatedDamage = FALSE;
             // limit damage value to current hp
@@ -111,32 +114,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
 
 #ifdef DEBUG_BATTLE_SCENARIOS
             // debug_printf("In ServerHPCalc\n");
-            debug_printf("[Move %d     Damage %d%s]", sp->current_move_index, sp->damage, (sp->critical > 1) ? " (crit)" : "");
-            struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
-            if (scenario != NULL && TestBattle_HasMoreExpectations()) {
-#ifdef DEBUG_DAMAGE_CALC
-                debug_printf("[ServerHPCalc] move=%d target=%d damage=%d status=%08lx\n",
-                    sp->current_move_index,
-                    sp->defence_client,
-                    sp->damage * -1,
-                    (unsigned long)sp->waza_status_flag);
-#endif
-                // debug_printf("Has more expectations\n")
-                if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR
-                    && sp->defence_client == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
-                    for (int i = 0; i < 16; i++) {
-                        // debug_printf("sp->damage: %d, expect: %d\n", sp->damage, scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]);
-                        if ((u32)sp->damage == scenario->expectations[scenario->expectationPassCount].expectationValue.hpRecovered[i]
-                            || (u32)(sp->damage * -1) == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]) {
-                            debug_printf(" ✅");
-                            scenario->expectationPassCount++;
-                            break;
-                        }
-                    }
-                    // debug_printf("\n");
-                }
-            }
-            debug_printf("\n");
+            TestBattle_CheckHPBarExpectation(sp);
 #endif
 
             /**

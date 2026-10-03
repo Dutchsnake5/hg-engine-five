@@ -124,6 +124,7 @@ struct PACKED TestBattleScenario {
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario();
 void LONG_CALL SendValueThroughCommunicationSendHole(int value);
 BOOL LONG_CALL TestBattle_HasMoreExpectations();
+void LONG_CALL TestBattle_CheckHPBarExpectation(struct BattleStruct *sp);
 BOOL LONG_CALL TestBattle_HasMoreTests();
 BOOL LONG_CALL TestBattle_IsComplete();
 void LONG_CALL TestBattle_QueueNextTest();

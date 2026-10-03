@@ -68,4 +68,5 @@ test_filter.txt
 /scripts/data/*
 /scripts/fixed/moves-updated.s
 
-/hg-engine.wiki/tools/source/ds-rom/
+/hg-engine.wiki/
+/tools/source/ds-rom/
