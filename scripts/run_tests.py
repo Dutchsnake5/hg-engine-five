@@ -514,6 +514,9 @@ def run_parallel_partitions(args) -> int:
             env["TEST_RUNNER_RESULT_FILE"] = str(result_path)
             env["TEST_RUNNER_LIVE_RESULT_FILE"] = str(live_result_path)
             env["TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY"] = "1"
+            # desmume keeps its save file in $XDG_CONFIG_HOME/desmume, so give every partition its own
+            # config directory to stop parallel emulators from corrupting a shared save
+            env["XDG_CONFIG_HOME"] = str(pathlib.Path(temp_dir, f"partition_{partition_index}_config"))
             cmd = [
                 sys.executable,
                 "-u",

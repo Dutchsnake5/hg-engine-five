@@ -1,5 +1,6 @@
-// Test: Triple Arrows - flinches without lowering the Defense of a Clear Body target
-// Lucky Chant rules out a critical hit message and the Life Orb recoil gives the NOT_MESSAGE check a known message to consume
+// Test: Triple Arrows - has a +1 critical hit ratio
+// Focus Energy (+2) plus Triple Arrows (+1) reaches crit stage 3, which always crits.
+// Battle tests only allow guaranteed crits, so this crit can only come from Triple Arrows' boost.
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -13,8 +14,8 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_STATIC,
-            .item = ITEM_LIFE_ORB,
-            .moves = { MOVE_TRIPLE_ARROWS, MOVE_SPLASH, MOVE_NONE, MOVE_NONE },
+            .item = ITEM_NONE,
+            .moves = { MOVE_FOCUS_ENERGY, MOVE_TRIPLE_ARROWS, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -28,12 +29,12 @@ BEGIN_TEST
     },
     .enemyParty = {
         {
-            .species = SPECIES_METAGROSS,
+            .species = SPECIES_TORKOAL,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_CLEAR_BODY,
+            .ability = ABILITY_WHITE_SMOKE,
             .item = ITEM_NONE,
-            .moves = { MOVE_LUCKY_CHANT, MOVE_SPLASH, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -47,8 +48,8 @@ BEGIN_TEST
     },
     .playerScript = {
         {
-            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -70,7 +71,7 @@ BEGIN_TEST
     .enemyScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -90,11 +91,9 @@ BEGIN_TEST
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Metagross used Lucky Chant!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Electrode used Focus Energy!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Electrode used Triple Arrows!" },
-        // the Life Orb recoil is the first message after the move, so a Defense drop would have to appear in its place
-        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The opposing Metagross's Defense fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Metagross flinched and couldn't move!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A critical hit!" },
     }
 }
 END_TEST

@@ -1,4 +1,5 @@
-// Test: Triple Arrows - Sheer Force removes both the Defense drop and the flinch
+// Test: Triple Arrows - Covert Cloak blocks both the Defense drop and the flinch
+// Shell Armor rules out a critical hit message and the Life Orb recoil gives the NOT_MESSAGE check a known message to consume
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -11,8 +12,8 @@ BEGIN_TEST
             .species = SPECIES_ELECTRODE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SHEER_FORCE,
-            .item = ITEM_NONE,
+            .ability = ABILITY_STATIC,
+            .item = ITEM_LIFE_ORB,
             .moves = { MOVE_TRIPLE_ARROWS, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -31,7 +32,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_SHELL_ARMOR,
-            .item = ITEM_NONE,
+            .item = ITEM_COVERT_CLOAK,
             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -90,6 +91,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Electrode used Triple Arrows!" },
+        // the Life Orb recoil is the first message after the move, so a Defense drop would have to appear in its place
         { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The opposing Torkoal's Defense fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torkoal used Splash!" },
     }

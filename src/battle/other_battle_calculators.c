@@ -1761,7 +1761,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
     if (
 #ifdef DEBUG_BATTLE_SCENARIOS
-        attackerHasLaserFocus // only allow crits with Laser Focus
+        attackerHasLaserFocus || CriticalRateTable[temp] == 1 // only allow guaranteed crits (Laser Focus or crit stage 3+)
 #else
         BattleRand(bw) % CriticalRateTable[temp] == 0
 #endif

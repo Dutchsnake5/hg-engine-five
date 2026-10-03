@@ -2016,9 +2016,12 @@ BOOL BtlCmd_TryRestoreStatusOnSwitch(struct BattleSystem *bw, struct BattleStruc
             SetMonData(pp, MON_DATA_FORM, (u8 *)&form_no);
         }
 
+        // abilities suppressed by gastro acid don't cure status when switching out
+        int statusRecoverAbility = (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED) ? ABILITY_NONE : ability;
+
         // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
         if ((sp->battlemon[client_no].ability != ABILITY_NATURAL_CURE)
-            && (CheckStatusRecoverFromAbilityOnSwitchWrapper(sp, ability, condition) == FALSE)) {
+            && (CheckStatusRecoverFromAbilityOnSwitchWrapper(sp, statusRecoverAbility, condition) == FALSE)) {
             IncrementBattleScriptPtr(sp, address);
         }
 
