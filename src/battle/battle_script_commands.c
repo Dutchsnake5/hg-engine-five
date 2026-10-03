@@ -140,6 +140,7 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
 BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -483,6 +484,7 @@ const u8 *BattleScrCmdNames[] = {
     "IsFieldCondition2On",
     "SetFieldCondition2",
     "GoToIfMoveConditionFlagSet",
+    "CheckEffectActivationWithChance",
     // "YourCustomCommand",
 };
 
@@ -490,7 +492,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12A
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12B
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -568,6 +570,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x128 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_128_IsFieldCondition2On,
     [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
+    [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_CheckEffectActivationWithChance,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -1096,6 +1099,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 
         case MOVE_EFFECT_HIGH_CRITICAL_BURN_HIT: // blaze kick
         case MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT: // cross poison
+        case MOVE_EFFECT_TRIPLE_ARROWS:
             effect = MOVE_EFFECT_HIGH_CRITICAL;
             sheer_force_active = TRUE;
             break;
@@ -5860,6 +5864,37 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
     default:
         break;
     }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to roll a secondary effect against an explicit chance instead of the move's effectChance.
+ *         used by moves that have multiple secondary effects with different chances (e.g. Triple Arrows)
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 chance = read_battle_script_param(ctx);
+    int failAddress = read_battle_script_param(ctx);
+
+    // battle tests always activate the effect so that the outcome is deterministic
+#ifndef DEBUG_BATTLE_SCENARIOS
+    if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SERENE_GRACE) {
+        chance *= 2;
+    }
+
+    if ((BattleRand(bsys) % 100) >= chance) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    }
+#else
+    (void)chance;
+    (void)failAddress;
+#endif
 
     return FALSE;
 }

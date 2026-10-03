@@ -529,8 +529,9 @@
 #define BATTLE_SUBSCRIPT_MAGIC_ROOM_END                         (520)
 #define BATTLE_SUBSCRIPT_HEAVY_RECOIL                           (521)
 #define BATTLE_SUBSCRIPT_PREVENT_INTIMIDATE                     (522)
+#define BATTLE_SUBSCRIPT_TRIPLE_ARROWS                          (523)
 
-#define MAX_BASE_SUBSCRIPT_NUM 522
+#define MAX_BASE_SUBSCRIPT_NUM 523
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -753,8 +754,9 @@
 #define MOVE_SUBSCRIPT_PTR_POWDER                           (213)
 #define MOVE_SUBSCRIPT_PTR_LASER_FOCUS                      (214)
 #define MOVE_SUBSCRIPT_PTR_GIVE_HELD_ITEM                   (215)
+#define MOVE_SUBSCRIPT_PTR_TRIPLE_ARROWS                    (216)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (215)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (216)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

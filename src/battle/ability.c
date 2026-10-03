@@ -665,6 +665,7 @@ BOOL IsMoveAffectedByKingsRock(struct BattleStruct *sp, u32 move)
         case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE:
         case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
         case MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY:
+        case MOVE_EFFECT_TRIPLE_ARROWS:
             effect = FALSE;
             break;
         default:
