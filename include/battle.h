@@ -1089,6 +1089,8 @@ struct BattleStruct {
     HealingWishQueue healingWishQueue;
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
+    u8 totalFaintedCount[4]; // number of times a mon has fainted on each team, for Supreme Overlord
+    u8 supremeOverlordFallen[CLIENT_MAX]; // fallen count locked in when Supreme Overlord activates
 };
 
 enum {

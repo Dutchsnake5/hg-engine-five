@@ -641,6 +641,21 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
 
+                // Supreme Overlord
+                {
+                    if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_SUPREME_OVERLORD)) {
+                        u8 fallen = sp->totalFaintedCount[SanitizeClientForTeamAccess(bw, client_no)];
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        sp->supremeOverlordFallen[client_no] = fallen > 5 ? 5 : fallen;
+                        if (fallen) {
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_SUPREME_OVERLORD;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+
                 // Imposter
                 {
                     if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)

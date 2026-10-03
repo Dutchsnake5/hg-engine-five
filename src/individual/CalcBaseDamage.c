@@ -783,6 +783,14 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 continue;
             }
 
+            // handle Supreme Overlord - 10% boost per fallen teammate counted on entry, up to 50%
+            if ((AttackingMon.ability == ABILITY_SUPREME_OVERLORD)
+                && sp->supremeOverlordFallen[attacker]) {
+                static const u16 supremeOverlordModifiers[] = { UQ412__1_0, UQ412__1_1_BUT_HIGHER, UQ412__1_2, UQ412__1_3, UQ412__1_4, UQ412__1_5 };
+                basePowerModifier = QMul_RoundUp(basePowerModifier, supremeOverlordModifiers[sp->supremeOverlordFallen[attacker]]);
+                continue;
+            }
+
             // handle Power Spot
             // TODO: confirm location
             if (AttackingMonAlly.ability == ABILITY_POWER_SPOT) {

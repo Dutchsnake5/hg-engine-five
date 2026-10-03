@@ -1026,6 +1026,62 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
 }
 
 /**
+ *  @brief decide whether shell side arm is physical or special for this use and update the move table to match,
+ *         so that damage calculation, GetMoveSplit and contact checks all treat it the same way.
+ *         compares the base damage of each split using the stats with stat stages but without other modifiers,
+ *         and picks randomly on a tie
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ */
+static void SetShellSideArmSplit(void *bw, struct BattleStruct *sp)
+{
+    int attacker = sp->attack_client;
+    int defender = sp->defence_client;
+    struct BattleMove *move = &sp->moveTbl[MOVE_SHELL_SIDE_ARM];
+
+    u32 atk = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+    u32 spAtk = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
+    u32 def = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
+    u32 spDef = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
+
+    atk = atk * StatBoostModifiers[sp->battlemon[attacker].states[STAT_ATTACK]][0] / StatBoostModifiers[sp->battlemon[attacker].states[STAT_ATTACK]][1];
+    spAtk = spAtk * StatBoostModifiers[sp->battlemon[attacker].states[STAT_SPECIAL_ATTACK]][0] / StatBoostModifiers[sp->battlemon[attacker].states[STAT_SPECIAL_ATTACK]][1];
+    def = def * StatBoostModifiers[sp->battlemon[defender].states[STAT_DEFENSE]][0] / StatBoostModifiers[sp->battlemon[defender].states[STAT_DEFENSE]][1];
+    spDef = spDef * StatBoostModifiers[sp->battlemon[defender].states[STAT_SPECIAL_DEFENSE]][0] / StatBoostModifiers[sp->battlemon[defender].states[STAT_SPECIAL_DEFENSE]][1];
+
+    u32 levelFactor = (2 * sp->battlemon[attacker].level) / 5 + 2;
+    u32 physical = levelFactor * 90 * atk / (def ? def : 1) / 50;
+    u32 special = levelFactor * 90 * spAtk / (spDef ? spDef : 1) / 50;
+
+    if (physical > special || (physical == special && (BattleRand(bw) & 1))) {
+        move->split = SPLIT_PHYSICAL;
+        move->flag |= FLAG_CONTACT;
+    } else {
+        move->split = SPLIT_SPECIAL;
+        move->flag &= ~FLAG_CONTACT;
+    }
+}
+
+/**
+ *  @brief decide whether photon geyser/light that burns the sky is physical or special for this use and update the move table to match.
+ *         it is physical when the user's attack is higher than its special attack, using stat stages but no other modifiers
+ *
+ *  @param sp global battle structure
+ */
+static void SetPhotonGeyserSplit(struct BattleStruct *sp)
+{
+    int attacker = sp->attack_client;
+    u32 atk = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+    u32 spAtk = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
+
+    atk = atk * StatBoostModifiers[sp->battlemon[attacker].states[STAT_ATTACK]][0] / StatBoostModifiers[sp->battlemon[attacker].states[STAT_ATTACK]][1];
+    spAtk = spAtk * StatBoostModifiers[sp->battlemon[attacker].states[STAT_SPECIAL_ATTACK]][0] / StatBoostModifiers[sp->battlemon[attacker].states[STAT_SPECIAL_ATTACK]][1];
+
+    sp->moveTbl[sp->current_move_index].split = (atk > spAtk) ? SPLIT_PHYSICAL : SPLIT_SPECIAL;
+}
+
+/**
  *  @brief script command to jump to the current move's effect script
  *         modified to apply sheer force's effect
  *
@@ -1033,13 +1089,19 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStruct *sp)
+BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw, struct BattleStruct *sp)
 {
     int effect;
     BOOL sheer_force_active = FALSE;
 
     IncrementBattleScriptPtr(sp, 1);
     effect = sp->moveTbl[sp->current_move_index].effect;
+
+    if (sp->current_move_index == MOVE_SHELL_SIDE_ARM) {
+        SetShellSideArmSplit(bw, sp);
+    } else if (sp->current_move_index == MOVE_PHOTON_GEYSER || sp->current_move_index == MOVE_LIGHT_THAT_BURNS_THE_SKY) {
+        SetPhotonGeyserSplit(sp);
+    }
 
     // debug_printf("sp->dancerContext.isActive: %d, effect: %d\n", sp->dancerContext.isActive, effect);
     if (sp->dancerContext.isActive && effect == MOVE_EFFECT_CONTINUE_AND_CONFUSE_SELF) {
@@ -4144,6 +4206,12 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem *bsys, struct BattleStruct *s
     sp->server_status_flag &= (MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS_FAINTED_SHIFT) ^ -1;
     sp->server_status_flag2 |= MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS2_EXP_GAIN_SHIFT;
     sp->playerActions[sp->fainting_client][0] = CONTROLLER_COMMAND_40;
+
+    // Supreme Overlord counts every faint on the team, including mons that were later revived
+    u32 faintingTeam = SanitizeClientForTeamAccess(bsys, sp->fainting_client);
+    if (sp->totalFaintedCount[faintingTeam] < 0xFF) {
+        sp->totalFaintedCount[faintingTeam]++;
+    }
 
     // TrainerIDs in a 1on1 will be 0,xyz,0,0. In a 2on2 they will be 0,xyz,ghf,abc.
     switch (sp->fainting_client) {
