@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_ARIADOS,
-            .level = 50,
+            .level = 48,
             .form = 0,
             .ability = ABILITY_DEFIANT,
             .item = ITEM_NONE,

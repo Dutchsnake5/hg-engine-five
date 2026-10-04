@@ -1089,8 +1089,8 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     u8 hold_effect2;
     s8 priority1 = sp->clientPriority[client1];
     s8 priority2 = sp->clientPriority[client2];
-    u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag;
-    u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag;
+    u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag || sp->moveConditionsFlags[client1].quickDraw;
+    u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag || sp->moveConditionsFlags[client2].quickDraw;
     u8 move_last1 = 0, move_last2 = 0;
     int ability1;
     int ability2;
@@ -1711,6 +1711,16 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
             if (ctx->battlemon[client].hp <= (s32)(ctx->battlemon[client].maxhp / hold_atk)) {
                 ctx->battlemon[client].moveeffect.custapBerryFlag = 1;
             }
+        }
+
+        // quick draw gives damaging moves a 30% chance to go first in their priority bracket.
+        // reuses the per-turn speed roll so no extra random numbers are drawn
+        if (GetBattlerAbility(ctx, client) == ABILITY_QUICK_DRAW
+            && GetMoveSplit(ctx, move) != SPLIT_STATUS
+            && !ctx->battlemon[client].moveeffect.quickClawFlag
+            && !ctx->battlemon[client].moveeffect.custapBerryFlag
+            && (ctx->agi_rand[client] % 100) < 30) {
+            ctx->moveConditionsFlags[client].quickDraw = TRUE;
         }
 
         ctx->clientPriority[client] = priority;

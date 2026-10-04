@@ -92,7 +92,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machamp used Photon Geyser!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 226, 228, 231, 234, 236, 239, 242, 244, 247, 250, 252, 255, 258, 260, 263, 266 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 232, 235, 238, 241, 243, 246, 249, 252, 254, 257, 260, 263, 265, 268, 271, 274 } },
     }
 }
 END_TEST

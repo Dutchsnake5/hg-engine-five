@@ -1801,3 +1801,12 @@ A supersweet aroma is wafting from\nthe syrup covering\fthe wild {STRVAR_1 1, 0,
 A supersweet aroma is wafting from\nthe syrup covering\fthe opposing {STRVAR_1 1, 0, 0}!
 Neutralizing gas filled the area!
 The effects of the neutralizing gas\nwore off!
+{STRVAR_1 1, 0, 0}\ncan act faster than normal,\fthanks to its Quick Draw!
+The wild {STRVAR_1 1, 0, 0}\ncan act faster than normal,\fthanks to its Quick Draw!
+The opposing {STRVAR_1 1, 0, 0}\ncan act faster than normal,\fthanks to its Quick Draw!
+{STRVAR_1 1, 0, 0} is protected\nby an aromatic veil!
+The wild {STRVAR_1 1, 0, 0} is protected\nby an aromatic veil!
+The opposing {STRVAR_1 1, 0, 0} is protected\nby an aromatic veil!
+{STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
+The wild {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
+The opposing {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!

@@ -90,10 +90,10 @@ BEGIN_TEST
 	},
 	.expectations = {
 		{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It started to snow!" },
-		{ .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 105, 106, 108, 109, 109, 111, 112, 114, 115, 117, 117, 118, 120, 121, 123, 124 } },
+		{ .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 114, 115, 117, 118, 120, 121, 121, 123, 124, 126, 127, 129, 130, 132, 133, 135 } },
 		{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
 		{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-		{ .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 105, 106, 108, 109, 109, 111, 112, 114, 115, 117, 117, 118, 120, 121, 123, 124 } },
+		{ .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 114, 115, 117, 118, 120, 121, 121, 123, 124, 126, 127, 129, 130, 132, 133, 135 } },
 		{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
 		{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The snow stopped." },
 		{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Your side's Aurora Veil wore off!" },

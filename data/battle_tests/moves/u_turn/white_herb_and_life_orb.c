@@ -94,7 +94,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 32, 32, 32, 32, 32, 35, 35, 35, 35, 35, 36, 36, 36, 36, 36, 39 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 40, 40, 40, 43, 43, 43, 43, 44, 44, 44, 44, 47, 47, 47, 47, 48 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Onix's Defense fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Onix's Speed rose sharply!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beedrill lost some of its HP!" },

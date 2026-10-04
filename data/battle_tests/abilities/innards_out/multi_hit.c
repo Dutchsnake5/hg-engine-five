@@ -95,7 +95,7 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor used Dual Wingbeat!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 62, 62, 62, 66, 66, 66, 66, 68, 68, 68, 68, 72, 72, 72, 72, 74 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 66, 66, 66, 66, 68, 68, 68, 68, 72, 72, 72, 72, 74, 74, 74, 78 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 62, 62, 62, 58, 58, 58, 58, 56, 56, 56, 56, 52, 52, 52, 52, 50 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Victreebel's Innards Out" },

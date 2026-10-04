@@ -39,7 +39,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .enemyParty = {
             {
-                            .species = SPECIES_MEGANIUM,
+                            .species = SPECIES_TANGROWTH,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_LEAF_GUARD,
@@ -101,7 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Tanga Berry weakened the damage to the opposing Meganium!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Tanga Berry weakened the damage to the opposing Tangrowth!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

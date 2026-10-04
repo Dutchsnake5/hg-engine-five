@@ -25,7 +25,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE } },
     .enemyParty = { {
                         .species = SPECIES_STARAPTOR,
-                        .level = 50,
+                        .level = 48,
                         .form = 0,
                         .ability = ABILITY_RECKLESS,
                         .item = ITEM_NONE,

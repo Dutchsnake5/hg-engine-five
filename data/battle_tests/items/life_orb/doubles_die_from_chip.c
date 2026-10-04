@@ -55,7 +55,7 @@ BEGIN_TEST {
             .ability = ABILITY_RECKLESS,
             .item = ITEM_LIFE_ORB,
             .moves = { MOVE_BRAVE_BIRD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 52,
+            .hp = 55,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -119,7 +119,7 @@ BEGIN_TEST {
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 162, 162, 162, 162, 162, 162, 162, 162, 162, 162, 162, 162, 162, 162, 162, 162 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Venusaur fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor was damaged by the recoil!" },

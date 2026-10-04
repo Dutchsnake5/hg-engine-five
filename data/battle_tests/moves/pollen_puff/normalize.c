@@ -50,7 +50,7 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_BEEDRILL,
-            .level = 50,
+            .level = 48,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,

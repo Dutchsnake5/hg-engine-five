@@ -706,6 +706,29 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
 
+                // Curious Medicine
+                {
+                    if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_CURIOUS_MEDICINE)) {
+                        int ally = BATTLER_ALLY(client_no);
+                        BOOL hasStatChanges = FALSE;
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        if ((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLES) && sp->battlemon[ally].hp) {
+                            for (int stat = 0; stat < 8; stat++) {
+                                if (sp->battlemon[ally].states[stat] != 6) {
+                                    sp->battlemon[ally].states[stat] = 6;
+                                    hasStatChanges = TRUE;
+                                }
+                            }
+                        }
+                        if (hasStatChanges) {
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_CURIOUS_MEDICINE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+
                 // Imposter
                 {
                     if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)

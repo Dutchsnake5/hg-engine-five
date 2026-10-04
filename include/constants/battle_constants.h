@@ -990,6 +990,7 @@ enum TerrainOverlayType {
 #define BSCRIPT_VAR_BATTLER_FAINTED                        0x12
 #define BSCRIPT_VAR_BATTLER_SWITCH                         0x13
 #define BSCRIPT_VAR_MSG_BATTLER_TEMP                       0x14
+
 #define BSCRIPT_VAR_ATTACKER_STORED_DAMAGE                 0x15
 #define BSCRIPT_VAR_MESSAGE                                0x16
 #define BSCRIPT_VAR_PAY_DAY_COUNT                          0x17
@@ -1124,5 +1125,8 @@ enum ForceExecutionOrder {
 #define HAZARD_IDX_STEALTH_ROCK 3
 #define HAZARD_IDX_STICKY_WEB   4
 #define HAZARD_IDX_SHARP_STEEL  5
+
+// GoToIfMoveConditionFlagSet keys flags by move. flags without a move use values outside the move range
+#define MOVE_CONDITION_FLAG_QUICK_DRAW 0xFFFF
 
 #endif // GUARD_BATTLE_CONSTANTS

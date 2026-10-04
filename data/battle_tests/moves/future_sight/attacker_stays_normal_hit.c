@@ -121,7 +121,7 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir foresaw an attack!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon took the Future Sight attack!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 131, 133, 134, 135, 136, 139, 140, 142, 143, 144, 147, 148, 149, 151, 152, 155 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 134, 136, 136, 139, 140, 142, 144, 144, 147, 148, 149, 152, 153, 155, 156, 159 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Delphox lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon restored its health using its Sitrus Berry!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Psychic Gem strengthened Future Sight's power!" },

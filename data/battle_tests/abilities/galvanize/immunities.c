@@ -21,7 +21,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_FARIGIRAF,
-            .level = 50,
+            .level = 48,
             .form = 0,
             .ability = ABILITY_ARMOR_TAIL,
             .item = ITEM_NONE,

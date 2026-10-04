@@ -36,7 +36,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE } },
     .enemyParty = { {
                         .species = SPECIES_ONIX,
-                        .level = 50,
+                        .level = 48,
                         .form = 0,
                         .ability = ABILITY_MOXIE,
                         .item = ITEM_NONE,

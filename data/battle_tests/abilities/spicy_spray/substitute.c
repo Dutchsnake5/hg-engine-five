@@ -13,7 +13,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_KEEN_EYE,
             .item = ITEM_NONE,
-            .moves = { MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SURF, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -83,7 +83,7 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Scovillain used Substitute!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pelipper used Water Pulse!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pelipper used Surf!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The substitute took damage for the opposing Scovillain!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Scovillain's substitute faded!" },
     }

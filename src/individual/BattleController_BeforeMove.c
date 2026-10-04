@@ -3787,6 +3787,41 @@ BOOL BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(struct BattleSy
 
         return TRUE;
     }
+
+    // aroma veil protects the holder and its ally from moves that limit move choice
+    switch (ctx->current_move_index) {
+    case MOVE_ATTRACT:
+    case MOVE_DISABLE:
+    case MOVE_ENCORE:
+    case MOVE_HEAL_BLOCK:
+    case MOVE_TAUNT:
+    case MOVE_TORMENT: {
+        int defender = ctx->defence_client;
+        int ally = BATTLER_ALLY(defender);
+        int veilHolder = -1;
+
+        if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_AROMA_VEIL)) {
+            veilHolder = defender;
+        } else if (ctx->battlemon[ally].hp && MoldBreakerAbilityCheck(ctx, ctx->attack_client, ally, ABILITY_AROMA_VEIL)) {
+            veilHolder = ally;
+        }
+
+        if (veilHolder != -1) {
+            BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+            ctx->battlerIdTemp = veilHolder;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_AROMA_VEIL);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            ctx->wb_seq_no = BEFORE_MOVE_START;
+
+            return TRUE;
+        }
+        break;
+    }
+    default:
+        break;
+    }
     return FALSE;
 }
 

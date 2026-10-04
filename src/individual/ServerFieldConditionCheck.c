@@ -1971,6 +1971,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             for (int i = 0; i < client_set_max; i++) {
                 sp->battlemon[i].moveeffect.quickClawFlag = 0;
                 sp->battlemon[i].moveeffect.custapBerryFlag = 0;
+                sp->moveConditionsFlags[i].quickDraw = 0;
                 sp->numberOfTurnsClientHasCurrentAbility[i] = sp->numberOfTurnsClientHasCurrentAbility[i] + 1;
 
                 sp->moveConditionsFlags[i].moveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureThisTurn;

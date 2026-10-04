@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_NIDOQUEEN,
-            .level = 50,
+            .level = 48,
             .form = 0,
             .ability = ABILITY_POISON_POINT,
             .item = ITEM_IRON_BALL,
@@ -50,7 +50,7 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_NIDORINA,
-            .level = 50,
+            .level = 48,
             .form = 0,
             .ability = ABILITY_POISON_POINT,
             .item = ITEM_NONE,

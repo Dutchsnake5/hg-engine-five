@@ -1,4 +1,4 @@
-// Test: Feint - hit through Protect
+// Test: Flip Turn - switches out, but not when absorbed by Dry Skin
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -21,7 +21,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_PARASECT,
-            .level = 50,
+            .level = 20,
             .form = 0,
             .ability = ABILITY_DRY_SKIN,
             .item = ITEM_NONE,

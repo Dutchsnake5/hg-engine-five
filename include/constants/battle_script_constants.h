@@ -535,6 +535,8 @@
 #define BATTLE_SUBSCRIPT_CUD_CHEW                               (526)
 #define BATTLE_SUBSCRIPT_NEUTRALIZING_GAS                       (527)
 #define BATTLE_SUBSCRIPT_NEUTRALIZING_GAS_END                   (528)
+#define BATTLE_SUBSCRIPT_AROMA_VEIL                             (529)
+#define BATTLE_SUBSCRIPT_CURIOUS_MEDICINE                       (530)
 
 #define MAX_BASE_SUBSCRIPT_NUM 528
 

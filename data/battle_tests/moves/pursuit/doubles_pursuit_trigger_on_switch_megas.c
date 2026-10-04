@@ -20,7 +20,7 @@ BEGIN_TEST {
         },
         {
             .species = SPECIES_HOUNDOOM,
-            .level = 50,
+            .level = 48,
             .form = 0,
             .ability = ABILITY_FLASH_FIRE,
             .item = ITEM_HOUNDOOMINITE,

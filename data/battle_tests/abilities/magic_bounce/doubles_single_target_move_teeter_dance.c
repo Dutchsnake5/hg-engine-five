@@ -20,7 +20,7 @@ BEGIN_TEST {
         },
         {
             .species = SPECIES_SPINDA,
-            .level = 50,
+            .level = 45,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,

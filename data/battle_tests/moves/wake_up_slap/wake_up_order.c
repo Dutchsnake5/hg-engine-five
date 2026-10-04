@@ -101,7 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 82, 83, 83, 86, 86, 87, 87, 90, 90, 91, 91, 94, 94, 95, 95, 97 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 40, 42, 42, 43, 43, 43, 43, 44, 44, 45, 45, 47, 47, 47, 47, 48 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium's Iron Barbs" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium woke up!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hariyama lost some of its HP!" },

@@ -39,7 +39,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .enemyParty = { 
                         {
-                            .species = SPECIES_MEGANIUM,
+                            .species = SPECIES_TANGROWTH,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_LEAF_GUARD,
@@ -102,7 +102,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .expectations = {
             
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 108, 108, 110, 110, 114, 114, 116, 116, 116, 120, 120, 122, 122, 126, 126, 128 } },    
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 86, 90, 90, 90, 92, 92, 92, 96, 96, 96, 98, 98, 98, 102, 102, 104 } },    
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         },
     },

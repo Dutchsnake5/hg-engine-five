@@ -13,6 +13,15 @@ _loop:
 
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_CUSTAP_FLAG, 1, _printMessage
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_QUICK_CLAW_FLAG, 1, _printMessage
+    GoToIfMoveConditionFlagSet MOVE_CONDITION_FLAG_QUICK_DRAW, BATTLER_CATEGORY_MSG_TEMP, _printQuickDraw
+    GoTo _continue
+
+_printQuickDraw:
+    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
+    // {0} can act faster than normal, thanks to its Quick Draw!
+    PrintMessage 1803, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    Wait
+    WaitButtonABTime 30
     GoTo _continue
 
 _printMessage:

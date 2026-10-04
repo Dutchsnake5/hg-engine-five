@@ -1,5 +1,5 @@
 // Test: Ripen - doubles the HP restored by a Sitrus Berry
-// Shuckle has 95 max HP and starts at 10. Sitrus Berry restores 1/4 (23), so Ripen restores 46, leaving 56.
+// Shuckle has 125 max HP and starts at 10. Sitrus Berry restores 1/4 (31), so Ripen restores 62, leaving 72.
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -91,7 +91,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle restored its health using its Sitrus Berry!" },
-        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.currentHP = 56 },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.currentHP = 72 },
     }
 }
 END_TEST

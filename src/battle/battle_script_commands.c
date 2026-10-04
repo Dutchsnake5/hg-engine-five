@@ -5940,6 +5940,12 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
             IncrementBattleScriptPtr(ctx, isOn);
         }
         break;
+    case MOVE_CONDITION_FLAG_QUICK_DRAW:
+        // not cleared here, turn order still reads it.  cleared at the end of the turn
+        if (ctx->moveConditionsFlags[client_no].quickDraw) {
+            IncrementBattleScriptPtr(ctx, isOn);
+        }
+        break;
     default:
         break;
     }

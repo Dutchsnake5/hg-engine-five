@@ -780,7 +780,8 @@ typedef struct MoveConditionsFlags {
     u8 dragonDartsStatus : 3;
     u8 grounded : 1;
     u8 mindBlownOrSteelBeam : 1;
-    u8 padding : 3;
+    u8 quickDraw : 1;
+    u8 padding : 2;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
