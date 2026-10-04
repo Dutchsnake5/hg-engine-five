@@ -31579,6 +31579,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PATRAT] = {
         .textData = {
             .name = "Patrat",
@@ -31636,6 +31637,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WATCHOG] = {
         .textData = {
             .name = "Watchog",
@@ -31978,6 +31980,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PANSAGE] = {
         .textData = {
             .name = "Pansage",
@@ -32035,6 +32038,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SIMISAGE] = {
         .textData = {
             .name = "Simisage",
@@ -32092,6 +32096,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PANSEAR] = {
         .textData = {
             .name = "Pansear",
@@ -32149,6 +32154,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SIMISEAR] = {
         .textData = {
             .name = "Simisear",
@@ -32206,6 +32212,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PANPOUR] = {
         .textData = {
             .name = "Panpour",
@@ -32263,6 +32270,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SIMIPOUR] = {
         .textData = {
             .name = "Simipour",
@@ -32605,6 +32613,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BLITZLE] = {
         .textData = {
             .name = "Blitzle",
@@ -32662,6 +32671,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZEBSTRIKA] = {
         .textData = {
             .name = "Zebstrika",
@@ -33118,6 +33128,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_AUDINO] = {
         .textData = {
             .name = "Audino",
@@ -33631,6 +33642,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SEWADDLE] = {
         .textData = {
             .name = "Sewaddle",
@@ -33688,6 +33700,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SWADLOON] = {
         .textData = {
             .name = "Swadloon",
@@ -33745,6 +33758,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_LEAVANNY] = {
         .textData = {
             .name = "Leavanny",
@@ -34258,6 +34272,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SANDILE] = {
         .textData = {
             .name = "Sandile",
@@ -34315,6 +34330,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KROKOROK] = {
         .textData = {
             .name = "Krokorok",
@@ -34372,6 +34388,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KROOKODILE] = {
         .textData = {
             .name = "Krookodile",
@@ -34543,6 +34560,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MARACTUS] = {
         .textData = {
             .name = "Maractus",
@@ -35227,6 +35245,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TRUBBISH] = {
         .textData = {
             .name = "Trubbish",
@@ -35284,6 +35303,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GARBODOR] = {
         .textData = {
             .name = "Garbodor",
@@ -35911,6 +35931,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DUCKLETT] = {
         .textData = {
             .name = "Ducklett",
@@ -35968,6 +35989,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SWANNA] = {
         .textData = {
             .name = "Swanna",
@@ -36025,6 +36047,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VANILLITE] = {
         .textData = {
             .name = "Vanillite",
@@ -36082,6 +36105,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VANILLISH] = {
         .textData = {
             .name = "Vanillish",
@@ -36139,6 +36163,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VANILLUXE] = {
         .textData = {
             .name = "Vanilluxe",
@@ -36709,6 +36734,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALOMOMOLA] = {
         .textData = {
             .name = "Alomomola",
@@ -37336,6 +37362,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ELGYEM] = {
         .textData = {
             .name = "Elgyem",
@@ -37393,6 +37420,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BEHEEYEM] = {
         .textData = {
             .name = "Beheeyem",
@@ -37792,6 +37820,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CUBCHOO] = {
         .textData = {
             .name = "Cubchoo",
@@ -37849,6 +37878,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BEARTIC] = {
         .textData = {
             .name = "Beartic",
@@ -38248,6 +38278,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DRUDDIGON] = {
         .textData = {
             .name = "Druddigon",
@@ -39217,6 +39248,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_COBALION] = {
         .textData = {
             .name = "Cobalion",
@@ -39274,6 +39306,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TERRAKION] = {
         .textData = {
             .name = "Terrakion",
@@ -39331,6 +39364,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIRIZION] = {
         .textData = {
             .name = "Virizion",
@@ -39502,6 +39536,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RESHIRAM] = {
         .textData = {
             .name = "Reshiram",
@@ -39559,6 +39594,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZEKROM] = {
         .textData = {
             .name = "Zekrom",
@@ -39673,6 +39709,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KYUREM] = {
         .textData = {
             .name = "Kyurem",
@@ -39730,6 +39767,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KELDEO] = {
         .textData = {
             .name = "Keldeo",
@@ -39787,6 +39825,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MELOETTA] = {
         .textData = {
             .name = "Meloetta",
@@ -40414,6 +40453,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BUNNELBY] = {
         .textData = {
             .name = "Bunnelby",
@@ -40471,6 +40511,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DIGGERSBY] = {
         .textData = {
             .name = "Diggersby",
@@ -40699,6 +40740,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SCATTERBUG] = {
         .textData = {
             .name = "Scatterbug",
@@ -40756,6 +40798,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SPEWPA] = {
         .textData = {
             .name = "Spewpa",
@@ -40813,6 +40856,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON] = {
         .textData = {
             .name = "Vivillon",
@@ -40870,6 +40914,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_LITLEO] = {
         .textData = {
             .name = "Litleo",
@@ -40927,6 +40972,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PYROAR] = {
         .textData = {
             .name = "Pyroar",
@@ -40984,6 +41030,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLABEBE] = {
         .textData = {
             .name = "Flabébé",
@@ -41041,6 +41088,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLOETTE] = {
         .textData = {
             .name = "Floette",
@@ -41098,6 +41146,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLORGES] = {
         .textData = {
             .name = "Florges",
@@ -41155,6 +41204,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SKIDDO] = {
         .textData = {
             .name = "Skiddo",
@@ -41212,6 +41262,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GOGOAT] = {
         .textData = {
             .name = "Gogoat",
@@ -41383,6 +41434,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU] = {
         .textData = {
             .name = "Furfrou",
@@ -41440,6 +41492,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ESPURR] = {
         .textData = {
             .name = "Espurr",
@@ -41497,6 +41550,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEOWSTIC] = {
         .textData = {
             .name = "Meowstic",
@@ -41725,6 +41779,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SPRITZEE] = {
         .textData = {
             .name = "Spritzee",
@@ -41782,6 +41837,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_AROMATISSE] = {
         .textData = {
             .name = "Aromatisse",
@@ -41839,6 +41895,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SWIRLIX] = {
         .textData = {
             .name = "Swirlix",
@@ -41896,6 +41953,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SLURPUFF] = {
         .textData = {
             .name = "Slurpuff",
@@ -41953,6 +42011,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_INKAY] = {
         .textData = {
             .name = "Inkay",
@@ -42010,6 +42069,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MALAMAR] = {
         .textData = {
             .name = "Malamar",
@@ -42409,6 +42469,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HELIOPTILE] = {
         .textData = {
             .name = "Helioptile",
@@ -42466,6 +42527,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HELIOLISK] = {
         .textData = {
             .name = "Heliolisk",
@@ -42808,6 +42870,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HAWLUCHA] = {
         .textData = {
             .name = "Hawlucha",
@@ -42865,6 +42928,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DEDENNE] = {
         .textData = {
             .name = "Dedenne",
@@ -43150,6 +43214,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KLEFKI] = {
         .textData = {
             .name = "Klefki",
@@ -43663,6 +43728,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_XERNEAS] = {
         .textData = {
             .name = "Xerneas",
@@ -43720,6 +43786,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_YVELTAL] = {
         .textData = {
             .name = "Yveltal",
@@ -43777,6 +43844,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZYGARDE] = {
         .textData = {
             .name = "Zygarde",
@@ -43834,6 +43902,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DIANCIE] = {
         .textData = {
             .name = "Diancie",
@@ -43891,6 +43960,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HOOPA] = {
         .textData = {
             .name = "Hoopa",
@@ -43948,6 +44018,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VOLCANION] = {
         .textData = {
             .name = "Volcanion",
@@ -44518,6 +44589,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PIKIPEK] = {
         .textData = {
             .name = "Pikipek",
@@ -44575,6 +44647,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TRUMBEAK] = {
         .textData = {
             .name = "Trumbeak",
@@ -44632,6 +44705,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOUCANNON] = {
         .textData = {
             .name = "Toucannon",
@@ -44689,6 +44763,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_YUNGOOS] = {
         .textData = {
             .name = "Yungoos",
@@ -44746,6 +44821,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GUMSHOOS] = {
         .textData = {
             .name = "Gumshoos",
@@ -45088,6 +45164,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORICORIO] = {
         .textData = {
             .name = "Oricorio",
@@ -45145,6 +45222,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CUTIEFLY] = {
         .textData = {
             .name = "Cutiefly",
@@ -45202,6 +45280,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RIBOMBEE] = {
         .textData = {
             .name = "Ribombee",
@@ -45373,6 +45452,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WISHIWASHI] = {
         .textData = {
             .name = "Wishiwashi",
@@ -45430,6 +45510,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MAREANIE] = {
         .textData = {
             .name = "Mareanie",
@@ -45487,6 +45568,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOXAPEX] = {
         .textData = {
             .name = "Toxapex",
@@ -45544,6 +45626,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MUDBRAY] = {
         .textData = {
             .name = "Mudbray",
@@ -45601,6 +45684,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MUDSDALE] = {
         .textData = {
             .name = "Mudsdale",
@@ -45658,6 +45742,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DEWPIDER] = {
         .textData = {
             .name = "Dewpider",
@@ -45715,6 +45800,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ARAQUANID] = {
         .textData = {
             .name = "Araquanid",
@@ -45772,6 +45858,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FOMANTIS] = {
         .textData = {
             .name = "Fomantis",
@@ -45829,6 +45916,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_LURANTIS] = {
         .textData = {
             .name = "Lurantis",
@@ -45886,6 +45974,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MORELULL] = {
         .textData = {
             .name = "Morelull",
@@ -45943,6 +46032,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SHIINOTIC] = {
         .textData = {
             .name = "Shiinotic",
@@ -46000,6 +46090,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SALANDIT] = {
         .textData = {
             .name = "Salandit",
@@ -46057,6 +46148,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SALAZZLE] = {
         .textData = {
             .name = "Salazzle",
@@ -46114,6 +46206,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_STUFFUL] = {
         .textData = {
             .name = "Stufful",
@@ -46171,6 +46264,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BEWEAR] = {
         .textData = {
             .name = "Bewear",
@@ -46228,6 +46322,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BOUNSWEET] = {
         .textData = {
             .name = "Bounsweet",
@@ -46285,6 +46380,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_STEENEE] = {
         .textData = {
             .name = "Steenee",
@@ -46342,6 +46438,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TSAREENA] = {
         .textData = {
             .name = "Tsareena",
@@ -46399,6 +46496,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_COMFEY] = {
         .textData = {
             .name = "Comfey",
@@ -46456,6 +46554,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORANGURU] = {
         .textData = {
             .name = "Oranguru",
@@ -46513,6 +46612,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PASSIMIAN] = {
         .textData = {
             .name = "Passimian",
@@ -46798,6 +46898,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PYUKUMUKU] = {
         .textData = {
             .name = "Pyukumuku",
@@ -46969,6 +47070,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR] = {
         .textData = {
             .name = "Minior",
@@ -47026,6 +47128,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KOMALA] = {
         .textData = {
             .name = "Komala",
@@ -47083,6 +47186,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TURTONATOR] = {
         .textData = {
             .name = "Turtonator",
@@ -47140,6 +47244,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOGEDEMARU] = {
         .textData = {
             .name = "Togedemaru",
@@ -47254,6 +47359,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BRUXISH] = {
         .textData = {
             .name = "Bruxish",
@@ -47311,6 +47417,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DRAMPA] = {
         .textData = {
             .name = "Drampa",
@@ -47596,6 +47703,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TAPU_KOKO] = {
         .textData = {
             .name = "Tapu Koko",
@@ -47653,6 +47761,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TAPU_LELE] = {
         .textData = {
             .name = "Tapu Lele",
@@ -47710,6 +47819,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TAPU_BULU] = {
         .textData = {
             .name = "Tapu Bulu",
@@ -47767,6 +47877,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TAPU_FINI] = {
         .textData = {
             .name = "Tapu Fini",
@@ -47824,6 +47935,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_COSMOG] = {
         .textData = {
             .name = "Cosmog",
@@ -47881,6 +47993,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_COSMOEM] = {
         .textData = {
             .name = "Cosmoem",
@@ -47938,6 +48051,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SOLGALEO] = {
         .textData = {
             .name = "Solgaleo",
@@ -47995,6 +48109,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_LUNALA] = {
         .textData = {
             .name = "Lunala",
@@ -48052,6 +48167,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NIHILEGO] = {
         .textData = {
             .name = "Nihilego",
@@ -48109,6 +48225,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BUZZWOLE] = {
         .textData = {
             .name = "Buzzwole",
@@ -48166,6 +48283,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PHEROMOSA] = {
         .textData = {
             .name = "Pheromosa",
@@ -48223,6 +48341,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_XURKITREE] = {
         .textData = {
             .name = "Xurkitree",
@@ -48280,6 +48399,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CELESTEELA] = {
         .textData = {
             .name = "Celesteela",
@@ -48337,6 +48457,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KARTANA] = {
         .textData = {
             .name = "Kartana",
@@ -48394,6 +48515,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GUZZLORD] = {
         .textData = {
             .name = "Guzzlord",
@@ -48451,6 +48573,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NECROZMA] = {
         .textData = {
             .name = "Necrozma",
@@ -48508,6 +48631,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MAGEARNA] = {
         .textData = {
             .name = "Magearna",
@@ -48565,6 +48689,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MARSHADOW] = {
         .textData = {
             .name = "Marshadow",
@@ -48622,6 +48747,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_POIPOLE] = {
         .textData = {
             .name = "Poipole",
@@ -48679,6 +48805,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NAGANADEL] = {
         .textData = {
             .name = "Naganadel",
@@ -48736,6 +48863,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_STAKATAKA] = {
         .textData = {
             .name = "Stakataka",
@@ -48793,6 +48921,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BLACEPHALON] = {
         .textData = {
             .name = "Blacefalon",
@@ -48850,6 +48979,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZERAORA] = {
         .textData = {
             .name = "Zeraora",
@@ -48907,6 +49037,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MELTAN] = {
         .textData = {
             .name = "Meltan",
@@ -48964,6 +49095,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MELMETAL] = {
         .textData = {
             .name = "Melmetal",
@@ -49021,6 +49153,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GROOKEY] = {
         .textData = {
             .name = "Grookey",
@@ -49078,6 +49211,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_THWACKEY] = {
         .textData = {
             .name = "Thwackey",
@@ -49135,6 +49269,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RILLABOOM] = {
         .textData = {
             .name = "Rillaboom",
@@ -49192,6 +49327,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SCORBUNNY] = {
         .textData = {
             .name = "Scorbunny",
@@ -49249,6 +49385,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RABOOT] = {
         .textData = {
             .name = "Raboot",
@@ -49306,6 +49443,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CINDERACE] = {
         .textData = {
             .name = "Cinderace",
@@ -49363,6 +49501,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SOBBLE] = {
         .textData = {
             .name = "Sobble",
@@ -49420,6 +49559,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DRIZZILE] = {
         .textData = {
             .name = "Drizzile",
@@ -49477,6 +49617,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_INTELEON] = {
         .textData = {
             .name = "Inteleon",
@@ -49534,6 +49675,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SKWOVET] = {
         .textData = {
             .name = "Skwovet",
@@ -49591,6 +49733,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GREEDENT] = {
         .textData = {
             .name = "Greedent",
@@ -49819,6 +49962,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BLIPBUG] = {
         .textData = {
             .name = "Blipbug",
@@ -49876,6 +50020,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DOTTLER] = {
         .textData = {
             .name = "Dottler",
@@ -49933,6 +50078,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORBEETLE] = {
         .textData = {
             .name = "Orbeetle",
@@ -49990,6 +50136,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NICKIT] = {
         .textData = {
             .name = "Nickit",
@@ -50047,6 +50194,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_THIEVUL] = {
         .textData = {
             .name = "Thievul",
@@ -50104,6 +50252,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GOSSIFLEUR] = {
         .textData = {
             .name = "Gossifleur",
@@ -50161,6 +50310,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ELDEGOSS] = {
         .textData = {
             .name = "Eldegoss",
@@ -50218,6 +50368,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WOOLOO] = {
         .textData = {
             .name = "Wooloo",
@@ -50275,6 +50426,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DUBWOOL] = {
         .textData = {
             .name = "Dubwool",
@@ -50332,6 +50484,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CHEWTLE] = {
         .textData = {
             .name = "Chewtle",
@@ -50389,6 +50542,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DREDNAW] = {
         .textData = {
             .name = "Drednaw",
@@ -50446,6 +50600,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_YAMPER] = {
         .textData = {
             .name = "Yamper",
@@ -50503,6 +50658,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BOLTUND] = {
         .textData = {
             .name = "Boltund",
@@ -50902,6 +51058,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SILICOBRA] = {
         .textData = {
             .name = "Silicobra",
@@ -50959,6 +51116,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SANDACONDA] = {
         .textData = {
             .name = "Sandaconda",
@@ -51016,6 +51174,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CRAMORANT] = {
         .textData = {
             .name = "Cramorant",
@@ -51187,6 +51346,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOXEL] = {
         .textData = {
             .name = "Toxel",
@@ -51244,6 +51404,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOXTRICITY] = {
         .textData = {
             .name = "Toxtricity",
@@ -51415,6 +51576,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CLOBBOPUS] = {
         .textData = {
             .name = "Clobbopus",
@@ -51472,6 +51634,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GRAPPLOCT] = {
         .textData = {
             .name = "Grapploct",
@@ -51643,6 +51806,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HATENNA] = {
         .textData = {
             .name = "Hatenna",
@@ -51700,6 +51864,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HATTREM] = {
         .textData = {
             .name = "Hattrem",
@@ -51757,6 +51922,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HATTERENE] = {
         .textData = {
             .name = "Hatterene",
@@ -51814,6 +51980,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IMPIDIMP] = {
         .textData = {
             .name = "Impidimp",
@@ -51871,6 +52038,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MORGREM] = {
         .textData = {
             .name = "Morgrem",
@@ -51928,6 +52096,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GRIMMSNARL] = {
         .textData = {
             .name = "Grimmsnarl",
@@ -51985,6 +52154,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OBSTAGOON] = {
         .textData = {
             .name = "Obstagoon",
@@ -52099,6 +52269,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CURSOLA] = {
         .textData = {
             .name = "Cursola",
@@ -52156,6 +52327,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SIRFETCHD] = {
         .textData = {
             .name = "Sirfetch’d",
@@ -52213,6 +52385,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MR_RIME] = {
         .textData = {
             .name = "Mr. Rime",
@@ -52327,6 +52500,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MILCERY] = {
         .textData = {
             .name = "Milcery",
@@ -52384,6 +52558,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE] = {
         .textData = {
             .name = "Alcremie",
@@ -52441,6 +52616,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FALINKS] = {
         .textData = {
             .name = "Falinks",
@@ -52555,6 +52731,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SNOM] = {
         .textData = {
             .name = "Snom",
@@ -52612,6 +52789,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FROSMOTH] = {
         .textData = {
             .name = "Frosmoth",
@@ -52726,6 +52904,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_EISCUE] = {
         .textData = {
             .name = "Eiscue",
@@ -52783,6 +52962,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_INDEEDEE] = {
         .textData = {
             .name = "Indeedee",
@@ -52840,6 +53020,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MORPEKO] = {
         .textData = {
             .name = "Morpeko",
@@ -52897,6 +53078,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CUFANT] = {
         .textData = {
             .name = "Cufant",
@@ -52954,6 +53136,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_COPPERAJAH] = {
         .textData = {
             .name = "Copperajah",
@@ -53467,6 +53650,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZACIAN] = {
         .textData = {
             .name = "Zacian",
@@ -53524,6 +53708,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZAMAZENTA] = {
         .textData = {
             .name = "Zamazenta",
@@ -53581,6 +53766,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ETERNATUS] = {
         .textData = {
             .name = "Eternatus",
@@ -53638,6 +53824,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KUBFU] = {
         .textData = {
             .name = "Kubfu",
@@ -53695,6 +53882,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_URSHIFU] = {
         .textData = {
             .name = "Urshifu",
@@ -53752,6 +53940,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZARUDE] = {
         .textData = {
             .name = "Zarude",
@@ -53923,6 +54112,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GLASTRIER] = {
         .textData = {
             .name = "Glastrier",
@@ -53980,6 +54170,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SPECTRIER] = {
         .textData = {
             .name = "Spectrier",
@@ -54037,6 +54228,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CALYREX] = {
         .textData = {
             .name = "Calyrex",
@@ -54379,6 +54571,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OVERQWIL] = {
         .textData = {
             .name = "Overqwil",
@@ -54493,6 +54686,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SPRIGATITO] = {
         .textData = {
             .name = "Sprigatito",
@@ -54550,6 +54744,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLORAGATO] = {
         .textData = {
             .name = "Floragato",
@@ -54607,6 +54802,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEOWSCARADA] = {
         .textData = {
             .name = "Mewscarada",
@@ -54664,6 +54860,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FUECOCO] = {
         .textData = {
             .name = "Fuecoco",
@@ -54721,6 +54918,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CROCALOR] = {
         .textData = {
             .name = "Crocalor",
@@ -54778,6 +54976,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SKELEDIRGE] = {
         .textData = {
             .name = "Skeledirge",
@@ -54835,6 +55034,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_QUAXLY] = {
         .textData = {
             .name = "Quaxly",
@@ -54892,6 +55092,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_QUAXWELL] = {
         .textData = {
             .name = "Quaxwell",
@@ -54949,6 +55150,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_QUAQUAVAL] = {
         .textData = {
             .name = "Quaquaval",
@@ -55006,6 +55208,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_LECHONK] = {
         .textData = {
             .name = "Lechonk",
@@ -55063,6 +55266,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OINKOLOGNE] = {
         .textData = {
             .name = "Oinkologne",
@@ -55120,6 +55324,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TAROUNTULA] = {
         .textData = {
             .name = "Tarountula",
@@ -55177,6 +55382,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SPIDOPS] = {
         .textData = {
             .name = "Spidops",
@@ -55348,6 +55554,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PAWMI] = {
         .textData = {
             .name = "Pawmi",
@@ -55405,6 +55612,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PAWMO] = {
         .textData = {
             .name = "Pawmo",
@@ -55462,6 +55670,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PAWMOT] = {
         .textData = {
             .name = "Pawmot",
@@ -55519,6 +55728,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TANDEMAUS] = {
         .textData = {
             .name = "Tandemaus",
@@ -55576,6 +55786,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MAUSHOLD] = {
         .textData = {
             .name = "Maushold",
@@ -55633,6 +55844,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FIDOUGH] = {
         .textData = {
             .name = "Fidough",
@@ -55690,6 +55902,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DACHSBUN] = {
         .textData = {
             .name = "Dachsbun",
@@ -55747,6 +55960,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SMOLIV] = {
         .textData = {
             .name = "Smoliv",
@@ -55804,6 +56018,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_DOLLIV] = {
         .textData = {
             .name = "Dolliv",
@@ -55861,6 +56076,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ARBOLIVA] = {
         .textData = {
             .name = "Arboliva",
@@ -55918,6 +56134,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SQUAWKABILLY] = {
         .textData = {
             .name = "Squawkbily",
@@ -55975,6 +56192,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NACLI] = {
         .textData = {
             .name = "Nacli",
@@ -56032,6 +56250,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NACLSTACK] = {
         .textData = {
             .name = "Naclstack",
@@ -56089,6 +56308,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GARGANACL] = {
         .textData = {
             .name = "Garganacl",
@@ -56317,6 +56537,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TADBULB] = {
         .textData = {
             .name = "Tadbulb",
@@ -56374,6 +56595,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BELLIBOLT] = {
         .textData = {
             .name = "Bellibolt",
@@ -56431,6 +56653,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WATTREL] = {
         .textData = {
             .name = "Wattrel",
@@ -56488,6 +56711,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KILOWATTREL] = {
         .textData = {
             .name = "Kilowatrel",
@@ -56545,6 +56769,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MASCHIFF] = {
         .textData = {
             .name = "Maschiff",
@@ -56602,6 +56827,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MABOSSTIFF] = {
         .textData = {
             .name = "Mabosstiff",
@@ -56659,6 +56885,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SHROODLE] = {
         .textData = {
             .name = "Shroodle",
@@ -56716,6 +56943,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GRAFAIAI] = {
         .textData = {
             .name = "Grafaiai",
@@ -56773,6 +57001,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BRAMBLIN] = {
         .textData = {
             .name = "Bramblin",
@@ -56830,6 +57059,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BRAMBLEGHAST] = {
         .textData = {
             .name = "Bramblgast",
@@ -57001,6 +57231,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KLAWF] = {
         .textData = {
             .name = "Klawf",
@@ -57172,6 +57403,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RELLOR] = {
         .textData = {
             .name = "Rellor",
@@ -57229,6 +57461,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RABSCA] = {
         .textData = {
             .name = "Rabsca",
@@ -57286,6 +57519,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLITTLE] = {
         .textData = {
             .name = "Flittle",
@@ -57343,6 +57577,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ESPATHRA] = {
         .textData = {
             .name = "Espathra",
@@ -57400,6 +57635,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TINKATINK] = {
         .textData = {
             .name = "Tinkatink",
@@ -57457,6 +57693,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TINKATUFF] = {
         .textData = {
             .name = "Tinkatuff",
@@ -57514,6 +57751,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TINKATON] = {
         .textData = {
             .name = "Tinkaton",
@@ -57685,6 +57923,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BOMBIRDIER] = {
         .textData = {
             .name = "Bombirdier",
@@ -57742,6 +57981,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FINIZEN] = {
         .textData = {
             .name = "Finizen",
@@ -57799,6 +58039,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PALAFIN] = {
         .textData = {
             .name = "Palafin",
@@ -57856,6 +58097,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VAROOM] = {
         .textData = {
             .name = "Varoom",
@@ -57913,6 +58155,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_REVAVROOM] = {
         .textData = {
             .name = "Revavroom",
@@ -57970,6 +58213,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CYCLIZAR] = {
         .textData = {
             .name = "Cyclizar",
@@ -58027,6 +58271,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORTHWORM] = {
         .textData = {
             .name = "Orthworm",
@@ -58084,6 +58329,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GLIMMET] = {
         .textData = {
             .name = "Glimmet",
@@ -58141,6 +58387,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GLIMMORA] = {
         .textData = {
             .name = "Glimmora",
@@ -58198,6 +58445,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GREAVARD] = {
         .textData = {
             .name = "Greavard",
@@ -58255,6 +58503,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HOUNDSTONE] = {
         .textData = {
             .name = "Houndstone",
@@ -58312,6 +58561,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLAMIGO] = {
         .textData = {
             .name = "Flamigo",
@@ -58369,6 +58619,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CETODDLE] = {
         .textData = {
             .name = "Cetoddle",
@@ -58426,6 +58677,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CETITAN] = {
         .textData = {
             .name = "Cetitan",
@@ -58483,6 +58735,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VELUZA] = {
         .textData = {
             .name = "Veluza",
@@ -58939,6 +59192,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GREAT_TUSK] = {
         .textData = {
             .name = "Great Tusk",
@@ -58996,6 +59250,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SCREAM_TAIL] = {
         .textData = {
             .name = "ScreamTail",
@@ -59053,6 +59308,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BRUTE_BONNET] = {
         .textData = {
             .name = "BruteBonet",
@@ -59110,6 +59366,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLUTTER_MANE] = {
         .textData = {
             .name = "FluttrMane",
@@ -59167,6 +59424,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SLITHER_WING] = {
         .textData = {
             .name = "SlithrWing",
@@ -59224,6 +59482,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SANDY_SHOCKS] = {
         .textData = {
             .name = "SandyShock",
@@ -59281,6 +59540,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_TREADS] = {
         .textData = {
             .name = "IronTreads",
@@ -59338,6 +59598,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_BUNDLE] = {
         .textData = {
             .name = "IronBundle",
@@ -59395,6 +59656,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_HANDS] = {
         .textData = {
             .name = "Iron Hands",
@@ -59452,6 +59714,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_JUGULIS] = {
         .textData = {
             .name = "Iron Neck",
@@ -59509,6 +59772,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_MOTH] = {
         .textData = {
             .name = "Iron Moth",
@@ -59566,6 +59830,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_THORNS] = {
         .textData = {
             .name = "IronThorns",
@@ -59623,6 +59888,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FRIGIBAX] = {
         .textData = {
             .name = "Frigibax",
@@ -59680,6 +59946,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ARCTIBAX] = {
         .textData = {
             .name = "Arctibax",
@@ -59737,6 +60004,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_BAXCALIBUR] = {
         .textData = {
             .name = "Baxcalibur",
@@ -59908,6 +60176,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WO_CHIEN] = {
         .textData = {
             .name = "Wo-Chien",
@@ -59965,6 +60234,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CHIEN_PAO] = {
         .textData = {
             .name = "Chien-Pao",
@@ -60022,6 +60292,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TING_LU] = {
         .textData = {
             .name = "Ting-Lu",
@@ -60079,6 +60350,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CHI_YU] = {
         .textData = {
             .name = "Chi-Yu",
@@ -60136,6 +60408,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ROARING_MOON] = {
         .textData = {
             .name = "RoarinMoon",
@@ -60193,6 +60466,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_VALIANT] = {
         .textData = {
             .name = "Iron Valor",
@@ -60250,6 +60524,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KORAIDON] = {
         .textData = {
             .name = "Koraidon",
@@ -60307,6 +60582,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MIRAIDON] = {
         .textData = {
             .name = "Miraidon",
@@ -60364,6 +60640,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WALKING_WAKE] = {
         .textData = {
             .name = "WalkngWake",
@@ -60421,6 +60698,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_LEAVES] = {
         .textData = {
             .name = "IronLeaves",
@@ -60649,6 +60927,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OKIDOGI] = {
         .textData = {
             .name = "Okidogi",
@@ -60706,6 +60985,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MUNKIDORI] = {
         .textData = {
             .name = "Munkidori",
@@ -60763,6 +61043,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FEZANDIPITI] = {
         .textData = {
             .name = "Fezanditi",
@@ -60820,6 +61101,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON] = {
         .textData = {
             .name = "Ogerpon",
@@ -60991,6 +61273,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GOUGING_FIRE] = {
         .textData = {
             .name = "GouginFire",
@@ -61048,6 +61331,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RAGING_BOLT] = {
         .textData = {
             .name = "RagingBolt",
@@ -61105,6 +61389,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_BOULDER] = {
         .textData = {
             .name = "IronBolder",
@@ -61162,6 +61447,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_IRON_CROWN] = {
         .textData = {
             .name = "Iron Crown",
@@ -61219,6 +61505,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TERAPAGOS] = {
         .textData = {
             .name = "Terapagos",
@@ -61276,6 +61563,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PECHARUNT] = {
         .textData = {
             .name = "Pecharunt",
@@ -61333,6 +61621,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Venusaur, which is in the doc. Still reachable in game
     [SPECIES_MEGA_VENUSAUR] = {
         .textData = {
             .name = "-----",
@@ -61390,6 +61679,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Charizard, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CHARIZARD_X] = {
         .textData = {
             .name = "-----",
@@ -61447,6 +61737,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Charizard, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CHARIZARD_Y] = {
         .textData = {
             .name = "-----",
@@ -61504,6 +61795,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Blastoise, which is in the doc. Still reachable in game
     [SPECIES_MEGA_BLASTOISE] = {
         .textData = {
             .name = "-----",
@@ -61561,6 +61853,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Beedrill, which is in the doc. Still reachable in game
     [SPECIES_MEGA_BEEDRILL] = {
         .textData = {
             .name = "-----",
@@ -61618,6 +61911,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pidgeot, which is in the doc. Still reachable in game
     [SPECIES_MEGA_PIDGEOT] = {
         .textData = {
             .name = "-----",
@@ -61675,6 +61969,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Alakazam, which is in the doc. Still reachable in game
     [SPECIES_MEGA_ALAKAZAM] = {
         .textData = {
             .name = "-----",
@@ -61732,6 +62027,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Slowbro, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SLOWBRO] = {
         .textData = {
             .name = "-----",
@@ -61789,6 +62085,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Gengar, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GENGAR] = {
         .textData = {
             .name = "-----",
@@ -61846,6 +62143,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Kangaskhan, which is in the doc. Still reachable in game
     [SPECIES_MEGA_KANGASKHAN] = {
         .textData = {
             .name = "-----",
@@ -61903,6 +62201,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pinsir, which is in the doc. Still reachable in game
     [SPECIES_MEGA_PINSIR] = {
         .textData = {
             .name = "-----",
@@ -61960,6 +62259,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Gyarados, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GYARADOS] = {
         .textData = {
             .name = "-----",
@@ -62017,6 +62317,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Aerodactyl, which is in the doc. Still reachable in game
     [SPECIES_MEGA_AERODACTYL] = {
         .textData = {
             .name = "-----",
@@ -62074,6 +62375,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Mewtwo, which is in the doc. Still reachable in game
     [SPECIES_MEGA_MEWTWO_X] = {
         .textData = {
             .name = "-----",
@@ -62131,6 +62433,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Mewtwo, which is in the doc. Still reachable in game
     [SPECIES_MEGA_MEWTWO_Y] = {
         .textData = {
             .name = "-----",
@@ -62188,6 +62491,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Ampharos, which is in the doc. Still reachable in game
     [SPECIES_MEGA_AMPHAROS] = {
         .textData = {
             .name = "-----",
@@ -62245,6 +62549,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Steelix, which is in the doc. Still reachable in game
     [SPECIES_MEGA_STEELIX] = {
         .textData = {
             .name = "-----",
@@ -62302,6 +62607,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Scizor, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SCIZOR] = {
         .textData = {
             .name = "-----",
@@ -62359,6 +62665,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Heracross, which is in the doc. Still reachable in game
     [SPECIES_MEGA_HERACROSS] = {
         .textData = {
             .name = "-----",
@@ -62416,6 +62723,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Houndoom, which is in the doc. Still reachable in game
     [SPECIES_MEGA_HOUNDOOM] = {
         .textData = {
             .name = "-----",
@@ -62473,6 +62781,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Tyranitar, which is in the doc. Still reachable in game
     [SPECIES_MEGA_TYRANITAR] = {
         .textData = {
             .name = "-----",
@@ -62530,6 +62839,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sceptile, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SCEPTILE] = {
         .textData = {
             .name = "-----",
@@ -62587,6 +62897,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Blaziken, which is in the doc. Still reachable in game
     [SPECIES_MEGA_BLAZIKEN] = {
         .textData = {
             .name = "-----",
@@ -62644,6 +62955,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Swampert, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SWAMPERT] = {
         .textData = {
             .name = "-----",
@@ -62701,6 +63013,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Gardevoir, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GARDEVOIR] = {
         .textData = {
             .name = "-----",
@@ -62758,6 +63071,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sableye, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SABLEYE] = {
         .textData = {
             .name = "-----",
@@ -62815,6 +63129,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Mawile, which is in the doc. Still reachable in game
     [SPECIES_MEGA_MAWILE] = {
         .textData = {
             .name = "-----",
@@ -62872,6 +63187,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Aggron, which is in the doc. Still reachable in game
     [SPECIES_MEGA_AGGRON] = {
         .textData = {
             .name = "-----",
@@ -62929,6 +63245,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Medicham, which is in the doc. Still reachable in game
     [SPECIES_MEGA_MEDICHAM] = {
         .textData = {
             .name = "-----",
@@ -62986,6 +63303,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Manectric, which is in the doc. Still reachable in game
     [SPECIES_MEGA_MANECTRIC] = {
         .textData = {
             .name = "-----",
@@ -63043,6 +63361,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sharpedo, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SHARPEDO] = {
         .textData = {
             .name = "-----",
@@ -63100,6 +63419,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Camerupt, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CAMERUPT] = {
         .textData = {
             .name = "-----",
@@ -63157,6 +63477,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Altaria, which is in the doc. Still reachable in game
     [SPECIES_MEGA_ALTARIA] = {
         .textData = {
             .name = "-----",
@@ -63214,6 +63535,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Banette, which is in the doc. Still reachable in game
     [SPECIES_MEGA_BANETTE] = {
         .textData = {
             .name = "-----",
@@ -63271,6 +63593,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Absol, which is in the doc. Still reachable in game
     [SPECIES_MEGA_ABSOL] = {
         .textData = {
             .name = "-----",
@@ -63328,6 +63651,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Glalie, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GLALIE] = {
         .textData = {
             .name = "-----",
@@ -63385,6 +63709,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Salamence, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SALAMENCE] = {
         .textData = {
             .name = "-----",
@@ -63442,6 +63767,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Metagross, which is in the doc. Still reachable in game
     [SPECIES_MEGA_METAGROSS] = {
         .textData = {
             .name = "-----",
@@ -63499,6 +63825,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Latias, which is in the doc. Still reachable in game
     [SPECIES_MEGA_LATIAS] = {
         .textData = {
             .name = "-----",
@@ -63556,6 +63883,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Latios, which is in the doc. Still reachable in game
     [SPECIES_MEGA_LATIOS] = {
         .textData = {
             .name = "-----",
@@ -63613,6 +63941,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Rayquaza, which is in the doc. Still reachable in game
     [SPECIES_MEGA_RAYQUAZA] = {
         .textData = {
             .name = "-----",
@@ -63670,6 +63999,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Lopunny, which is in the doc. Still reachable in game
     [SPECIES_MEGA_LOPUNNY] = {
         .textData = {
             .name = "-----",
@@ -63727,6 +64057,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Garchomp, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GARCHOMP] = {
         .textData = {
             .name = "-----",
@@ -63784,6 +64115,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Lucario, which is in the doc. Still reachable in game
     [SPECIES_MEGA_LUCARIO] = {
         .textData = {
             .name = "-----",
@@ -63841,6 +64173,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Abomasnow, which is in the doc. Still reachable in game
     [SPECIES_MEGA_ABOMASNOW] = {
         .textData = {
             .name = "-----",
@@ -63898,6 +64231,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Gallade, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GALLADE] = {
         .textData = {
             .name = "-----",
@@ -63955,6 +64289,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_AUDINO] = {
         .textData = {
             .name = "-----",
@@ -64012,6 +64347,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_DIANCIE] = {
         .textData = {
             .name = "-----",
@@ -64069,6 +64405,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Kyogre, which is in the doc. Still reachable in game
     [SPECIES_KYOGRE_PRIMAL] = {
         .textData = {
             .name = "-----",
@@ -64126,6 +64463,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Groudon, which is in the doc. Still reachable in game
     [SPECIES_GROUDON_PRIMAL] = {
         .textData = {
             .name = "-----",
@@ -65209,6 +65547,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Raticate, which is in the doc. Still reachable in game
     [SPECIES_RATICATE_ALOLAN_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65266,6 +65605,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Marowak, which is in the doc. Still reachable in game
     [SPECIES_MAROWAK_ALOLAN_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65323,6 +65663,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GUMSHOOS_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65380,6 +65721,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Vikavolt, which is in the doc. Still reachable in game
     [SPECIES_VIKAVOLT_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65437,6 +65779,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_RIBOMBEE_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65494,6 +65837,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ARAQUANID_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65551,6 +65895,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_LURANTIS_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65608,6 +65953,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SALAZZLE_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65665,6 +66011,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOGEDEMARU_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65722,6 +66069,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Mimikyu, which is in the doc. Still reachable in game
     [SPECIES_MIMIKYU_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65779,6 +66127,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Mimikyu, which is in the doc. Still reachable in game
     [SPECIES_MIMIKYU_BUSTED_LARGE] = {
         .textData = {
             .name = "-----",
@@ -65836,6 +66185,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Kommo-o, which is in the doc. Still reachable in game
     [SPECIES_KOMMO_O_LARGE] = {
         .textData = {
             .name = "-----",
@@ -66976,6 +67326,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_COSPLAY] = {
         .textData = {
             .name = "-----",
@@ -67033,6 +67384,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_ROCK_STAR] = {
         .textData = {
             .name = "-----",
@@ -67090,6 +67442,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_BELLE] = {
         .textData = {
             .name = "-----",
@@ -67147,6 +67500,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_POP_STAR] = {
         .textData = {
             .name = "-----",
@@ -67204,6 +67558,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_PH_D] = {
         .textData = {
             .name = "-----",
@@ -67261,6 +67616,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_LIBRE] = {
         .textData = {
             .name = "-----",
@@ -67318,6 +67674,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_ORIGINAL_CAP] = {
         .textData = {
             .name = "-----",
@@ -67375,6 +67732,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_HOENN_CAP] = {
         .textData = {
             .name = "-----",
@@ -67432,6 +67790,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_SINNOH_CAP] = {
         .textData = {
             .name = "-----",
@@ -67489,6 +67848,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_UNOVA_CAP] = {
         .textData = {
             .name = "-----",
@@ -67546,6 +67906,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_KALOS_CAP] = {
         .textData = {
             .name = "-----",
@@ -67603,6 +67964,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_ALOLA_CAP] = {
         .textData = {
             .name = "-----",
@@ -67660,6 +68022,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_PARTNER_CAP] = {
         .textData = {
             .name = "-----",
@@ -67717,6 +68080,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_WORLD_CAP] = {
         .textData = {
             .name = "-----",
@@ -67774,6 +68138,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Castform, which is in the doc. Still reachable in game
     [SPECIES_CASTFORM_SUNNY] = {
         .textData = {
             .name = "-----",
@@ -67831,6 +68196,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Castform, which is in the doc. Still reachable in game
     [SPECIES_CASTFORM_RAINY] = {
         .textData = {
             .name = "-----",
@@ -67888,6 +68254,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Castform, which is in the doc. Still reachable in game
     [SPECIES_CASTFORM_SNOWY] = {
         .textData = {
             .name = "-----",
@@ -67945,6 +68312,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Cherrim, which is in the doc. Still reachable in game
     [SPECIES_CHERRIM_SUNSHINE] = {
         .textData = {
             .name = "-----",
@@ -68002,6 +68370,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Shellos, which is in the doc. Still reachable in game
     [SPECIES_SHELLOS_EAST_SEA] = {
         .textData = {
             .name = "-----",
@@ -68059,6 +68428,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Gastrodon, which is in the doc. Still reachable in game
     [SPECIES_GASTRODON_EAST_SEA] = {
         .textData = {
             .name = "-----",
@@ -68458,6 +68828,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Deerling, which is in the doc. Still reachable in game
     [SPECIES_DEERLING_SUMMER] = {
         .textData = {
             .name = "-----",
@@ -68515,6 +68886,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Deerling, which is in the doc. Still reachable in game
     [SPECIES_DEERLING_AUTUMN] = {
         .textData = {
             .name = "-----",
@@ -68572,6 +68944,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Deerling, which is in the doc. Still reachable in game
     [SPECIES_DEERLING_WINTER] = {
         .textData = {
             .name = "-----",
@@ -68629,6 +69002,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sawsbuck, which is in the doc. Still reachable in game
     [SPECIES_SAWSBUCK_SUMMER] = {
         .textData = {
             .name = "-----",
@@ -68686,6 +69060,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sawsbuck, which is in the doc. Still reachable in game
     [SPECIES_SAWSBUCK_AUTUMN] = {
         .textData = {
             .name = "-----",
@@ -68743,6 +69118,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sawsbuck, which is in the doc. Still reachable in game
     [SPECIES_SAWSBUCK_WINTER] = {
         .textData = {
             .name = "-----",
@@ -68971,6 +69347,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KYUREM_WHITE] = {
         .textData = {
             .name = "-----",
@@ -69028,6 +69405,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KYUREM_BLACK] = {
         .textData = {
             .name = "-----",
@@ -69085,6 +69463,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KELDEO_RESOLUTE] = {
         .textData = {
             .name = "-----",
@@ -69142,6 +69521,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MELOETTA_PIROUETTE] = {
         .textData = {
             .name = "-----",
@@ -69199,6 +69579,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Genesect, which is in the doc. Still reachable in game
     [SPECIES_GENESECT_DOUSE_DRIVE] = {
         .textData = {
             .name = "-----",
@@ -69256,6 +69637,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Genesect, which is in the doc. Still reachable in game
     [SPECIES_GENESECT_SHOCK_DRIVE] = {
         .textData = {
             .name = "-----",
@@ -69313,6 +69695,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Genesect, which is in the doc. Still reachable in game
     [SPECIES_GENESECT_BURN_DRIVE] = {
         .textData = {
             .name = "-----",
@@ -69370,6 +69753,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Genesect, which is in the doc. Still reachable in game
     [SPECIES_GENESECT_CHILL_DRIVE] = {
         .textData = {
             .name = "-----",
@@ -69427,6 +69811,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Greninja, which is in the doc. Still reachable in game
     [SPECIES_GRENINJA_BATTLE_BOND] = {
         .textData = {
             .name = "-----",
@@ -69484,6 +69869,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Greninja, which is in the doc. Still reachable in game
     [SPECIES_GRENINJA_ASH] = {
         .textData = {
             .name = "-----",
@@ -69541,6 +69927,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_POLAR] = {
         .textData = {
             .name = "-----",
@@ -69598,6 +69985,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_TUNDRA] = {
         .textData = {
             .name = "-----",
@@ -69655,6 +70043,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_CONTINENTAL] = {
         .textData = {
             .name = "-----",
@@ -69712,6 +70101,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_GARDEN] = {
         .textData = {
             .name = "-----",
@@ -69769,6 +70159,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_ELEGANT] = {
         .textData = {
             .name = "-----",
@@ -69826,6 +70217,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_MEADOW] = {
         .textData = {
             .name = "-----",
@@ -69883,6 +70275,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_MODERN] = {
         .textData = {
             .name = "-----",
@@ -69940,6 +70333,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_MARINE] = {
         .textData = {
             .name = "-----",
@@ -69997,6 +70391,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_ARCHIPELAGO] = {
         .textData = {
             .name = "-----",
@@ -70054,6 +70449,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_HIGH_PLAINS] = {
         .textData = {
             .name = "-----",
@@ -70111,6 +70507,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_SANDSTORM] = {
         .textData = {
             .name = "-----",
@@ -70168,6 +70565,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_RIVER] = {
         .textData = {
             .name = "-----",
@@ -70225,6 +70623,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_MONSOON] = {
         .textData = {
             .name = "-----",
@@ -70282,6 +70681,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_SAVANNA] = {
         .textData = {
             .name = "-----",
@@ -70339,6 +70739,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_SUN] = {
         .textData = {
             .name = "-----",
@@ -70396,6 +70797,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_OCEAN] = {
         .textData = {
             .name = "-----",
@@ -70453,6 +70855,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_JUNGLE] = {
         .textData = {
             .name = "-----",
@@ -70510,6 +70913,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_FANCY] = {
         .textData = {
             .name = "-----",
@@ -70567,6 +70971,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_VIVILLON_POKE_BALL] = {
         .textData = {
             .name = "-----",
@@ -70624,6 +71029,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLABEBE_YELLOW_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -70681,6 +71087,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLABEBE_ORANGE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -70738,6 +71145,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLABEBE_BLUE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -70795,6 +71203,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLABEBE_WHITE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -70852,6 +71261,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLOETTE_YELLOW_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -70909,6 +71319,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLOETTE_ORANGE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -70966,6 +71377,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLOETTE_BLUE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71023,6 +71435,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLOETTE_WHITE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71080,6 +71493,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLOETTE_ETERNAL_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71137,6 +71551,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLORGES_YELLOW_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71194,6 +71609,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLORGES_ORANGE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71251,6 +71667,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLORGES_BLUE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71308,6 +71725,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FLORGES_WHITE_FLOWER] = {
         .textData = {
             .name = "-----",
@@ -71365,6 +71783,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_HEART] = {
         .textData = {
             .name = "-----",
@@ -71422,6 +71841,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_STAR] = {
         .textData = {
             .name = "-----",
@@ -71479,6 +71899,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_DIAMOND] = {
         .textData = {
             .name = "-----",
@@ -71536,6 +71957,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_DEBUTANTE] = {
         .textData = {
             .name = "-----",
@@ -71593,6 +72015,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_MATRON] = {
         .textData = {
             .name = "-----",
@@ -71650,6 +72073,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_DANDY] = {
         .textData = {
             .name = "-----",
@@ -71707,6 +72131,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_LA_REINE] = {
         .textData = {
             .name = "-----",
@@ -71764,6 +72189,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_KABUKI] = {
         .textData = {
             .name = "-----",
@@ -71821,6 +72247,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_FURFROU_PHARAOH] = {
         .textData = {
             .name = "-----",
@@ -72277,6 +72704,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_XERNEAS_ACTIVE] = {
         .textData = {
             .name = "-----",
@@ -72334,6 +72762,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZYGARDE_10] = {
         .textData = {
             .name = "-----",
@@ -72391,6 +72820,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZYGARDE_10_POWER_CONSTRUCT] = {
         .textData = {
             .name = "-----",
@@ -72448,6 +72878,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZYGARDE_50_POWER_CONSTRUCT] = {
         .textData = {
             .name = "-----",
@@ -72505,6 +72936,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZYGARDE_10_COMPLETE] = {
         .textData = {
             .name = "-----",
@@ -72562,6 +72994,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZYGARDE_50_COMPLETE] = {
         .textData = {
             .name = "-----",
@@ -72619,6 +73052,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_HOOPA_UNBOUND] = {
         .textData = {
             .name = "-----",
@@ -72676,6 +73110,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORICORIO_POM_POM] = {
         .textData = {
             .name = "-----",
@@ -72733,6 +73168,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORICORIO_PAU] = {
         .textData = {
             .name = "-----",
@@ -72790,6 +73226,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ORICORIO_SENSU] = {
         .textData = {
             .name = "-----",
@@ -72847,6 +73284,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Rockruff, which is in the doc. Still reachable in game
     [SPECIES_ROCKRUFF_OWN_TEMPO] = {
         .textData = {
             .name = "-----",
@@ -73018,6 +73456,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_WISHIWASHI_SCHOOL] = {
         .textData = {
             .name = "-----",
@@ -73075,6 +73514,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_METEOR_ORANGE] = {
         .textData = {
             .name = "-----",
@@ -73132,6 +73572,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_METEOR_YELLOW] = {
         .textData = {
             .name = "-----",
@@ -73189,6 +73630,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_METEOR_GREEN] = {
         .textData = {
             .name = "-----",
@@ -73246,6 +73688,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_METEOR_BLUE] = {
         .textData = {
             .name = "-----",
@@ -73303,6 +73746,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_METEOR_INDIGO] = {
         .textData = {
             .name = "-----",
@@ -73360,6 +73804,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_METEOR_VIOLET] = {
         .textData = {
             .name = "-----",
@@ -73417,6 +73862,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_RED] = {
         .textData = {
             .name = "-----",
@@ -73474,6 +73920,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_ORANGE] = {
         .textData = {
             .name = "-----",
@@ -73531,6 +73978,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_YELLOW] = {
         .textData = {
             .name = "-----",
@@ -73588,6 +74036,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_GREEN] = {
         .textData = {
             .name = "-----",
@@ -73645,6 +74094,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_BLUE] = {
         .textData = {
             .name = "-----",
@@ -73702,6 +74152,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_INDIGO] = {
         .textData = {
             .name = "-----",
@@ -73759,6 +74210,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MINIOR_CORE_VIOLET] = {
         .textData = {
             .name = "-----",
@@ -73816,6 +74268,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Mimikyu, which is in the doc. Still reachable in game
     [SPECIES_MIMIKYU_BUSTED] = {
         .textData = {
             .name = "-----",
@@ -73873,6 +74326,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NECROZMA_DUSK_MANE] = {
         .textData = {
             .name = "-----",
@@ -73930,6 +74384,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NECROZMA_DAWN_WINGS] = {
         .textData = {
             .name = "-----",
@@ -73987,6 +74442,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NECROZMA_ULTRA_DUSK_MANE] = {
         .textData = {
             .name = "-----",
@@ -74044,6 +74500,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_NECROZMA_ULTRA_DAWN_WINGS] = {
         .textData = {
             .name = "-----",
@@ -74101,6 +74558,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MAGEARNA_ORIGINAL] = {
         .textData = {
             .name = "-----",
@@ -74158,6 +74616,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_PIKACHU_PARTNER] = {
         .textData = {
             .name = "-----",
@@ -74215,6 +74674,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Eevee, which is in the doc. Still reachable in game
     [SPECIES_EEVEE_PARTNER] = {
         .textData = {
             .name = "-----",
@@ -74272,6 +74732,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CRAMORANT_GULPING] = {
         .textData = {
             .name = "-----",
@@ -74329,6 +74790,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CRAMORANT_GORGING] = {
         .textData = {
             .name = "-----",
@@ -74386,6 +74848,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TOXTRICITY_LOW_KEY] = {
         .textData = {
             .name = "-----",
@@ -74443,6 +74906,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sinistea, which is in the doc. Still reachable in game
     [SPECIES_SINISTEA_ANTIQUE] = {
         .textData = {
             .name = "-----",
@@ -74500,6 +74964,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Poltegeist, which is in the doc. Still reachable in game
     [SPECIES_POLTEAGEIST_ANTIQUE] = {
         .textData = {
             .name = "-----",
@@ -74557,6 +75022,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_BERRY_SWEET] = {
         .textData = {
             .name = "-----",
@@ -74614,6 +75080,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_LOVE_SWEET] = {
         .textData = {
             .name = "-----",
@@ -74671,6 +75138,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_STAR_SWEET] = {
         .textData = {
             .name = "-----",
@@ -74728,6 +75196,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_CLOVER_SWEET] = {
         .textData = {
             .name = "-----",
@@ -74785,6 +75254,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_FLOWER_SWEET] = {
         .textData = {
             .name = "-----",
@@ -74842,6 +75312,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_RIBBON_SWEET] = {
         .textData = {
             .name = "-----",
@@ -74899,6 +75370,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_FILLER_1] = {
         .textData = {
             .name = "-----",
@@ -74956,6 +75428,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ALCREMIE_FILLER_2] = {
         .textData = {
             .name = "-----",
@@ -75013,6 +75486,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_EISCUE_NOICE_FACE] = {
         .textData = {
             .name = "-----",
@@ -75070,6 +75544,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MORPEKO_HANGRY] = {
         .textData = {
             .name = "-----",
@@ -75127,6 +75602,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZACIAN_CROWNED] = {
         .textData = {
             .name = "-----",
@@ -75184,6 +75660,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZAMAZENTA_CROWNED] = {
         .textData = {
             .name = "-----",
@@ -75241,6 +75718,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ETERNATUS_ETERNAMAX] = {
         .textData = {
             .name = "-----",
@@ -75298,6 +75776,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_URSHIFU_RAPID_STRIKE] = {
         .textData = {
             .name = "-----",
@@ -75355,6 +75834,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_ZARUDE_DADA] = {
         .textData = {
             .name = "-----",
@@ -75412,6 +75892,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CALYREX_ICE_RIDER] = {
         .textData = {
             .name = "-----",
@@ -75469,6 +75950,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_CALYREX_SHADOW_RIDER] = {
         .textData = {
             .name = "-----",
@@ -76495,6 +76977,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Kleavor, which is in the doc. Still reachable in game
     [SPECIES_KLEAVOR_LORD] = {
         .textData = {
             .name = "-----",
@@ -76552,6 +77035,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Lilligant, which is in the doc. Still reachable in game
     [SPECIES_LILLIGANT_LADY] = {
         .textData = {
             .name = "-----",
@@ -76609,6 +77093,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arcanine, which is in the doc. Still reachable in game
     [SPECIES_ARCANINE_LORD] = {
         .textData = {
             .name = "-----",
@@ -76666,6 +77151,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Electrode, which is in the doc. Still reachable in game
     [SPECIES_ELECTRODE_LORD] = {
         .textData = {
             .name = "-----",
@@ -76723,6 +77209,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Avalugg, which is in the doc. Still reachable in game
     [SPECIES_AVALUGG_LORD] = {
         .textData = {
             .name = "-----",
@@ -76780,6 +77267,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unfezant, which is in the doc. Still reachable in game
     [SPECIES_UNFEZANT_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -76837,6 +77325,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Frillish, which is in the doc. Still reachable in game
     [SPECIES_FRILLISH_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -76894,6 +77383,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Jellicent, which is in the doc. Still reachable in game
     [SPECIES_JELLICENT_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -76951,6 +77441,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PYROAR_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -77008,6 +77499,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEOWSTIC_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -77065,6 +77557,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_INDEEDEE_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -77179,6 +77672,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MAUSHOLD_FAMILY_OF_THREE] = {
         .textData = {
             .name = "-----",
@@ -77236,6 +77730,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SQUAWKABILLY_BLUE_PLUMAGE] = {
         .textData = {
             .name = "-----",
@@ -77293,6 +77788,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE] = {
         .textData = {
             .name = "-----",
@@ -77350,6 +77846,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_SQUAWKABILLY_WHITE_PLUMAGE] = {
         .textData = {
             .name = "-----",
@@ -77407,6 +77904,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_PALAFIN_HERO] = {
         .textData = {
             .name = "-----",
@@ -77464,6 +77962,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Tatsugiri, which is in the doc. Still reachable in game
     [SPECIES_TATSUGIRI_DROOPY] = {
         .textData = {
             .name = "-----",
@@ -77521,6 +78020,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Tatsugiri, which is in the doc. Still reachable in game
     [SPECIES_TATSUGIRI_STRETCHY] = {
         .textData = {
             .name = "-----",
@@ -77578,6 +78078,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Dudunspars, which is in the doc. Still reachable in game
     [SPECIES_DUDUNSPARCE_THREE_SEGMENT] = {
         .textData = {
             .name = "-----",
@@ -77920,6 +78421,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OINKOLOGNE_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -77977,6 +78479,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_REVAVROOM_SEGIN] = {
         .textData = {
             .name = "-----",
@@ -78034,6 +78537,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_REVAVROOM_SCHEDAR] = {
         .textData = {
             .name = "-----",
@@ -78091,6 +78595,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_REVAVROOM_NAVI] = {
         .textData = {
             .name = "-----",
@@ -78148,6 +78653,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_REVAVROOM_RUCHBAH] = {
         .textData = {
             .name = "-----",
@@ -78205,6 +78711,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_REVAVROOM_CAPH] = {
         .textData = {
             .name = "-----",
@@ -78262,6 +78769,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KORAIDON_LIMITED_BUILD] = {
         .textData = {
             .name = "-----",
@@ -78319,6 +78827,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KORAIDON_SPRINTING_BUILD] = {
         .textData = {
             .name = "-----",
@@ -78376,6 +78885,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KORAIDON_SWIMMING_BUILD] = {
         .textData = {
             .name = "-----",
@@ -78433,6 +78943,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_KORAIDON_GLIDING_BUILD] = {
         .textData = {
             .name = "-----",
@@ -78490,6 +79001,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MIRAIDON_LOW_POWER_MODE] = {
         .textData = {
             .name = "-----",
@@ -78547,6 +79059,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MIRAIDON_DRIVE_MODE] = {
         .textData = {
             .name = "-----",
@@ -78604,6 +79117,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MIRAIDON_AQUATIC_MODE] = {
         .textData = {
             .name = "-----",
@@ -78661,6 +79175,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MIRAIDON_GLIDE_MODE] = {
         .textData = {
             .name = "-----",
@@ -78718,6 +79233,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Polchgeist, which is in the doc. Still reachable in game
     [SPECIES_POLTCHAGEIST_MASTERPIECE] = {
         .textData = {
             .name = "-----",
@@ -78775,6 +79291,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Sinistcha, which is in the doc. Still reachable in game
     [SPECIES_SINISTCHA_MASTERPIECE] = {
         .textData = {
             .name = "-----",
@@ -78832,6 +79349,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_WELLSPRING_MASK] = {
         .textData = {
             .name = "-----",
@@ -78889,6 +79407,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_HEARTHFLAME_MASK] = {
         .textData = {
             .name = "-----",
@@ -78946,6 +79465,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_CORNERSTONE_MASK] = {
         .textData = {
             .name = "-----",
@@ -79003,6 +79523,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_TEAL_MASK_TERASTAL] = {
         .textData = {
             .name = "-----",
@@ -79060,6 +79581,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_WELLSPRING_MASK_TERASTAL] = {
         .textData = {
             .name = "-----",
@@ -79117,6 +79639,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_HEARTHFLAME_MASK_TERASTAL] = {
         .textData = {
             .name = "-----",
@@ -79174,6 +79697,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_OGERPON_CORNERSTONE_MASK_TERASTAL] = {
         .textData = {
             .name = "-----",
@@ -79288,6 +79812,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TERAPAGOS_TERASTAL] = {
         .textData = {
             .name = "-----",
@@ -79345,6 +79870,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_TERAPAGOS_STELLAR] = {
         .textData = {
             .name = "-----",
@@ -79402,6 +79928,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Venusaur, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_VENUSAUR] = {
         .textData = {
             .name = "-----",
@@ -79459,6 +79986,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Charizard, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_CHARIZARD] = {
         .textData = {
             .name = "-----",
@@ -79516,6 +80044,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Blastoise, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_BLASTOISE] = {
         .textData = {
             .name = "-----",
@@ -79573,6 +80102,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Butterfree, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_BUTTERFREE] = {
         .textData = {
             .name = "-----",
@@ -79630,6 +80160,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pikachu, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_PIKACHU] = {
         .textData = {
             .name = "-----",
@@ -79687,6 +80218,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Meowth, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_MEOWTH] = {
         .textData = {
             .name = "-----",
@@ -79744,6 +80276,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Machamp, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_MACHAMP] = {
         .textData = {
             .name = "-----",
@@ -79801,6 +80334,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Gengar, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_GENGAR] = {
         .textData = {
             .name = "-----",
@@ -79858,6 +80392,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Kingler, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_KINGLER] = {
         .textData = {
             .name = "-----",
@@ -79915,6 +80450,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Lapras, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_LAPRAS] = {
         .textData = {
             .name = "-----",
@@ -79972,6 +80508,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Eevee, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_EEVEE] = {
         .textData = {
             .name = "-----",
@@ -80029,6 +80566,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Snorlax, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_SNORLAX] = {
         .textData = {
             .name = "-----",
@@ -80086,6 +80624,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_GARBODOR] = {
         .textData = {
             .name = "-----",
@@ -80143,6 +80682,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_MELMETAL] = {
         .textData = {
             .name = "-----",
@@ -80200,6 +80740,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_RILLABOOM] = {
         .textData = {
             .name = "-----",
@@ -80257,6 +80798,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_CINDERACE] = {
         .textData = {
             .name = "-----",
@@ -80314,6 +80856,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_INTELEON] = {
         .textData = {
             .name = "-----",
@@ -80371,6 +80914,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Corviknite, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_CORVIKNIGHT] = {
         .textData = {
             .name = "-----",
@@ -80428,6 +80972,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_ORBEETLE] = {
         .textData = {
             .name = "-----",
@@ -80485,6 +81030,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_DREDNAW] = {
         .textData = {
             .name = "-----",
@@ -80542,6 +81088,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Coalossal, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_COALOSSAL] = {
         .textData = {
             .name = "-----",
@@ -80599,6 +81146,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Flapple, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_FLAPPLE] = {
         .textData = {
             .name = "-----",
@@ -80656,6 +81204,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Appletun, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_APPLETUN] = {
         .textData = {
             .name = "-----",
@@ -80713,6 +81262,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_SANDACONDA] = {
         .textData = {
             .name = "-----",
@@ -80770,6 +81320,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_TOXTRICITY] = {
         .textData = {
             .name = "-----",
@@ -80827,6 +81378,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_TOXTRICITY_LOW_KEY] = {
         .textData = {
             .name = "-----",
@@ -80884,6 +81436,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Centskorch, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_CENTISKORCH] = {
         .textData = {
             .name = "-----",
@@ -80941,6 +81494,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_HATTERENE] = {
         .textData = {
             .name = "-----",
@@ -80998,6 +81552,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_GRIMMSNARL] = {
         .textData = {
             .name = "-----",
@@ -81055,6 +81610,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_ALCREMIE] = {
         .textData = {
             .name = "-----",
@@ -81112,6 +81668,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_COPPERAJAH] = {
         .textData = {
             .name = "-----",
@@ -81169,6 +81726,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Duraludon, which is in the doc. Still reachable in game
     [SPECIES_GIGANTAMAX_DURALUDON] = {
         .textData = {
             .name = "-----",
@@ -81226,6 +81784,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_URSHIFU] = {
         .textData = {
             .name = "-----",
@@ -81283,6 +81842,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_GIGANTAMAX_URSHIFU_RAPID_STRIKE] = {
         .textData = {
             .name = "-----",
@@ -81340,6 +81900,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Raichu, which is in the doc. Still reachable in game
     [SPECIES_MEGA_RAICHU_X] = {
         .textData = {
             .name = "-----",
@@ -81397,6 +81958,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Raichu, which is in the doc. Still reachable in game
     [SPECIES_MEGA_RAICHU_Y] = {
         .textData = {
             .name = "-----",
@@ -81454,6 +82016,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Clefable, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CLEFABLE] = {
         .textData = {
             .name = "-----",
@@ -81511,6 +82074,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Victreebel, which is in the doc. Still reachable in game
     [SPECIES_MEGA_VICTREEBEL] = {
         .textData = {
             .name = "-----",
@@ -81568,6 +82132,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Starmie, which is in the doc. Still reachable in game
     [SPECIES_MEGA_STARMIE] = {
         .textData = {
             .name = "-----",
@@ -81625,6 +82190,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Dragonite, which is in the doc. Still reachable in game
     [SPECIES_MEGA_DRAGONITE] = {
         .textData = {
             .name = "-----",
@@ -81682,6 +82248,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Meganium, which is in the doc. Still reachable in game
     [SPECIES_MEGA_MEGANIUM] = {
         .textData = {
             .name = "-----",
@@ -81739,6 +82306,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Feraligatr, which is in the doc. Still reachable in game
     [SPECIES_MEGA_FERALIGATR] = {
         .textData = {
             .name = "-----",
@@ -81796,6 +82364,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Skarmory, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SKARMORY] = {
         .textData = {
             .name = "-----",
@@ -81853,6 +82422,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Chimecho, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CHIMECHO] = {
         .textData = {
             .name = "-----",
@@ -81910,6 +82480,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Absol, which is in the doc. Still reachable in game
     [SPECIES_MEGA_ABSOL_Z] = {
         .textData = {
             .name = "-----",
@@ -81967,6 +82538,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Staraptor, which is in the doc. Still reachable in game
     [SPECIES_MEGA_STARAPTOR] = {
         .textData = {
             .name = "-----",
@@ -82024,6 +82596,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Garchomp, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GARCHOMP_Z] = {
         .textData = {
             .name = "-----",
@@ -82081,6 +82654,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Lucario, which is in the doc. Still reachable in game
     [SPECIES_MEGA_LUCARIO_Z] = {
         .textData = {
             .name = "-----",
@@ -82138,6 +82712,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Froslass, which is in the doc. Still reachable in game
     [SPECIES_MEGA_FROSLASS] = {
         .textData = {
             .name = "-----",
@@ -82195,6 +82770,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Heatran, which is in the doc. Still reachable in game
     [SPECIES_MEGA_HEATRAN] = {
         .textData = {
             .name = "-----",
@@ -82252,6 +82828,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Darkrai, which is in the doc. Still reachable in game
     [SPECIES_MEGA_DARKRAI] = {
         .textData = {
             .name = "-----",
@@ -82309,6 +82886,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Emboar, which is in the doc. Still reachable in game
     [SPECIES_MEGA_EMBOAR] = {
         .textData = {
             .name = "-----",
@@ -82366,6 +82944,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Excadrill, which is in the doc. Still reachable in game
     [SPECIES_MEGA_EXCADRILL] = {
         .textData = {
             .name = "-----",
@@ -82423,6 +83002,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Scolipede, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SCOLIPEDE] = {
         .textData = {
             .name = "-----",
@@ -82480,6 +83060,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Scrafty, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SCRAFTY] = {
         .textData = {
             .name = "-----",
@@ -82537,6 +83118,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Eelektross, which is in the doc. Still reachable in game
     [SPECIES_MEGA_EELEKTROSS] = {
         .textData = {
             .name = "-----",
@@ -82594,6 +83176,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Chandelure, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CHANDELURE] = {
         .textData = {
             .name = "-----",
@@ -82651,6 +83234,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Golurk, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GOLURK] = {
         .textData = {
             .name = "-----",
@@ -82708,6 +83292,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Chesnaught, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CHESNAUGHT] = {
         .textData = {
             .name = "-----",
@@ -82765,6 +83350,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Delphox, which is in the doc. Still reachable in game
     [SPECIES_MEGA_DELPHOX] = {
         .textData = {
             .name = "-----",
@@ -82822,6 +83408,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Greninja, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GRENINJA] = {
         .textData = {
             .name = "-----",
@@ -82879,6 +83466,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_PYROAR] = {
         .textData = {
             .name = "-----",
@@ -82936,6 +83524,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_FLOETTE] = {
         .textData = {
             .name = "-----",
@@ -82993,6 +83582,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_MEOWSTIC] = {
         .textData = {
             .name = "-----",
@@ -83050,6 +83640,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_MEOWSTIC_FEMALE] = {
         .textData = {
             .name = "-----",
@@ -83107,6 +83698,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_MALAMAR] = {
         .textData = {
             .name = "-----",
@@ -83164,6 +83756,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Barbaracle, which is in the doc. Still reachable in game
     [SPECIES_MEGA_BARBARACLE] = {
         .textData = {
             .name = "-----",
@@ -83221,6 +83814,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Dragalge, which is in the doc. Still reachable in game
     [SPECIES_MEGA_DRAGALGE] = {
         .textData = {
             .name = "-----",
@@ -83278,6 +83872,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_HAWLUCHA] = {
         .textData = {
             .name = "-----",
@@ -83335,6 +83930,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_ZYGARDE] = {
         .textData = {
             .name = "-----",
@@ -83392,6 +83988,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Crabomnabl, which is in the doc. Still reachable in game
     [SPECIES_MEGA_CRABOMINABLE] = {
         .textData = {
             .name = "-----",
@@ -83449,6 +84046,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Golisopod, which is in the doc. Still reachable in game
     [SPECIES_MEGA_GOLISOPOD] = {
         .textData = {
             .name = "-----",
@@ -83506,6 +84104,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_DRAMPA] = {
         .textData = {
             .name = "-----",
@@ -83563,6 +84162,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_MAGEARNA] = {
         .textData = {
             .name = "-----",
@@ -83620,6 +84220,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_MAGEARNA_ORIGINAL] = {
         .textData = {
             .name = "-----",
@@ -83677,6 +84278,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_ZERAORA] = {
         .textData = {
             .name = "-----",
@@ -83734,6 +84336,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_FALINKS] = {
         .textData = {
             .name = "-----",
@@ -83791,6 +84394,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Scovillain, which is in the doc. Still reachable in game
     [SPECIES_MEGA_SCOVILLAIN] = {
         .textData = {
             .name = "-----",
@@ -83848,6 +84452,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_GLIMMORA] = {
         .textData = {
             .name = "-----",
@@ -83905,6 +84510,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Tatsugiri, which is in the doc. Still reachable in game
     [SPECIES_MEGA_TATSUGIRI] = {
         .textData = {
             .name = "-----",
@@ -83962,6 +84568,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Tatsugiri, which is in the doc. Still reachable in game
     [SPECIES_MEGA_TATSUGIRI_DROOPY] = {
         .textData = {
             .name = "-----",
@@ -84019,6 +84626,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Tatsugiri, which is in the doc. Still reachable in game
     [SPECIES_MEGA_TATSUGIRI_STRETCHY] = {
         .textData = {
             .name = "-----",
@@ -84076,6 +84684,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // UNUSED: not in the design doc
     [SPECIES_MEGA_BAXCALIBUR] = {
         .textData = {
             .name = "-----",
@@ -84817,6 +85426,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_B] = {
         .textData = {
             .name = "Unown",
@@ -84874,6 +85484,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_C] = {
         .textData = {
             .name = "Unown",
@@ -84931,6 +85542,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_D] = {
         .textData = {
             .name = "Unown",
@@ -84988,6 +85600,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_E] = {
         .textData = {
             .name = "Unown",
@@ -85045,6 +85658,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_F] = {
         .textData = {
             .name = "Unown",
@@ -85102,6 +85716,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_G] = {
         .textData = {
             .name = "Unown",
@@ -85159,6 +85774,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_H] = {
         .textData = {
             .name = "Unown",
@@ -85216,6 +85832,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_I] = {
         .textData = {
             .name = "Unown",
@@ -85273,6 +85890,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_J] = {
         .textData = {
             .name = "Unown",
@@ -85330,6 +85948,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_K] = {
         .textData = {
             .name = "Unown",
@@ -85387,6 +86006,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_L] = {
         .textData = {
             .name = "Unown",
@@ -85444,6 +86064,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_M] = {
         .textData = {
             .name = "Unown",
@@ -85501,6 +86122,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_N] = {
         .textData = {
             .name = "Unown",
@@ -85558,6 +86180,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_O] = {
         .textData = {
             .name = "Unown",
@@ -85615,6 +86238,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_P] = {
         .textData = {
             .name = "Unown",
@@ -85672,6 +86296,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_Q] = {
         .textData = {
             .name = "Unown",
@@ -85729,6 +86354,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_R] = {
         .textData = {
             .name = "Unown",
@@ -85786,6 +86412,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_S] = {
         .textData = {
             .name = "Unown",
@@ -85843,6 +86470,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_T] = {
         .textData = {
             .name = "Unown",
@@ -85900,6 +86528,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_U] = {
         .textData = {
             .name = "Unown",
@@ -85957,6 +86586,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_V] = {
         .textData = {
             .name = "Unown",
@@ -86014,6 +86644,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_W] = {
         .textData = {
             .name = "Unown",
@@ -86071,6 +86702,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_X] = {
         .textData = {
             .name = "Unown",
@@ -86128,6 +86760,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_Y] = {
         .textData = {
             .name = "Unown",
@@ -86185,6 +86818,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_Z] = {
         .textData = {
             .name = "Unown",
@@ -86242,6 +86876,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_EXCLAMATION] = {
         .textData = {
             .name = "Unown",
@@ -86299,6 +86934,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Unown, which is in the doc. Still reachable in game
     [SPECIES_UNOWN_QUESTION] = {
         .textData = {
             .name = "Unown",
@@ -86356,6 +86992,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Burmy, which is in the doc. Still reachable in game
     [SPECIES_BURMY_SANDY] = {
         .textData = {
             .name = "Burmy",
@@ -86413,6 +87050,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Burmy, which is in the doc. Still reachable in game
     [SPECIES_BURMY_TRASH] = {
         .textData = {
             .name = "Burmy",
@@ -86470,6 +87108,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_FIGHTING] = {
         .textData = {
             .name = "Arceus",
@@ -86527,6 +87166,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_FLYING] = {
         .textData = {
             .name = "Arceus",
@@ -86584,6 +87224,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_POISON] = {
         .textData = {
             .name = "Arceus",
@@ -86641,6 +87282,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_GROUND] = {
         .textData = {
             .name = "Arceus",
@@ -86698,6 +87340,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_ROCK] = {
         .textData = {
             .name = "Arceus",
@@ -86755,6 +87398,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_BUG] = {
         .textData = {
             .name = "Arceus",
@@ -86812,6 +87456,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_GHOST] = {
         .textData = {
             .name = "Arceus",
@@ -86869,6 +87514,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_STEEL] = {
         .textData = {
             .name = "Arceus",
@@ -86926,6 +87572,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_FAIRY] = {
         .textData = {
             .name = "Arceus",
@@ -86983,6 +87630,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_FIRE] = {
         .textData = {
             .name = "Arceus",
@@ -87040,6 +87688,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_WATER] = {
         .textData = {
             .name = "Arceus",
@@ -87097,6 +87746,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_GRASS] = {
         .textData = {
             .name = "Arceus",
@@ -87154,6 +87804,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_ELECTRIC] = {
         .textData = {
             .name = "Arceus",
@@ -87211,6 +87862,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_PSYCHIC] = {
         .textData = {
             .name = "Arceus",
@@ -87268,6 +87920,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_ICE] = {
         .textData = {
             .name = "Arceus",
@@ -87325,6 +87978,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_DRAGON] = {
         .textData = {
             .name = "Arceus",
@@ -87382,6 +88036,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Arceus, which is in the doc. Still reachable in game
     [SPECIES_ARCEUS_DARK] = {
         .textData = {
             .name = "Arceus",
@@ -87439,6 +88094,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
+    // NOT IN DESIGN DOC: alternate form of Pichu, which is in the doc. Still reachable in game
     [SPECIES_PICHU_SPIKY_EAR] = {
         .textData = {
             .name = "Pichu",
