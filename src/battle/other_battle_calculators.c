@@ -4057,7 +4057,7 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
     if (battlerId == BATTLER_NONE) {
         return ABILITY_NONE;
     }
-    BOOL isGrounded = ctx->moveConditionsFlags[ctx->defence_client].grounded;
+    BOOL isGrounded = ctx->moveConditionsFlags[battlerId].grounded; // grounded by smack down or thousand arrows
     BOOL isGravityOn = (ctx->field_condition & FIELD_CONDITION_GRAVITY);
     BOOL isIngrained = (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN);
 
