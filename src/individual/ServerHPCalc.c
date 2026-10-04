@@ -29,7 +29,21 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
         sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
     }
 
-    if (sp->damage) {
+    // a hit fully blocked by disguise or ice face deals no damage, but still counts as a hit for contact effects like rocky helmet.
+    // the form change only happens after this, so the defender is still in its disguised form here
+    BOOL blockedByDisguiseOrIceFace = (sp->damage == 0)
+        && (sp->moveTbl[sp->current_move_index].power != 0)
+        && (CheckSubstitute(sp, sp->defence_client) == FALSE)
+        && !(sp->battlemon[sp->defence_client].condition2 & STATUS2_TRANSFORM)
+        && (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_DISGUISE) == TRUE)
+                && (sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
+                && (sp->battlemon[sp->defence_client].form_no == 0 || sp->battlemon[sp->defence_client].form_no == 2))
+            || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_ICE_FACE) == TRUE)
+                && (sp->battlemon[sp->defence_client].species == SPECIES_EISCUE)
+                && (sp->battlemon[sp->defence_client].form_no == 0)
+                && (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)));
+
+    if (sp->damage || blockedByDisguiseOrIceFace) {
         eqp = HeldItemHoldEffectGet(sp, sp->defence_client);
         atk = HeldItemAtkGet(sp, sp->defence_client, ATK_CHECK_NORMAL);
 
@@ -59,7 +73,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             TestBattle_CheckHPBarExpectation(sp);
 #endif
         } else {
-            BOOL negatedDamage = FALSE;
+            BOOL negatedDamage = blockedByDisguiseOrIceFace;
             // limit damage value to current hp
             if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
                 sp->damage = (sp->battlemon[sp->defence_client].hp) * -1;

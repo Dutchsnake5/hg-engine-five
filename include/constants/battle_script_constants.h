@@ -533,8 +533,10 @@
 #define BATTLE_SUBSCRIPT_SUPREME_OVERLORD                       (524)
 #define BATTLE_SUBSCRIPT_SUPERSWEET_SYRUP                       (525)
 #define BATTLE_SUBSCRIPT_CUD_CHEW                               (526)
+#define BATTLE_SUBSCRIPT_NEUTRALIZING_GAS                       (527)
+#define BATTLE_SUBSCRIPT_NEUTRALIZING_GAS_END                   (528)
 
-#define MAX_BASE_SUBSCRIPT_NUM 526
+#define MAX_BASE_SUBSCRIPT_NUM 528
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

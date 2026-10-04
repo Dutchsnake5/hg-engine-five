@@ -97,11 +97,30 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 #ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_NEUTRALIZING_GAS_TERA_SHIFT %d\n", sp->switch_in_check_seq_no);
 #endif
+            // neutralizing gas wears off once no battler with it is on the field
+            if (sp->neutralizingGasActive && !IsNeutralizingGasActive(sp)) {
+                sp->neutralizingGasActive = FALSE;
+                // abilities that activate on entry activate again now that they work
+                for (i = 0; i < client_set_max; i++) {
+                    sp->battlemon[i].ability_activated_flag = 0;
+                }
+                scriptnum = BATTLE_SUBSCRIPT_NEUTRALIZING_GAS_END;
+                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                break;
+            }
+
             for (i = 0; i < client_set_max; i++) {
                 client_no = sp->turnOrder[i];
 
                 switch (GetBattlerAbility(sp, client_no)) {
                 case ABILITY_NEUTRALIZING_GAS:
+                    if (sp->battlemon[client_no].ability_activated_flag == 0 && sp->battlemon[client_no].hp) {
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        sp->neutralizingGasActive = TRUE;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_NEUTRALIZING_GAS;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    }
                     break;
                 case ABILITY_TERA_SHIFT:
                     break;
@@ -116,7 +135,25 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
 
-            if (i == client_set_max) {
+            // neutralizing gas breaks any illusion on the field
+            if (ret != SWITCH_IN_CHECK_MOVE_SCRIPT && IsNeutralizingGasActive(sp)) {
+                struct BattleSystem *bsys = bw;
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+                    if (sp->battlemon[client_no].hp && IS_CLIENT_IN_ILLUSION_NO_ABILITY(bsys, client_no)) {
+                        gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, client_no));
+                        gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, client_no)] = CLIENT_MAX;
+                        gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, client_no)] = 6;
+                        BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, 0);
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_HANDLE_ILLUSION_FADED;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+            }
+
+            if (ret != SWITCH_IN_CHECK_MOVE_SCRIPT) {
                 sp->switch_in_check_seq_no++;
             }
         } break;

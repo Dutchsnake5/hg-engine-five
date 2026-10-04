@@ -1,4 +1,4 @@
-// Test: Fling - Berry effects are doubled by a target with Ripen (ability currently unimplemented)
+// Test: Fling - Berry effects are doubled by a target with Ripen
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -94,9 +94,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle's Speed rose sharply!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Salac Berry sharply boosted the opposing Shuckle's Speed!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };

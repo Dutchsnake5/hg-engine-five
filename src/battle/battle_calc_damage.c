@@ -871,7 +871,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
             // 6.9.13 Resist Berries
             if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
                 && CanActivateDamageReductionBerry(sp, defender)) {
-                finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+                // ripen doubles the berry's effect
+                finalModifier = QMul_RoundUp(finalModifier, (GetBattlerAbility(sp, defender) == ABILITY_RIPEN) ? UQ412__0_25 : UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
                 debug_printf("\n=================\n");
                 debug_printf("[CalcBaseDamage] 6.9.13 Resist Berries (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);

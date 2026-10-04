@@ -1743,7 +1743,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         item = GetBattleMonItem(sp, attacker);
         species = sp->battlemon[attacker].species;
         condition2 = sp->battlemon[attacker].condition2;
-        ability = sp->battlemon[attacker].ability;
+        ability = GetBattlerAbility(sp, attacker);
         attackerHasLaserFocus = sp->moveConditionsFlags[attacker].laserFocusTimer;
     }
     hold_effect = BattleItemDataGet(sp, item, 1);
@@ -4025,6 +4025,31 @@ BOOL LONG_CALL AbilityNoTransform(int ability)
     return GetAbilityFlags(ability).disabledWhenTransformed;
 }
 
+/**
+ *  @brief check if a battler with neutralizing gas is on the field and its ability is working
+ *
+ *  @param ctx global battle structure
+ *  @return TRUE if neutralizing gas is suppressing abilities
+ */
+BOOL LONG_CALL IsNeutralizingGasActive(struct BattleStruct *ctx)
+{
+    if (gBattleSystem == NULL) {
+        return FALSE;
+    }
+
+    int maxBattlers = BattleWorkClientSetMaxGet(gBattleSystem);
+    for (int i = 0; i < maxBattlers; i++) {
+        // read the ability directly, as GetBattlerAbility calls this
+        if (ctx->battlemon[i].hp
+            && ctx->battlemon[i].ability == ABILITY_NEUTRALIZING_GAS
+            && !(ctx->battlemon[i].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED)
+            && !(ctx->battlemon[i].condition2 & STATUS2_TRANSFORM)) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 // TODO: Just use this instead of the Mold Breaker one
 u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
 {
@@ -4037,6 +4062,17 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
     BOOL isIngrained = (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN);
 
     ability = ctx->battlemon[battlerId].ability;
+
+    // neutralizing gas suppresses every other ability that can be suppressed, unless the battler holds an ability shield.
+    // abilities that can be suppressed have disabledByNeutralizingGas and failsSuppress set differently
+    AbilityFlags flags = GetAbilityFlags(ability);
+    if (ability != ABILITY_NEUTRALIZING_GAS
+        && flags.disabledByNeutralizingGas != flags.failsSuppress
+        && ctx->battlemon[battlerId].item != ITEM_ABILITY_SHIELD
+        && IsNeutralizingGasActive(ctx)) {
+        return ABILITY_NONE;
+    }
+
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
     } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {

@@ -89,11 +89,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         }
     },
-    .expectations = { // TODO confirm this would be how it goes
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro used Sleep Talk!" },
+    .expectations = {
+        // the switch happens before any moves, and Neutralizing Gas breaks the illusion as soon as Weezing enters
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Weezing's Neutralizing Gas" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Neutralizing gas filled the area!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark's illusion wore off!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark used Sleep Talk!" },
     },
-    .knownFailing = TRUE,
 }
 END_TEST

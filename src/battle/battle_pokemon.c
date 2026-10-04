@@ -287,9 +287,10 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
-    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
-    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
-    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+    // reset the illusion state of the side being sent out, not of whichever battler is currently the defender
+    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, side));
+    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = CLIENT_MAX;
+    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, side)] = 6;
 
     if (
         // mon's ability is illusion
@@ -338,9 +339,10 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
-    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
-    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
-    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+    // reset the illusion state of the side being sent out, not of whichever battler is currently the defender
+    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, side));
+    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = CLIENT_MAX;
+    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, side)] = 6;
 
     if (
         // mon's ability is illusion
@@ -389,9 +391,10 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
-    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
-    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
-    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+    // reset the illusion state of the side being sent out, not of whichever battler is currently the defender
+    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, side));
+    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = CLIENT_MAX;
+    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, side)] = 6;
 
     if (
         // mon's ability is illusion

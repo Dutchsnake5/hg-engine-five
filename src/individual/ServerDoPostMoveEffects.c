@@ -1056,6 +1056,12 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys UNUSED, struct BattleStruct *ctx)
             int itemHoldEffect = HeldItemHoldEffectGet(ctx, client_no);
             int itemPower = HeldItemAtkGet(ctx, client_no, 0);
 
+            // ripen doubles the recoil from jaboca and rowap berries
+            if ((itemHoldEffect == HOLD_EFFECT_RECOIL_PHYSICAL || itemHoldEffect == HOLD_EFFECT_RECOIL_SPECIAL)
+                && GetBattlerAbility(ctx, client_no) == ABILITY_RIPEN) {
+                itemPower /= 2;
+            }
+
             switch (itemHoldEffect) {
             case HOLD_EFFECT_RECOIL_PHYSICAL: // Jaboca Berry
                 // Attacker is alive after the attack

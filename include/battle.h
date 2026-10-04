@@ -1100,6 +1100,7 @@ struct BattleStruct {
     u8 mirrorArmorSavedStateClient;
     int mirrorArmorSavedBattlerIdTemp;
     int mirrorArmorSavedAddeffectType;
+    u8 neutralizingGasActive; // TRUE from when neutralizing gas is announced until its effects wear off
 };
 
 enum {
@@ -1935,6 +1936,7 @@ void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species
  *  @return ability index that battler has
  */
 u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId);
+BOOL LONG_CALL IsNeutralizingGasActive(struct BattleStruct *ctx);
 
 /**
  *  @brief perform damage division, setting the variables that need to be set for damage in general
