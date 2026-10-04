@@ -4025,10 +4025,6 @@ BOOL LONG_CALL AbilityNoTransform(int ability)
     return GetAbilityFlags(ability).disabledWhenTransformed;
 }
 
-// per battler cache of whether the battler's ability can be suppressed by neutralizing gas
-static u16 sNeutralizingGasCacheAbility[CLIENT_MAX] = { ABILITY_NONE, ABILITY_NONE, ABILITY_NONE, ABILITY_NONE };
-static u8 sNeutralizingGasCacheSuppressible[CLIENT_MAX] = { FALSE, FALSE, FALSE, FALSE };
-
 /**
  *  @brief check if a battler with neutralizing gas is on the field and its ability is working
  *
@@ -4068,19 +4064,14 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
     ability = ctx->battlemon[battlerId].ability;
 
     // neutralizing gas suppresses every other ability that can be suppressed, unless the battler holds an ability shield.
-    // the cheap checks come first because GetAbilityFlags reads from a narc and this function is called very often
+    // abilities that can be suppressed have disabledByNeutralizingGas and failsSuppress set differently.
+    // the cheap checks come first because this function is called very often
     if (ability != ABILITY_NONE
         && ability != ABILITY_NEUTRALIZING_GAS
         && ctx->battlemon[battlerId].item != ITEM_ABILITY_SHIELD
         && IsNeutralizingGasActive(ctx)) {
-        // abilities that can be suppressed have disabledByNeutralizingGas and failsSuppress set differently.
-        // ability flags never change, so cache the result per battler to avoid reading the narc every time
-        if (sNeutralizingGasCacheAbility[battlerId] != ability) {
-            AbilityFlags flags = GetAbilityFlags(ability);
-            sNeutralizingGasCacheAbility[battlerId] = ability;
-            sNeutralizingGasCacheSuppressible[battlerId] = (flags.disabledByNeutralizingGas != flags.failsSuppress);
-        }
-        if (sNeutralizingGasCacheSuppressible[battlerId]) {
+        AbilityFlags flags = GetAbilityFlags(ability);
+        if (flags.disabledByNeutralizingGas != flags.failsSuppress) {
             return ABILITY_NONE;
         }
     }

@@ -517,6 +517,12 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
 {
     BOOL ret = FALSE;
 
+    // the result can only be TRUE if the defender has the ability, so check that first.
+    // AbilityIsIgnoredByMoldBreaker reads from a narc, and this is called very often for abilities the defender doesn't have
+    if ((u32)defenderAbility != ability) {
+        return FALSE;
+    }
+
     if ((attacker == defender) || !AbilityIsIgnoredByMoldBreaker(ability)) {
         return (u32)defenderAbility == ability;
     }
@@ -1061,6 +1067,12 @@ void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx
     ctx->swoak_seq_no = 0; // reset according to the scriptures
 }
 
+// ability flags never change, so they are kept here after being read from the narc once.
+// GetAbilityFlags is called very often during battles and reading from the narc every time is slow.
+// these are zeroed whenever the battle overlay is loaded
+static AbilityFlags sAbilityFlagsCache[NUM_ABILITIES];
+static u8 sAbilityFlagsCached[((NUM_ABILITIES) + 7) / 8];
+
 AbilityFlags LONG_CALL GetAbilityFlags(int ability)
 {
     AbilityFlags flags = { 0 };
@@ -1068,7 +1080,10 @@ AbilityFlags LONG_CALL GetAbilityFlags(int ability)
         return flags;
     }
 
-    ReadFromNarcMemberByIdPair(&flags, ARC_CODE_ADDONS, CODE_ADDON_ABILITY_FLAGS, ability * sizeof(AbilityFlags), sizeof(AbilityFlags));
+    if (!(sAbilityFlagsCached[ability / 8] & (1 << (ability % 8)))) {
+        ReadFromNarcMemberByIdPair(&sAbilityFlagsCache[ability], ARC_CODE_ADDONS, CODE_ADDON_ABILITY_FLAGS, ability * sizeof(AbilityFlags), sizeof(AbilityFlags));
+        sAbilityFlagsCached[ability / 8] |= (1 << (ability % 8));
+    }
 
-    return flags;
+    return sAbilityFlagsCache[ability];
 }
