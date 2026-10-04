@@ -535,7 +535,7 @@ Cords that shine when you hold them\nup to the light. The people of old\ntimes p
 A mysterious balm that somehow has\nthe power to calm Dialga in its\nfrenzy.
 A mysterious balm that somehow has\nthe power to calm Palkia in its\nfrenzy.
 A mysterious balm to be used when\nbattling Arceus.
-String exuding a mysterious energy that\nmakes you feel a sense of connection.\nIt’s loved by certain Pokémon.
+A peculiar cord that can make\ncertain species of Pokémon evolve.\nIt exudes a mysterious energy.
 A baked treat made from Berries\nand other ingredients, which is often\neaten in regions such as Galar.\rIt is beloved by a surprising number of\nPokémon.
 A fruit whose shell can be used to form\nthe capsules of all manner of Poké Balls\nwhen crafting them from scratch.\rIts proper name is actually “Brown\nApricorn.”
 A hidden gem gaining popularity\nin Jubilife Village and beloved\nby Pokémon.\rThis sweet treat can be fed\nto a Pokémon to cure any status\ncondition it may have.
@@ -616,7 +616,7 @@ An Apricorn that’s had its insides\neaten. Hitting a Pokémon with one\nmay st
 A hard ball made of compressed snow.\nHitting a Pokémon with one may stun\nthe Pokémon, creating an opening for\ryou to act.
 A ball of some kind of sticky\nsubstance. Hitting a Pokémon with\none may stun the Pokémon, creating\ran opening for you to act.
 A glassy black stone that produces\na sharp cutting edge when split.\nIt’s loved by a certain Pokémon.
-A block of muddy material that can be\nused as fuel for burning when it is dried.\nIt’s loved by a certain Pokémon.
+A peculiar block that can make\ncertain species of Pokémon evolve.\nIt is made of muddy material.
 When used in the field, this spray\nmuffles the sound of your footsteps\nand makes wild Pokémon less likely\rto notice you for a short time.
 Required for crafting medicinal\ncompounds. This vegetable is found\ngrowing across the Hisui region and\ris also known as the wayfarer’s\nfriend.
 Also called a morning-dew bud. It is\nused as a material for crafting\nitems that can restore vitality to a\rPokémon that has fainted.

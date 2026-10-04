@@ -219,21 +219,21 @@ An item to be held by a Pokémon.\nThis light, sharp claw lets the\nholder move 
 An item to be held by a Pokémon.\nThe comforting chime of this bell\ncalms the holder, making it friendly.
 An item to be held by a Pokémon.\nIt snaps the user out of move-binding\neffects to move freely--but only once.
 An item to be held by a Pokémon.\nThis curious headband boosts Attack\nbut only allows the use of one move.
-An item to be held by a Pokémon.\nWhen the holder successfully inflicts\ndamage, the target may also flinch.
+A peculiar crown that can make\ncertain species of Pokémon evolve.\nWhen held, it may make the foe flinch.
 An item to be held by a Pokémon.\nIt’s a shiny silver powder that boosts\nthe power of the holder’s Bug-type moves.
 An item to be held by a Pokémon.\nIt doubles any prize money received\nif the holding Pokémon joins a battle.
 An item to be held by a Pokémon.\nIt helps keep wild Pokémon away when\nthe holder is the head of the party.
 A wondrous orb to be held by Latios or\nLatias. It boosts the power of their\nPsychic- and Dragon-type moves.
-An item to be held by Clamperl.\nThis fang gleams a sharp silver\nand boosts Clamperl’s Sp. Atk stat.
-An item to be held by Clamperl.\nThis scale shines with a faint pink\nand boosts Clamperl’s Sp. Def stat.
+A peculiar fang that can make\ncertain species of Pokémon evolve.\nHeld by Clamperl, it boosts Sp. Atk.
+A peculiar scale that can make\ncertain species of Pokémon evolve.\nHeld by Clamperl, it boosts Sp. Def.
 An item to be held by a Pokémon.\nIt enables the holder to flee from any\nwild Pokémon encounter without fail.
 An item to be held by a Pokémon.\nA Pokémon holding this peculiar stone\nis prevented from evolving.
 An item to be held by a Pokémon.\nThe holder may endure a potential KO attack,\nleaving it with just 1 HP.
 An item to be held by a Pokémon.\nIt’s an egg filled with happiness that\nearns the holder extra Exp. Points.
 An item to be held by a Pokémon.\nIt’s a lens for scoping out weak points.\nIt boosts the holder’s critical-hit ratio.
-An item to be held by a Pokémon.\nIt is a special metallic film that\nboosts the power of Steel-type moves.
+A peculiar metal film that can make\ncertain species of Pokémon evolve.\nWhen held, it boosts Steel-type moves.
 An item to be held by a Pokémon.\nThe holder’s HP is slowly but steadily\nrestored throughout a battle.
-A very tough and inflexible scale.\nDragon-type Pokémon may be holding\nthis item when caught.
+A peculiar scale that can make\ncertain species of Pokémon evolve.\nIt is very tough and inflexible.
 An item to be held by Pikachu.\nIt’s a mysterious orb that boosts\nPikachu’s Attack and Sp. Atk stats.
 An item to be held by a Pokémon.\nIt’s a loose, silky sand that boosts\nthe power of the Ground-type moves.
 An item to be held by a Pokémon.\nIt’s a durable stone that boosts\nthe power of Rock-type moves.
@@ -250,7 +250,7 @@ An item to be held by a Pokémon.\nImbued with telekinetic power, the spoon\nboo
 An item to be held by a Pokémon.\nIt’s a combustible fuel that boosts\nthe power of Fire-type moves.
 An item to be held by a Pokémon.\nThis hard, sharp fang boosts the power\nof the holder’s Dragon-type moves.
 An item to be held by a Pokémon.\nIt’s a sumptuous scarf that boosts\nthe power of Normal-type moves.
-A transparent device somehow filled\nwith all sorts of data.\nIt was produced by Silph Co.
+A peculiar device that can make\ncertain species of Pokémon evolve.\nIt was produced by Silph Co.
 An item to be held by a Pokémon.\nThe holder restores a little HP every\ntime it inflicts damage on others.
 An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Water-type moves.
 An item to be held by a Pokémon.\nThe curious aroma of this incense\nmay cause moves to miss its holder.
@@ -319,13 +319,13 @@ An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts
 An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Grass-type moves.
 An item to be held by a Pokémon.\nIt doubles any prize money received as long\nas the holder joins the battle at least once.
 An item to be held by a Pokémon.\nIt helps keep wild Pokémon away when\nthe holder is the head of the party.
-A protective item of some sort.\nIt is extremely stiff and heavy.\nIt’s loved by a certain Pokémon.
-A box packed with a tremendous amount\nof electric energy.\nIt’s loved by a certain Pokémon.
-A box packed with a tremendous amount\nof magma energy.\nIt’s loved by a certain Pokémon.
-A transparent device overflowing with\ndubious data.\nIt’s loved by a certain Pokémon.
-A cloth imbued with horrifyingly strong\nspiritual energy.\nIt’s loved by a certain Pokémon.
-An item to be held by a Pokémon.\nThis sharply hooked claw boosts the\ncritical-hit ratio of the holder’s moves.
-An item to be held by a Pokémon.\nWhen the holder successfully inflicts\ndamage, the target may also flinch.
+A peculiar protector that can make\ncertain species of Pokémon evolve.\nIt is extremely stiff and heavy.
+A peculiar box that can make\ncertain species of Pokémon evolve.\nIt is packed with electric energy.
+A peculiar box that can make\ncertain species of Pokémon evolve.\nIt is packed with magma energy.
+A peculiar disc that can make\ncertain species of Pokémon evolve.\nIt overflows with dubious data.
+A peculiar cloth that can make\ncertain species of Pokémon evolve.\nIt is imbued with spiritual energy.
+A peculiar claw that can make\ncertain species of Pokémon evolve.\nWhen held, it raises the crit ratio.
+A peculiar fang that can make\ncertain species of Pokémon evolve.\nWhen held, it may make the foe flinch.
 The user focuses its mind before\nlaunching this attack. It will fail\nif the user is hit before it is used.
 Sharp, huge claws hook and slash\nthe foe quickly and with great\npower.
 The foe is hit with a pulsing blast\nof water. It may also confuse the\ntarget.

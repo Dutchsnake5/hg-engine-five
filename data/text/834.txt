@@ -1,4 +1,4 @@
-A mysterious scale that causes\na certain Pokémon to evolve.\nIt shines in rainbow colors.
+A peculiar scale that can make\ncertain species of Pokémon evolve.\nIt shines in rainbow colors.
 A mysterious evolutionary lump.\nIt raises both Defense and Sp. Def when\nheld by a Pokémon that can still evolve.
 An item to be held by a Pokémon.\nThis very light stone reduces the\nweight of the holder.
 An item to be held by a Pokémon.\nIf the holder is hit, the attacker\nwill also be damaged upon contact.
