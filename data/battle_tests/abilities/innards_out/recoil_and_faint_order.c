@@ -1,5 +1,5 @@
 // Test: Innards Out - return entire damage received, recoil and faint order
-// SKIP
+// the player has a backup Pokemon so the battle does not end in a loss, which would stop the test runner
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -20,7 +20,18 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_SNOM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_ICE_SCALES,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },

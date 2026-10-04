@@ -38,7 +38,7 @@ BEGIN_TEST {
                         .species = SPECIES_MEGANIUM,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_CHLOROPHYLL,
+                        .ability = ABILITY_LIMBER,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
@@ -121,5 +121,4 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on the opposing Meganium." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Sleep Talk!" },
     },
-    .knownFailing = TRUE,
 } END_TEST

@@ -627,10 +627,19 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
     return 1; // FIGHT
 }
 
+static int TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler);
+
+// party slot each battler picked for its last post-KO switch-in, so a partner that fainted on the same turn does not pick it too
+static u8 sPendingKOSwitchSlot[CLIENT_MAX];
+
 // send out pokemon in order
-int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int battler UNUSED)
+int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
 {
-    return 6;
+    // the vanilla fallback after this returns 6 only skips the slots that are currently active.
+    // when both battlers on a side faint at once, both would pick the same party slot, so pick here and remember it for the partner
+    int slot = TestBattle_FindNextLivePartySlot(bsys, bsys->sp, battler);
+    sPendingKOSwitchSlot[battler] = slot;
+    return slot;
 }
 
 static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler, int partySlot)
@@ -640,6 +649,10 @@ static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struc
 
     for (int other = 0; other < maxBattlers; other++) {
         if (IsClientEnemy(bsys, other) == side && ctx->sel_mons_no[other] == partySlot) {
+            return TRUE;
+        }
+        // a partner waiting to be replaced on the same turn may already have claimed this slot
+        if (other != battler && IsClientEnemy(bsys, other) == side && (ctx->client_status[other] & 1) && sPendingKOSwitchSlot[other] == partySlot) {
             return TRUE;
         }
     }
@@ -694,6 +707,10 @@ BOOL LONG_CALL TestBattle_ShowParty(struct BattleSystem *bsys, struct BattleStru
     for (int battler = 0; battler < maxBattlers; battler++) {
         if (ctx->client_status[battler] & 1) {
             promptedBattlers |= MaskOfFlagNo(battler);
+            // nothing left to send out for this slot, so there is no party list to show
+            if (TestBattle_FindNextLivePartySlot(bsys, ctx, battler) == 6) {
+                continue;
+            }
             if (!TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
                 BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
             }
@@ -740,8 +757,17 @@ BOOL LONG_CALL TestBattle_WaitMonSelection(struct BattleSystem *bsys, struct Bat
         }
 
         int selectedSlot = TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
+        // a slot with nothing left to send out stays empty instead of reading a selection that never comes
+        if (selectedSlot == 6) {
+            ctx->client_status[battler] &= ~1;
+            // mark the slot empty the same way the game's faint handler does when there is no replacement
+            ctx->no_reshuffle_client |= No2Bit(battler);
+            switchCnt--;
+            continue;
+        }
         if (TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
             ctx->reshuffle_sel_mons_no[battler] = selectedSlot;
+            sPendingKOSwitchSlot[battler] = selectedSlot;
             autoSelected[battler] = TRUE;
             switchCnt--;
             continue;
@@ -774,6 +800,27 @@ BOOL LONG_CALL TestBattle_WaitMonSelection(struct BattleSystem *bsys, struct Bat
     ctx->battle_progress_flag = 1;
 
     return FALSE;
+}
+
+/**
+ * @brief give an empty player slot (fainted with nothing left to send out) the same "no action" command the game's own
+ *        selection screen gives it, instead of a scripted move that would be run for a battler that is not there
+ *
+ * @return TRUE if the slot is empty and was handled
+ */
+static BOOL TestBattle_SkipEmptySlot(struct BattleStruct *ctx, int battler)
+{
+    if (!(ctx->no_reshuffle_client & No2Bit(battler))) {
+        return FALSE;
+    }
+    ctx->playerActions[battler][0] = 40; // what the vanilla selection screen sets for an absent battler
+    ctx->com_seq_no[battler] = SSI_STATE_END;
+    ctx->ret_seq_no[battler] = SSI_STATE_13;
+    // still use up this turn's scripted action, so the test knows when every slot's script is done
+    if (GetScriptIndex(battler) < AI_SCRIPT_MAX_MOVES) {
+        IncrementScriptIndex(battler);
+    }
+    return TRUE;
 }
 
 /**
@@ -822,7 +869,9 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
     const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
     int scriptIndex0 = GetScriptIndex(0);
 
-    if (scriptIndex0 < AI_SCRIPT_MAX_MOVES) {
+    if (TestBattle_SkipEmptySlot(ctx, 0)) {
+        // nothing to pick for an empty slot
+    } else if (scriptIndex0 < AI_SCRIPT_MAX_MOVES) {
         struct BattleAction action = script0[scriptIndex0];
         if (action.action == ACTION_NONE) {
             return;
@@ -859,7 +908,9 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
         const struct BattleAction *script1 = sCurrentScenario->playerScript[1];
         int scriptIndex2 = GetScriptIndex(2);
 
-        if (scriptIndex2 < AI_SCRIPT_MAX_MOVES) {
+        if (TestBattle_SkipEmptySlot(ctx, 2)) {
+            // nothing to pick for an empty slot
+        } else if (scriptIndex2 < AI_SCRIPT_MAX_MOVES) {
             struct BattleAction action = script1[scriptIndex2];
             if (action.action == ACTION_NONE) {
                 return;

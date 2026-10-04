@@ -1,5 +1,4 @@
 // Test: Sludge Wave - Chain Kills in Doubles
-// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -89,7 +88,7 @@ BEGIN_TEST
             .species = SPECIES_CHESPIN,
             .level = 5,
             .form = 0,
-            .ability = ABILITY_NO_GUARD,
+            .ability = ABILITY_IMMUNITY,
             .item = ITEM_FOCUS_SASH,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
