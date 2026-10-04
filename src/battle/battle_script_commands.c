@@ -141,6 +141,8 @@ BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct 
 BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12C_MirrorArmorReflect(void *bsys, struct BattleStruct *ctx);
+static BOOL BtlCmd_RemoveItem(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -485,6 +487,7 @@ const u8 *BattleScrCmdNames[] = {
     "SetFieldCondition2",
     "GoToIfMoveConditionFlagSet",
     "CheckEffectActivationWithChance",
+    "MirrorArmorReflect",
     // "YourCustomCommand",
 };
 
@@ -492,7 +495,9 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12B
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12C
+
+#define BTL_SCR_CMD_REMOVE_ITEM 202
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -571,6 +576,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_CheckEffectActivationWithChance,
+    [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_MirrorArmorReflect,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -608,7 +614,9 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
         }
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-        if (command < START_OF_NEW_BTL_SCR_CMDS) {
+        if (command == BTL_SCR_CMD_REMOVE_ITEM) {
+            ret = BtlCmd_RemoveItem(bw, sp);
+        } else if (command < START_OF_NEW_BTL_SCR_CMDS) {
             ret = BattleScriptCmdTable[command](bw, sp);
         } else {
             ret = NewBattleScriptCmdTable[command - START_OF_NEW_BTL_SCR_CMDS](bw, sp);
@@ -5968,4 +5976,64 @@ BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys UNUSED, struct B
 #endif
 
     return FALSE;
+}
+
+/**
+ *  @brief script command to start or end applying a stat drop bounced back by Mirror Armor.
+ *         starting points the stat change at the mon that caused the drop and treats it as coming from the Mirror Armor mon's ability,
+ *         ending restores everything so that the calling script carries on as before
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_12C_MirrorArmorReflect(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    BOOL start = read_battle_script_param(ctx);
+
+    if (start) {
+        ctx->mirrorArmorSavedStateClient = ctx->state_client;
+        ctx->mirrorArmorSavedBattlerIdTemp = ctx->battlerIdTemp;
+        ctx->mirrorArmorSavedAddeffectType = ctx->addeffect_type;
+        ctx->battlerIdTemp = ctx->state_client;
+        ctx->state_client = ctx->mirrorArmorSource;
+        ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
+        ctx->mirrorArmorReflecting = TRUE;
+    } else {
+        ctx->state_client = ctx->mirrorArmorSavedStateClient;
+        ctx->battlerIdTemp = ctx->mirrorArmorSavedBattlerIdTemp;
+        ctx->addeffect_type = ctx->mirrorArmorSavedAddeffectType;
+        ctx->mirrorArmorReflecting = FALSE;
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief wrapper around the vanilla RemoveItem command that keeps track of berries eaten by Cud Chew mons
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return whatever the vanilla command returns
+ */
+static BOOL BtlCmd_RemoveItem(void *bw, struct BattleStruct *sp)
+{
+    int battler = GrabClientFromBattleScriptParam(bw, sp, sp->SkillSeqWork[sp->skill_seq_no + 1]);
+    u16 item = sp->battlemon[battler].item;
+    u16 recycleItem = sp->recycle_item[battler];
+
+    BOOL ret = BattleScriptCmdTable[BTL_SCR_CMD_REMOVE_ITEM](bw, sp);
+
+    if (sp->cudChewEating & No2Bit(battler)) {
+        // the berry was eaten again by Cud Chew: give back whatever was held before, and don't count it as a new berry
+        sp->cudChewEating &= ~No2Bit(battler);
+        sp->battlemon[battler].item = sp->cudChewStashedItem[battler];
+        sp->recycle_item[battler] = recycleItem;
+        CopyBattleMonToPartyMon(bw, sp, battler);
+    } else {
+        CudChew_RecordBerry(sp, battler, item);
+    }
+
+    return ret;
 }

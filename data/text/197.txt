@@ -1796,3 +1796,6 @@ Magic Room wore off, and held items’\neffects returned to normal!
 {STRVAR_1 1, 0, 0} gained strength\nfrom the fallen!
 The wild {STRVAR_1 1, 0, 0} gained\nstrength from the fallen!
 The opposing {STRVAR_1 1, 0, 0} gained\nstrength from the fallen!
+A supersweet aroma is wafting from\nthe syrup covering {STRVAR_1 1, 0, 0}!
+A supersweet aroma is wafting from\nthe syrup covering\fthe wild {STRVAR_1 1, 0, 0}!
+A supersweet aroma is wafting from\nthe syrup covering\fthe opposing {STRVAR_1 1, 0, 0}!

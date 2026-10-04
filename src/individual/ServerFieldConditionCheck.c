@@ -1672,6 +1672,30 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         }
                         break;
                     }
+                    case ABILITY_CUD_CHEW: {
+                        // eat the berry from last turn again, with the same effect as if it was flung at the mon
+                        if ((sp->battlemon[battlerId].hp)
+                            && (sp->cudChewBerry[battlerId])
+                            && (sp->cudChewTurn[battlerId] < sp->total_turn)) {
+                            sp->cudChewStashedItem[battlerId] = sp->battlemon[battlerId].item;
+                            sp->battlemon[battlerId].item = sp->cudChewBerry[battlerId];
+                            sp->cudChewBerry[battlerId] = 0;
+                            sp->cudChewEating |= No2Bit(battlerId);
+                            sp->attack_client = battlerId;
+                            sp->defence_client = battlerId;
+                            TryFling(bw, sp, battlerId);
+                            if (sp->flingScript == BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE && sp->battlemon[battlerId].hp == (int)sp->battlemon[battlerId].maxhp) {
+                                sp->flingScript = 0;
+                            }
+                            // the berry is held for the duration of the script, so let it be removed at the end
+                            sp->oneSelfFlag[battlerId].status_flag &= ~SELF_TURN_FLAG_PLUCK_BERRY;
+                            sp->item_work = sp->battlemon[battlerId].item;
+                            sp->battlerIdTemp = battlerId;
+                            seq_no = BATTLE_SUBSCRIPT_CUD_CHEW;
+                            ret = TRUE;
+                        }
+                        break;
+                    }
                     case ABILITY_MOODY: { // this is going to be interesting
                         if (sp->battlemon[battlerId].hp) {
                             // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.

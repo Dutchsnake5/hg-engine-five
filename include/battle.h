@@ -1091,6 +1091,15 @@ struct BattleStruct {
     int magicRoomCounter;
     u8 totalFaintedCount[4]; // number of times a mon has fainted on each team, for Supreme Overlord
     u8 supremeOverlordFallen[CLIENT_MAX]; // fallen count locked in when Supreme Overlord activates
+    u16 cudChewBerry[CLIENT_MAX]; // berry a Cud Chew mon will eat again at the end of the next turn
+    int cudChewTurn[CLIENT_MAX]; // total_turn on which cudChewBerry was eaten
+    u16 cudChewStashedItem[CLIENT_MAX]; // item held while Cud Chew re-eats its berry, restored afterwards
+    u8 cudChewEating; // bitmask of battlers currently re-eating a berry via Cud Chew
+    u8 mirrorArmorSource; // battler a stat drop is bounced back to by Mirror Armor
+    u8 mirrorArmorReflecting; // TRUE while a bounced stat drop is being applied, so that it can't bounce again
+    u8 mirrorArmorSavedStateClient;
+    int mirrorArmorSavedBattlerIdTemp;
+    int mirrorArmorSavedAddeffectType;
 };
 
 enum {
@@ -2688,6 +2697,7 @@ void LONG_CALL BattleFormChange(int client, int form_no, void *bw, struct Battle
  *  @param client battler whose flags to clear
  */
 void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client);
+void LONG_CALL CudChew_RecordBerry(struct BattleStruct *sp, int client, u16 item);
 
 /**
  *  @brief dumbs client parameter down into its team in proper scenarios

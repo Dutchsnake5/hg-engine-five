@@ -768,7 +768,7 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
     case STEAL_EFFECT_ATK_UP: // Liechi Berry
         if (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12) {
             sp->msg_work = STAT_ATTACK;
-            sp->flingScript = BATTLE_SUBSCRIPT_BADLY_POISON;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case STEAL_EFFECT_DEF_UP: // Ganlon Berry, Kee Berry

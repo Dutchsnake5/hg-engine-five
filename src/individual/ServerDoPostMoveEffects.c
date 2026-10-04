@@ -2240,6 +2240,8 @@ int LONG_CALL MovePerformance_Step_9(void *bsys, struct BattleStruct *ctx, int *
                 && CheckSubstitute(ctx, ctx->defence_client) == FALSE) {
                 ctx->state_client = ctx->defence_client;
                 ctx->battlerIdTemp = ctx->defence_client;
+                // the target eats a flung berry, so Cud Chew can eat it again
+                CudChew_RecordBerry(ctx, ctx->defence_client, ctx->item_work);
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, ctx->flingScript);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

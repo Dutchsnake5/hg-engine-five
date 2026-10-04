@@ -4,7 +4,7 @@
 .data
 
 _000:
-    ChangeStatStage _051, _069, _070, _AbilityBlock, _AbilityBlockAbility
+    ChangeStatStage _051, _069, _070, _AbilityBlock, _AbilityBlockAbility, _MirrorArmor
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _010
     PrintAttackMessage
     Wait
@@ -81,4 +81,20 @@ _AbilityBlockAbility:
 
 _070:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
+    End
+
+// Mirror Armor bounces the stat drop back at the mon that caused it
+_MirrorArmor:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _MirrorArmorPopup
+    PrintAttackMessage
+    Wait
+    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
+    Wait
+
+_MirrorArmorPopup:
+    AbilityPopup BATTLER_CATEGORY_SIDE_EFFECT_MON
+    WaitButtonABTime 15
+    MirrorArmorReflect TRUE
+    Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
+    MirrorArmorReflect FALSE
     End

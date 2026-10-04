@@ -17,6 +17,28 @@
 #include "save.h"
 
 /**
+ *  @brief get the mon responsible for the stat change currently being applied
+ *
+ *  @param sp global battle structure
+ *  @return the battler that caused the stat change, or the battler being changed if nothing else caused it (hazards, items)
+ */
+static int GetStatDropSource(struct BattleStruct *sp)
+{
+    switch (sp->addeffect_type) {
+    case SIDE_EFFECT_TYPE_ABILITY:
+    case SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY:
+        // Intimidate, Gooey, Cotton Down, etc. put the ability holder in battlerIdTemp
+        return sp->battlerIdTemp;
+    case SIDE_EFFECT_TYPE_HELD_ITEM:
+    case SIDE_EFFECT_TYPE_TOXIC_SPIKES:
+    case SIDE_EFFECT_TYPE_STICKY_WEB: // handled in the hazards script
+        return sp->state_client;
+    default:
+        return sp->attack_client;
+    }
+}
+
+/**
  *  @brief script command to set up the stat boost animation/message
  *
  *  @param bw battle work structure
@@ -31,6 +53,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     int address3;
     int abilityBlockAddress;
     int abilityBlockAbilityAddress;
+    int mirrorArmorAddress;
     int stattochange;
     int statchange;
     int flag;
@@ -43,6 +66,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     address3 = read_battle_script_param(sp);
     abilityBlockAddress = read_battle_script_param(sp);
     abilityBlockAbilityAddress = read_battle_script_param(sp);
+    mirrorArmorAddress = read_battle_script_param(sp);
 
     flag = 0;
 
@@ -125,7 +149,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)))) {
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
+            // a drop bounced back by an opposing Mirror Armor counts as being lowered by an opponent
+            || (sp->mirrorArmorReflecting && IsClientEnemy(bw, sp->state_client) != IsClientEnemy(bw, sp->battlerIdTemp)))) {
         sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
     } else {
         sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
@@ -330,6 +356,25 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 return FALSE;
             }
         }
+        // Mirror Armor bounces drops caused by another mon back at it, unless the stat can't go any lower
+        if (!sp->mirrorArmorReflecting
+            && (sp->addeffect_flag & SIDE_EFFECT_NO_ABILITY) == 0
+            && battlemon->states[STAT_ATTACK + stattochange] > 0) {
+            int source = GetStatDropSource(sp);
+
+            if (source != sp->state_client && MoldBreakerAbilityCheck(sp, source, sp->state_client, ABILITY_MIRROR_ARMOR) == TRUE) {
+                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+                // nothing to bounce back to, so the drop just doesn't happen
+                if (sp->battlemon[source].hp == 0) {
+                    IncrementBattleScriptPtr(sp, address2);
+                    return FALSE;
+                }
+                sp->mirrorArmorSource = source;
+                IncrementBattleScriptPtr(sp, mirrorArmorAddress);
+                return FALSE;
+            }
+        }
+
         if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY && sp->battlerIdTemp == sp->state_client) {
             // debug_printf("in self stat drop check\n");
             sp->mp.id = BATTLE_MSG_STAT_FELL;

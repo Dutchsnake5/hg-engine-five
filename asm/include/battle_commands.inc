@@ -328,13 +328,14 @@
     .long \val
     .endm
 
-    .macro ChangeStatStage arg_0, arg_1, arg_2, arg_3, arg_4
+    .macro ChangeStatStage arg_0, arg_1, arg_2, arg_3, arg_4, mirrorArmorAddress
     .long 51
-    .long (((\arg_0 - .) / 4) - 5)
-    .long (((\arg_1 - .) / 4) - 4)
-    .long (((\arg_2 - .) / 4) - 3)
-    .long (((\arg_3 - .) / 4) - 2)
-    .long (((\arg_4 - .) / 4) - 1)
+    .long (((\arg_0 - .) / 4) - 6)
+    .long (((\arg_1 - .) / 4) - 5)
+    .long (((\arg_2 - .) / 4) - 4)
+    .long (((\arg_3 - .) / 4) - 3)
+    .long (((\arg_4 - .) / 4) - 2)
+    .long (((\mirrorArmorAddress - .) / 4) - 1)
     .endm
 
     .macro UpdateMonData op, battler, param, val
@@ -1639,7 +1640,12 @@
     .long (((\failAddress - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 299
+    .macro MirrorArmorReflect start
+    .long 300
+    .long \start
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 300
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

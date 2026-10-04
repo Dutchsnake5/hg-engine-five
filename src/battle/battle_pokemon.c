@@ -1168,6 +1168,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].potentially_affected_by_psychic_terrain_move_used_flag = 0;
     sp->battlemon[client].ability_activated_flag = 0;
     sp->supremeOverlordFallen[client] = 0;
+    sp->cudChewBerry[client] = 0;
     sp->battlemon[client].tera_type = 0;
     sp->battlemon[client].is_currently_terastallized = 0;
     sp->battlemon[client].is_currently_dynamaxed = 0;
@@ -1215,6 +1216,21 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     // Xerneas should be in Active Mode when in battle
     if (sp->battlemon[client].species == SPECIES_XERNEAS) {
         sp->battlemon[client].form_no = 1;
+    }
+}
+
+/**
+ *  @brief remember a berry a Cud Chew mon just ate so that it can eat it again at the end of the next turn
+ *
+ *  @param sp global battle structure
+ *  @param client battler who ate the berry
+ *  @param item the berry that was eaten
+ */
+void LONG_CALL CudChew_RecordBerry(struct BattleStruct *sp, int client, u16 item)
+{
+    if (IS_ITEM_BERRY(item) && GetBattlerAbility(sp, client) == ABILITY_CUD_CHEW) {
+        sp->cudChewBerry[client] = item;
+        sp->cudChewTurn[client] = sp->total_turn;
     }
 }
 
