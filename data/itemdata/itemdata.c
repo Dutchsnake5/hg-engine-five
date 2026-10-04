@@ -4953,7 +4953,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SUPER_REPEL] =
 {
-    ITEM_PRICE(500),
+    ITEM_PRICE(200),
     .holdEffect = 0,
     .holdEffectParam = 200,
     .pluckEffect = 0,
@@ -5018,7 +5018,7 @@ const ITEMDATA __data[] =
 
 [ITEM_MAX_REPEL] =
 {
-    ITEM_PRICE(700),
+    ITEM_PRICE(250),
     .holdEffect = 0,
     .holdEffectParam = 250,
     .pluckEffect = 0,
@@ -5148,7 +5148,7 @@ const ITEMDATA __data[] =
 
 [ITEM_REPEL] =
 {
-    ITEM_PRICE(350),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 100,
     .pluckEffect = 0,
@@ -41938,7 +41938,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ABILITY_CAPSULE] =
 {
-    ITEM_PRICE(100000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80028,7 +80028,7 @@ const ITEMDATA __data[] =
 
 [ITEM_LONELY_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80093,7 +80093,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ADAMANT_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80158,7 +80158,7 @@ const ITEMDATA __data[] =
 
 [ITEM_NAUGHTY_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80223,7 +80223,7 @@ const ITEMDATA __data[] =
 
 [ITEM_BRAVE_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80288,7 +80288,7 @@ const ITEMDATA __data[] =
 
 [ITEM_BOLD_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80353,7 +80353,7 @@ const ITEMDATA __data[] =
 
 [ITEM_IMPISH_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80418,7 +80418,7 @@ const ITEMDATA __data[] =
 
 [ITEM_LAX_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80483,7 +80483,7 @@ const ITEMDATA __data[] =
 
 [ITEM_RELAXED_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80548,7 +80548,7 @@ const ITEMDATA __data[] =
 
 [ITEM_MODEST_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80613,7 +80613,7 @@ const ITEMDATA __data[] =
 
 [ITEM_MILD_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80678,7 +80678,7 @@ const ITEMDATA __data[] =
 
 [ITEM_RASH_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80743,7 +80743,7 @@ const ITEMDATA __data[] =
 
 [ITEM_QUIET_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80808,7 +80808,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CALM_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80873,7 +80873,7 @@ const ITEMDATA __data[] =
 
 [ITEM_GENTLE_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -80938,7 +80938,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CAREFUL_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -81003,7 +81003,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SASSY_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -81068,7 +81068,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TIMID_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -81133,7 +81133,7 @@ const ITEMDATA __data[] =
 
 [ITEM_HASTY_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -81198,7 +81198,7 @@ const ITEMDATA __data[] =
 
 [ITEM_JOLLY_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -81263,7 +81263,7 @@ const ITEMDATA __data[] =
 
 [ITEM_NAIVE_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -81328,7 +81328,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SERIOUS_MINT] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -104403,7 +104403,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ABILITY_PATCH] =
 {
-    ITEM_PRICE(500000),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
