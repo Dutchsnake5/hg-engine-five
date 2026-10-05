@@ -32,7 +32,7 @@ It doesn’t affect\nthe opposing {STRVAR_1 1, 0, 0}...
 The wild {STRVAR_1 1, 0, 0} fainted!\r
 The opposing {STRVAR_1 1, 0, 0} fainted!\r
 You got ${STRVAR_1 54, 1, 0}\nfor winning!\r
-You panicked and dropped ${STRVAR_1 54, 1, 0}...\r
+You panicked and\ndropped ${STRVAR_1 54, 1, 0}...\r
 You gave ${STRVAR_1 54, 1, 0}\nto the winner...\r
 You have no more Pokémon\nthat can fight!\r
 You were overwhelmed by your defeat!\r
@@ -316,8 +316,8 @@ The opposing {STRVAR_1 1, 0, 0} is making\nan uproar!
 The wild {STRVAR_1 1, 0, 0}\ncalmed down.
 The opposing {STRVAR_1 1, 0, 0}\ncalmed down.
 {STRVAR_1 1, 0, 0} stockpiled {STRVAR_1 50, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} stockpiled {STRVAR_1 50, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} stockpiled {STRVAR_1 50, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}\nstockpiled {STRVAR_1 50, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0}\nstockpiled {STRVAR_1 50, 1, 0}!
 {STRVAR_1 1, 0, 0} can’t\nstockpile any more!
 The wild {STRVAR_1 1, 0, 0} can’t\nstockpile any more!
 The opposing {STRVAR_1 1, 0, 0} can’t\nstockpile any more!
@@ -481,7 +481,7 @@ The wild {STRVAR_1 1, 0, 0} chose\nDoom Desire as its destiny!
 The opposing {STRVAR_1 1, 0, 0} chose\nDoom Desire as its destiny!
 {STRVAR_1 1, 0, 0}’s attack! (Unused)
 The wild {STRVAR_1 1, 0, 0}’s attack! (Unused)
-The opposing {STRVAR_1 1, 0, 0}’s attack! (Unused)
+The opposing {STRVAR_1 1, 0, 0}’s\nattack! (Unused)
 {STRVAR_1 1, 0, 0} became\nthe center of attention!
 The wild {STRVAR_1 1, 0, 0} became\nthe center of attention!
 The opposing {STRVAR_1 1, 0, 0} became\nthe center of attention!
@@ -562,7 +562,7 @@ The wild {STRVAR_1 1, 0, 0} swapped\nAbilities with its target!
 The opposing {STRVAR_1 1, 0, 0} swapped\nAbilities with its target!
 {STRVAR_1 1, 0, 0} sealed any moves\nits target shares with it!
 The wild {STRVAR_1 1, 0, 0} sealed any moves\nits target shares with it!
-The opposing {STRVAR_1 1, 0, 0} sealed any moves\nits target shares with it!
+The opposing {STRVAR_1 1, 0, 0} sealed any\nmoves its target shares with it!
 {STRVAR_1 1, 0, 0} wants its\ntarget to bear a grudge!
 The wild {STRVAR_1 1, 0, 0} wants its\ntarget to bear a grudge!
 The opposing {STRVAR_1 1, 0, 0} wants its\ntarget to bear a grudge!
@@ -1084,7 +1084,7 @@ Pointed stones dug into\nthe opposing {STRVAR_1 1, 0, 0}!
 The wild {STRVAR_1 1, 0, 0} vanished\ninstantly!
 The opposing {STRVAR_1 1, 0, 0} vanished\ninstantly!
 Your team’s Lucky Chant wore off!
-The opposing team’s Lucky Chant wore off!
+The opposing team’s\nLucky Chant wore off!
 {STRVAR_1 1, 0, 0}\nbreaks the mold!
 The wild {STRVAR_1 1, 0, 0}\nbreaks the mold!
 The opposing {STRVAR_1 1, 0, 0}\nbreaks the mold!
@@ -1280,9 +1280,9 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the {STRV
 {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
-The opposing side is too nervous to eat Berries!
-Your side is too nervous to eat Berries!
-Your side is too nervous to eat Berries!
+The opposing side is too\nnervous to eat Berries!
+Your side is too\nnervous to eat Berries!
+Your side is too\nnervous to eat Berries!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it the {STRVAR_1 15, 2, 0} type!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
@@ -1359,7 +1359,7 @@ The opposing {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
 (Unused)
 (Unused)
 You sense the presence of many!
-{STRVAR_1 1, 0, 0} transformed into its Complete\nForme!
+{STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its Sp. Attack!
@@ -1445,22 +1445,22 @@ The Water-type attack evaporated\nin the harsh sunlight!
 The harsh sunlight faded.
 A heavy rain began to fall!
 There is no relief from this heavy rain!
-The Fire-type attack fizzled out in the heavy rain!
+The Fire-type attack fizzled\nout in the heavy rain!
 The heavy rain has lifted!
 Mysterious strong winds are protecting\nFlying-type Pokémon!
 The mysterious strong winds\nblow on regardless!
 The mysterious strong winds\nweakened the attack!
 The mysterious strong winds\nhave dissipated!
 A lingering aroma clings to {STRVAR_1 1, 0, 0}!
-A lingering aroma clings to the wild {STRVAR_1 1, 0, 0}!
-A lingering aroma clings to the opposing {STRVAR_1 1, 0, 0}!
+A lingering aroma clings\nto the wild {STRVAR_1 1, 0, 0}!
+A lingering aroma clings to\nthe opposing {STRVAR_1 1, 0, 0}!
 The mysterious strong winds blow on!
 {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
 You can’t use {STRVAR_1 6, 0, 0}\ntwice in a row!\r
 The effects of the {STRVAR_1 8, 0, 0}\nprevent status moves from being used!
 {STRVAR_1 1, 0, 0}’s burn was healed!
 The wild {STRVAR_1 1, 0, 0}’s burn was healed!
-The opposing {STRVAR_1 1, 0, 0}’s burn was healed!
+The opposing {STRVAR_1 1, 0, 0}’s\nburn was healed!
 {STRVAR_1 1, 0, 0}\nhas two Abilities!
 The wild {STRVAR_1 1, 0, 0}\nhas two Abilities!
 The opposing {STRVAR_1 1, 0, 0}\nhas two Abilities!
@@ -1468,7 +1468,7 @@ Fog crept up as thick as soup!
 A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-The effects of the weather disappeared.
+The effects of the\nweather disappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
@@ -1490,7 +1490,7 @@ The wild {STRVAR_1 1, 0, 0}\nis not affected by\f{STRVAR_1 6, 1, 0}\fthanks to i
 The opposing {STRVAR_1 1, 0, 0}\nis not affected by\f{STRVAR_1 6, 1, 0}\fthanks to its Safety Goggles!
 The move was blocked\nby the power of Dynamax!
 But {STRVAR_1 1, 0, 0} can’t use the move!
-But {STRVAR_1 1, 0, 0} can’t use it the way it is now!
+But {STRVAR_1 1, 0, 0} can’t\nuse it the way it is now!
 {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
 The wild {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
 The opposing {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
@@ -1552,14 +1552,14 @@ The pointed stones disappeared from\naround your side!
 The pointed stones disappeared from\naround the opposing side!
 The spikes disappeared from the ground\naround your side!
 The spikes disappeared from the ground\naround the opposing side!
-The sticky web has disappeared from the\nground on your side!
-The sticky web has disappeared from the\nground on the opposing side!
+The sticky web has disappeared\nfrom the ground on your side!
+The sticky web has disappeared from\nthe ground on the opposing side!
 {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 The wild {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 The opposing {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 Being hit by {STRVAR_1 8, 1, 0} charged\n{STRVAR_1 1, 0, 0} with power!
-Being hit by {STRVAR_1 8, 1, 0} charged the wild\n{STRVAR_1 1, 0, 0} with power!
-Being hit by {STRVAR_1 8, 1, 0} charged the opposing\n{STRVAR_1 1, 0, 0} with power!
+Being hit by {STRVAR_1 8, 1, 0} charged\nthe wild {STRVAR_1 1, 0, 0} with power!
+Being hit by {STRVAR_1 8, 1, 0} charged\nthe opposing {STRVAR_1 1, 0, 0} with power!
 {STRVAR_1 1, 0, 0} was hurt!
 The wild {STRVAR_1 1, 0, 0} was hurt!
 The opposing {STRVAR_1 1, 0, 0} was hurt!
@@ -1576,7 +1576,7 @@ The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!
 {STRVAR_1 1, 0, 0}’s item cannot be removed!
 The wild {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
-The opposing {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+The opposing {STRVAR_1 1, 0, 0}’s\nitem cannot be removed!
 Grass type was added\nto {STRVAR_1 1, 0, 0}!
 Grass type was added\nto the wild {STRVAR_1 1, 0, 0}!
 Grass type was added\nto the opposing {STRVAR_1 1, 0, 0}!
@@ -1608,7 +1608,7 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 {STRVAR_1 1, 0, 0} lost some of its HP!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
-{STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
+{STRVAR_1 1, 0, 0} hasn’t eaten any held\nBerries, so it can’t possibly belch!
 It can’t use the move because it\ndoesn’t have a Berry!
 When the flame touched the powder on\nthe Pokémon, it exploded!
 {STRVAR_1 1, 0, 0} is covered in powder!
@@ -1635,9 +1635,9 @@ It’s super effective on the opposing\n{STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0
 It’s super effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
 It’s super effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
 It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
-It’s super effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
-It’s super effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
-It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
+It’s super effective on {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
+It’s super effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and\f{STRVAR_1 1, 3, 0}!
+It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and\f{STRVAR_1 1, 3, 0}!
 (Placeholder)
 (Placeholder)
 (Placeholder)
@@ -1659,9 +1659,9 @@ It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0} or {STRVAR_1 1, 1,
 It’s not very effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\nor {STRVAR_1 1, 2, 0}.
 It’s not very effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, or {STRVAR_1 1, 2, 0}.
 It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, or {STRVAR_1 1, 2, 0}.
-It’s not very effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
-It’s not very effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
-It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
+It’s not very effective on {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
+It’s not very effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or\f{STRVAR_1 1, 3, 0}.
+It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or\f{STRVAR_1 1, 3, 0}.
 (Placeholder)
 (Placeholder)
 (Placeholder)
@@ -1736,15 +1736,15 @@ The opposing {STRVAR_1 1, 0, 0} became trapped\nin the fiery vortex!
 {STRVAR_1 1, 0, 0} has been\nafflicted with an infestation by\fthe opposing {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} has\nbeen afflicted with an infestation by\f{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} has\nbeen afflicted with an infestation by\fthe wild {STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0}\nhas been afflicted with an infestation by\f{STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0}\nhas been afflicted with an infestation by\fthe opposing {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} has been\nafflicted with an infestation by\f{STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} has been\nafflicted with an infestation by\fthe opposing {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the wild {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} received {STRVAR_1 8, 2, 0}\nfrom the opposing {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the opposing {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the opposing\f{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
 The wild {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
 The opposing {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
@@ -1757,10 +1757,10 @@ The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
 You are challenged by\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
-The wild {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+The wild {STRVAR_1 1, 0, 0}’s aura\nflared to life! Its {STRVAR_1 13, 1, 0} rose!
 The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts {STRVAR_1 13, 1, 0} rose!
 {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
-The wild {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+The wild {STRVAR_1 1, 0, 0}’s aura\nflared to life! Its stats rose!
 The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts stats rose!
 Can’t flee this fight!
 {STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
@@ -1812,10 +1812,10 @@ The wild {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
 The opposing {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
 {STRVAR_1 1, 0, 0} stole the target’s\nboosted stats!
 The wild {STRVAR_1 1, 0, 0} stole the target’s\nboosted stats!
-The opposing {STRVAR_1 1, 0, 0} stole the target’s\nboosted stats!
+The opposing {STRVAR_1 1, 0, 0} stole\nthe target’s boosted stats!
 {STRVAR_1 1, 0, 0}’s type changed to\nmatch the target’s!
 The wild {STRVAR_1 1, 0, 0}’s type changed to\nmatch the target’s!
-The opposing {STRVAR_1 1, 0, 0}’s type changed to\nmatch the target’s!
+The opposing {STRVAR_1 1, 0, 0}’s type\nchanged to match the target’s!
 {STRVAR_1 1, 0, 0}’s stat changes\nwere all reversed!
 The wild {STRVAR_1 1, 0, 0}’s stat changes\nwere all reversed!
 The opposing {STRVAR_1 1, 0, 0}’s stat changes\nwere all reversed!
@@ -1832,17 +1832,17 @@ The opposing {STRVAR_1 1, 0, 0} was freed from\nthe telekinesis!
 The wild {STRVAR_1 1, 0, 0}’s moves have\nbeen electrified!
 The opposing {STRVAR_1 1, 0, 0}’s moves have\nbeen electrified!
 {STRVAR_1 1, 0, 0} can no longer escape\nbecause it used No Retreat!
-The wild {STRVAR_1 1, 0, 0} can no longer escape\nbecause it used No Retreat!
-The opposing {STRVAR_1 1, 0, 0} can no longer escape\nbecause it used No Retreat!
+The wild {STRVAR_1 1, 0, 0} can no longer\nescape because it used No Retreat!
+The opposing {STRVAR_1 1, 0, 0} can no longer\nescape because it used No Retreat!
 {STRVAR_1 1, 0, 0} became weaker\nto fire!
 The wild {STRVAR_1 1, 0, 0} became weaker\nto fire!
 The opposing {STRVAR_1 1, 0, 0} became weaker\nto fire!
 {STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
-The wild {STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
-The opposing {STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
+The wild {STRVAR_1 1, 0, 0} can no longer\nescape because of Octolock!
+The opposing {STRVAR_1 1, 0, 0} can no\nlonger escape because of Octolock!
 {STRVAR_1 1, 0, 0} swapped the battle\neffects affecting each\fside of the field!
 The wild {STRVAR_1 1, 0, 0} swapped the battle\neffects affecting each\fside of the field!
-The opposing {STRVAR_1 1, 0, 0} swapped the battle\neffects affecting each\fside of the field!
+The opposing {STRVAR_1 1, 0, 0} swapped\nthe battle effects affecting each\fside of the field!
 {STRVAR_1 1, 0, 0} is being salted!
 The wild {STRVAR_1 1, 0, 0} is being salted!
 The opposing {STRVAR_1 1, 0, 0} is being salted!
@@ -1863,7 +1863,7 @@ The wild {STRVAR_1 1, 0, 0} started\nheating up its beak!
 The opposing {STRVAR_1 1, 0, 0} started\nheating up its beak!
 {STRVAR_1 1, 0, 0} set a shell trap!
 The wild {STRVAR_1 1, 0, 0} set a shell trap!
-The opposing {STRVAR_1 1, 0, 0} set a shell trap!
+The opposing {STRVAR_1 1, 0, 0}\nset a shell trap!
 {STRVAR_1 1, 0, 0}’s shell trap\ndidn’t work!
 The wild {STRVAR_1 1, 0, 0}’s shell trap\ndidn’t work!
 The opposing {STRVAR_1 1, 0, 0}’s shell trap\ndidn’t work!
@@ -1899,7 +1899,7 @@ The wild {STRVAR_1 1, 0, 0} is too heavy\nto be lifted!
 The opposing {STRVAR_1 1, 0, 0} is too heavy\nto be lifted!
 {STRVAR_1 1, 0, 0} was swallowed by its\nally and became its commander!
 The wild {STRVAR_1 1, 0, 0} was swallowed by its\nally and became its commander!
-The opposing {STRVAR_1 1, 0, 0} was swallowed by its\nally and became its commander!
+The opposing {STRVAR_1 1, 0, 0} was swallowed\nby its ally and became its commander!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
@@ -1911,7 +1911,7 @@ The wild {STRVAR_1 1, 0, 0} found\na {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} found\na {STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0} won’t budge thanks\nto its Guard Dog!
 The wild {STRVAR_1 1, 0, 0} won’t budge thanks\nto its Guard Dog!
-The opposing {STRVAR_1 1, 0, 0} won’t budge thanks\nto its Guard Dog!
+The opposing {STRVAR_1 1, 0, 0} won’t\nbudge thanks to its Guard Dog!
 {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
 {STRVAR_1 1, 0, 0} and the wild {STRVAR_1 1, 1, 0}\nswitched places!
 {STRVAR_1 1, 0, 0} and the opposing {STRVAR_1 1, 1, 0}\nswitched places!
