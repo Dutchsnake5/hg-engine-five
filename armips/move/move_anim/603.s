@@ -27,10 +27,9 @@ a010_603:
     resetsprite 3
     addparticle 0, 0, 4
     repeatse 1960, 117, 4, 6
-    callfunction 34, 6, 8, 0, 2, 11252, 10, 10, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 2, 4255, 10, 10, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 4, 4
     waitstate
     end
 

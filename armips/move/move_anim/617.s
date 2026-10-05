@@ -22,6 +22,7 @@ a010_617:
     waitparticle
     wait 5
 
+    shadetargetmon 8, 28, 8
     shakescreen
 
     loop 4
@@ -61,8 +62,6 @@ a010_617:
     unloadparticle 0
     waitstate
     unloadparticle 1
-    waitstate
-    shadetargetmon 8, 28, 8
     waitstate
     end
 

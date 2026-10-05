@@ -33,9 +33,9 @@ a010_782:
     wait 2
     playsepan 1934, 117
     wait 8
-    callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     shadetargetmon 18, 18, 20
     shaketargetmon 3, 2
+    callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     end
 

@@ -35,6 +35,7 @@ a010_694:
     cmd37 6, 0, 2, 22, 16, 0, 0, "NaN", "NaN"
     addparticle 0, 0, 4
     callfunction 33, 5, 0, 1, 0, 8, 13311, "NaN", "NaN", "NaN", "NaN", "NaN"
+    shadetargetmon 14, 8, 31
     callfunction 36, 5, 0, 2, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 36, 5, 0, 2, 1, 2, 272, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
@@ -45,7 +46,6 @@ a010_694:
     wait 2
     waitparticle
     unloadparticle 0
-    shadetargetmon 14, 8, 31
     waitstate
     end
 

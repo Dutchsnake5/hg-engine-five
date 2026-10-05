@@ -31,11 +31,11 @@ a010_574:
     wait 15
     addparticle 0, 0, 17
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
+    shadetargetmon 8, 28, 8
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     playsepan 1844, 117
     waitparticle
     unloadparticle 0
-    shadetargetmon 8, 28, 8
     waitstate
     end
 

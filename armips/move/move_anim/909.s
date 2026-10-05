@@ -47,6 +47,7 @@ a010_909:
     playsepanmod 2095, -117, 117, 4, 2
     addparticle 0, 0, 4
     callfunction 36, 5, 4, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    shadetargetmon 31, 31, 31
     callfunction 68, 5, 0, 3, 0, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 10
     playsepanmod 2095, -117, 117, 4, 2
@@ -63,7 +64,6 @@ a010_909:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 31, 31
     waitstate
     end
 

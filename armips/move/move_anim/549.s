@@ -29,6 +29,7 @@ a010_549:
     jumpifcontest _s0_0288
     addsequentialparticle 0, 0, 1, 2, 3, 4, 5, 0x12
     callfunction 36, 5, 1, 0, 0, 15, 258, "NaN", "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 31, 31, 31
     callfunction 36, 5, 1, 0, 0, 15, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 1530, 0, 6, 2
     loop 3
@@ -39,12 +40,12 @@ a010_549:
     doloop
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 31, 31
     waitstate
     end
 _s0_01AC:
     addparticlebasedonbattler 0, 7, 8, 7, 8, 0x3
     callfunction 36, 5, 1, 0, 0, 15, 258, "NaN", "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 31, 31, 31
     callfunction 36, 5, 1, 0, 0, 15, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 1530, 0, 6, 2
     loop 3
@@ -55,12 +56,12 @@ _s0_01AC:
     doloop
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 31, 31
     waitstate
     end
 _s0_0288:
     addparticle 0, 6, 3
     callfunction 36, 5, 1, 0, 0, 15, 258, "NaN", "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 31, 31, 31
     callfunction 36, 5, 1, 0, 0, 15, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 1530, 0, 6, 2
     loop 3
@@ -71,7 +72,6 @@ _s0_0288:
     doloop
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 31, 31
     waitstate
     end
 

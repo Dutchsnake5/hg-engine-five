@@ -54,6 +54,7 @@ a010_854:
     wait 40
     playsepan 2011, 117
     addparticle 0, 1, 4
+    flashscreencolor 31, 31, 31
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 20
     playsepan 2007, 117
@@ -68,8 +69,6 @@ a010_854:
     unloadparticle 0
     unloadparticle 1
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    flashscreencolor 31, 31, 31
     waitstate
     end
 

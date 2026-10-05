@@ -35,9 +35,9 @@ a010_916:
     waitcry 0
     wait 2
     waitstate
+    shadeattackingmon 14, 8, 31
     waitparticle
     unloadparticle 0
-    shadeattackingmon 14, 8, 31
     waitstate
     end
 

@@ -43,6 +43,7 @@ a010_791:
     addparticle2 0, 3, 1, 3
     callfunction 66, 6, 3, 0, 0, 0, 18, 64, "NaN", "NaN", "NaN", "NaN"
     wait 2
+    shaketargetmon 3, 4
     callfunction 36, 5, 1, 0, 1, 12, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     playsepan 2120, 0
     addparticle2 0, 4, 1, 3
@@ -53,7 +54,6 @@ a010_791:
     waitstate
     waitparticle
     unloadparticle 0
-    shaketargetmon 3, 4
     waitstate
     end
 

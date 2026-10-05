@@ -33,13 +33,12 @@ a010_683:
     addparticle 0, 0, 4
     playsepan 2123, 117
     wait 5
+    shadetargetmon 31, 4, 4
+    flashscreencolor 31, 16, 0
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     playsepan 2127, 117
     waitparticle
     unloadparticle 0
-    waitstate
-    shadetargetmon 31, 4, 4
-    flashscreencolor 31, 16, 0
     waitstate
     end
 

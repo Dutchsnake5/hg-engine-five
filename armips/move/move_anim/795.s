@@ -40,13 +40,11 @@ a010_795:
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    shadeattackingmon 6, 4, 8
-    waitstate
     end
 _s0_0194:
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    callfunction 34, 6, 2, 0, 1, 32767, 12, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 2, 0, 1, 8326, 12, 0, "NaN", "NaN", "NaN", "NaN"
     wait 2
     playsepan 1840, -117
     wait 8
@@ -57,13 +55,11 @@ _s0_0194:
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    shadeattackingmon 6, 4, 8
-    waitstate
     end
 _s0_0258:
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    callfunction 34, 6, 2, 0, 1, 32767, 12, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 2, 0, 1, 8326, 12, 0, "NaN", "NaN", "NaN", "NaN"
     wait 2
     playsepan 1840, -117
     wait 8
@@ -77,14 +73,12 @@ _s0_0258:
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    shadeattackingmon 6, 4, 8
     waitstate
     end
 _s0_038C:
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    callfunction 34, 6, 2, 0, 1, 32767, 12, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 2, 0, 1, 8326, 12, 0, "NaN", "NaN", "NaN", "NaN"
     wait 2
     playsepan 1840, -117
     wait 8
@@ -98,8 +92,6 @@ _s0_038C:
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    shadeattackingmon 6, 4, 8
     waitstate
     end
 

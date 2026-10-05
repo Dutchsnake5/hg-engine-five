@@ -36,6 +36,7 @@ a010_691:
     waitse 1847, 117, 1
     callfunction 36, 5, 4, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 1
+    shadetargetmon 8, 28, 8
     callfunction 68, 5, 5, 0, 1, 3, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
@@ -44,7 +45,6 @@ a010_691:
     cmd0C 7, 1
     resetbg 0, 0x1000001
     waitforchangebg
-    shadetargetmon 8, 28, 8
     waitstate
     end
 

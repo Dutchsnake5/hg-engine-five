@@ -5,7 +5,7 @@
 
 .create "build/move/move_anim/0_847", 0
 
-// Infernal Parade: reuses the Will O Wisp animation (target tint, extra shake)
+// Infernal Parade: reuses the Hex animation (target tint)
 
 a010_847:
     initspriteresource
@@ -25,18 +25,12 @@ a010_847:
     resetsprite 1
     resetsprite 2
     resetsprite 3
-    playsepanmod 1937, -117, 117, 4, 2
-    addparticle 0, 0, 17
-    cmd37 6, 0, 2, 6, 1, 16, 0, "NaN", "NaN"
-    cmd37 5, 3, 0, 0, 0, 0, "NaN", "NaN", "NaN"
-    wait 30
     addparticle 0, 1, 4
-    playsepan 2011, 117
+    repeatse 2009, 117, 2, 4
+    shadetargetmon 31, 4, 4
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shadetargetmon 20, 6, 26
-    shaketargetmon 3, 2
     waitstate
     end
 

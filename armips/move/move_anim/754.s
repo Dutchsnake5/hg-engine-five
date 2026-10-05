@@ -34,14 +34,13 @@ a010_754:
     callfunction 57, 4, 2, -14, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 5
     playsepanmod 2120, -117, 117, 8, 2
-    callfunction 34, 6, 8, 0, 1, 31764, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 32014, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitse 1905, 117, 3
     waitse 1905, 117, 6
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 14, 8, 31
     waitstate
     end
 

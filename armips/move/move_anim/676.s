@@ -28,12 +28,11 @@ a010_676:
     addparticle 0, 1, 3
     addparticle 0, 0, 3
     callfunction 36, 5, 1, 0, 1, 4, 258, "NaN", "NaN", "NaN", "NaN", "NaN"
-    callfunction 34, 6, 2, 0, 2, 32767, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 2, 0, 2, 4255, 10, 0, "NaN", "NaN", "NaN", "NaN"
     playsepan 1965, -117
     waitstate
     waitparticle
     unloadparticle 0
-    shadeattackingmon 31, 4, 4
     waitstate
     end
 

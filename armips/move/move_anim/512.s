@@ -31,10 +31,9 @@ a010_512:
     addparticle 0, 1, 4
     addparticle 0, 0, 4
     playsepan 1827, 117
+    shaketargetmon 3, 3
     waitparticle
     unloadparticle 0
-    waitstate
-    shaketargetmon 3, 3
     waitstate
     end
 

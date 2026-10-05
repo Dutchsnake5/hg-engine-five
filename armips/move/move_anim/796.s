@@ -41,6 +41,7 @@ a010_796:
     addparticle 0, 1, 4
     addparticle 0, 0, 4
     playsepan 1827, 117
+    flashscreencolor 6, 4, 8
     callfunction 36, 5, 4, 0, 1, 1, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 15
     loadspriteresource 4
@@ -54,8 +55,6 @@ a010_796:
     cmd53 0
     resetsprite 4
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    flashscreencolor 6, 4, 8
     waitstate
     end
 

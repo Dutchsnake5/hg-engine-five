@@ -32,10 +32,9 @@ a010_606:
     wait 8
     doloop
     playsepan 2025, -117
+    flashscreencolor 31, 28, 4
     waitparticle
     unloadparticle 0
-    waitstate
-    flashscreencolor 31, 28, 4
     waitstate
     end
 

@@ -34,12 +34,12 @@ a010_680:
     addparticle 0, 0, 4
     wait 5
     playsepan 1972, 117
+    shadetargetmon 18, 18, 20
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 57, 4, 2, -14, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 18, 18, 20
     waitstate
     end
 

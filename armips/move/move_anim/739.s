@@ -32,6 +32,7 @@ a010_739:
     loop 2
     callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 8
+    flashscreencolor 31, 28, 4
     callfunction 52, 3, 16, -16, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 16
     callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -39,7 +40,6 @@ a010_739:
     doloop
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 28, 4
     waitstate
     end
 

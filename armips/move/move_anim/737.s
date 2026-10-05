@@ -5,7 +5,7 @@
 
 .create "build/move/move_anim/0_737", 0
 
-// Buzzy Buzz: reuses the Thunder Shock animation (target tint)
+// Buzzy Buzz: reuses the Discharge animation (target tint)
 
 a010_737:
     initspriteresource
@@ -18,7 +18,7 @@ a010_737:
     loadspritemaybe 6, 0, 2, 2
     loadspritemaybe 7, 0, 3, 3
     callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    loadparticle 0, 115
+    loadparticle 0, 453
     waitstate
     unloadspriteresource
     resetsprite 0
@@ -27,18 +27,20 @@ a010_737:
     resetsprite 3
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-    playsepan 1968, 117
-    waitse 1952, 117, 13
-    addparticle 0, 0, 4
-    wait 5
-    callfunction 34, 6, 8, 0, 1, 0, 15, 0, "NaN", "NaN", "NaN", "NaN"
+    addparticle 0, 0, 3
+    addparticle 0, 2, 3
+    addparticle 0, 3, 3
+    wait 2
+    repeatse 1969, -117, 4, 7
+    wait 28
+    callfunction 36, 5, 2, 0, 1, 2, 288, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 1, 4
-    callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitse 1968, 117, 5
+    callfunction 34, 6, 8, 0, 1, 5023, 14, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 16, 0, 1, 13311, 14, 0, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    shadetargetmon 31, 28, 4
     waitstate
     end
 

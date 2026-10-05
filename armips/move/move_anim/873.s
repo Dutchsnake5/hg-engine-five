@@ -36,11 +36,11 @@ a010_873:
     wait 15
     addparticle 0, 2, 17
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
+    shadetargetmon 31, 14, 24
     callfunction 36, 5, 2, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 2119, 117, 3, 6
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 14, 24
     waitstate
     end
 _s0_01C8:
@@ -54,11 +54,11 @@ _s0_01C8:
     wait 15
     addparticle 0, 2, 17
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
+    shadetargetmon 31, 14, 24
     callfunction 36, 5, 2, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 2119, 117, 3, 6
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 14, 24
     waitstate
     end
 

@@ -26,8 +26,6 @@ a010_505:
     resetsprite 2
     resetsprite 3
     jumpifside 0, _s0_00CC, _s0_0208
-    flashscreencolor 31, 14, 24
-    waitstate
     end
 _s0_00CC:
     initspriteresource
@@ -58,9 +56,9 @@ _s0_00CC:
     cmd0C 1, 0
     resetbg 36, 0x40001
     waitforchangebg
+    flashscreencolor 31, 14, 24
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 14, 24
     waitstate
     end
 _s0_0208:
@@ -92,9 +90,9 @@ _s0_0208:
     cmd0C 1, 0
     resetbg 36, 0x40001
     waitforchangebg
+    flashscreencolor 31, 14, 24
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 14, 24
     waitstate
     end
 

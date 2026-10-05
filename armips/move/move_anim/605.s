@@ -30,8 +30,6 @@ a010_605:
     addparticle 0, 1, 17
     cmd37 6, 0, 1, 2, 0, 0, 0, "NaN", "NaN"
     jumpifside 0, _s0_012C, _s0_01CC
-    flashscreencolor 31, 28, 4
-    waitstate
     end
 _s0_012C:
     loop 2
@@ -44,9 +42,9 @@ _s0_012C:
     callfunction 57, 4, 8, 0, -8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 8
     doloop
+    flashscreencolor 31, 28, 4
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 28, 4
     waitstate
     end
 _s0_01CC:
@@ -60,9 +58,9 @@ _s0_01CC:
     callfunction 57, 4, 8, 0, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 8
     doloop
+    flashscreencolor 31, 28, 4
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 28, 4
     waitstate
     end
 

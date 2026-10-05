@@ -31,7 +31,7 @@ a010_534:
     waitse 2032, 117, 65
     addparticle 0, 1, 4
     wait 60
-    callfunction 34, 6, 8, 0, 1, 23199, 14, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 25055, 14, 0, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
     initspriteresource
@@ -57,7 +57,6 @@ a010_534:
     playsepan 1827, 117
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 14, 24
     waitstate
     end
 

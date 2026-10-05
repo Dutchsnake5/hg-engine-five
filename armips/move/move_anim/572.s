@@ -26,6 +26,7 @@ a010_572:
     resetsprite 2
     resetsprite 3
     callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 31, 28, 4
     waitstate
     addparticle 0, 0, 3
     addparticle 0, 1, 3
@@ -38,8 +39,6 @@ a010_572:
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    flashscreencolor 31, 28, 4
     waitstate
     end
 

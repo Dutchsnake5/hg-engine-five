@@ -29,12 +29,11 @@ a010_565:
     repeatse 1985, 117, 4, 3
     wait 10
     wait 10
-    callfunction 34, 6, 8, 0, 1, 0, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 26836, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    shaketargetmon 3, 2
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 20, 6, 26
-    shaketargetmon 3, 2
     waitstate
     end
 

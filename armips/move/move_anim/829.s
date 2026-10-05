@@ -46,6 +46,7 @@ a010_829:
     loadspritemaybe 2, 0, 4, 4
     cmd52 2, 0, 4
     callfunction 35, 8, 0, 8, 10, 15, 10, 1, 589833, 0, "NaN", "NaN"
+    shadetargetmon 20, 6, 26
     waitstate
     unloadspriteresource
     resetsprite 0
@@ -53,8 +54,6 @@ a010_829:
     resetsprite 4
     cmd20 0
     callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    shadetargetmon 20, 6, 26
     waitstate
     end
 

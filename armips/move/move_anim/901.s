@@ -32,10 +32,10 @@ a010_901:
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
     wait 10
     callfunction 34, 6, 8, 0, 1, 31764, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    shaketargetmon 3, 2
     callfunction 36, 5, 2, 0, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shaketargetmon 3, 2
     waitstate
     end
 

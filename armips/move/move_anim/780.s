@@ -29,13 +29,12 @@ a010_780:
     addparticle 0, 0, 4
     addparticle 0, 1, 4
     jumpifside 0, _s0_00F8, _s0_0178
-    shadetargetmon 31, 14, 24
-    waitstate
     end
 _s0_00F8:
     wait 15
     loop 2
     playsepan 1821, 117
+    shadetargetmon 31, 14, 24
     callfunction 57, 4, 4, 0, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 4
     callfunction 57, 4, 4, 0, -8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -44,13 +43,13 @@ _s0_00F8:
     wait 30
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 14, 24
     waitstate
     end
 _s0_0178:
     wait 15
     loop 2
     playsepan 1821, 117
+    shadetargetmon 31, 14, 24
     callfunction 57, 4, 4, 0, -8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 4
     callfunction 57, 4, 4, 0, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -59,7 +58,6 @@ _s0_0178:
     wait 30
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 14, 24
     waitstate
     end
 

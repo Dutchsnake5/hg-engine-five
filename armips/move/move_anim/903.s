@@ -61,6 +61,7 @@ a010_903:
     addparticle 1, 1, 4
     callfunction 51, 3, 1, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
+    shadetargetmon 31, 14, 24
     callfunction 36, 5, 1, 0, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     doloop
@@ -78,7 +79,6 @@ a010_903:
     cmd0C 7, 1
     resetbg 47, 0x40001
     waitforchangebg
-    shadetargetmon 31, 14, 24
     waitstate
     end
 

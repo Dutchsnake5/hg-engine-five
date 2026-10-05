@@ -57,13 +57,13 @@ a010_868:
     addparticle 0, 0, 4
     addparticle 0, 1, 4
     addparticle 0, 2, 4
+    shadetargetmon 6, 12, 31
     callfunction 36, 5, 2, 0, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 57, 4, 2, -14, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
     callfunction 40, 2, 2, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    shadetargetmon 6, 12, 31
     waitstate
     end
 

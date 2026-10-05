@@ -27,11 +27,10 @@ a010_857:
     resetsprite 3
     playsepan 2107, 117
     jumpifside 0, _s0_00D8, _s0_015C
-    shadetargetmon 20, 6, 26
-    waitstate
     end
 _s0_00D8:
     addparticle 0, 0, 4
+    shadetargetmon 20, 6, 26
     callfunction 36, 5, 3, 0, 1, 3, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     callfunction 52, 3, 4, -20, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -41,11 +40,11 @@ _s0_00D8:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 20, 6, 26
     waitstate
     end
 _s0_015C:
     addparticle 0, 1, 4
+    shadetargetmon 20, 6, 26
     callfunction 36, 5, 3, 0, 1, 3, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     callfunction 52, 3, 4, -20, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -55,7 +54,6 @@ _s0_015C:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 20, 6, 26
     waitstate
     end
 

@@ -35,38 +35,36 @@ a010_878:
     wait 45
     repeatse 2119, 0, 2, 9
     jumpifside 0, _s0_0184, _s0_0264
-    flashscreencolor 31, 14, 24
-    waitstate
     end
 _s0_0184:
     jumpifcontest _s0_01F8
     addparticle 0, 2, 3
     callfunction 65, 6, 0, 0, 0, 0, 20, 64, "NaN", "NaN", "NaN", "NaN"
     wait 19
+    flashscreencolor 31, 14, 24
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 14, 24
     waitstate
     end
 _s0_01F8:
     addparticle 0, 4, 3
     callfunction 65, 6, 0, 0, 0, 0, 20, 64, "NaN", "NaN", "NaN", "NaN"
     wait 19
+    flashscreencolor 31, 14, 24
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 14, 24
     waitstate
     end
 _s0_0264:
     addparticle 0, 3, 3
     callfunction 65, 6, 0, 0, 0, 0, 20, 64, "NaN", "NaN", "NaN", "NaN"
     wait 19
+    flashscreencolor 31, 14, 24
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 14, 24
     waitstate
     end
 

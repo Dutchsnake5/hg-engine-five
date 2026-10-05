@@ -32,6 +32,7 @@ a010_852:
     waitforchangebg
     playsepan 2042, 0
     addparticle 0, 0, 4
+    shadeattackingmon 31, 14, 24
     waitparticle
     unloadparticle 0
     cmd0C 4, 0
@@ -40,7 +41,6 @@ a010_852:
     cmd0C 4, 1
     resetbg 54, 0x40001
     waitforchangebg
-    shadeattackingmon 31, 14, 24
     waitstate
     end
 

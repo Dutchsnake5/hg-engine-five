@@ -46,8 +46,6 @@ a010_918:
 
     unloadparticle 0
     waitstate
-    shadetargetmon 31, 4, 4
-    waitstate
     end
 
 .close

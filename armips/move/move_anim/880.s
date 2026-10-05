@@ -48,8 +48,6 @@ a010_880:
     changebg 44, 0x800001
     waitforchangebg
     jumpifside 0, _s0_0504, _s0_01B8
-    shaketargetmon 4, 3
-    waitstate
     end
 _s0_01B8:
     addparticle 0, 0, 17
@@ -69,6 +67,7 @@ _s0_01B8:
     addparticle 1, 2, 17
     cmd37 6, 2, 2, 13, 0, 0, 0, "NaN", "NaN"
     cmd37 4, 1, -600, -4500, -600, "NaN", "NaN", "NaN", "NaN"
+    shaketargetmon 4, 3
     callfunction 57, 4, 1, 0, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 57, 4, 1, 0, 4, 272, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 2
@@ -99,7 +98,6 @@ _s0_01B8:
     waitforchangebg
     callfunction 57, 4, 1, 0, -80, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 57, 4, 1, 0, -80, 272, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    shaketargetmon 4, 3
     waitstate
     end
 _s0_0504:
@@ -130,6 +128,7 @@ _s0_0504:
     cmd37 6, 0, 2, 13, 0, 0, 0, "NaN", "NaN"
     cmd37 4, 1, 0, -1720, 0, "NaN", "NaN", "NaN", "NaN"
     waitse 1894, 117, 35
+    shaketargetmon 4, 3
     waitparticle
     unloadparticle 0
     unloadparticle 1
@@ -146,7 +145,6 @@ _s0_0504:
     waitforchangebg
     callfunction 40, 2, 8, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 40, 2, 16, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    shaketargetmon 4, 3
     waitstate
     end
 

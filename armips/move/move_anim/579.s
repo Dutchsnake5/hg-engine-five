@@ -80,11 +80,10 @@ a010_579:
     addparticle 0, 3, 4
     addparticle 0, 0, 4
     callfunction 34, 6, 2, 0, 1, 23199, 10, 15, "NaN", "NaN", "NaN", "NaN"
-    callfunction 34, 6, 8, 0, 1, 23199, 10, 15, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 8326, 10, 15, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
     unloadparticle 1
-    shadetargetmon 6, 4, 8
     waitstate
     end
 

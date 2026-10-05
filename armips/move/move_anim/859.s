@@ -44,6 +44,7 @@ a010_859:
     playsepan 1995, 117
     wait 4
     callfunction 34, 6, 8, 0, 1, 32631, 14, 0, "NaN", "NaN", "NaN", "NaN"
+    shaketargetmon 3, 3
     callfunction 36, 5, 1, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
@@ -53,7 +54,6 @@ a010_859:
     cmd0C 1, -20
     resetbg 23, 0x40001
     waitforchangebg
-    shaketargetmon 3, 3
     waitstate
     end
 

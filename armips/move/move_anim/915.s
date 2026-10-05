@@ -28,8 +28,6 @@ a010_915:
     playsepanmod 2103, -117, 117, 4, 2
     jumpifcontest _s0_00EC
     jumpifside 0, _s0_01E4, _s0_02DC
-    shadetargetmon 22, 22, 26
-    waitstate
     end
 _s0_00EC:
     addparticle 0, 1, 3
@@ -37,6 +35,7 @@ _s0_00EC:
     wait 5
     wait 6
     playsepan 2014, 117
+    shadetargetmon 22, 22, 26
     callfunction 42, 8, 264, 100, 100, 100, 70, 100, 1310721, 262148, "NaN", "NaN"
     wait 5
     addparticle 0, 3, 4
@@ -48,7 +47,6 @@ _s0_00EC:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 22, 22, 26
     waitstate
     end
 _s0_01E4:
@@ -57,6 +55,7 @@ _s0_01E4:
     wait 5
     wait 6
     playsepan 2014, 117
+    shadetargetmon 22, 22, 26
     callfunction 42, 8, 264, 100, 100, 100, 70, 100, 1310721, 262148, "NaN", "NaN"
     wait 5
     addparticle 0, 3, 4
@@ -68,7 +67,6 @@ _s0_01E4:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 22, 22, 26
     waitstate
     end
 _s0_02DC:
@@ -77,6 +75,7 @@ _s0_02DC:
     wait 5
     wait 6
     playsepan 2014, 117
+    shadetargetmon 22, 22, 26
     callfunction 42, 8, 264, 100, 100, 100, 70, 100, 1310721, 262148, "NaN", "NaN"
     wait 5
     addparticle 0, 3, 4
@@ -88,7 +87,6 @@ _s0_02DC:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 22, 22, 26
     waitstate
     end
 

@@ -33,6 +33,7 @@ a010_517:
     playsepan 1827, 117
     callfunction 57, 4, 2, 16, -8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 2
+    flashscreencolor 31, 4, 4
     callfunction 36, 5, 8, 0, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 3, 4
     addparticle 0, 0, 4
@@ -42,7 +43,6 @@ a010_517:
     waitstate
     waitparticle
     unloadparticle 0
-    flashscreencolor 31, 4, 4
     waitstate
     end
 

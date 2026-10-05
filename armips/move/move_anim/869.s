@@ -29,11 +29,11 @@ a010_869:
     addparticle 0, 1, 3
     addparticle 0, 2, 3
     addparticle 0, 0, 4
+    shadetargetmon 20, 6, 26
     callfunction 36, 5, 2, 0, 1, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 1849, 117, 6, 3
     waitparticle
     unloadparticle 0
-    shadetargetmon 20, 6, 26
     waitstate
     end
 

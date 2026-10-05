@@ -33,6 +33,7 @@ a010_667:
     repeatse 1997, 117, 2, 2
     callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 8
+    shadetargetmon 6, 12, 31
     callfunction 52, 3, 16, -16, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 16
     callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -41,7 +42,6 @@ a010_667:
     repeatse 2024, 117, 4, 6
     waitparticle
     unloadparticle 0
-    shadetargetmon 6, 12, 31
     waitstate
     end
 

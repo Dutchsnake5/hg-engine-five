@@ -5,7 +5,7 @@
 
 .create "build/move/move_anim/0_678", 0
 
-// Throat Chop: reuses the Karate Chop animation (target tint)
+// Throat Chop: reuses the Cross Chop animation (target tint)
 
 a010_678:
     initspriteresource
@@ -18,22 +18,27 @@ a010_678:
     loadspritemaybe 6, 0, 2, 2
     loadspritemaybe 7, 0, 3, 3
     callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    loadparticle 0, 33
+    loadparticle 0, 256
     waitstate
     unloadspriteresource
     resetsprite 0
     resetsprite 1
     resetsprite 2
     resetsprite 3
+    playsepan 1528, 117
     addparticle 0, 2, 4
-    addparticle 0, 0, 4
+    addparticle 0, 4, 4
+    wait 10
+    addparticle 0, 3, 4
+    addparticle 0, 5, 4
+    wait 55
     addparticle 0, 1, 4
+    addparticle 0, 0, 4
+    shadetargetmon 6, 4, 8
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
-    playsepan 2119, 117
-    waitse 1920, 117, 5
+    playsepan 1910, 117
     waitparticle
     unloadparticle 0
-    shadetargetmon 6, 4, 8
     waitstate
     end
 

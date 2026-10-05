@@ -49,6 +49,7 @@ a010_900:
     wait 10
     playsepan 1859, 117
     callfunction 36, 5, 4, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    shadetargetmon 6, 4, 8
     callfunction 68, 5, 0, 5, 0, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
@@ -57,7 +58,6 @@ a010_900:
     cmd0C 7, 1
     resetbg 5, 0x1000001
     waitforchangebg
-    shadetargetmon 6, 4, 8
     waitstate
     end
 

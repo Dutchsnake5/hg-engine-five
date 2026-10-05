@@ -21,6 +21,7 @@ a010_677:
     playsepan 2038, 117 // metal claw sound
 
     wait 30
+    shadeattackingmon 22, 22, 26
     callfunction 36, 5, 4, 0, 1, 14, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitse 1850, 117, 3
     addparticle 0, 6, 3
@@ -30,7 +31,6 @@ a010_677:
     unloadparticle 0
     waitstate
 
-    shadeattackingmon 22, 22, 26
     waitstate
     end
 

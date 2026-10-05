@@ -42,6 +42,7 @@ a010_715:
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
     playsepan 1920, 117
     waitse 1983, 117, 3
+    shadetargetmon 6, 4, 8
     callfunction 36, 5, 3, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
@@ -49,7 +50,6 @@ a010_715:
     resetsprite 0
     resetsprite 1
     unloadspriteresource
-    shadetargetmon 6, 4, 8
     waitstate
     end
 

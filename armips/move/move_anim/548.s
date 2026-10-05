@@ -32,44 +32,35 @@ a010_548:
     callfunction 36, 5, 2, 0, 1, 2, 288, "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 1
     jumpifplayerattack _s0_01A0
-    callfunction 34, 6, 8, 0, 1, 31, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 4255, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 16, 0, 1, 31, 10, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 4, 0, 1, 31, 10, 0, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 4, 4
     waitstate
     end
 _s0_01A0:
     jumpifside 0, _s0_01B4, _s0_0234
-    shadetargetmon 31, 4, 4
-    waitstate
     end
 _s0_01B4:
-    callfunction 34, 6, 8, 0, 1, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 4255, 10, 10, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 2056, 0, 1, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 2064, 0, 1, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 4, 4
     waitstate
     end
 _s0_0234:
-    callfunction 34, 6, 8, 0, 1, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 4255, 10, 10, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 2050, 0, 1, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 2052, 0, 1, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 4, 4
     waitstate
     end
-    shadetargetmon 31, 4, 4
-    waitstate
     end
-    shadetargetmon 31, 4, 4
-    waitstate
     end
 
 .close

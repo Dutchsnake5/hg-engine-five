@@ -9,8 +9,6 @@
 
 a010_861:
     jumpifside 0, _s0_0014, _s0_0190
-    shadetargetmon 31, 4, 4
-    waitstate
     end
 _s0_0014:
     initspriteresource
@@ -36,11 +34,10 @@ _s0_0014:
     cmd37 4, 1, -2000, 8000, 0, "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 2, 0
     addparticle 0, 4, 4
-    callfunction 34, 5, 8, 0, 2, 23199, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 5, 8, 0, 2, 4255, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 5, 16, 0, 2, 23199, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 4, 4
     waitstate
     end
 _s0_0190:
@@ -67,11 +64,10 @@ _s0_0190:
     cmd37 4, 1, -2000, 8000, 0, "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 3, 0
     addparticle 0, 4, 4
-    callfunction 34, 5, 8, 0, 2, 23199, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 5, 8, 0, 2, 4255, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 5, 16, 0, 2, 23199, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 4, 4
     waitstate
     end
 

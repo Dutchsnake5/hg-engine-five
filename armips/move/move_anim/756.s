@@ -29,12 +29,12 @@ a010_756:
     repeatse 1919, 117, 4, 2
     addparticle 0, 0, 4
     callfunction 60, 3, 2, 1, 12, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    shadetargetmon 6, 4, 8
     callfunction 42, 8, 264, 100, 70, 100, 100, 100, 1, 327685, "NaN", "NaN"
     waitstate
     doloop
     waitparticle
     unloadparticle 0
-    shadetargetmon 6, 4, 8
     waitstate
     end
 

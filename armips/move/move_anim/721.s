@@ -35,10 +35,9 @@ a010_721:
     addparticle 0, 1, 4
     addparticle 0, 0, 4
     addparticle 0, 2, 4
+    flashscreencolor 31, 31, 31
     callfunction 36, 5, 4, 0, 1, 4, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 57, 4, 4, -16, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    flashscreencolor 31, 31, 31
     waitstate
     end
 

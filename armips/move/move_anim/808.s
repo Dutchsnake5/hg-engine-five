@@ -43,6 +43,7 @@ a010_808:
     addparticle 0, 4, 3
     wait 80
     playsepanmod 1847, -117, 117, 4, 2
+    flashscreencolor 31, 31, 31
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
@@ -50,7 +51,6 @@ a010_808:
     waitstate
     resetbg 11, 0x1000001
     waitforchangebg
-    flashscreencolor 31, 31, 31
     waitstate
     end
 

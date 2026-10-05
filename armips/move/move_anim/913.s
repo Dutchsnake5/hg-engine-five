@@ -28,13 +28,13 @@ a010_913:
     addparticle 0, 0, 4
     addparticle 0, 2, 4
     addparticle 0, 0, 4
+    shadetargetmon 18, 18, 20
+    shaketargetmon 3, 3
     callfunction 36, 5, 4, 0, 1, 3, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     playsepan 1910, 117
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 18, 18, 20
-    shaketargetmon 3, 3
     waitstate
     end
 

@@ -33,12 +33,11 @@ a010_742:
     wait 15
     addparticle 0, 2, 4
     addparticle 0, 0, 4
+    flashscreencolor 16, 28, 31
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 8, 0, 32631, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    flashscreencolor 16, 28, 31
     waitstate
     end
 

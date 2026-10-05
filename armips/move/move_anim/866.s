@@ -39,6 +39,7 @@ a010_866:
     repeatse 2033, 117, 16, 3
     wait 20
     callfunction 34, 6, 2, 0, 1, 32767, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 31, 31, 31
     waitparticle
     unloadparticle 0
     cmd43
@@ -47,7 +48,6 @@ a010_866:
     cmd0C 1, 1
     resetbg 56, 0x40001
     waitforchangebg
-    flashscreencolor 31, 31, 31
     waitstate
     end
 

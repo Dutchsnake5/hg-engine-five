@@ -49,8 +49,6 @@ a010_867:
     wait 20
     cmd3E 1, 0
     jumpifside 1, _s0_01E4, _s0_03E4
-    shadetargetmon 31, 31, 31
-    waitstate
     end
 _s0_01E4:
     addparticle 1, 0, 17
@@ -58,6 +56,7 @@ _s0_01E4:
     cmd37 4, 1, -6000, 0, 3000, "NaN", "NaN", "NaN", "NaN"
     playsepan 1951, 117
     wait 5
+    shadetargetmon 31, 31, 31
     callfunction 68, 5, 0, 5, 0, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 1, 0, 17
     cmd37 6, 0, 2, 5, 0, 0, 0, "NaN", "NaN"
@@ -79,7 +78,6 @@ _s0_01E4:
     waitparticle
     unloadparticle 0
     unloadparticle 1
-    shadetargetmon 31, 31, 31
     waitstate
     end
 _s0_03E4:
@@ -88,6 +86,7 @@ _s0_03E4:
     cmd37 4, 1, -6000, -3000, 3000, "NaN", "NaN", "NaN", "NaN"
     playsepan 1951, 117
     wait 5
+    shadetargetmon 31, 31, 31
     callfunction 68, 5, 0, 5, 0, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 1, 0, 17
     cmd37 6, 0, 2, 5, 0, 0, 0, "NaN", "NaN"
@@ -109,7 +108,6 @@ _s0_03E4:
     waitparticle
     unloadparticle 0
     unloadparticle 1
-    shadetargetmon 31, 31, 31
     waitstate
     end
 

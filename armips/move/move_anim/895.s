@@ -38,6 +38,7 @@ a010_895:
     cmd37 6, 0, 0, 5, 0, 0, 0, "NaN", "NaN"
     cmd37 4, 1, 0, -2064, 0, "NaN", "NaN", "NaN", "NaN"
     wait 5
+    flashscreencolor 31, 28, 4
     callfunction 68, 6, 3, 0, 1, 1, 0, 1, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 8, 0, 1, 0, 15, 0, "NaN", "NaN", "NaN", "NaN"
     callfunction 33, 5, 2, -4, 0, 12, 32767, "NaN", "NaN", "NaN", "NaN", "NaN"
@@ -54,7 +55,6 @@ a010_895:
     cmd0C 6, 1
     resetbg 19, 0x1000001
     waitforchangebg
-    flashscreencolor 31, 28, 4
     waitstate
     end
 

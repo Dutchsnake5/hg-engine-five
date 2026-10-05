@@ -26,12 +26,11 @@ a010_778:
     resetsprite 2
     resetsprite 3
     addparticle 0, 0, 3
-    callfunction 34, 6, 2, 0, 3, 31, 10, 10, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 2, 0, 3, 6943, 10, 10, "NaN", "NaN", "NaN", "NaN"
     callfunction 36, 5, 2, 0, 1, 16, 258, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 2080, -117, 4, 5
     waitparticle
     unloadparticle 0
-    shadeattackingmon 31, 24, 6
     waitstate
     end
 

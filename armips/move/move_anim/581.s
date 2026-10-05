@@ -29,11 +29,10 @@ a010_581:
     addparticle 0, 1, 19
     addparticle 0, 0, 19
     wait 15
-    callfunction 34, 5, 2, 0, 1, 32767, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 5, 2, 0, 1, 25055, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 5, 4, 0, 1, 32767, 12, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shadeattackingmon 31, 14, 24
     waitstate
     end
 

@@ -31,12 +31,12 @@ a010_833:
     addparticle 0, 0, 4
     repeatse 1972, 117, 2, 4
     wait 25
+    shaketargetmon 3, 3
     callfunction 36, 5, 2, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     playsepan 1965, 117
     repeatse 1972, 117, 6, 3
     waitparticle
     unloadparticle 0
-    shaketargetmon 3, 3
     waitstate
     end
 

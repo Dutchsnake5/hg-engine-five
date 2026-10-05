@@ -15,6 +15,7 @@ a010_835:
     waitforchangebg2
     callfunction 76, 1, 50, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitforchangebg
+    shadetargetmon 20, 6, 26
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 2, 0, 1, 13311, 10, 0, "NaN", "NaN", "NaN", "NaN"
     wait 10
@@ -33,7 +34,6 @@ a010_835:
     cmd53 0
     resetsprite 4
     waitforchangebg
-    shadetargetmon 20, 6, 26
     waitstate
     end
 

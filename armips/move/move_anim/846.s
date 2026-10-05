@@ -10,8 +10,6 @@
 a010_846:
     jumpifcontest _s0_02F8
     jumpifside 0, _s0_001C, _s0_02F8
-    shadetargetmon 31, 16, 0
-    waitstate
     end
 _s0_001C:
     initspriteresource
@@ -55,13 +53,13 @@ _s0_001C:
     wait 5
     addparticle 0, 1, 4
     addparticle 0, 0, 4
+    shadetargetmon 31, 16, 0
     callfunction 36, 5, 2, 0, 1, 3, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 57, 4, 2, -14, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 4
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 16, 0
     waitstate
     end
 _s0_02F8:
@@ -96,6 +94,7 @@ _s0_02F8:
     wait 4
     addparticle 0, 1, 4
     addparticle 0, 0, 4
+    shadetargetmon 31, 16, 0
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle2 0, 3, 3, 3
     callfunction 66, 6, 3, 0, 0, 0, 13, 64, "NaN", "NaN", "NaN", "NaN"
@@ -113,7 +112,6 @@ _s0_02F8:
     waitstate
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 16, 0
     waitstate
     end
 

@@ -72,9 +72,9 @@ a010_566:
     cmd37 6, 0, 2, 5, 0, 0, 0, "NaN", "NaN"
     cmd37 4, 1, -5000, 2000, -4000, "NaN", "NaN", "NaN", "NaN"
     playsepan 1998, -117
+    shadeattackingmon 8, 28, 8
     waitparticle
     unloadparticle 0
-    shadeattackingmon 8, 28, 8
     waitstate
     end
 

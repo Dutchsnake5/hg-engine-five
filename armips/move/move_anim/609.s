@@ -26,14 +26,13 @@ a010_609:
     resetsprite 2
     resetsprite 3
     callfunction 19, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 31, 14, 24
     loop 3
     addparticle 0, 0, 3
     addparticle 0, 1, 3
     playsepan 1826, -117
     wait 20
     doloop
-    waitstate
-    flashscreencolor 31, 14, 24
     waitstate
     end
 

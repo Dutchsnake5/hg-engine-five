@@ -31,6 +31,7 @@ a010_904:
     cmd0C 7, 1
     changebg 14, 0x800001
     waitforchangebg
+    shadetargetmon 31, 4, 4
     callfunction 68, 5, 0, 3, 0, 20, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 9, 3
     addsequentialparticle 0, 0, 1, 2, 3, 4, 5, 0x12
@@ -42,7 +43,6 @@ a010_904:
     unloadparticle 0
     resetbg 14, 0x1000001
     waitforchangebg
-    shadetargetmon 31, 4, 4
     waitstate
     end
 _s0_01C0:
@@ -50,6 +50,7 @@ _s0_01C0:
     cmd0C 7, 1
     changebg 14, 0x800001
     waitforchangebg
+    shadetargetmon 31, 4, 4
     callfunction 68, 5, 0, 3, 0, 20, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 9, 3
     addparticlebasedonbattler 0, 7, 8, 7, 8, 0x3
@@ -61,7 +62,6 @@ _s0_01C0:
     unloadparticle 0
     resetbg 14, 0x1000001
     waitforchangebg
-    shadetargetmon 31, 4, 4
     waitstate
     end
 _s0_02A8:
@@ -69,6 +69,7 @@ _s0_02A8:
     cmd0C 7, 1
     changebg 14, 0x800001
     waitforchangebg
+    shadetargetmon 31, 4, 4
     callfunction 68, 5, 0, 3, 0, 20, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle 0, 9, 3
     addparticle 0, 6, 17
@@ -84,7 +85,6 @@ _s0_02A8:
     unloadparticle 0
     resetbg 14, 0x1000001
     waitforchangebg
-    shadetargetmon 31, 4, 4
     waitstate
     end
 

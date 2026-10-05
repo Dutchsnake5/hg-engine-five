@@ -32,9 +32,9 @@ a010_516:
     addparticle 0, 2, 3
     waitse 1983, 117, 45
     waitse 1899, -117, 65
+    shadeattackingmon 14, 22, 31
     waitparticle
     unloadparticle 0
-    shadeattackingmon 14, 22, 31
     waitstate
     end
 

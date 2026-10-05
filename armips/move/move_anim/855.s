@@ -28,9 +28,9 @@ a010_855:
     playsepan 1990, -117
     addparticle 0, 0, 17
     cmd37 6, 0, 1, 2, 0, 0, 0, "NaN", "NaN"
+    shadeattackingmon 31, 31, 31
     waitparticle
     unloadparticle 0
-    shadeattackingmon 31, 31, 31
     waitstate
     end
 

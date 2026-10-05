@@ -33,12 +33,10 @@ a010_917:
     cmd37 6, 0, 2, 6, 1, 0, 0, "NaN", "NaN"
     playsepanmod 1936, -117, 117, 4, 2
     wait 5
-    callfunction 34, 6, 8, 0, 3, 23199, 14, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 3, 25055, 14, 0, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 32767, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    shadetargetmon 31, 14, 24
     waitstate
     end
 

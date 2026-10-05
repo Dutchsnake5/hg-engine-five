@@ -28,13 +28,11 @@ a010_600:
     callfunction 33, 5, 0, 1, 0, 12, 32767, "NaN", "NaN", "NaN", "NaN", "NaN"
     repeatse 1985, -117, 4, 3
     addparticle 0, 0, 19
-    callfunction 34, 6, 2, 0, 1, 32767, 10, 60, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 2, 0, 1, 25055, 10, 60, "NaN", "NaN", "NaN", "NaN"
     callfunction 34, 6, 4, 0, 1, 32767, 10, 60, "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
     callfunction 33, 5, 0, 1, 12, 0, 32767, "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
-    shadeattackingmon 31, 14, 24
     waitstate
     end
 

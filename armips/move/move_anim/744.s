@@ -5,7 +5,7 @@
 
 .create "build/move/move_anim/0_744", 0
 
-// Veevee Volley: reuses the Headbutt animation (target tint)
+// Veevee Volley: reuses the Return animation (target tint)
 
 a010_744:
     initspriteresource
@@ -18,25 +18,26 @@ a010_744:
     loadspritemaybe 6, 0, 2, 2
     loadspritemaybe 7, 0, 3, 3
     callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    loadparticle 0, 60
+    loadparticle 0, 234
     waitstate
     unloadspriteresource
     resetsprite 0
     resetsprite 1
     resetsprite 2
     resetsprite 3
-    playsepan 1925, -117
-    playsepan 1827, 117
-    callfunction 57, 4, 2, 14, -8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 29, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    loop 2
+    playsepan 1928, -117
+    wait 16
+    doloop
     waitstate
-    addparticle 0, 1, 4
     addparticle 0, 0, 4
+    addparticle 0, 1, 4
+    shadetargetmon 31, 14, 24
     callfunction 36, 5, 1, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
-    callfunction 57, 4, 2, -14, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    waitstate
+    playsepan 1920, 117
     waitparticle
     unloadparticle 0
-    shadetargetmon 31, 14, 24
     waitstate
     end
 

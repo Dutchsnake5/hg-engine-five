@@ -5,7 +5,7 @@
 
 .create "build/move/move_anim/0_781", 0
 
-// Drum Beating: reuses the Grass Knot animation (extra shake)
+// Drum Beating: reuses the Wood Hammer animation (extra shake)
 
 a010_781:
     initspriteresource
@@ -18,21 +18,24 @@ a010_781:
     loadspritemaybe 6, 0, 2, 2
     loadspritemaybe 7, 0, 3, 3
     callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
-    loadparticle 0, 465
+    loadparticle 0, 470
     waitstate
     unloadspriteresource
     resetsprite 0
     resetsprite 1
     resetsprite 2
     resetsprite 3
+    playsepan 2098, 117
+    addparticle 0, 4, 4
+    addparticle 0, 3, 4
     addparticle 0, 0, 4
+    addparticle 0, 2, 4
     addparticle 0, 1, 4
-    playsepan 1897, 117
-    wait 5
-    callfunction 36, 5, 1, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 36, 5, 2, 0, 1, 6, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    shaketargetmon 3, 3
+    callfunction 68, 5, 0, 5, 1, 5, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitparticle
     unloadparticle 0
-    shaketargetmon 3, 3
     waitstate
     end
 

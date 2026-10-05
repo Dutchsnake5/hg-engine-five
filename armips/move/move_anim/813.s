@@ -51,12 +51,11 @@ a010_813:
     addparticle 1, 1, 4
     wait 20
     repeatse 1985, 117, 4, 3
-    callfunction 34, 6, 8, 0, 1, 31764, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 26836, 10, 0, "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
     unloadparticle 1
-    shadetargetmon 20, 6, 26
     waitstate
     end
 _s0_0260:
@@ -68,12 +67,11 @@ _s0_0260:
     addparticle 1, 1, 4
     wait 20
     repeatse 1985, 117, 4, 3
-    callfunction 34, 6, 8, 0, 1, 31764, 10, 0, "NaN", "NaN", "NaN", "NaN"
+    callfunction 34, 6, 8, 0, 1, 26836, 10, 0, "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
     unloadparticle 1
-    shadetargetmon 20, 6, 26
     waitstate
     end
 

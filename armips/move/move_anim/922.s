@@ -32,13 +32,13 @@ a010_922:
     waitstate
     callfunction 52, 3, 3, -24, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     wait 1
+    shadetargetmon 20, 6, 26
     callfunction 42, 8, 264, 100, 70, 100, 100, 100, 1, 327685, "NaN", "NaN"
     waitstate
     playsepan 1919, 117
     doloop
     waitparticle
     unloadparticle 0
-    shadetargetmon 20, 6, 26
     waitstate
     end
 

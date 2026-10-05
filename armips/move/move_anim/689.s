@@ -28,9 +28,9 @@ a010_689:
     playsepan 1531, 117
     addparticle 0, 0, 4
     callfunction 34, 6, 8, 0, 3, 13741, 14, 0, "NaN", "NaN", "NaN", "NaN"
+    shaketargetmon 3, 3
     waitparticle
     unloadparticle 0
-    shaketargetmon 3, 3
     waitstate
     end
 

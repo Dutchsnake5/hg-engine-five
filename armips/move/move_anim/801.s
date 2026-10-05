@@ -39,11 +39,11 @@ a010_801:
     addparticle 0, 3, 17
     cmd37 6, 0, 2, 2, 0, 0, 0, "NaN", "NaN"
     callfunction 57, 4, 2, -16, 8, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    flashscreencolor 22, 22, 26
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
     waitparticle
     unloadparticle 0
-    flashscreencolor 22, 22, 26
     waitstate
     end
 
