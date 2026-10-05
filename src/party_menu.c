@@ -25,6 +25,38 @@ u32 LONG_CALL getButtonColorDepressed(int selection);
 u32 LONG_CALL getButtonColorRaised(int selection);
 void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
 
+#ifdef HM_MOVES_FROM_BAG
+BOOL FieldMove_CanUseFromBag(u16 move);
+BOOL FieldMove_MonCanLearnHM(struct PartyPokemon *pp, u16 move);
+
+/**
+ * @brief whether to list an HM field move the Pokémon does not know, because its HM is in the bag.
+ *        offered to Pokémon that could learn it, or to every Pokémon when none in the party can
+ */
+static BOOL PartyMenu_ShouldOfferFieldMoveFromBag(struct PartyMenu *wk, struct PartyPokemon *pp, u16 move)
+{
+    for (int i = 0; i < MAX_MON_MOVES; i++) {
+        if (GetMonData(pp, MON_DATA_MOVE1 + i, NULL) == move) {
+            return FALSE;
+        }
+    }
+    if (!FieldMove_CanUseFromBag(move)) {
+        return FALSE;
+    }
+    if (FieldMove_MonCanLearnHM(pp, move)) {
+        return TRUE;
+    }
+    struct Party *party = wk->args->party;
+    for (int i = 0; i < party->count; i++) {
+        struct PartyPokemon *other = Party_GetMonByIndex(party, i);
+        if (!GetMonData(other, MON_DATA_IS_EGG, NULL) && FieldMove_MonCanLearnHM(other, move)) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+#endif // HM_MOVES_FROM_BAG
+
 u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 {
     struct PartyPokemon *pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
@@ -68,6 +100,16 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
                     ++fieldMoveIndex;
                 }
             }
+
+#ifdef HM_MOVES_FROM_BAG
+            // Fly can only be used from this menu, so offer it when HM02 is in the bag
+            if (fieldMoveIndex < MAX_MON_MOVES && PartyMenu_ShouldOfferFieldMoveFromBag(wk, pp, MOVE_FLY)) {
+                buf[count] = MoveId_GetFieldEffectId(MOVE_FLY);
+                ++count;
+                PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
+                ++fieldMoveIndex;
+            }
+#endif
         } else {
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
             ++count;

@@ -643,6 +643,12 @@ arm9 SpeciesToRoamerIdx 020677F4 1
 arm9 ScrCmd_CreateRoamer 02045264 1
 #endif
 
+#ifdef HM_MOVES_FROM_BAG
+# field moves can be used with the HM in the bag: the overworld's party search (Surf, Waterfall) and script command 141
+arm9 Party_FindMonWithFieldMove 020542E8 2
+arm9 ScrCmd_CheckMoveInParty 0204D3CC 1
+#endif
+
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
 arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0

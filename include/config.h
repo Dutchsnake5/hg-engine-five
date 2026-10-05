@@ -170,6 +170,12 @@
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
 // #define DELETABLE_HMS
 
+// HM_MOVES_FROM_BAG lets the player use an HM's field move without teaching it, as long as the HM is in the bag
+// (badges are still required). The move is used by a party Pokémon that could learn it, or the first one if none can.
+// Covers the obstacles (Cut, Rock Smash, Strength, Whirlpool, Rock Climb, Waterfall), Surf at the shore and Fly from
+// the party menu.
+#define HM_MOVES_FROM_BAG
+
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 
