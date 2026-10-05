@@ -914,3 +914,11 @@ sub_0207294C = 0x0207294C | 1;
 sub_02017068 = 0x02017068 | 1;
 MapObjectManager_RestoreFromSave = 0x0205E648 | 1;
 Save_MapObjects_Get = 0x0203B9D0 | 1;
+/* party menu customize: text buffers, move relearner and start menu */
+BufferAbilityName = 0x0200C060 | 1;
+BufferNatureName = 0x0200C098 | 1;
+MoveRelearner_New = 0x0209174C | 1;
+MoveRelearner_LaunchApp = 0x0203F9C4 | 1;
+PartyMenu_LaunchApp_Unk1 = 0x0203E550 | 1;
+StartMenu_SetExitTaskFunc = 0x0203C8F0 | 1;
+Task_StartMenu_HandleReturn_Pokemon = 0x0203CA9C | 1;

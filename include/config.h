@@ -176,6 +176,11 @@
 // the party menu.
 #define HM_MOVES_FROM_BAG
 
+// PARTY_MENU_CUSTOMIZE adds a CUSTOMIZE option to the field party menu. It changes a Pokémon's nature (any of the 25),
+// sets its ability to any ability its species and form can have (including the hidden ability), or opens the move
+// relearner. It also fixes the move relearner's list of moves to read hg-engine's level-up learnsets.
+#define PARTY_MENU_CUSTOMIZE
+
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 

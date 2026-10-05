@@ -1,3 +1,5 @@
+#include "include/config.h"
+
 #0012 Symbol Offset
 arm9 PokeListProc_End_Extend 081015A4
 # 0223E858
@@ -8,3 +10,13 @@ arm9 PokeListProc_End_Extend 081015A4
 arm9 Script_RunNewCmd 080FB040
 # fainting sequence task wrapper
 0012 Task_PlayFaintingSequence_WithVictoryPose 0225ABB4
+
+#ifdef PARTY_MENU_CUSTOMIZE
+# start menu: the party menu's exit handler, wrapped to open the move relearner from CUSTOMIZE
+arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803CA98
+arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D1A0
+arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D660
+arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D810
+arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D93C
+arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D9B0
+#endif

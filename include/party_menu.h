@@ -444,6 +444,11 @@ void LONG_CALL PartyMenu_DeleteContextMenuAndList(struct PartyMenu *partyMenu);
 void LONG_CALL ListMenuItems_AddItem(struct LISTMENUITEM *items, String *string, int value);
 struct LISTMENUITEM *LONG_CALL ListMenuItems_New(u32 n, int heapID);
 u32 LONG_CALL GetPartyMenuContextMenuActionFunc(int index);
+
+// party menu customize (src/party_customize.c)
+#define PARTY_MON_CONTEXT_MENU_CUSTOMIZE_MARKER 0xFE
+void PartyMenu_OpenContextMenuWithCustomize(struct PartyMenu *partyMenu, u8 *items, u8 numItems);
+BOOL PartyMenu_IsCustomizeButton(u32 action);
 void LONG_CALL sub_0207E54C(struct PartyMenu *partyMenu, int numItems, int selection, int state);
 struct PartyMenuContextMenuCursor *LONG_CALL PartyMenu_CreateContextMenuCursor(struct PartyMenu *partyMenu, const struct PartyMenuContextMenu *template, int selection, int heapID, int state);
 void LONG_CALL PartyMenu_DisableMainScreenBlend_AfterYesNo(void);

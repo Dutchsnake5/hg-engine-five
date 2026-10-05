@@ -57,6 +57,13 @@ static BOOL PartyMenu_ShouldOfferFieldMoveFromBag(struct PartyMenu *wk, struct P
 }
 #endif // HM_MOVES_FROM_BAG
 
+// the field party menu keeps a button free for CUSTOMIZE, so field moves can't push it off the menu
+#ifdef PARTY_MENU_CUSTOMIZE
+#define CUSTOMIZE_BUTTONS 1
+#else
+#define CUSTOMIZE_BUTTONS 0
+#endif
+
 u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 {
     struct PartyPokemon *pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
@@ -93,7 +100,7 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
                 }
 
                 fieldEffect = MoveId_GetFieldEffectId(move);
-                if (fieldEffect != 0xFF) {
+                if (fieldEffect != 0xFF && count < MAX_BUTTONS_IN_PARTY_MENU - CUSTOMIZE_BUTTONS) {
                     buf[count] = fieldEffect;
                     ++count;
                     PartyMenu_ContextMenuAddFieldMove(wk, move, fieldMoveIndex);
@@ -103,12 +110,17 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 
 #ifdef HM_MOVES_FROM_BAG
             // Fly can only be used from this menu, so offer it when HM02 is in the bag
-            if (fieldMoveIndex < MAX_MON_MOVES && PartyMenu_ShouldOfferFieldMoveFromBag(wk, pp, MOVE_FLY)) {
+            if (fieldMoveIndex < MAX_MON_MOVES && count < MAX_BUTTONS_IN_PARTY_MENU - CUSTOMIZE_BUTTONS && PartyMenu_ShouldOfferFieldMoveFromBag(wk, pp, MOVE_FLY)) {
                 buf[count] = MoveId_GetFieldEffectId(MOVE_FLY);
                 ++count;
                 PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
                 ++fieldMoveIndex;
             }
+#endif
+
+#ifdef PARTY_MENU_CUSTOMIZE
+            buf[count] = PARTY_MON_CONTEXT_MENU_CUSTOMIZE_MARKER;
+            ++count;
 #endif
         } else {
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
@@ -159,7 +171,15 @@ void LONG_CALL sub_0207AFC4(struct PartyMenu *wk)
         break;
     }
 
+#ifdef PARTY_MENU_CUSTOMIZE
+    if (wk->args->context == PARTY_MENU_CONTEXT_0) {
+        PartyMenu_OpenContextMenuWithCustomize(wk, buf, numItems);
+    } else {
+        PartyMenu_OpenContextMenu(wk, buf, numItems);
+    }
+#else
     PartyMenu_OpenContextMenu(wk, buf, numItems);
+#endif
     Heap_FreeExplicit(HEAP_ID_PARTY_MENU, buf);
     sub_0207D1C8(wk);
     PartyMenu_PrintMessageOnWindow33(wk, -1, TRUE);
@@ -292,7 +312,11 @@ void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, s
         y = 4;
         x = FontID_String_GetCenterAlignmentX(4, contextMenu->items[selection].text, 0, GetWindowWidth(&partyMenu->contextMenuButtonWindows[windowId]) * 8);
     } else {
-        if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG) {
+        BOOL plainText = partyMenu->args->itemId == ITEM_ROTOM_CATALOG;
+#ifdef PARTY_MENU_CUSTOMIZE
+        plainText = plainText || PartyMenu_IsCustomizeButton(contextMenu->items[selection].value);
+#endif
+        if (plainText) {
             // use the normal white colored text instead of blue field move text
             if (depressed == FALSE) {
                 fillValue = 4;

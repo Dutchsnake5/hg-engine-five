@@ -225,3 +225,23 @@ Lawn Mower
 Light Bulb
 Microwave Oven
 Washing Machine
+CUSTOMIZE
+NATURE
+ABILITY
+MOVES
+Change what?
+Raise which stat?
+Lower which stat?
+Choose a nature.
+Choose an Ability.
+ATTACK
+DEFENSE
+SPEED
+SP. ATK
+SP. DEF
+NEUTRAL
+{STRVAR_1 5, 0, 0}
+{STRVAR_1 1, 0, 0}’s nature became\n{STRVAR_1 5, 1, 0}!\r
+{STRVAR_1 1, 0, 0}’s Ability became\n{STRVAR_1 5, 1, 0}!\r
+{STRVAR_1 1, 0, 0} has no moves\nto remember.\r
+{STRVAR_1 1, 0, 0} can only have\none Ability.\r

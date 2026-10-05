@@ -649,6 +649,11 @@ arm9 Party_FindMonWithFieldMove 020542E8 2
 arm9 ScrCmd_CheckMoveInParty 0204D3CC 1
 #endif
 
+#ifdef PARTY_MENU_CUSTOMIZE
+# the move relearner's move list reads hg-engine's level-up learnsets
+arm9 MoveRelearner_GetEligibleLevelUpMoves 0209176C 2
+#endif
+
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
 arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
