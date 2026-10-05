@@ -118,7 +118,9 @@ JSONPROC := tools/jsonproc
 ROM_TOOL ?= $(DSROM)
 
 # Compiler/Assembler/Linker settings
-LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
+# game symbols come split by scripts/split_rom_symbols.py: Thumb functions marked as Thumb in an object, everything
+# else in a linker script, so code calls game functions with a plain bl/blx (--use-blx) instead of an address literal
+LDFLAGS = --use-blx $(BUILD)/rom_arm.ld $(BUILD)/rom_thumb.o -T $(C_SUBDIR)/linker.ld
 ASFLAGS =  -I"$(shell pwd)/asm/include" -I"$(shell pwd)/include" -mthumb -mcpu=arm946e-s -mtune=arm946e-s
 CFLAGS =  -I"$(shell pwd)/include" -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 0
@@ -302,6 +304,14 @@ $(BUILD)/rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
 	cp rom.ld $(BUILD)/rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py $(BUILD)/rom_gen.ld $(LINK)
 
+# split a symbol file into Thumb functions (an object) and everything else (a linker script); see LDFLAGS
+# each link gets its own split, which leaves alone the symbols that link's own objects define (see the script)
+$(BUILD)/rom_arm.ld $(BUILD)/rom_thumb.s &: rom.ld scripts/split_rom_symbols.py $(OBJS)
+	$(PYTHON) scripts/split_rom_symbols.py rom.ld $(BUILD)/rom_arm.ld $(BUILD)/rom_thumb.s $(OBJS)
+
+$(BUILD)/%_thumb.o: $(BUILD)/%_thumb.s
+	$(AS) $(ASFLAGS) -c $< -o $@
+
 # create output folders if they do not exist
 $(CODE_BUILD_DIRS):
 	mkdir -p $@
@@ -330,7 +340,7 @@ ifneq (1,$(NOSCAN))
 $(foreach src, $(ALL_ASM_SRCS), $(eval $(call ASM_OBJ_INC_DEFINE,$(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o, $(src)),$(src))))
 endif
 
-$(LINK):$(OBJS)
+$(LINK):$(OBJS) $(BUILD)/rom_arm.ld $(BUILD)/rom_thumb.o
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)
 
 $(OUTPUT):$(LINK)
@@ -392,7 +402,7 @@ ALL_CODE_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(ALL_C_SRCS)) \
  $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.d,$(ALL_C_SRCS))
 
 clean_code:
-	rm -f $(ALL_CODE_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
+	rm -f $(ALL_CODE_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld $(BUILD)/*_arm.ld $(BUILD)/*_thumb.s $(BUILD)/*_thumb.o
 
 ####################### Final ROM Build #######################
 CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard build/$(BUILD)/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09

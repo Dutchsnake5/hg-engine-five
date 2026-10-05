@@ -2,6 +2,7 @@
 #include "types.h"
 
 #include "overlay.h"
+#include "field_extension_entries.h"
 
 #include "constants/file.h"
 
@@ -209,4 +210,17 @@ u32 LONG_CALL IsOverlayLoaded(u32 ovyId)
     }
 
     return 0;
+}
+
+/**
+ *  @brief the field extension's entry table, or NULL when the field extension is not loaded
+ *  @see   include/field_extension_entries.h
+ */
+const struct FieldExtensionEntries *FieldExtensionEntries_Get(void)
+{
+    const struct FieldExtensionEntries *entries = (const struct FieldExtensionEntries *)FIELD_EXTENSION_ENTRIES_ADDR;
+    if (!IsOverlayLoaded(OVERLAY_FIELD_EXTENSION) || entries->magic != FIELD_EXTENSION_ENTRIES_MAGIC) {
+        return NULL;
+    }
+    return entries;
 }

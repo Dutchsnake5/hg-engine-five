@@ -245,3 +245,5 @@ NEUTRAL
 {STRVAR_1 1, 0, 0}’s Ability became\n{STRVAR_1 5, 1, 0}!\r
 {STRVAR_1 1, 0, 0} has no moves\nto remember.\r
 {STRVAR_1 1, 0, 0} can only have\none Ability.\r
+NICKNAME
+{STRVAR_1 1, 0, 0} can’t be renamed.\nAnother TRAINER named it.\r

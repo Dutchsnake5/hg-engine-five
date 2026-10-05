@@ -449,6 +449,14 @@ u32 LONG_CALL GetPartyMenuContextMenuActionFunc(int index);
 #define PARTY_MON_CONTEXT_MENU_CUSTOMIZE_MARKER 0xFE
 void PartyMenu_OpenContextMenuWithCustomize(struct PartyMenu *partyMenu, u8 *items, u8 numItems);
 BOOL PartyMenu_IsCustomizeButton(u32 action);
+BOOL PartyCustomize_IsAvailable(void);
+void PartyCustomize_ReleaseFieldExtension(void);
+struct PartyPokemon;
+u16 *LONG_CALL MoveRelearner_GetEligibleLevelUpMoves(struct PartyPokemon *pp, int heapId);
+
+// the party menu closes with these to have the start menu open the move relearner or the naming screen
+#define PARTY_MENU_ACTION_RETURN_RELEARN_MOVES 0x30
+#define PARTY_MENU_ACTION_RETURN_NICKNAME      0x31
 void LONG_CALL sub_0207E54C(struct PartyMenu *partyMenu, int numItems, int selection, int state);
 struct PartyMenuContextMenuCursor *LONG_CALL PartyMenu_CreateContextMenuCursor(struct PartyMenu *partyMenu, const struct PartyMenuContextMenu *template, int selection, int heapID, int state);
 void LONG_CALL PartyMenu_DisableMainScreenBlend_AfterYesNo(void);

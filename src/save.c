@@ -63,11 +63,13 @@ u16 LONG_CALL GetScriptVar(u16 var_id)
     }
 }
 
+// unused, so left out of the always-loaded code; remove the #if 0 to use it again
+#if 0
 void LONG_CALL SetScriptFlag(u16 flag_id)
 {
     SetScriptFlagPassSave(SavArray_Flags_get(SaveBlock2_get()), flag_id);
 }
-
+#endif
 void LONG_CALL ClearScriptFlag(u16 flag_id)
 {
     ClearScriptFlagPassSave(SavArray_Flags_get(SaveBlock2_get()), flag_id);
@@ -76,33 +78,6 @@ void LONG_CALL ClearScriptFlag(u16 flag_id)
 BOOL LONG_CALL CheckScriptFlag(u16 flag_id)
 {
     return CheckScriptFlagPassSave(SavArray_Flags_get(SaveBlock2_get()), flag_id);
-}
-
-// hardware sqrt implementation using the gpio registers + debug options
-u32 LONG_CALL sqrt(u32 num)
-{
-    reg_CP_SQRT_PARAM_L = num;
-    reg_CP_SQRTCNT = 0; // start sqrt calculation
-
-    u8 buf[64];
-#ifdef DEBUG_SQRT
-    sprintf(buf, "[SQRT]   PARAM = %08X\n", reg_CP_SQRT_PARAM_L);
-    debugsyscall(buf);
-#endif
-
-    while ((reg_CP_SQRTCNT & (1 << 15)) != 0) {
-#ifdef DEBUG_SQRT
-        sprintf(buf, "[SQRT] SQRTCNT = %08X\n", reg_CP_SQRTCNT);
-        debugsyscall(buf);
-#endif
-    }
-
-    sprintf(buf, "[SQRT]  RESULT = %08X\n", reg_CP_SQRT_RESULT); // need to have something here so that it won't return 0
-#ifdef DEBUG_SQRT
-    debugsyscall(buf);
-#endif
-
-    return reg_CP_SQRT_RESULT;
 }
 
 #ifdef DEBUG_PRINT_HEX_DUMP // will never pass ideally
@@ -703,38 +678,6 @@ u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last)
 
 #endif // EXPAND_PC_BOXES
 #endif // ALLOW_SAVE_CHANGES
-
-/**
- *  @brief check if an element of an array exists byte-for-byte in the buf sent to it
- *
- *  @param array pointer to any type array
- *  @param element pointer to any element of an array
- *  @param len number of elements in the overall array
- *  @param size size of each individual element, used both as length of element and length of members of array
- *  @return TRUE if the element exists verbatim inside of the array; FALSE otherwise
- */
-BOOL LONG_CALL IsElementInArray(const void *array, void *element, u32 len, u32 size)
-{
-    u32 i, j;
-    const u8 *arr = array;
-    u8 *elem = element;
-    // u8 buf[64];
-    // sprintf(buf, "Called IsElementInArray(0x%08X, 0x%08X, 0x%X, 0x%X)\n", (const u32)array, (u32)element, len, size);
-    // debugsyscall(buf);
-    for (i = 0; i < len; i++) {
-        for (j = 0; j < size; j++) {
-            const u8 *currElem = &arr[i * size];
-            if (j[currElem] != elem[j]) {
-                break;
-            }
-        }
-        if (j == size) {
-            return TRUE;
-        }
-    }
-    // debugsyscall("Element is not in array!");
-    return FALSE;
-}
 
 #if defined(DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES) || defined(DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL)
 

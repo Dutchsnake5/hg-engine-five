@@ -19,4 +19,6 @@ arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D660
 arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D810
 arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D93C
 arm9 Task_StartMenu_HandleReturn_Pokemon_Extend 0803D9B0
+# party menu: its init, wrapped to load the field extension, which holds the CUSTOMIZE menus
+arm9 PokeListProc_Init_Extend 0810159C
 #endif

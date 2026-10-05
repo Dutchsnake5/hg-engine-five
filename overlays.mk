@@ -22,8 +22,13 @@ ALL_C_SRCS += $(wildcard $(C_SUBDIR)/$1/*.c)
 ALL_ASM_SRCS += $(wildcard $(ASM_SUBDIR)/$1/*.s)
 
 
-$(BUILD)/$1_linked.o:$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(BUILD)/rom_gen.ld
-	$(LD) $(BUILD)/rom_gen.ld -T $(C_SUBDIR)/$1/linker.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(THUMB_HELP)
+$1_OBJS = $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s))
+
+$(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.s &: $(BUILD)/rom_gen.ld scripts/split_rom_symbols.py $$($1_OBJS) $(THUMB_HELP)
+	$(PYTHON) scripts/split_rom_symbols.py $(BUILD)/rom_gen.ld $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.s $$($1_OBJS) $(THUMB_HELP)
+
+$(BUILD)/$1_linked.o:$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.o
+	$(LD) --use-blx $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.o -T $(C_SUBDIR)/$1/linker.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(THUMB_HELP)
 
 $(BUILD)/output_$1.bin:$(BUILD)/$1_linked.o
 	$(OBJCOPY) -O binary $(BUILD)/$1_linked.o $(BUILD)/output_$1.bin
@@ -44,7 +49,7 @@ $(BUILD)/rom_gen_battle.ld:$(battle_LINK) $(battle_OUTPUT) $(BUILD)/rom_gen.ld
 
 define INDIVIDUAL_OVERLAY_DEFINE
 
-LDFLAGS_$1 = $(BUILD)/rom_gen_battle.ld -T $(C_SUBDIR)/$(INDIVIDUAL)/$1.ld
+LDFLAGS_$1 = --use-blx $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.o -T $(C_SUBDIR)/$(INDIVIDUAL)/$1.ld
 
 $1_LINK = $(BUILD)/$1_linked.o
 $1_OUTPUT = $(BUILD)/output_$1.bin
@@ -53,8 +58,11 @@ LINKED_OUTPUTS += $(BUILD)/$1_linked.o
 
 ALL_C_SRCS += $(C_SUBDIR)/$(INDIVIDUAL)/$1.c
 
-$(BUILD)/$1_linked.o:$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP) $(BUILD)/rom_gen_battle.ld
-	$(LD) $(BUILD)/rom_gen_battle.ld -T $(C_SUBDIR)/$(INDIVIDUAL)/linker/$1.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP)
+$(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.s &: $(BUILD)/rom_gen_battle.ld scripts/split_rom_symbols.py $(BUILD)/$(INDIVIDUAL)/$1.o $(THUMB_HELP)
+	$(PYTHON) scripts/split_rom_symbols.py $(BUILD)/rom_gen_battle.ld $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.s $(BUILD)/$(INDIVIDUAL)/$1.o $(THUMB_HELP)
+
+$(BUILD)/$1_linked.o:$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP) $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.o
+	$(LD) --use-blx $(BUILD)/$1_syms_arm.ld $(BUILD)/$1_syms_thumb.o -T $(C_SUBDIR)/$(INDIVIDUAL)/linker/$1.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP)
 
 $(BUILD)/output_$1.bin:$(BUILD)/$1_linked.o
 	$(OBJCOPY) -O binary $(BUILD)/$1_linked.o $(BUILD)/output_$1.bin

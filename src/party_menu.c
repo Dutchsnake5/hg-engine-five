@@ -119,8 +119,11 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 #endif
 
 #ifdef PARTY_MENU_CUSTOMIZE
-            buf[count] = PARTY_MON_CONTEXT_MENU_CUSTOMIZE_MARKER;
-            ++count;
+            // only when the field extension, which holds the CUSTOMIZE menus, could be loaded
+            if (PartyCustomize_IsAvailable()) {
+                buf[count] = PARTY_MON_CONTEXT_MENU_CUSTOMIZE_MARKER;
+                ++count;
+            }
 #endif
         } else {
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;

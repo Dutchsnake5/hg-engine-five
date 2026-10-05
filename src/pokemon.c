@@ -554,21 +554,8 @@ BOOL AddBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, int d
     return ret;
 }
 
-/**
- *  @brief get species base experience, modified for form.  base experience is no longer in personal
- *
- *  @param species species index
- *  @param form form number
- *  @return base experience
- */
-u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
-{
-    u16 baseExp;
-    species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
-    ReadFromNarcMemberByIdPair(&baseExp, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST, sizeof(u16) * species, sizeof(u16));
-    return baseExp;
-}
-
+// unused, so left out of the always-loaded code; remove the #if 0 to use it again
+#if 0
 /**
  *  @brief get genesect type from held item
  *
@@ -589,6 +576,7 @@ u32 LONG_CALL GetGenesectType(u16 item) // this may just go unused
     }
     return TYPE_NORMAL;
 }
+#endif
 
 /**
  *  @brief get genesect form from held item
@@ -668,29 +656,6 @@ BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon *bp)
     return FALSE;
 }
 
-/**
- *  @brief check if the Gracidea can be used on a PartyPokemon
- *
- *  @param pp PartyPokemon to check the nectar against
- *  @return TRUE if Gracidea can be used; FALSE otherwise
- */
-BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
-{
-    struct RTCTime time;
-    int species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    int form = GetMonData(mon, MON_DATA_FORM, NULL);
-    int status = GetMonData(mon, MON_DATA_STATUS, NULL);
-    int hp = GetMonData(mon, MON_DATA_HP, NULL);
-    // BOOL fatefulEncounter = GetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, NULL);
-    GF_RTC_CopyTime(&time);
-
-    if (species == SPECIES_SHAYMIN && form == 0 && hp != 0 && !(status & STATUS_FREEZE) && (time.hour >= 4 && time.hour < 20)) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
 u32 ALIGN4 partyMenuSignal = 0;
 
 void LoadIconChangeAnim(struct IconFormChangeData *work, struct PartyPokemon *mon)
@@ -739,6 +704,10 @@ void _EmitParticles(struct IconFormChangeData *partyMenu)
  *  @param proc work structure
  *  @param seq step in PokeListProc_End sequence
  */
+#ifdef PARTY_MENU_CUSTOMIZE
+void PartyCustomize_ReleaseFieldExtension(void); // src/party_customize.c
+#endif
+
 u32 LONG_CALL PokeListProc_End_Extend(void *proc, int *seq) // finally add to pokecount so that icons are fine
 {
     struct PartyMenu *wk = PROC_GetWork(proc);
@@ -748,7 +717,13 @@ u32 LONG_CALL PokeListProc_End_Extend(void *proc, int *seq) // finally add to po
         wk->args->party->count++;
     }
 
-    return PokeListProc_End(proc, seq);
+    u32 done = PokeListProc_End(proc, seq);
+#ifdef PARTY_MENU_CUSTOMIZE
+    if (done) {
+        PartyCustomize_ReleaseFieldExtension(); // loaded for the CUSTOMIZE menus when the party menu opened
+    }
+#endif
+    return done;
 }
 
 /**
@@ -787,6 +762,8 @@ void LONG_CALL SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 ne
     }
 }
 
+// unused, so left out of the always-loaded code; remove the #if 0 to use it again
+#if 0
 /**
  *  @brief combine ChangePartyPokemonToForm and SwapPartyPokemonMove
  *
@@ -800,7 +777,7 @@ void LONG_CALL ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 for
         SwapPartyPokemonMove(pp, oldMove, newMove);
     }
 }
-
+#endif
 /**
  *  @brief grab current season from the RTC settings
  *
@@ -1419,19 +1396,6 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
 }
 
 /**
- *  @brief clear a PartyPokemon's moves by setting them to zero
- *
- *  @param pokemon PartyPokemon whose moves to clear
- */
-void LONG_CALL ClearMonMoves(struct PartyPokemon *pokemon)
-{
-    int null = 0;
-    for (int i = 0; i < 4; i++) {
-        SetMonData(pokemon, MON_DATA_MOVE1 + i, &null);
-    }
-}
-
-/**
  *  @brief hatch a PartyPokemon--creates a new PartyPokemon and initializes a few characteristics
  *
  *  @param pokemon PartyPokemon that is hatching
@@ -1853,6 +1817,8 @@ BOOL LONG_CALL CalcShininessByOtIdAndPersonality(u32 otid, u32 pid)
     return SHINY_CHECK(otid, pid);
 }
 
+// unused, so left out of the always-loaded code; remove the #if 0 to use it again
+#if 0
 /**
  *  @brief adjust the pid to be shiny such that it keeps substructures in the same order
  *
@@ -1879,7 +1845,7 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
     }
     return pid;
 }
-
+#endif
 /**
  *  @brief try learning a move upon level up
  *          edited to allow for moves to be learned on evolution at level 0
@@ -2134,38 +2100,6 @@ void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemo
             break;
         }
         break;
-    default:
-        break;
-    }
-}
-
-void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp)
-{
-    int monsNo = GetMonData(pp, MON_DATA_SPECIES, NULL);
-    int formNo = GetMonData(pp, MON_DATA_FORM, NULL);
-
-    RevertFormChange(pp, monsNo, formNo);
-
-    switch (monsNo) {
-    case SPECIES_XERNEAS:
-        formNo = 1;
-        ChangePartyPokemonToForm(pp, formNo);
-        break;
-    case SPECIES_ZACIAN:
-        if (GetMonData(pp, MON_DATA_HELD_ITEM, NULL) == ITEM_RUSTED_SWORD) {
-            formNo = 1;
-            ChangePartyPokemonToForm(pp, formNo);
-            correct_zacian_zamazenta_kyurem_moves_for_form(pp, formNo, 0);
-        }
-        break;
-    case SPECIES_ZAMAZENTA:
-        if (GetMonData(pp, MON_DATA_HELD_ITEM, NULL) == ITEM_RUSTED_SHIELD) {
-            formNo = 1;
-            ChangePartyPokemonToForm(pp, formNo);
-            correct_zacian_zamazenta_kyurem_moves_for_form(pp, formNo, 0);
-        }
-        break;
-
     default:
         break;
     }

@@ -1,6 +1,8 @@
-#include "../include/config.h"
-#include "../include/constants/trainerclass.h"
-#include "../include/types.h"
+#include "config.h"
+#include "constants/trainerclass.h"
+#include "types.h"
+
+// only the battle overlay reads this table (see repoints), so it lives in the battle extension, not the always-loaded code
 
 #ifdef EXPAND_TRAINER_PRIZE_MONEY
 struct TrainerMoney {

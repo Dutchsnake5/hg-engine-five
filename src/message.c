@@ -34,6 +34,8 @@ void LONG_CALL BufferItemNamePlural(MessageFormat *msgFmt, u32 fieldno, u32 item
     BufferOffsetItemLineFromFile(msgFmt, fieldno, itemId, fileId);
 }
 
+// unused, so left out of the always-loaded code; remove the #if 0 to use it again
+#if 0
 void LONG_CALL BufferItemNameGiveItem(MessageFormat *msgFmt, u32 fieldno, u32 itemId)
 {
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
@@ -42,3 +44,4 @@ void LONG_CALL BufferItemNameGiveItem(MessageFormat *msgFmt, u32 fieldno, u32 it
         : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_GIVE_ITEM_GEN4, gen);
     BufferOffsetItemLineFromFile(msgFmt, fieldno, itemId, fileId);
 }
+#endif

@@ -67,7 +67,13 @@ typedef struct
 #define ALIGN4             __attribute__((aligned(4)))
 #define MOVE_TABLES_TERMIN 0xFEFE
 #define THUMB_FUNC         __attribute__((target("thumb")))
+// game functions are all within bl range, and the link marks the Thumb ones (scripts/split_rom_symbols.py), so calls
+// to them are plain bl/blx. define USE_LONG_CALLS to go back to loading each address from a literal
+#ifdef USE_LONG_CALLS
 #define LONG_CALL          __attribute__((long_call))
+#else
+#define LONG_CALL
+#endif
 #define UNUSED             __attribute__((unused))
 #define FALLTHROUGH        __attribute__((fallthrough))
 #define PACKED             __attribute__((packed))

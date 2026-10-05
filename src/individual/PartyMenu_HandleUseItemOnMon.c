@@ -423,3 +423,27 @@ void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu)
     sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
     sub_0207E358(partyMenu, &contextMenu, numItems, 0, 0);
 }
+
+// only this overlay uses it, so it lives here instead of in the always-loaded code (it was in src/pokemon.c)
+/**
+ *  @brief check if the Gracidea can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check the nectar against
+ *  @return TRUE if Gracidea can be used; FALSE otherwise
+ */
+BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
+{
+    struct RTCTime time;
+    int species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    int form = GetMonData(mon, MON_DATA_FORM, NULL);
+    int status = GetMonData(mon, MON_DATA_STATUS, NULL);
+    int hp = GetMonData(mon, MON_DATA_HP, NULL);
+    // BOOL fatefulEncounter = GetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, NULL);
+    GF_RTC_CopyTime(&time);
+
+    if (species == SPECIES_SHAYMIN && form == 0 && hp != 0 && !(status & STATUS_FREEZE) && (time.hour >= 4 && time.hour < 20)) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}

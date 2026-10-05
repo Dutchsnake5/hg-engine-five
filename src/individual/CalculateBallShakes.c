@@ -896,3 +896,9 @@ u32 get_shake_chance(int input_value)
 
     return getShakeChancesLookupTable[input_value / UQ412__1_0];
 }
+
+// only this overlay uses it, so it lives here instead of in the always-loaded code (it was in src/qmath64.c)
+u64 LONG_CALL QMul64_RoundUp(u64 i, u64 q)
+{
+    return ((i * q) + UQ412__0_5) >> UQ412_INT_BITSHIFT;
+}
