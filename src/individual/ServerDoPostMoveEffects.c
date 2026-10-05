@@ -734,6 +734,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                         ctx->moveNoTemp = ctx->dancerContext.extraActions[i].moveNumberOrAction;
                         ctx->waza_no_old[ctx->attack_client] = ctx->dancerContext.extraActions[i].moveNumberOrAction;
                         ctx->dancerContext.extraActions[i].moveNumberOrAction = 0;
+                        // Instruct queues its move the same way, but without Dancer's ability popup
+                        int extraActionScript = ctx->dancerContext.extraActions[i].type ? BATTLE_SUBSCRIPT_HANDLE_INSTRUCT : BATTLE_SUBSCRIPT_HANDLE_DANCER;
+                        ctx->dancerContext.extraActions[i].type = 0;
 
                         ctx->moveContext.hitFoesCount = 0;
                         ctx->moveContext.hitSubstituteCount = 0;
@@ -742,7 +745,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
                         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
 
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_DANCER);
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, extraActionScript);
                         ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                         ctx->swoam_seq_no = 0;
@@ -1362,7 +1365,7 @@ int LONG_CALL Activate_SmackDown(void *bsys UNUSED, struct BattleStruct *ctx)
         ctx->battlerIdTemp = ctx->defence_client;
         ctx->moveConditionsFlags[ctx->defence_client].grounded = TRUE;
         ctx->battlemon[ctx->defence_client].moveeffect.magnetRiseTurns = 0;
-        // TODO clear Telekinesis, once implemented
+        ctx->telekinesisTurns[ctx->defence_client] = 0;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FELL_STRAIGHT_DOWN);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

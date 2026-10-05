@@ -37,8 +37,10 @@ enum EndTurnResolutionOrder {
     ENDTURN_BURN,
     ENDTURN_NIGHTMARE,
     ENDTURN_CURSE,
+    ENDTURN_SALT_CURE,
     ENDTURN_TRAPPING_DAMAGE,
     ENDTURN_OCTOLOCK,
+    ENDTURN_SYRUP_BOMB,
     ENDTURN_TAUNT_FADING,
     ENDTURN_TORMENT_FADING,
     ENDTURN_ENCORE_FADING,
@@ -471,12 +473,24 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 // }
 
                 switch (sp->endTurnEventBlockSequenceNumber) {
-                // TODO
                 case FIRST_EVENT_BLOCK_SIDE_CONDITION_RESIDUAL_DAMAGE: {
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In FIRST_EVENT_BLOCK_SIDE_CONDITION_RESIDUAL_DAMAGE\n");
 
 #endif
+
+                    // the sea of fire from Fire Pledge + Grass Pledge burns everything that isn't Fire type
+                    if (sp->seaOfFireTurns[IsClientEnemy(bw, battlerId)]
+                        && sp->battlemon[battlerId].hp
+                        && !HasType(sp, battlerId, TYPE_FIRE)
+                        && GetBattlerAbility(sp, battlerId) != ABILITY_MAGIC_GUARD) {
+                        sp->battlerIdTemp = battlerId;
+                        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SEA_OF_FIRE_DAMAGE);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
 
                     sp->endTurnEventBlockSequenceNumber++;
                     break;
@@ -855,6 +869,31 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             }
             break;
         }
+        case ENDTURN_SALT_CURE: {
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+
+                if ((sp->saltCure & No2Bit(battlerId)) && sp->battlemon[battlerId].hp != 0) {
+                    // Water and Steel types take double damage from Salt Cure
+                    int divisor = (HasType(sp, battlerId, TYPE_WATER) || HasType(sp, battlerId, TYPE_STEEL)) ? 4 : 8;
+                    sp->battlerIdTemp = battlerId;
+                    sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, divisor);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SALT_CURE_DAMAGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+
+                sp->scc_work++;
+                break;
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
+            break;
+        }
         case ENDTURN_TRAPPING_DAMAGE: {
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_TRAPPING_DAMAGE\n");
@@ -868,7 +907,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     // sp->battlemon[battlerId].condition2 -= 1 << 13;
                     sp->binding_turns[battlerId]--;
                     if (sp->binding_turns[battlerId]) {
-                        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
+                        // Binding Band raises the damage to 1/6
+                        int binder = sp->battlemon[battlerId].moveeffect.battlerIdBinding;
+                        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, (HeldItemHoldEffectGet(sp, binder) == HOLD_EFFECT_TRAPPING_DAMAGE_UP) ? 6 : 8);
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIND_EFFECT);
                     } else {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIND_END);
@@ -890,14 +931,60 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             }
             break;
         }
-        // TODO
         case ENDTURN_OCTOLOCK: {
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_OCTOLOCK\n");
 
 #endif
 
-            sp->fcc_seq_no++;
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+
+                if (sp->octolockedBy[battlerId] && sp->battlemon[battlerId].hp != 0) {
+                    sp->attack_client = sp->octolockedBy[battlerId] - 1;
+                    sp->state_client = battlerId;
+                    sp->battlerIdTemp = battlerId;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_OCTOLOCK_TURN);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+
+                sp->scc_work++;
+                break;
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
+            break;
+        }
+        case ENDTURN_SYRUP_BOMB: {
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+
+                if (sp->syrupBombTurns[battlerId] && sp->battlemon[battlerId].hp != 0) {
+                    sp->syrupBombTurns[battlerId]--;
+                    sp->attack_client = sp->syrupBombSource[battlerId];
+                    sp->state_client = battlerId;
+                    sp->battlerIdTemp = battlerId;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYRUP_BOMB_TURN);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+
+                sp->scc_work++;
+                break;
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
             break;
         }
         case ENDTURN_TAUNT_FADING: {
@@ -1049,14 +1136,33 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             }
             break;
         }
-        // TODO
         case ENDTURN_TELEKINESIS_FADING: {
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_TELEKINESIS_FADING\n");
 
 #endif
 
-            sp->fcc_seq_no++;
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+
+                if (sp->telekinesisTurns[battlerId]) {
+                    if (--sp->telekinesisTurns[battlerId] == 0 && sp->battlemon[battlerId].hp != 0) {
+                        sp->battlerIdTemp = battlerId;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_TELEKINESIS_END);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
+                }
+
+                sp->scc_work++;
+                break;
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
             break;
         }
         case ENDTURN_HEAL_BLOCK_FADING: {
@@ -1388,36 +1494,48 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->endTurnEventBlockSequenceNumber++;
                     break;
                 }
-                // TODO
                 case SECOND_EVENT_BLOCK_RAINBOW_DISSIPATING: {
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In SECOND_EVENT_BLOCK_RAINBOW_DISSIPATING\n");
 
 #endif
 
-                    if (FALSE) {
+                    if (sp->rainbowTurns[side] && --sp->rainbowTurns[side] == 0) {
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RAINBOW_END);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
                     }
                     sp->endTurnEventBlockSequenceNumber++;
                     break;
                 }
-                // TODO
                 case SECOND_EVENT_BLOCK_SEA_OF_FIRE_DISSIPATING: {
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In SECOND_EVENT_BLOCK_SEA_OF_FIRE_DISSIPATING\n");
 
 #endif
-                    if (FALSE) {
+                    if (sp->seaOfFireTurns[side] && --sp->seaOfFireTurns[side] == 0) {
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SEA_OF_FIRE_END);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
                     }
                     sp->endTurnEventBlockSequenceNumber++;
                     break;
                 }
-                // TODO
                 case SECOND_EVENT_BLOCK_SWAMP_DISSIPATING: {
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In SECOND_EVENT_BLOCK_SWAMP_DISSIPATING\n");
 
 #endif
-                    if (FALSE) {
+                    if (sp->swampTurns[side] && --sp->swampTurns[side] == 0) {
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SWAMP_END);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
+                        ret = 1;
                     }
                     sp->endTurnEventBlockSequenceNumber++;
                     break;
@@ -1526,13 +1644,17 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             sp->fcc_seq_no++;
             break;
         }
-        // TODO
         case ENDTURN_WONDER_ROOM_DISSIPATING: {
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_WONDER_ROOM_DISSIPATING\n");
 
 #endif
-
+            if (sp->wonderRoomTurns && --sp->wonderRoomTurns == 0) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WONDER_ROOM_END);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = 22;
+                ret = 1;
+            }
             sp->fcc_seq_no++;
             break;
         }
@@ -1696,6 +1818,17 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                         }
                         break;
                     }
+                    case ABILITY_BALL_FETCH: {
+                        // brings back the first Poke Ball that failed to catch anything
+                        if (sp->battlemon[battlerId].hp && sp->battlemon[battlerId].item == ITEM_NONE && sp->ballFetchItem) {
+                            sp->battlemon[battlerId].item = sp->ballFetchItem;
+                            sp->ballFetchItem = 0;
+                            sp->battlerIdTemp = battlerId;
+                            seq_no = BATTLE_SUBSCRIPT_BALL_FETCH;
+                            ret = TRUE;
+                        }
+                        break;
+                    }
                     case ABILITY_MOODY: { // this is going to be interesting
                         if (sp->battlemon[battlerId].hp) {
                             // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
@@ -1840,14 +1973,61 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             sp->fcc_seq_no++;
             break;
         }
-        // TODO
         case ENDTURN_FORM_CHANGE: {
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_FORM_CHANGE\n");
 
 #endif
 
-            sp->fcc_seq_no++;
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+                struct BattlePokemon *mon = &sp->battlemon[battlerId];
+                sp->scc_work++;
+
+                if (mon->hp == 0 || (mon->condition2 & STATUS2_TRANSFORM)) {
+                    continue;
+                }
+
+                // Power Construct: a 10% or 50% Power Construct Zygarde at half HP or less becomes Complete
+                if (mon->species == SPECIES_ZYGARDE
+                    && (mon->form_no == 2 || mon->form_no == 3)
+                    && GetBattlerAbility(sp, battlerId) == ABILITY_POWER_CONSTRUCT
+                    && mon->hp <= (s32)(mon->maxhp / 2)) {
+                    u32 oldMaxHp = mon->maxhp;
+                    mon->form_no += 2;
+                    BattleFormChange(battlerId, mon->form_no, bw, sp, FALSE);
+                    struct PartyPokemon *pp = BattleWorkPokemonParamGet(bw, battlerId, sp->sel_mons_no[battlerId]);
+                    mon->maxhp = GetMonData(pp, MON_DATA_MAXHP, NULL);
+                    // the extra max HP is gained as current HP too
+                    sp->hp_calc_work = mon->maxhp - oldMaxHp;
+                    sp->battlerIdTemp = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_ZYGARDE_FORM_CHANGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                    break;
+                }
+
+                // Schooling: Wishiwashi schools above 1/4 HP from level 20, and stops below it
+                if (mon->species == SPECIES_WISHIWASHI && GetBattlerAbility(sp, battlerId) == ABILITY_SCHOOLING) {
+                    int form = (mon->level >= 20 && mon->hp > (s32)(mon->maxhp / 4)) ? 1 : 0;
+                    if (form != mon->form_no) {
+                        mon->form_no = form;
+                        BattleFormChange(battlerId, form, bw, sp, FALSE);
+                        sp->battlerIdTemp = battlerId;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                        break;
+                    }
+                }
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
             break;
         }
         case ENDTURN_FOURTH_EVENT_BLOCK: {
@@ -1981,6 +2161,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->moveConditionsFlags[i].laserFocusTimer--;
                 }
                 sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
+                sp->moveConditionsFlags[i].statRaisedThisTurn = 0;
                 if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
                     sp->moveConditionsFlags[i].throatChopTimer--;
                 }
@@ -1989,6 +2170,30 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->moveConditionsFlags[i].mindBlownOrSteelBeam = 0;
                 sp->moveProtect[i] = 0;
             }
+
+            // Echoed Voice keeps building while it is used on consecutive turns
+            if (sp->echoedVoiceUsedThisTurn) {
+                if (sp->echoedVoiceCount < 4) {
+                    sp->echoedVoiceCount++;
+                }
+            } else {
+                sp->echoedVoiceCount = 0;
+            }
+            sp->echoedVoiceUsedThisTurn = FALSE;
+            sp->electrified = 0;
+            sp->beakBlastCharging = 0;
+            sp->symbiosisPending = 0;
+            sp->shellTrapSet = 0;
+            sp->shellTrapTriggered = 0;
+            for (int i = 0; i < CLIENT_MAX; i++) {
+                sp->pledgeWaitingMove[i] = MOVE_NONE;
+            }
+            if (sp->fairyLockTurns) {
+                sp->fairyLockTurns--;
+            }
+            sp->roundUsedThisTurn = FALSE;
+            sp->lastMoveThisTurn = MOVE_NONE;
+            sp->lastMoveThisTurnSucceeded = FALSE;
 
             sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;
             sp->enemySideHasFaintedTeammateLastTurn = sp->enemySideHasFaintedTeammateThisTurn;

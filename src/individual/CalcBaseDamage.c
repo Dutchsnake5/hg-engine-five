@@ -207,6 +207,21 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         // TODO: Check correctness
         movepower = QMul_RoundDown(120 * 100, (DefendingMon.hp * 4096) / DefendingMon.maxhp) / 100;
         break;
+    case MOVE_HARD_PRESS:
+        movepower = QMul_RoundDown(100 * 100, (DefendingMon.hp * 4096) / DefendingMon.maxhp) / 100;
+        if (movepower == 0) {
+            movepower = 1;
+        }
+        break;
+    // Hit-count based
+    case MOVE_RAGE_FIST: {
+        u32 hits = sp->rageFistHits[SanitizeClientForTeamAccess(bw, attacker)][sp->sel_mons_no[attacker]];
+        movepower = (hits >= 6) ? 350 : 50 + 50 * hits;
+        break;
+    }
+    case MOVE_LAST_RESPECTS:
+        movepower = 50 + 50 * sp->totalFaintedCount[SanitizeClientForTeamAccess(bw, attacker)];
+        break;
     // Happiness-based
     case MOVE_RETURN:
         movepower = AttackingMon.happiness * 10 / 25;
@@ -268,7 +283,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_WATER_PLEDGE:
     case MOVE_FIRE_PLEDGE:
     case MOVE_GRASS_PLEDGE:
-        // TODO
+        // combined with an ally's pledge
+        if (GetPledgeCombination(sp, attacker, moveno) != MOVE_NONE) {
+            movepower = 150;
+        }
         break;
     case MOVE_GUST:
     case MOVE_TWISTER:
@@ -289,7 +307,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_ROUND:
-        // TODO: Implement Round
+        // a Round used after another Round in the same turn doubles in power
+        if (sp->roundUsedThisTurn) {
+            movepower *= 2;
+        }
         break;
     case MOVE_SMELLING_SALTS:
         if (CheckSubstitute(sp, defender) == FALSE && DefendingMon.condition & STATUS_PARALYSIS) {
@@ -356,7 +377,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
         break;
     case MOVE_ECHOED_VOICE:
-        // TODO
+        // +40 power for every consecutive previous turn it was used, up to 200
+        movepower = 40 * (1 + sp->echoedVoiceCount);
         break;
     case MOVE_HIDDEN_POWER:
         movepower = 60;
@@ -472,10 +494,14 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
     } break;
     case MOVE_FUSION_FLARE:
-        // TODO
+        if (sp->lastMoveThisTurn == MOVE_FUSION_BOLT && sp->lastMoveThisTurnSucceeded) {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
+        }
         break;
     case MOVE_FUSION_BOLT:
-        // TODO
+        if (sp->lastMoveThisTurn == MOVE_FUSION_FLARE && sp->lastMoveThisTurnSucceeded) {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
+        }
         break;
     case MOVE_GRAV_APPLE:
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8870357
@@ -1373,7 +1399,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 #endif
 
     // Step 4.4. Wonder Room
-    // TODO
+    if (sp->wonderRoomTurns) {
+        u16 temp = DefendingMon.defense;
+        DefendingMon.defense = DefendingMon.sp_defense;
+        DefendingMon.sp_defense = temp;
+    }
 
     // Step 4.5. Critical hit
     if (critical > 1) {

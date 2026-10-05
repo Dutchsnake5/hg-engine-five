@@ -5,27 +5,29 @@
 
 .create "build/move/move_anim/0_514", 0
 
+// Quash: reuses the Spite animation (target tint)
+
 a010_514:
-    loadparticlefromspa 0, 486
-    waitparticle
-
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
-
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
-
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
-    waitparticle
-
-    unloadparticle 0
+    callfunction 33, 5, 0, 1, 0, 12, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitstate
+    wait 2
+    initspriteresource
+    loadspriteresource 0
+    loadspritemaybe 1, 0, 0, 0
+    cmd52 1, 1, 0
+    callfunction 34, 5, 2, 0, 3, 32767, 10, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 20, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    cmd1F 0x1, 0
+    playsepan 1948, -117
+    waitstate
+    cmd20 0
+    unloadspriteresource
+    cmd53 1
+    resetsprite 0
+    callfunction 33, 5, 0, 1, 12, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitstate
+    shadetargetmon 6, 4, 8
     waitstate
     end
-    
 
 .close

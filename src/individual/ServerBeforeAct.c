@@ -98,6 +98,8 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
             for (client_no = 0; client_no < CLIENT_MAX; client_no++) {
                 sp->agi_rand[client_no] = BattleRand(bw);
             }
+            // Quick Claw and Quick Draw activation depends on this turn's roll
+            CalcPriorityAndQuickClawCustapBerry(bw, sp);
             sp->sba_seq_no++;
             break;
         }
@@ -345,10 +347,26 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
                 }
 
                 // 鳥嘴加農炮
-                // TODO
+                if (((sp->battlemon[client_no].condition & 7) == 0) && (GetBattlerSelectedMove(sp, client_no) == MOVE_BEAK_BLAST) && (ST_CheckIfInTruant(sp, client_no) == FALSE) && (sp->oneTurnFlag[client_no].struggle_flag == 0)) {
+                    SCIO_BlankMessage(bw);
+                    sp->battlerIdTemp = client_no;
+                    sp->beakBlastCharging |= No2Bit(client_no);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BEAK_BLAST_CHARGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
 
                 // 陷阱甲殼
-                // TODO
+                if (((sp->battlemon[client_no].condition & 7) == 0) && (GetBattlerSelectedMove(sp, client_no) == MOVE_SHELL_TRAP) && (ST_CheckIfInTruant(sp, client_no) == FALSE) && (sp->oneTurnFlag[client_no].struggle_flag == 0)) {
+                    SCIO_BlankMessage(bw);
+                    sp->battlerIdTemp = client_no;
+                    sp->shellTrapSet |= No2Bit(client_no);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHELL_TRAP_SET);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    return;
+                }
             }
             sp->sba_work = 0;
             sp->sba_seq_no++;

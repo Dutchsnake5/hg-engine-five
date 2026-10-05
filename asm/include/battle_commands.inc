@@ -1645,7 +1645,14 @@
     .long \start
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 300
+    // runs one of the NEW_MOVE_EFFECT_* handlers, jumping to failAddress if it reports failure
+    .macro TryNewMoveEffect effect, failAddress
+    .long 301
+    .long \effect
+    .long (((\failAddress - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 301
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

@@ -235,6 +235,20 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             if (battlemon->states[STAT_ATTACK + stattochange] > 12) {
                 battlemon->states[STAT_ATTACK + stattochange] = 12;
             }
+            sp->moveConditionsFlags[sp->state_client].statRaisedThisTurn = TRUE;
+
+            // Opportunist copies its opponents' boosts, but not ones that were themselves copied by Opportunist
+            if (!sp->opportunistApplying) {
+                int maxBattlers = BattleWorkClientSetMaxGet(bw);
+                for (int i = 0; i < maxBattlers; i++) {
+                    if (IsClientEnemy(bw, i) != IsClientEnemy(bw, sp->state_client)
+                        && sp->battlemon[i].hp
+                        && GetBattlerAbility(sp, i) == ABILITY_OPPORTUNIST) {
+                        u8 *boost = &sp->opportunistBoosts[i][STAT_ATTACK + stattochange];
+                        *boost = (*boost + statchange > 12) ? 12 : *boost + statchange;
+                    }
+                }
+            }
         }
     } else {
         // Cap stat change here so that message below is correct

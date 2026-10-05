@@ -5,6 +5,7 @@
 
 _000:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_SUCTION_CUPS, _suctioncups
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_GUARD_DOG, _guardDog
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_INGRAIN, _ingrain
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_WILD_MON, _end
 
@@ -50,6 +51,13 @@ _suctioncups:
     // {0} is anchored in place with its suction cups!
     PrintMessage 659, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
     Wait 
+    WaitButtonABTime 30
+    GoTo _end
+
+_guardDog:
+    // {0} won't budge thanks to its Guard Dog!
+    PrintMessage 1911, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    Wait
     WaitButtonABTime 30
     GoTo _end
 

@@ -140,6 +140,19 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             if (sp->battlemon[sp->defence_client].hit_count < 255) {
                 sp->battlemon[sp->defence_client].hit_count++;
             }
+            if ((sp->shellTrapSet & No2Bit(sp->defence_client))
+                && GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL
+                && IsClientEnemy(bw, sp->attack_client) != IsClientEnemy(bw, sp->defence_client)) {
+                // the trap goes off right after this move
+                sp->shellTrapTriggered |= No2Bit(sp->defence_client);
+                sp->oneTurnFlag[sp->defence_client].forceExecutionOrderFlag = EXECUTION_ORDER_AFTER_YOU;
+            }
+            if (sp->attack_client != sp->defence_client) {
+                u8 *rageFistHits = &sp->rageFistHits[SanitizeClientForTeamAccess(bw, sp->defence_client)][sp->sel_mons_no[sp->defence_client]];
+                if (*rageFistHits < 255) {
+                    (*rageFistHits)++;
+                }
+            }
             int storedDamage = sp->damage;
             if (storedDamage == 0 && negatedDamage) {
                 storedDamage = 1;

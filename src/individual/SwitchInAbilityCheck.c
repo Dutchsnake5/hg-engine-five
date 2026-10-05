@@ -1038,11 +1038,33 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
 
                 // Costar
-                {
+                if (GetBattlerAbility(sp, client_no) == ABILITY_COSTAR
+                    && sp->battlemon[client_no].ability_activated_flag == 0
+                    && sp->battlemon[client_no].hp
+                    && (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLES)
+                    && sp->battlemon[BATTLER_ALLY(client_no)].hp) {
+                    sp->battlemon[client_no].ability_activated_flag = 1;
+                    sp->battlerIdTemp = client_no;
+                    scriptnum = BATTLE_SUBSCRIPT_COSTAR;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    break;
                 }
 
                 // Commander
-                {
+                if (GetBattlerAbility(sp, client_no) == ABILITY_COMMANDER
+                    && sp->battlemon[client_no].species == SPECIES_TATSUGIRI
+                    && sp->battlemon[client_no].hp
+                    && !(sp->commanding & No2Bit(client_no))
+                    && !(sp->battlemon[client_no].condition2 & STATUS2_TRANSFORM)
+                    && (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLES)
+                    && sp->battlemon[BATTLER_ALLY(client_no)].species == SPECIES_DONDOZO
+                    && sp->battlemon[BATTLER_ALLY(client_no)].hp
+                    && !(sp->battlemon[BATTLER_ALLY(client_no)].condition2 & STATUS2_TRANSFORM)
+                    && sp->commandedBy[BATTLER_ALLY(client_no)] == 0) {
+                    sp->battlerIdTemp = client_no;
+                    scriptnum = BATTLE_SUBSCRIPT_COMMANDER;
+                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    break;
                 }
 
                 // Zero to Hero
@@ -1111,7 +1133,30 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 client_no = sp->turnOrder[i];
 
                 // Opportunist
-                {
+                if (GetBattlerAbility(sp, client_no) == ABILITY_OPPORTUNIST && sp->battlemon[client_no].hp) {
+                    for (int stat = STAT_ATTACK; stat <= STAT_EVASION; stat++) {
+                        if (sp->opportunistBoosts[client_no][stat]) {
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_OPPORTUNIST;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+
+                // Symbiosis
+                if ((sp->symbiosisPending & No2Bit(client_no)) && ret != SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                    int giver = BATTLER_ALLY(client_no);
+                    sp->symbiosisPending &= ~No2Bit(client_no);
+                    if (sp->battlemon[client_no].hp
+                        && sp->battlemon[client_no].item == ITEM_NONE
+                        && sp->battlemon[giver].hp
+                        && sp->battlemon[giver].item != ITEM_NONE
+                        && GetBattlerAbility(sp, giver) == ABILITY_SYMBIOSIS) {
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_SYMBIOSIS;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                    }
                 }
 
                 // Need to trigger script

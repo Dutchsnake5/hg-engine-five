@@ -5,27 +5,44 @@
 
 .create "build/move/move_anim/0_667", 0
 
+// Sparkling Aria: reuses the Bubble Beam animation (target tint)
+
 a010_667:
-    loadparticlefromspa 0, 486
+    initspriteresource
+    loadspriteresource 0
+    loadspriteresource 1
+    loadspriteresource 2
+    loadspriteresource 3
+    loadspritemaybe 4, 0, 0, 0
+    loadspritemaybe 5, 0, 1, 1
+    loadspritemaybe 6, 0, 2, 2
+    loadspritemaybe 7, 0, 3, 3
+    callfunction 78, 1, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    loadparticle 0, 92
+    waitstate
+    unloadspriteresource
+    resetsprite 0
+    resetsprite 1
+    resetsprite 2
+    resetsprite 3
+    addparticle 0, 0, 17
+    cmd37 6, 0, 2, 6, 1, 4096, 0, "NaN", "NaN"
+    cmd37 5, 4, 0, 2, 5, 0, "NaN", "NaN", "NaN"
+    repeatse 2117, 0, 4, 8
+    loop 2
+    repeatse 1997, 117, 2, 2
+    callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+    callfunction 52, 3, 16, -16, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 16
+    callfunction 52, 3, 8, 8, 264, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    wait 8
+    doloop
+    repeatse 2024, 117, 4, 6
     waitparticle
-
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
-
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
-
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
-    waitparticle
-
     unloadparticle 0
+    shadetargetmon 6, 12, 31
     waitstate
     end
-    
 
 .close

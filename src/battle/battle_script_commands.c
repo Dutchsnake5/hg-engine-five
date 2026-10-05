@@ -39,6 +39,7 @@ struct EXP_CALCULATOR {
 
 typedef BOOL (*btl_scr_cmd_func)(void *bw, struct BattleStruct *sp);
 #define START_OF_NEW_BTL_SCR_CMDS 0xE1
+#define BTL_SCR_CMD_CHECK_EFFECT_ACTIVATION 181
 extern const btl_scr_cmd_func BattleScriptCmdTable[];
 
 // function declarations
@@ -141,6 +142,8 @@ BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct 
 BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12D_TryNewMoveEffect(void *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CheckEffectActivationWithRainbow(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_12C_MirrorArmorReflect(void *bsys, struct BattleStruct *ctx);
 static BOOL BtlCmd_RemoveItem(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -488,6 +491,7 @@ const u8 *BattleScrCmdNames[] = {
     "GoToIfMoveConditionFlagSet",
     "CheckEffectActivationWithChance",
     "MirrorArmorReflect",
+    "TryNewMoveEffect",
     // "YourCustomCommand",
 };
 
@@ -495,7 +499,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12C
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12D
 
 #define BTL_SCR_CMD_REMOVE_ITEM 202
 
@@ -577,6 +581,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_CheckEffectActivationWithChance,
     [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_MirrorArmorReflect,
+    [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryNewMoveEffect,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -616,6 +621,8 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 
         if (command == BTL_SCR_CMD_REMOVE_ITEM) {
             ret = BtlCmd_RemoveItem(bw, sp);
+        } else if (command == BTL_SCR_CMD_CHECK_EFFECT_ACTIVATION && sp->rainbowTurns[IsClientEnemy(bw, sp->attack_client)]) {
+            ret = BtlCmd_CheckEffectActivationWithRainbow(bw, sp);
         } else if (command < START_OF_NEW_BTL_SCR_CMDS) {
             ret = BattleScriptCmdTable[command](bw, sp);
         } else {
@@ -2283,7 +2290,7 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no)
     if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE
             && sp->battlemon[client_no].ability != ABILITY_EELEVATE
             && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
-            && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING))
+            && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && sp->telekinesisTurns[client_no] == 0 && !HasType(sp, client_no, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
             || (sp->field_condition & FIELD_CONDITION_GRAVITY)
@@ -2312,7 +2319,7 @@ BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker
     BOOL hasEelevate = attacker == defender ? GetBattlerAbility(sp, defender) == ABILITY_EELEVATE : MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EELEVATE);
 
     if ((!hasLevitate && !hasEelevate && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
-            && (sp->battlemon[defender].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, defender, TYPE_FLYING))
+            && (sp->battlemon[defender].moveeffect.magnetRiseTurns) == 0 && sp->telekinesisTurns[defender] == 0 && !HasType(sp, defender, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
             || (sp->field_condition & FIELD_CONDITION_GRAVITY)
@@ -6039,7 +6046,60 @@ static BOOL BtlCmd_RemoveItem(void *bw, struct BattleStruct *sp)
         CopyBattleMonToPartyMon(bw, sp, battler);
     } else {
         CudChew_RecordBerry(sp, battler, item);
+        // an ally with Symbiosis hands over its item at the end of the action
+        if (item != ITEM_NONE && sp->battlemon[battler].item == ITEM_NONE) {
+            sp->symbiosisPending |= No2Bit(battler);
+        }
     }
 
     return ret;
+}
+
+/**
+ *  @brief script command to run one of the NEW_MOVE_EFFECT_* handlers.
+ *         the handlers live in their own overlay to keep the battle overlay small
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_12D_TryNewMoveEffect(void *bsys, struct BattleStruct *ctx)
+{
+    // clang-format off
+    BOOL (*internalFunc)(void *bsys, struct BattleStruct *ctx);
+    // clang-format on
+
+    HandleLoadOverlay(OVERLAY_BTL_SCR_CMD_12D_TRYNEWMOVEEFFECT, 2);
+    internalFunc = (BOOL (*)(void *bsys, struct BattleStruct *ctx))(0x023C0400 | 1);
+    internalFunc(bsys, ctx);
+    UnloadOverlayByID(OVERLAY_BTL_SCR_CMD_12D_TRYNEWMOVEEFFECT);
+
+    return FALSE;
+}
+
+/**
+ *  @brief CheckEffectActivation while the user's side has the rainbow from Water Pledge + Fire Pledge.
+ *         the rainbow doubles secondary effect chances, but does not stack with Serene Grace
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL BtlCmd_CheckEffectActivationWithRainbow(void *bw, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+    int failAddress = read_battle_script_param(sp);
+    u32 chance = sp->moveTbl[sp->current_move_index].secondaryEffectChance * 2;
+
+#ifndef DEBUG_BATTLE_SCENARIOS
+    if ((BattleRand(bw) % 100) >= chance) {
+        IncrementBattleScriptPtr(sp, failAddress);
+    }
+#else
+    (void)bw;
+    (void)chance;
+    (void)failAddress;
+#endif
+
+    return FALSE;
 }

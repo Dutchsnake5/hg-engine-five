@@ -781,7 +781,8 @@ typedef struct MoveConditionsFlags {
     u8 grounded : 1;
     u8 mindBlownOrSteelBeam : 1;
     u8 quickDraw : 1;
-    u8 padding : 2;
+    u8 statRaisedThisTurn : 1; // for Burning Jealousy and Alluring Voice
+    u8 padding : 1;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1102,6 +1103,43 @@ struct BattleStruct {
     int mirrorArmorSavedBattlerIdTemp;
     int mirrorArmorSavedAddeffectType;
     u8 neutralizingGasActive; // TRUE from when neutralizing gas is announced until its effects wear off
+    u8 rageFistHits[4][6]; // times each party mon has been hit by an attack, for Rage Fist (persists through switching)
+    u8 echoedVoiceCount; // consecutive previous turns in which Echoed Voice was used
+    u8 echoedVoiceUsedThisTurn;
+    u8 roundUsedThisTurn; // a Round was already used this turn, so later Rounds double in power
+    u8 lastMoveThisTurnSucceeded;
+    u16 lastMoveThisTurn; // last move executed this turn, for Fusion Flare and Fusion Bolt
+    u8 spectralThiefStole; // Spectral Thief stole boosts during the current move
+    u8 telekinesisTurns[CLIENT_MAX]; // turns left of Telekinesis on each battler
+    u8 wonderRoomTurns; // turns left of Wonder Room
+    u8 fairyLockTurns; // Fairy Lock stops switching and fleeing while this is non-zero
+    u8 electrified; // bitmask of battlers whose move this turn is turned Electric by Electrify
+    u8 noRetreat; // bitmask of battlers trapped by their own No Retreat
+    u8 tarShot; // bitmask of battlers made weaker to Fire by Tar Shot
+    u8 saltCure; // bitmask of battlers afflicted by Salt Cure
+    u8 octolockedBy[CLIENT_MAX]; // battler + 1 that Octolocked each battler, 0 if none
+    u8 dragonCheerBoost[CLIENT_MAX]; // extra critical hit stages from Dragon Cheer
+    u8 syrupBombTurns[CLIENT_MAX]; // turns of Syrup Bomb speed drops left
+    u8 syrupBombSource[CLIENT_MAX]; // battler that used Syrup Bomb on each battler
+    u8 fieldIterator; // loop counter for moves that affect several battlers one at a time
+    u8 beakBlastCharging; // bitmask of battlers heating up their beak this turn
+    u8 shellTrapSet; // bitmask of battlers that set a shell trap this turn
+    u8 shellTrapTriggered; // bitmask of battlers whose shell trap was set off by a physical hit
+    u8 lastMoveTarget[CLIENT_MAX]; // target of each battler's last move, for Instruct
+    u16 pledgeWaitingMove[CLIENT_MAX]; // pledge a battler held back this turn to combine with its ally's
+    u8 seaOfFireTurns[2]; // pledge combination effects on each side
+    u8 swampTurns[2];
+    u8 rainbowTurns[2];
+    u8 teatimeAttacker; // the Teatime user, while battlers take turns eating their berries
+    u8 skyDropTarget[CLIENT_MAX]; // battler + 1 that each battler is holding in the sky with Sky Drop
+    u8 skyDroppedBy[CLIENT_MAX]; // battler + 1 that is holding each battler in the sky with Sky Drop
+    u8 commanding; // bitmask of Tatsugiri hiding in their ally Dondozo's mouth because of Commander
+    u8 commandedBy[CLIENT_MAX]; // Tatsugiri battler + 1 commanding each Dondozo
+    u8 symbiosisPending; // bitmask of battlers that just used up their held item
+    u8 opportunistApplying; // an Opportunist copy is being applied, so it can't be copied again
+    u8 opportunistBoosts[CLIENT_MAX][8]; // stat stages each Opportunist battler still has to copy
+    int puppeteerSavedEffectType; // side effect type of a poisoning, kept while Poison Puppeteer confuses
+    u16 ballFetchItem; // the first Poke Ball that failed to catch anything, for Ball Fetch
 };
 
 enum {
@@ -2861,6 +2899,8 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, int att
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item, u32 form);
 
 BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form);
+BOOL LONG_CALL IsTrappedByNewMoveEffect(struct BattleStruct *sp, int battlerId);
+u32 LONG_CALL GetPledgeCombination(struct BattleStruct *ctx, int battlerId, u32 move);
 
 /**
  *  @brief check if a held item can be tricked or not depending on the items and species

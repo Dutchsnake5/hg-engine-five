@@ -413,8 +413,47 @@
 #define MOVE_EFFECT_MAGIC_ROOM                              407
 #define MOVE_EFFECT_STEEL_BEAM                              408
 #define MOVE_EFFECT_TRIPLE_ARROWS                           409
+#define MOVE_EFFECT_ROUND                                   410
+#define MOVE_EFFECT_ECHOED_VOICE                            411
+#define MOVE_EFFECT_BURNING_JEALOUSY                        412
+#define MOVE_EFFECT_ALLURING_VOICE                          413
+#define MOVE_EFFECT_CORE_ENFORCER                           414
+#define MOVE_EFFECT_EERIE_SPELL                             415
+#define MOVE_EFFECT_SPECTRAL_THIEF                          416
+#define MOVE_EFFECT_REFLECT_TYPE                            417
+#define MOVE_EFFECT_TOPSY_TURVY                             418
+#define MOVE_EFFECT_SPEED_SWAP                              419
+#define MOVE_EFFECT_TELEKINESIS                             420
+#define MOVE_EFFECT_WONDER_ROOM                             421
+#define MOVE_EFFECT_ELECTRIFY                               422
+#define MOVE_EFFECT_FAIRY_LOCK                              423
+#define MOVE_EFFECT_OCTOLOCK                                424
+#define MOVE_EFFECT_COURT_CHANGE                            425
+#define MOVE_EFFECT_DRAGON_CHEER                            426
+#define MOVE_EFFECT_PURIFY                                  427
+#define MOVE_EFFECT_RAISE_TARGET_SP_DEF                     428
+#define MOVE_EFFECT_MAGNETIC_FLUX                           429
+#define MOVE_EFFECT_GEAR_UP                                 430
+#define MOVE_EFFECT_FLOWER_SHIELD                           431
+#define MOVE_EFFECT_ROTOTILLER                              432
+#define MOVE_EFFECT_FLORAL_HEALING                          433
+#define MOVE_EFFECT_HEAL_QUARTER_AND_CURE_TEAM              434
+#define MOVE_EFFECT_NO_RETREAT                              435
+#define MOVE_EFFECT_TAR_SHOT                                436
+#define MOVE_EFFECT_DOODLE                                  437
+#define MOVE_EFFECT_CHILLY_RECEPTION                        438
+#define MOVE_EFFECT_SALT_CURE                               439
+#define MOVE_EFFECT_SYRUP_BOMB                              440
+#define MOVE_EFFECT_CORROSIVE_GAS                           441
+#define MOVE_EFFECT_PLEDGE                                  442
+#define MOVE_EFFECT_TEATIME                                 443
+#define MOVE_EFFECT_INSTRUCT                                444
+#define MOVE_EFFECT_REVIVAL_BLESSING                        445
+#define MOVE_EFFECT_SKY_DROP                                446
+#define MOVE_EFFECT_ORDER_UP                                447
+#define MOVE_EFFECT_ALLY_SWITCH                             448
 
-#define MAX_BASE_MOVE_EFFECT_NUM 409
+#define MAX_BASE_MOVE_EFFECT_NUM 448
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

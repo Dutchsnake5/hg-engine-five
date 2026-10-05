@@ -1317,6 +1317,14 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
+    // the swamp from Grass Pledge + Water Pledge quarters speed
+    if (sp->swampTurns[IsClientEnemy(bw, client1)]) {
+        speedModifier1 = QMul_RoundDown(speedModifier1, UQ412__0_25);
+    }
+    if (sp->swampTurns[IsClientEnemy(bw, client2)]) {
+        speedModifier2 = QMul_RoundDown(speedModifier2, UQ412__0_25);
+    }
+
 #ifdef DEBUG_SPEED_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcSpeed] Step 7: Tailwind\n");
@@ -1760,7 +1768,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     defender_condition = sp->battlemon[defender].condition;
     move_effect = sp->battlemon[defender].effect_of_moves;
 
-    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
+    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + sp->dragonCheerBoost[attacker] + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
         + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)))
         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_SIRFETCHD)));
@@ -2032,6 +2040,11 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     // TODO: Refactor, probably.
     // Returns the correct multiplier but moved to the right 3 decimal places.
     int typeMul = (type1Effectiveness * type1Effectiveness_Dual) * (type2Effectiveness * type2Effectiveness_Dual) * (type3Effectiveness * type3Effectiveness_Dual);
+
+    // Tar Shot makes Fire moves one step more effective
+    if (move_type == TYPE_FIRE && (sp->tarShot & No2Bit(defence_client)) && !sp->battlemon[defence_client].is_currently_terastallized) {
+        typeMul *= 2;
+    }
     // Unfortunately this can't be directly converted into the double or triple flags, so we're stuck with this switch statement.
 
     switch (typeMul) {
@@ -2062,6 +2075,30 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
+/**
+ *  @brief the pledge an ally held back this turn to combine with this battler's pledge, or MOVE_NONE
+ */
+u32 LONG_CALL GetPledgeCombination(struct BattleStruct *ctx, int battlerId, u32 move)
+{
+    if (battlerId >= CLIENT_MAX || (move != MOVE_FIRE_PLEDGE && move != MOVE_WATER_PLEDGE && move != MOVE_GRASS_PLEDGE)) {
+        return MOVE_NONE;
+    }
+    u32 heldBack = ctx->pledgeWaitingMove[BATTLER_ALLY(battlerId)];
+    if (heldBack != MOVE_NONE && heldBack != move) {
+        return heldBack;
+    }
+    return MOVE_NONE;
+}
+
+/**
+ *  @brief No Retreat, Octolock and Fairy Lock stop a battler from switching or fleeing
+ */
+BOOL LONG_CALL IsTrappedByNewMoveEffect(struct BattleStruct *sp, int battlerId)
+{
+    return (sp->noRetreat & No2Bit(battlerId)) || sp->octolockedBy[battlerId] || sp->fairyLockTurns
+        || (sp->commanding & No2Bit(battlerId)) || sp->commandedBy[battlerId];
+}
+
 BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
 {
     int battlerIdAbility;
@@ -2132,7 +2169,8 @@ BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, Batt
         return TRUE;
     }
 
-    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0) {
+    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0
+        || IsTrappedByNewMoveEffect(sp, battlerId)) {
         if (msg == NULL) {
             return TRUE;
         }
@@ -2161,7 +2199,8 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
         return FALSE;
     }
 
-    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0) {
+    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0
+        || IsTrappedByNewMoveEffect(sp, battlerId)) {
         ret = TRUE;
     }
 
@@ -2716,7 +2755,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO_FAILED;
         return FALSE;
 
-    } else if (lockOnOrNoGuard) { // non-OHKO move always hits
+    } else if (lockOnOrNoGuard || sp->telekinesisTurns[battlerIdTarget]) { // non-OHKO move always hits, as do moves against a target held up by Telekinesis
         sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
@@ -3197,6 +3236,22 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
     case MOVE_NATURAL_GIFT:
         type = GetNaturalGiftType(ctx, battlerId);
         break;
+    case MOVE_FIRE_PLEDGE:
+    case MOVE_WATER_PLEDGE:
+    case MOVE_GRASS_PLEDGE: {
+        // combined pledges take the type of the field effect they make
+        u32 heldBack = GetPledgeCombination(ctx, battlerId, moveNo);
+        if (heldBack != MOVE_NONE) {
+            if (moveNo != MOVE_WATER_PLEDGE && heldBack != MOVE_WATER_PLEDGE) {
+                type = TYPE_FIRE;
+            } else if (moveNo != MOVE_FIRE_PLEDGE && heldBack != MOVE_FIRE_PLEDGE) {
+                type = TYPE_GRASS;
+            } else {
+                type = TYPE_WATER;
+            }
+        }
+        break;
+    }
     case MOVE_JUDGMENT:
         switch (HeldItemHoldEffectGet(ctx, battlerId)) {
         case HOLD_EFFECT_ARCEUS_FIGHTING:

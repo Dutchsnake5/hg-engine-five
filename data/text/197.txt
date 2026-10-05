@@ -1810,3 +1810,112 @@ The opposing {STRVAR_1 1, 0, 0} is protected\nby an aromatic veil!
 {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
 The wild {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
 The opposing {STRVAR_1 1, 0, 0}’s stat changes\nwere removed!
+{STRVAR_1 1, 0, 0} stole the target’s\nboosted stats!
+The wild {STRVAR_1 1, 0, 0} stole the target’s\nboosted stats!
+The opposing {STRVAR_1 1, 0, 0} stole the target’s\nboosted stats!
+{STRVAR_1 1, 0, 0}’s type changed to\nmatch the target’s!
+The wild {STRVAR_1 1, 0, 0}’s type changed to\nmatch the target’s!
+The opposing {STRVAR_1 1, 0, 0}’s type changed to\nmatch the target’s!
+{STRVAR_1 1, 0, 0}’s stat changes\nwere all reversed!
+The wild {STRVAR_1 1, 0, 0}’s stat changes\nwere all reversed!
+The opposing {STRVAR_1 1, 0, 0}’s stat changes\nwere all reversed!
+{STRVAR_1 1, 0, 0} switched Speed\nwith its target!
+The wild {STRVAR_1 1, 0, 0} switched Speed\nwith its target!
+The opposing {STRVAR_1 1, 0, 0} switched Speed\nwith its target!
+{STRVAR_1 1, 0, 0} was hurled\ninto the air!
+The wild {STRVAR_1 1, 0, 0} was hurled\ninto the air!
+The opposing {STRVAR_1 1, 0, 0} was hurled\ninto the air!
+{STRVAR_1 1, 0, 0} was freed from\nthe telekinesis!
+The wild {STRVAR_1 1, 0, 0} was freed from\nthe telekinesis!
+The opposing {STRVAR_1 1, 0, 0} was freed from\nthe telekinesis!
+{STRVAR_1 1, 0, 0}’s moves have\nbeen electrified!
+The wild {STRVAR_1 1, 0, 0}’s moves have\nbeen electrified!
+The opposing {STRVAR_1 1, 0, 0}’s moves have\nbeen electrified!
+{STRVAR_1 1, 0, 0} can no longer escape\nbecause it used No Retreat!
+The wild {STRVAR_1 1, 0, 0} can no longer escape\nbecause it used No Retreat!
+The opposing {STRVAR_1 1, 0, 0} can no longer escape\nbecause it used No Retreat!
+{STRVAR_1 1, 0, 0} became weaker\nto fire!
+The wild {STRVAR_1 1, 0, 0} became weaker\nto fire!
+The opposing {STRVAR_1 1, 0, 0} became weaker\nto fire!
+{STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
+The wild {STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
+The opposing {STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
+{STRVAR_1 1, 0, 0} swapped the battle\neffects affecting each\fside of the field!
+The wild {STRVAR_1 1, 0, 0} swapped the battle\neffects affecting each\fside of the field!
+The opposing {STRVAR_1 1, 0, 0} swapped the battle\neffects affecting each\fside of the field!
+{STRVAR_1 1, 0, 0} is being salted!
+The wild {STRVAR_1 1, 0, 0} is being salted!
+The opposing {STRVAR_1 1, 0, 0} is being salted!
+{STRVAR_1 1, 0, 0} is hurt\nby Salt Cure!
+The wild {STRVAR_1 1, 0, 0} is hurt\nby Salt Cure!
+The opposing {STRVAR_1 1, 0, 0} is hurt\nby Salt Cure!
+{STRVAR_1 1, 0, 0} got covered in\nsticky candy syrup!
+The wild {STRVAR_1 1, 0, 0} got covered in\nsticky candy syrup!
+The opposing {STRVAR_1 1, 0, 0} got covered in\nsticky candy syrup!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas corroded away!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas corroded away!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas corroded away!
+It created a bizarre area in which the\nDefense and Sp. Def stats are swapped!
+Wonder Room wore off, and the Defense\nand Sp. Def stats returned to normal!
+No one will be able to run\naway during the next turn!
+{STRVAR_1 1, 0, 0} started\nheating up its beak!
+The wild {STRVAR_1 1, 0, 0} started\nheating up its beak!
+The opposing {STRVAR_1 1, 0, 0} started\nheating up its beak!
+{STRVAR_1 1, 0, 0} set a shell trap!
+The wild {STRVAR_1 1, 0, 0} set a shell trap!
+The opposing {STRVAR_1 1, 0, 0} set a shell trap!
+{STRVAR_1 1, 0, 0}’s shell trap\ndidn’t work!
+The wild {STRVAR_1 1, 0, 0}’s shell trap\ndidn’t work!
+The opposing {STRVAR_1 1, 0, 0}’s shell trap\ndidn’t work!
+{STRVAR_1 1, 0, 0} used the move\nit was instructed to use!
+The wild {STRVAR_1 1, 0, 0} used the move\nit was instructed to use!
+The opposing {STRVAR_1 1, 0, 0} used the move\nit was instructed to use!
+{STRVAR_1 1, 0, 0} was revived and\nis ready to fight again!
+The wild {STRVAR_1 1, 0, 0} was revived and\nis ready to fight again!
+The opposing {STRVAR_1 1, 0, 0} was revived and\nis ready to fight again!
+{STRVAR_1 1, 0, 0} is waiting\nfor its ally’s move...
+The wild {STRVAR_1 1, 0, 0} is waiting\nfor its ally’s move...
+The opposing {STRVAR_1 1, 0, 0} is waiting\nfor its ally’s move...
+{STRVAR_1 1, 0, 0} is hurt\nby the sea of fire!
+The wild {STRVAR_1 1, 0, 0} is hurt\nby the sea of fire!
+The opposing {STRVAR_1 1, 0, 0} is hurt\nby the sea of fire!
+A sea of fire enveloped\nyour team!
+A sea of fire enveloped\nthe opposing team!
+The sea of fire around\nyour team disappeared!
+The sea of fire around\nthe opposing team disappeared!
+A swamp enveloped\nyour team!
+A swamp enveloped\nthe opposing team!
+The swamp around\nyour team disappeared!
+The swamp around\nthe opposing team disappeared!
+A rainbow appeared in the sky\non your team’s side!
+A rainbow appeared in the sky\non the opposing team’s side!
+The rainbow on your team’s\nside disappeared!
+The rainbow on the opposing\nteam’s side disappeared!
+{STRVAR_1 1, 0, 0} was taken\ninto the sky!
+The wild {STRVAR_1 1, 0, 0} was taken\ninto the sky!
+The opposing {STRVAR_1 1, 0, 0} was taken\ninto the sky!
+{STRVAR_1 1, 0, 0} is too heavy\nto be lifted!
+The wild {STRVAR_1 1, 0, 0} is too heavy\nto be lifted!
+The opposing {STRVAR_1 1, 0, 0} is too heavy\nto be lifted!
+{STRVAR_1 1, 0, 0} was swallowed by its\nally and became its commander!
+The wild {STRVAR_1 1, 0, 0} was swallowed by its\nally and became its commander!
+The opposing {STRVAR_1 1, 0, 0} was swallowed by its\nally and became its commander!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
+{STRVAR_1 1, 0, 0} received the\n{STRVAR_1 8, 1, 0} from its ally!
+The wild {STRVAR_1 1, 0, 0} received the\n{STRVAR_1 8, 1, 0} from its ally!
+The opposing {STRVAR_1 1, 0, 0} received the\n{STRVAR_1 8, 1, 0} from its ally!
+{STRVAR_1 1, 0, 0} found\na {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} found\na {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} found\na {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} won’t budge thanks\nto its Guard Dog!
+The wild {STRVAR_1 1, 0, 0} won’t budge thanks\nto its Guard Dog!
+The opposing {STRVAR_1 1, 0, 0} won’t budge thanks\nto its Guard Dog!
+{STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
+{STRVAR_1 1, 0, 0} and the wild {STRVAR_1 1, 1, 0}\nswitched places!
+{STRVAR_1 1, 0, 0} and the opposing {STRVAR_1 1, 1, 0}\nswitched places!
+The wild {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
+The wild {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
+The opposing {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
+The opposing {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!

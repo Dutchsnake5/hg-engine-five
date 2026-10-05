@@ -36,6 +36,36 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         return ret;
     }
 
+    // a Pokemon heating up its beak for Beak Blast burns anything that touches it
+    if ((sp->beakBlastCharging & No2Bit(sp->defence_client))
+        && (sp->battlemon[sp->attack_client].hp)
+        && (sp->battlemon[sp->attack_client].condition == 0)
+        && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+        && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+        sp->addeffect_type = ADD_STATUS_INDIRECT;
+        sp->state_client = sp->attack_client;
+        sp->battlerIdTemp = sp->defence_client;
+        seq_no[0] = BATTLE_SUBSCRIPT_BURN;
+        return TRUE;
+    }
+
+    // Gulp Missile: Cramorant spits its catch at whatever hits it
+    if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_GULP_MISSILE
+        && sp->battlemon[sp->defence_client].species == SPECIES_CRAMORANT
+        && (sp->battlemon[sp->defence_client].form_no == 1 || sp->battlemon[sp->defence_client].form_no == 2)
+        && (sp->battlemon[sp->attack_client].hp)
+        && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+        BOOL gorging = sp->battlemon[sp->defence_client].form_no == 2;
+        sp->battlemon[sp->defence_client].form_no = 0;
+        BattleFormChange(sp->defence_client, 0, bw, sp, FALSE);
+        sp->hp_calc_work = (GetBattlerAbility(sp, sp->attack_client) == ABILITY_MAGIC_GUARD) ? 0 : BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 4);
+        sp->addeffect_type = ADD_STATUS_ABILITY;
+        sp->state_client = sp->attack_client;
+        sp->battlerIdTemp = sp->defence_client;
+        seq_no[0] = gorging ? BATTLE_SUBSCRIPT_GULP_MISSILE_PIKACHU : BATTLE_SUBSCRIPT_GULP_MISSILE_ARROKUDA;
+        return TRUE;
+    }
+
     // TODO need to decrease size
     if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STATIC)) {
         if ((sp->battlemon[sp->attack_client].hp)

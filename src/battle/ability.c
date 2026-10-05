@@ -463,6 +463,26 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
             ret = TRUE;
         }
         break;
+    case ABILITY_TOXIC_CHAIN:
+        // 30% chance to badly poison whatever its attacks hit
+        if ((sp->battlemon[sp->defence_client].hp)
+            && (sp->battlemon[sp->defence_client].condition == 0)
+            && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+            && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+            && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+            && (HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS)
+            && (CheckSubstitute(sp, sp->defence_client) == FALSE)
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
+            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->state_client = sp->defence_client;
+            sp->battlerIdTemp = sp->attack_client;
+            seq_no[0] = BATTLE_SUBSCRIPT_BADLY_POISON;
+            ret = TRUE;
+        }
+        break;
     case ABILITY_UNSEEN_FIST:
         if (sp->oneTurnFlag[sp->defence_client].protectFlag
             && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
@@ -710,7 +730,7 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
         heldeffect = HOLD_EFFECT_SOMETIMES_FLINCH; // doesn't permanently change the hold effect, just for this function
     }
 
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SERENE_GRACE) {
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SERENE_GRACE || sp->rainbowTurns[IsClientEnemy(bw, sp->attack_client)]) {
         sereneGraceShift = 1;
     }
 

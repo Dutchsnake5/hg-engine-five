@@ -1192,6 +1192,40 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].laserFocusTimer = 0;
     sp->moveConditionsFlags[client].wideOpen = 0;
     sp->moveConditionsFlags[client].anyStatLoweredThisTurn = 0;
+    sp->moveConditionsFlags[client].statRaisedThisTurn = 0;
+    sp->telekinesisTurns[client] = 0;
+    sp->electrified &= ~No2Bit(client);
+    sp->noRetreat &= ~No2Bit(client);
+    sp->tarShot &= ~No2Bit(client);
+    sp->saltCure &= ~No2Bit(client);
+    sp->octolockedBy[client] = 0;
+    sp->dragonCheerBoost[client] = 0;
+    sp->syrupBombTurns[client] = 0;
+    if (sp->skyDropTarget[client]) {
+        // the carried Pokemon comes back down if the Sky Drop user leaves the field
+        int carried = sp->skyDropTarget[client] - 1;
+        sp->battlemon[carried].effect_of_moves &= ~MOVE_EFFECT_FLAG_FLY;
+        sp->skyDroppedBy[carried] = 0;
+        sp->skyDropTarget[client] = 0;
+    }
+    sp->skyDroppedBy[client] = 0;
+    sp->commanding &= ~No2Bit(client);
+    if (sp->commandedBy[client]) {
+        sp->commanding &= ~No2Bit(sp->commandedBy[client] - 1);
+        sp->commandedBy[client] = 0;
+    }
+    for (i = 0; i < 8; i++) {
+        sp->opportunistBoosts[client][i] = 0;
+    }
+    for (i = 0; i < CLIENT_MAX; i++) {
+        // leaving the field frees anything the battler octolocked, and ends the syrup it covered others with
+        if (sp->octolockedBy[i] == client + 1) {
+            sp->octolockedBy[i] = 0;
+        }
+        if (sp->syrupBombTurns[i] && sp->syrupBombSource[i] == client) {
+            sp->syrupBombTurns[i] = 0;
+        }
+    }
     sp->moveConditionsFlags[client].throatChopTimer = 0;
     sp->moveConditionsFlags[client].dragonDartsStatus = 0;
     sp->moveConditionsFlags[client].endure = 0;
@@ -1339,6 +1373,10 @@ u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
     if (sp->battlemon[client].is_currently_terastallized
         && (move == MOVE_TERA_BLAST || move == MOVE_TERA_STARSTORM)) {
         return GetDynamicMoveType(gBattleSystem, sp, client, move);
+    }
+    // Electrify turns the target's move Electric for the rest of the turn
+    if (sp->electrified & No2Bit(client)) {
+        return TYPE_ELECTRIC;
     }
     return GetAdjustedMoveTypeBasics(sp, move, GetBattlerAbility(sp, client), GetDynamicMoveType(gBattleSystem, sp, client, move));
 }

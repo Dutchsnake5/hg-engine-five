@@ -619,6 +619,9 @@ u32 __attribute__((section(".init"))) CalculateBallShakesInternal(void *bw, stru
         return (i == 4 || i == (1 | CRITICAL_CAPTURE_MASK)) ? (1 | CRITICAL_CAPTURE_MASK) : (i);
     }
 #endif
+    if ((i & ~CRITICAL_CAPTURE_MASK) < 4 && sp->ballFetchItem == 0) {
+        sp->ballFetchItem = sp->item_work;
+    }
     return i & ~CRITICAL_CAPTURE_MASK; //(i == (0 | CRITICAL_CAPTURE_MASK) ? 0 : i);
 #endif
 }

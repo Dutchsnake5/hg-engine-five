@@ -270,24 +270,13 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             }
         }
 
-        // handle Zygarde TODO test
-        if ((sp->battlemon[client].species == SPECIES_ZYGARDE)
-            && (sp->battlemon[client].hp)
-            && (sp->battlemon[client].hp <= (s32)(sp->battlemon[client].maxhp / 2))
-            && (sp->battlemon[client].form_no == 2 || sp->battlemon[client].form_no == 3)) {
-            // TODO this has not yet been tested
-            sp->battlemon[client].form_no += 2;
-            BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 0);
-            sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp - sp->battlemon[sp->attack_client].hp;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
-            sp->battlemon[client].maxhp = GetMonData(pp2, MON_DATA_MAXHP, NULL);
-            *seq_no = BATTLE_SUBSCRIPT_HANDLE_ZYGARDE_FORM_CHANGE;
-            ret = TRUE;
-            break;
-        }
+        // Zygarde's Power Construct is handled at the end of the turn in ServerFieldConditionCheck
 
-        // handle Wishiwashi TODO test (also at some point add custom transform text)
+        // handle Wishiwashi when it switches in.  the end of turn check is in ServerFieldConditionCheck
         if ((sp->battlemon[client].species == SPECIES_WISHIWASHI)
+            && sp->checkOnlySpecifiedTarget
+            && GetBattlerAbility(sp, client) == ABILITY_SCHOOLING
+            && (sp->battlemon[client].level >= 20)
             && (sp->battlemon[client].hp)
             && (sp->battlemon[client].form_no == 0)
             && (sp->battlemon[client].hp > (s32)(sp->battlemon[client].maxhp / 4))) {
@@ -297,6 +286,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             ret = TRUE;
             break;
         } else if ((sp->battlemon[client].species == SPECIES_WISHIWASHI)
+            && sp->checkOnlySpecifiedTarget
             && (sp->battlemon[client].hp)
             && (sp->battlemon[client].form_no == 1)
             && (sp->battlemon[client].hp <= (s32)(sp->battlemon[client].maxhp / 4))) {

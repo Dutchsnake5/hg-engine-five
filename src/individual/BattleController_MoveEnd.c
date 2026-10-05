@@ -86,6 +86,24 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         // Reset Focus Punch flag
         ctx->oneTurnFlag[ctx->attack_client].pendingFocusPunchFlag = FALSE;
 
+        // Gulp Missile: Cramorant catches prey after Surf or when it dives
+        if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_GULP_MISSILE
+            && ctx->battlemon[ctx->attack_client].species == SPECIES_CRAMORANT
+            && ctx->battlemon[ctx->attack_client].form_no == 0
+            && ctx->battlemon[ctx->attack_client].hp
+            && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_TRANSFORM)
+            && ((ctx->current_move_index == MOVE_SURF && !ctx->moveConditionsFlags[ctx->attack_client].moveFailureThisTurn)
+                || (ctx->current_move_index == MOVE_DIVE && (ctx->battlemon[ctx->attack_client].effect_of_moves & MOVE_EFFECT_FLAG_DIVE)))) {
+            int form = (ctx->battlemon[ctx->attack_client].hp <= (s32)(ctx->battlemon[ctx->attack_client].maxhp / 2)) ? 2 : 1;
+            ctx->battlemon[ctx->attack_client].form_no = form;
+            BattleFormChange(ctx->attack_client, form, bsys, ctx, FALSE);
+            ctx->battlerIdTemp = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+
         script = SwitchInAbilityCheck(bsys, ctx);
         if (script) {
             LoadBattleSubSeqScript(ctx, 1, script);
@@ -138,6 +156,17 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->magicBounceContext.isActive = FALSE;
     ctx->magicBounceContext.bounceCounter = 0;
     ctx->magicBounceContext.bounceMaxCounter = 0;
+
+    // remember the last move used this turn for Fusion Flare and Fusion Bolt
+    if (ctx->playerActions[ctx->attack_client][3] == SELECT_FIGHT_COMMAND) {
+        ctx->lastMoveTarget[ctx->attack_client] = ctx->defence_client;
+        if (ctx->current_move_index == MOVE_BEAK_BLAST) {
+            ctx->beakBlastCharging &= ~No2Bit(ctx->attack_client);
+        }
+        ctx->lastMoveThisTurn = ctx->current_move_index;
+        ctx->lastMoveThisTurnSucceeded = !ctx->moveConditionsFlags[ctx->attack_client].moveFailureThisTurn
+            && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY);
+    }
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 

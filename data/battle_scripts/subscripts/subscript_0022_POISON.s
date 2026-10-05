@@ -100,6 +100,12 @@ _193:
     Wait
     SetHealthbarStatus BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_POISONED
     WaitButtonABTime 30
+    // Poison Puppeteer confuses whatever Pecharunt poisons with a move
+    TryNewMoveEffect NEW_MOVE_EFFECT_POISON_PUPPETEER, _noPuppeteer
+    Call BATTLE_SUBSCRIPT_CONFUSE
+    TryNewMoveEffect NEW_MOVE_EFFECT_PUPPETEER_RESTORE, _noPuppeteer
+
+_noPuppeteer:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE, _209
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE
     TrySynchronizeStatus _203
