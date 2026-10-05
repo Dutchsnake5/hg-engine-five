@@ -99,6 +99,7 @@ scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
 scrdef scr_seq_0003_072_repels
 scrdef scr_seq_0003_073_autobattle_testing
+scrdef scr_seq_0003_074_remote_pc
 scrdef_end
 
 scr_seq_0003_002:
@@ -1751,5 +1752,63 @@ scr_seq_0003_073_autobattle_testing:
     trainer_battle 5, 0, 0, 0
     //setvar 0x800B, 1
     //WildBattleSp 785 | (1 << 11), 50, 0
+    releaseall
+    end
+
+// opened from the PC icon in the touch screen menu: the Pokémon Storage System without a PC (id 2074).
+// like the PC's own script, minus the PC screen's on/off animations, since there is no PC
+scr_seq_0003_074_remote_pc:
+    scrcmd_609
+    lockall
+    touchscreen_menu_hide
+    play_se SEQ_SE_DP_PC_LOGIN
+    npc_msg 35
+_remote_pc_menu:
+    call _0B17
+    menu_exec
+    switch VAR_SPECIAL_RESULT
+    case 0, _remote_pc_deposit
+    case 1, _remote_pc_withdraw
+    case 2, _remote_pc_move_pokemon
+    case 3, _remote_pc_move_items
+    goto _remote_pc_end
+
+_remote_pc_deposit:
+    call _remote_pc_fade_out
+    scrcmd_158 0
+    goto _remote_pc_return
+
+_remote_pc_withdraw:
+    call _remote_pc_fade_out
+    scrcmd_158 1
+    goto _remote_pc_return
+
+_remote_pc_move_pokemon:
+    call _remote_pc_fade_out
+    scrcmd_158 2
+    goto _remote_pc_return
+
+_remote_pc_move_items:
+    call _remote_pc_fade_out
+    scrcmd_158 3
+    goto _remote_pc_return
+
+_remote_pc_fade_out:
+    closemsg
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    return
+
+_remote_pc_return:
+    restore_overworld
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    npc_msg 35
+    goto _remote_pc_menu
+
+_remote_pc_end:
+    closemsg
+    play_se SEQ_SE_DP_PC_LOGOFF
+    touchscreen_menu_show
     releaseall
     end

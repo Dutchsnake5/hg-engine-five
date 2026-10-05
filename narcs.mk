@@ -110,6 +110,22 @@ $(MOVEPARTICLES_NARC): $(MOVEPARTICLES_DEPENDENCIES)
 NARC_FILES += $(MOVEPARTICLES_NARC)
 
 
+TOUCHMENU_DIR := $(BUILD)/a014
+TOUCHMENU_NARC := $(BUILD_NARC)/a014.narc
+TOUCHMENU_TARGET := $(FILESYS)/a/0/1/4
+TOUCHMENU_PC_ICON := rawdata/touch_menu/pc_icon.png
+
+# touch screen start menu graphics, with the PC icon added as file 78 (its graphics file header comes from file 48,
+# and its colors are matched to the icon palette, file 14)
+$(TOUCHMENU_NARC): $(TOUCHMENU_PC_ICON) scripts/build_touch_menu_icon.py
+	$(NARCHIVE) extract $(TOUCHMENU_TARGET) -o $(TOUCHMENU_DIR) -nf
+	$(PYTHON) scripts/build_touch_menu_icon.py $(TOUCHMENU_PC_ICON) $(TOUCHMENU_DIR)/4_48 $(TOUCHMENU_DIR)/4_14 $(TOUCHMENU_DIR)/4_78
+	$(NARCHIVE) create $@ $(TOUCHMENU_DIR) -nf
+
+NARC_FILES += $(TOUCHMENU_NARC)
+REQUIRED_DIRECTORIES += $(TOUCHMENU_DIR)
+
+
 OPENDEMO_DIR := $(BUILD)/a262
 OPENDEMO_NARC := $(BUILD_NARC)/a262.narc
 OPENDEMO_TARGET := $(FILESYS)/a/2/6/2

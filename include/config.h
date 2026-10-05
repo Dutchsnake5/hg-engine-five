@@ -179,7 +179,19 @@
 // PARTY_MENU_CUSTOMIZE adds a CUSTOMIZE option to the field party menu. It changes a Pokémon's nature (any of the 25),
 // sets its ability to any ability its species and form can have (including the hidden ability), or opens the move
 // relearner. It also fixes the move relearner's list of moves to read hg-engine's level-up learnsets.
+// left out of battle test builds, which need the room in the always-loaded code
+#ifndef DEBUG_BATTLE_SCENARIOS
 #define PARTY_MENU_CUSTOMIZE
+#endif
+
+// START_MENU_REMOTE_PC adds a PC icon to the empty slot of the touch screen start menu. It opens the Pokémon Storage
+// System's menu (Deposit / Withdraw / Move Pokémon / Move Items) from anywhere. The icon appears once
+// START_MENU_REMOTE_PC_FLAG is set (setflag FLAG_SYS_REMOTE_PC in a script), like the game's other menu icons.
+// Its art is rawdata/touch_menu/pc_icon.png and its label is the last line of data/text/196.txt.
+#ifndef DEBUG_BATTLE_SCENARIOS
+#define START_MENU_REMOTE_PC
+#endif
+#define START_MENU_REMOTE_PC_FLAG 2602
 
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION

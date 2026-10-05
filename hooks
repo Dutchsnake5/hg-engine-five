@@ -654,6 +654,17 @@ arm9 ScrCmd_CheckMoveInParty 0204D3CC 1
 arm9 MoveRelearner_GetEligibleLevelUpMoves 0209176C 2
 #endif
 
+#ifdef START_MENU_REMOTE_PC
+# a PC icon in the touch screen start menu (overlay 27) that opens the Pokémon Storage System
+0027 StartMenuPC_Ov27Init_hook 0225A070 1
+0027 StartMenuPC_Ov27Touch_hook 0225A408 0
+0027 StartMenuPC_Ov27Teardown_hook 0225A1C8 0
+arm9 StartMenu_HandleTouchInput_hook 0203C5A4 3
+arm9 StartMenu_HandleKeyInput_hook 0203C508 3
+0027 StartMenuPC_HandleDpad 0225B404 3
+0027 StartMenuPC_Ov27Bounce_hook 0225A378 0
+#endif
+
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
 arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
