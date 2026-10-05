@@ -313,7 +313,15 @@ void StartMenuPCField_BounceSelectedIcon(void *work)
  */
 void StartMenuPCField_UpdateVisuals(void *work, BOOL menuOpen)
 {
-    if (sPcIcon.work != work || sPcIcon.sprite == NULL) {
+    if (sPcIcon.sprite == NULL) {
+        // the flag can be set by a script while the menu is up (Elm gives the PC in his lab), so add the icon as soon
+        // as it is, like the game's own icons, instead of waiting for the menu to be rebuilt on the next map
+        if (OV27_MENU_MODE(work) == 0 && CheckScriptFlag(START_MENU_REMOTE_PC_FLAG)) {
+            StartMenuPCField_CreateIcon(work);
+        }
+        return;
+    }
+    if (sPcIcon.work != work) {
         return;
     }
     if (sPcIcon.picked == PICKED_BOUNCING && !OV27_BUSY(work)) {
