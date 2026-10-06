@@ -37,6 +37,24 @@ bl StartMenuPC_UpdateVisuals
 ldr r0, =0x0225A412 | 1
 bx r0
 
+// touch screen start menu: while a script or other field task runs, overlay 27 only runs its task-time update
+// (0x0225A7FC, which slides newly unlocked icons in) and skips the rest of its frame, PC icon hooks included. run that
+// update, then let the PC icon slide in the same way when a script has just set its flag
+.global StartMenuPC_Ov27Script_hook
+StartMenuPC_Ov27Script_hook:
+// replaced instructions: beq 0x0225A3DA; add r0, r5, #0; bl 0x0225A7FC; then b 0x0225A412
+cmp r0, #0
+beq StartMenuPC_Ov27Script_hook_noTask
+add r0, r5, #0
+bl 0x0225A7FC
+add r0, r5, #0
+bl StartMenuPC_CheckAppear
+ldr r0, =0x0225A412 | 1
+bx r0
+StartMenuPC_Ov27Script_hook_noTask:
+ldr r0, =0x0225A3DA | 1
+bx r0
+
 // touch screen start menu: while a picked icon's selection plays out, bounce that icon, which can be the PC icon
 .global StartMenuPC_Ov27Bounce_hook
 StartMenuPC_Ov27Bounce_hook:

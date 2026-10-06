@@ -663,6 +663,7 @@ arm9 StartMenu_HandleTouchInput_hook 0203C5A4 3
 arm9 StartMenu_HandleKeyInput_hook 0203C508 3
 0027 StartMenuPC_HandleDpad 0225B404 3
 0027 StartMenuPC_Ov27Bounce_hook 0225A378 0
+0027 StartMenuPC_Ov27Script_hook 0225A3D0 1
 #endif
 
 # encounter

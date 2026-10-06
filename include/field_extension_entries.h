@@ -29,6 +29,7 @@ struct FieldExtensionEntries {
     BOOL (*pcIsSelected)(void);
     BOOL (*pcHandleKey)(void *taskManager, void *fieldSystem, void *startMenu);
     BOOL (*pcHandleTouch)(void *taskManager, void *fieldSystem, void *startMenu);
+    void (*pcCheckAppear)(void *work);
 };
 
 #define FIELD_EXTENSION_ENTRIES_MAGIC 0x45444C46 // "FLDE"

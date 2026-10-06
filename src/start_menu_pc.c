@@ -58,6 +58,14 @@ void StartMenuPC_UpdateVisuals(void *work, BOOL menuOpen)
     }
 }
 
+void StartMenuPC_CheckAppear(void *work)
+{
+    const struct FieldExtensionEntries *entries = FieldExtensionEntries_Get();
+    if (entries != NULL) {
+        entries->pcCheckAppear(work);
+    }
+}
+
 /**
  * @brief replaces overlay 27's d-pad cursor movement
  * @see   overlay 27 0x0225B404

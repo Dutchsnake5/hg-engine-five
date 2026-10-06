@@ -148,6 +148,7 @@ enum {
     PICKED_BOUNCING,
 };
 #define ANIM_SEQ_PICKED 2
+#define ANIM_SEQ_APPEAR 4 // the slide-in overlay 27 plays when an icon is unlocked (0x0225CF10)
 
 /**
  * @brief called after overlay 27 creates its icon sprites: add the PC icon in the normal field menu
@@ -311,14 +312,33 @@ void StartMenuPCField_BounceSelectedIcon(void *work)
  *        sprites, by blending, so the PC icon stays semi-transparent unless the cursor is on it
  * @see   overlay 27 0x0225A8E8
  */
+/**
+ * @brief add the PC icon as soon as a script sets its flag, the way overlay 27 adds the game's own icons while a
+ *        script runs (Mom's Bag, Trainer Card...): show it with the slide-in animation and keep the menu undimmed
+ *        until the player can move again, instead of waiting for the menu to be rebuilt on the next map
+ * @see   overlay 27 0x0225AAD4
+ */
+void StartMenuPCField_CheckAppear(void *work)
+{
+    if (sPcIcon.sprite != NULL || OV27_MENU_MODE(work) != 0 || !CheckScriptFlag(START_MENU_REMOTE_PC_FLAG)) {
+        return;
+    }
+    FieldSystem *fieldSystem = OV27_FIELD_SYSTEM(work);
+    if ((FIELD_MENU_FLAGS(fieldSystem) & 0x3F) != 0) {
+        return; // overlay 27 only adds icons while its menu is idle
+    }
+    StartMenuPCField_CreateIcon(work);
+    if (sPcIcon.sprite == NULL) {
+        return;
+    }
+    Sprite_SetAnimCtrlSeq(sPcIcon.sprite, ANIM_SEQ_APPEAR);
+    FIELD_MENU_FLAGS(fieldSystem) |= 0x80;
+}
+
 void StartMenuPCField_UpdateVisuals(void *work, BOOL menuOpen)
 {
     if (sPcIcon.sprite == NULL) {
-        // the flag can be set by a script while the menu is up (Elm gives the PC in his lab), so add the icon as soon
-        // as it is, like the game's own icons, instead of waiting for the menu to be rebuilt on the next map
-        if (OV27_MENU_MODE(work) == 0 && CheckScriptFlag(START_MENU_REMOTE_PC_FLAG)) {
-            StartMenuPCField_CreateIcon(work);
-        }
+        StartMenuPCField_CheckAppear(work); // the flag can also be set outside a script
         return;
     }
     if (sPcIcon.work != work) {

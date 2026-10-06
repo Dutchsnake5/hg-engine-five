@@ -21,6 +21,7 @@ void StartMenuPCField_BounceSelectedIcon(void *work);
 BOOL StartMenuPCField_IsSelected(void);
 BOOL StartMenuPCField_HandleKey(void *taskManager, void *fieldSystem, void *startMenu);
 BOOL StartMenuPCField_HandleTouch(void *taskManager, void *fieldSystem, void *startMenu);
+void StartMenuPCField_CheckAppear(void *work);
 #endif
 
 const struct FieldExtensionEntries gFieldExtensionEntries __attribute__((section(".init"))) = {
@@ -39,5 +40,6 @@ const struct FieldExtensionEntries gFieldExtensionEntries __attribute__((section
     .pcIsSelected = StartMenuPCField_IsSelected,
     .pcHandleKey = StartMenuPCField_HandleKey,
     .pcHandleTouch = StartMenuPCField_HandleTouch,
+    .pcCheckAppear = StartMenuPCField_CheckAppear,
 #endif
 };
