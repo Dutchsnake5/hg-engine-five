@@ -52,7 +52,10 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx)
     case SCRIPT_NEW_CMD_SHOW_BUBBLE: {
         LocalMapObject *obj = FindActiveMapObject(ctx->fsys, arg0 & 0xFF);
         if (obj != NULL && (arg0 >> 8) < NUM_MOOD_BUBBLES) {
+            // this starts the bubble as a task that the script's task waits on; stop running commands for this
+            // frame (as ScrCmd_597 does) so nothing else touches the task stack before the bubble task takes over
             ov01_02203AB4(ctx->fsys, obj, arg0 >> 8);
+            return TRUE;
         }
         break;
     }
