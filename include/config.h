@@ -193,6 +193,14 @@
 #endif
 #define START_MENU_REMOTE_PC_FLAG 2602
 
+// REGIONAL_CHARM makes the Regional Charm key item (ITEM_REGIONAL_CHARM) work. Using it from the bag, or from Y once
+// registered, turns REGIONAL_CHARM_FLAG on or off (commonscript entry 75). While the flag is set, every random wild
+// Pokémon that has a regional form (Alolan, Galarian, Hisuian, Paldean; see src/field/regional_forms.c) appears in it,
+// picking one at random when there are several. Scripted encounters, roamers and Pal Park are left alone.
+// Its icon is data/graphics/item/regional_charm.png.
+#define REGIONAL_CHARM
+#define REGIONAL_CHARM_FLAG 2603
+
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 

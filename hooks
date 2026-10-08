@@ -666,6 +666,11 @@ arm9 StartMenu_HandleKeyInput_hook 0203C508 3
 0027 StartMenuPC_Ov27Script_hook 0225A3D0 1
 #endif
 
+#ifdef REGIONAL_CHARM
+# the Regional Charm leaves scripted wild battles alone: mark them in their overlay 2 setup
+0002 RegionalCharm_ScriptedEncounter_hook 02247F48 2
+#endif
+
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
 arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0

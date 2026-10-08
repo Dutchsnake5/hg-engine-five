@@ -100,6 +100,7 @@ scrdef scr_seq_0003_071
 scrdef scr_seq_0003_072_repels
 scrdef scr_seq_0003_073_autobattle_testing
 scrdef scr_seq_0003_074_remote_pc
+scrdef scr_seq_0003_075_regional_charm
 scrdef_end
 
 scr_seq_0003_002:
@@ -1810,5 +1811,24 @@ _remote_pc_end:
     closemsg
     play_se SEQ_SE_DP_PC_LOGOFF
     touchscreen_menu_show
+    releaseall
+    end
+
+// used from the bag, or with Y once registered (ItemMenuUseFunc_RegionalCharm in src/item.c, id 2075): turns the
+// Regional Charm on or off. While FLAG_SYS_REGIONAL_CHARM is set, wild Pokémon appear in their regional forms
+scr_seq_0003_075_regional_charm:
+    lockall
+    play_se SEQ_SE_DP_CARD2
+    goto_if_set FLAG_SYS_REGIONAL_CHARM, _regional_charm_turn_off
+    setflag FLAG_SYS_REGIONAL_CHARM
+    npc_msg 121
+    goto _regional_charm_end
+
+_regional_charm_turn_off:
+    clearflag FLAG_SYS_REGIONAL_CHARM
+    npc_msg 122
+_regional_charm_end:
+    wait_button_or_walk_away
+    closemsg
     releaseall
     end

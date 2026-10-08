@@ -421,6 +421,11 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
 extern u32 space_for_setmondata;
 
+#ifdef REGIONAL_CHARM
+u8 RegionalForms_PickWildForm(u16 species); // src/field/regional_forms.c
+extern u32 gRegionalCharmScriptedEncounter; // asm/regional_charm_hooks.s
+#endif
+
 /**
  *  @brief add a PartyPokemon to the "wild battler"'s party
  *
@@ -457,6 +462,21 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
     } else if (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK) {
         UpdatePassiveForms(encounterPartyPokemon);
     }
+
+#ifdef REGIONAL_CHARM
+    // the Regional Charm is on: a random wild Pokémon appears in its regional form. a form something else already
+    // chose (an encounter slot, Unown) stays, and scripted battles, roamers and Pal Park Pokémon are left alone
+    BOOL scriptedEncounter = gRegionalCharmScriptedEncounter;
+    gRegionalCharmScriptedEncounter = FALSE;
+    if (!change_form && !scriptedEncounter && CheckScriptFlag(REGIONAL_CHARM_FLAG)
+        && !(encounterBattleParam->fight_type & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_ROAMER | BATTLE_TYPE_PAL_PARK))) {
+        u8 regionalForm = RegionalForms_PickWildForm(species);
+        if (regionalForm != 0) {
+            change_form = 1;
+            form_no = regionalForm;
+        }
+    }
+#endif
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) {
         SET_MON_HIDDEN_ABILITY_BIT(encounterPartyPokemon)

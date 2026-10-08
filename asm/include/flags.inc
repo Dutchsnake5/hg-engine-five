@@ -1913,7 +1913,7 @@
 .equ FLAG_UNK_A28, 2600
 .equ FLAG_UNK_A29, 2601
 .equ FLAG_SYS_REMOTE_PC, 2602 // START_MENU_REMOTE_PC_FLAG in include/config.h: shows the PC icon in the touch screen menu
-.equ FLAG_UNK_A2B, 2603
+.equ FLAG_SYS_REGIONAL_CHARM, 2603 // REGIONAL_CHARM_FLAG in include/config.h: the Regional Charm is turned on
 .equ FLAG_UNK_A2C, 2604
 .equ FLAG_UNK_A2D, 2605
 .equ FLAG_UNK_A2E, 2606

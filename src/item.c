@@ -378,7 +378,12 @@ void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct I
 void ItemMenuUseFunc_Mint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
+#ifdef REGIONAL_CHARM
+void ItemMenuUseFunc_RegionalCharm(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL ItemFieldUseFunc_RegionalCharm(struct ItemFieldUseData *data);
+#endif
 
+// fieldUseFunc in data/itemdata/itemdata.c is NUM_VANILLA_FIELD_USE_FUNCS + the index here
 const struct ItemUseFuncDat sNewItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_RevealGlass, ItemFieldUseFunc_RevealGlass, NULL },
     { ItemMenuUseFunc_DNASplicers, ItemFieldUseFunc_DNASplicers, NULL },
@@ -386,6 +391,9 @@ const struct ItemUseFuncDat sNewItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_Mint, NULL, NULL },
     { ItemMenuUseFunc_Nectar, NULL, NULL },
     { ItemMenuUseFunc_RotomCatalog, NULL, NULL },
+#ifdef REGIONAL_CHARM
+    { ItemMenuUseFunc_RegionalCharm, ItemFieldUseFunc_RegionalCharm, NULL }, // 36
+#endif
 };
 
 extern const struct ItemUseFuncDat sItemFieldUseFuncs[NUM_VANILLA_FIELD_USE_FUNCS];
@@ -671,3 +679,27 @@ void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct Ite
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_ROTOM_CATALOG);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
+
+#ifdef REGIONAL_CHARM
+
+#define REGIONAL_CHARM_SCRIPT 2075 // scr_seq_0003_075_regional_charm in data/scr_seq/scr_seq_00003_commonscript.s
+
+/**
+ * @brief closes the bag and runs the script that turns the Regional Charm on or off
+ */
+void ItemMenuUseFunc_RegionalCharm(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2)
+{
+    SetUpItemScript(data, dat2, REGIONAL_CHARM_SCRIPT);
+}
+
+/**
+ * @brief the same from the field, once the Regional Charm is registered to Y
+ * @return FALSE: there is no app to open, so the item use data can be freed right away
+ */
+BOOL ItemFieldUseFunc_RegionalCharm(struct ItemFieldUseData *data)
+{
+    EventSet_Script(data->fieldSystem, REGIONAL_CHARM_SCRIPT, NULL);
+    return FALSE;
+}
+
+#endif // REGIONAL_CHARM
