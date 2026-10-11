@@ -2725,14 +2725,18 @@
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
+// TRS_ARE_TMS (include/config.h) counts the TR items as TMs; files using these must include config.h
 #define IS_ITEM_TM(item) \
-    ((item) == ITEM_TM00 || ((item) >= ITEM_TM001 && (item) <= ITEM_TM092) || ((item) >= ITEM_TM093 && (item) <= ITEM_TM095) || ((item) >= ITEM_TM096 && (item) <= ITEM_TM100) || ((item) >= ITEM_TM100_SV && (item) <= ITEM_TM229))
+    ((item) == ITEM_TM00 || ((item) >= ITEM_TM001 && (item) <= ITEM_TM092) || ((item) >= ITEM_TM093 && (item) <= ITEM_TM095) || ((item) >= ITEM_TM096 && (item) <= ITEM_TM100) || ((item) >= ITEM_TM100_SV && (item) <= ITEM_TM229) || (TRS_ARE_TMS_VALUE && IS_ITEM_TR_RANGE(item)))
 
 #define IS_ITEM_HM(item) \
     (((item) >= ITEM_HM01 && (item) <= ITEM_HM08) || (item) == ITEM_HM07_ORAS)
 
-#define IS_ITEM_TR(item) \
+#define IS_ITEM_TR_RANGE(item) \
     ((item) >= ITEM_TR00 && (item) <= ITEM_TR99)
+
+#define IS_ITEM_TR(item) \
+    (!TRS_ARE_TMS_VALUE && IS_ITEM_TR_RANGE(item))
 
 #ifndef __ASSEMBLER__
 enum ItemGeneration {

@@ -407,7 +407,10 @@ void SortTMHMPocket(ITEM_SLOT *slots, u32 count)
         for (j = i + 1; j < count; j++) {
             u8 iSortOrder = GetTMHMPocketSortPrecedence(slots[i].id);
             u8 jSortOrder = GetTMHMPocketSortPrecedence(slots[j].id);
-            if (slots[i].quantity == 0 || (slots[j].quantity != 0 && (iSortOrder > jSortOrder || (iSortOrder == jSortOrder && slots[i].id > slots[j].id)))) {
+            // within TMs (or HMs), by number: item ids aren't in number order (TM00, and the TRs with TRS_ARE_TMS)
+            u16 iNum = GetMachineMoveNumber(slots[i].id), jNum = GetMachineMoveNumber(slots[j].id);
+            BOOL iAfterJ = iSortOrder > jSortOrder || (iSortOrder == jSortOrder && (iNum > jNum || (iNum == jNum && slots[i].id > slots[j].id)));
+            if (slots[i].quantity == 0 || (slots[j].quantity != 0 && iAfterJ)) {
                 SwapItemSlots(&slots[i], &slots[j]);
             }
         }
@@ -528,9 +531,13 @@ static u16 GetMachineMoveNumber(u16 itemId)
         return itemId - ITEM_TM100_SV + 100;
     }
 
-    // TRs
+    // TRs (TM230-TM329 with TRS_ARE_TMS)
     if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
+#ifdef TRS_ARE_TMS
+        return itemId - ITEM_TR00 + 230;
+#else
         return itemId - ITEM_TR00;
+#endif
     }
 
     return 0;
