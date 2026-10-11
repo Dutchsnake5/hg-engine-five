@@ -16270,7 +16270,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_FARFETCHD_GALARIAN] = {
         .entries = {
-            { EVO_AMOUNT_OF_CRITICAL_HITS, 3, SPECIES_SIRFETCHD },
+            { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -16298,7 +16298,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_MR_MIME_GALARIAN] = {
         .entries = {
-            { EVO_LEVEL, 42, SPECIES_MR_RIME },
+            { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -16368,7 +16368,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_CORSOLA_GALARIAN] = {
         .entries = {
-            { EVO_LEVEL, 38, SPECIES_CURSOLA },
+            { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -16396,7 +16396,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_LINOONE_GALARIAN] = {
         .entries = {
-            { EVO_LEVEL, 35, SPECIES_OBSTAGOON },
+            { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18650,7 +18650,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_QWILFISH_HISUIAN] = {
         .entries = {
-            { EVO_HAS_MOVE, MOVE_BARB_BARRAGE, SPECIES_OVERQWIL },
+            { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
