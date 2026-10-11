@@ -214,7 +214,7 @@ If a Pokémon holding this Berry is hit\nwith a special move, the attacker will\
 An item to be held by a Pokémon.\nIt casts a tricky glare that lowers\nthe opposing Pokémon’s accuracy.
 An item to be held by a Pokémon.\nIt will restore any lowered stat\nin battle--but only once.
 An item to be held by a Pokémon.\nThis stiff, heavy brace helps Pokémon\ngrow strong but cuts Speed in battle.
-An item to be held by a Pokémon.\nThe holder gets a share of a battle’s\nExp. Points without battling.
+Turn it on, and the Pokémon in your\nparty that don’t battle also gain\nExp. Points.
 An item to be held by a Pokémon.\nThis light, sharp claw lets the\nholder move first occasionally.
 An item to be held by a Pokémon.\nThe comforting chime of this bell\ncalms the holder, making it friendly.
 An item to be held by a Pokémon.\nIt snaps the user out of move-binding\neffects to move freely--but only once.

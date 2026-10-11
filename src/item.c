@@ -382,6 +382,10 @@ void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct Ite
 void ItemMenuUseFunc_RegionalCharm(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 BOOL ItemFieldUseFunc_RegionalCharm(struct ItemFieldUseData *data);
 #endif
+#ifdef EXP_SHARE_KEY_ITEM
+void ItemMenuUseFunc_ExpShare(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL ItemFieldUseFunc_ExpShare(struct ItemFieldUseData *data);
+#endif
 
 // fieldUseFunc in data/itemdata/itemdata.c is NUM_VANILLA_FIELD_USE_FUNCS + the index here
 const struct ItemUseFuncDat sNewItemFieldUseFuncs[] = {
@@ -393,6 +397,11 @@ const struct ItemUseFuncDat sNewItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_RotomCatalog, NULL, NULL },
 #ifdef REGIONAL_CHARM
     { ItemMenuUseFunc_RegionalCharm, ItemFieldUseFunc_RegionalCharm, NULL }, // 36
+#else
+    { NULL, NULL, NULL }, // 36, kept so the rows after it keep their numbers
+#endif
+#ifdef EXP_SHARE_KEY_ITEM
+    { ItemMenuUseFunc_ExpShare, ItemFieldUseFunc_ExpShare, NULL }, // 37
 #endif
 };
 
@@ -703,3 +712,27 @@ BOOL ItemFieldUseFunc_RegionalCharm(struct ItemFieldUseData *data)
 }
 
 #endif // REGIONAL_CHARM
+
+#ifdef EXP_SHARE_KEY_ITEM
+
+#define EXP_SHARE_SCRIPT 2076 // scr_seq_0003_076_exp_share in data/scr_seq/scr_seq_00003_commonscript.s
+
+/**
+ * @brief closes the bag and runs the script that turns the Exp. Share on or off
+ */
+void ItemMenuUseFunc_ExpShare(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2)
+{
+    SetUpItemScript(data, dat2, EXP_SHARE_SCRIPT);
+}
+
+/**
+ * @brief the same from the field, once the Exp. Share is registered to Y
+ * @return FALSE: there is no app to open, so the item use data can be freed right away
+ */
+BOOL ItemFieldUseFunc_ExpShare(struct ItemFieldUseData *data)
+{
+    EventSet_Script(data->fieldSystem, EXP_SHARE_SCRIPT, NULL);
+    return FALSE;
+}
+
+#endif // EXP_SHARE_KEY_ITEM

@@ -201,6 +201,15 @@
 #define REGIONAL_CHARM
 #define REGIONAL_CHARM_FLAG 2603
 
+// EXP_SHARE_KEY_ITEM turns the Exp. Share (ITEM_EXP_SHARE) into a key item like in Gen 6 and later. Using it from the
+// bag, or from Y once registered, turns EXP_SHARE_FLAG on or off (commonscript entry 76). While the flag is set, every
+// Pokémon in the party that didn't battle gets EXP_SHARE_BENCH_PERCENT percent of the EXP for each Pokémon defeated,
+// worked out at its own level (so 100 = as much as if it had battled alone, 50 = half). The Pokémon that battled get
+// what they always get. Off, nothing changes. The logic is in Task_DistributeExp_Extend (src/battle/battle_script_commands.c).
+#define EXP_SHARE_KEY_ITEM
+#define EXP_SHARE_FLAG 2604
+#define EXP_SHARE_BENCH_PERCENT 50
+
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 

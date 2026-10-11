@@ -1,3 +1,4 @@
+#include "../../include/config.h"
 #include "../../include/types.h"
 #include "../../include/item.h"
 #include "../../include/constants/hold_item_effects.h"
@@ -14054,18 +14055,38 @@ const ITEMDATA __data[] =
 [ITEM_EXP_SHARE] =
 {
     ITEM_PRICE(3000),
+#ifdef EXP_SHARE_KEY_ITEM
+    .holdEffect = 0,
+#else
     .holdEffect = HOLD_EFFECT_EXP_SHARE,
+#endif
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 30,
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
+#ifdef EXP_SHARE_KEY_ITEM
+    .prevent_toss = TRUE,
+#else
     .prevent_toss = FALSE,
+#endif
+#ifdef EXP_SHARE_KEY_ITEM
+    .selectable = TRUE, // can be registered to Y
+#else
     .selectable = FALSE,
+#endif
+#ifdef EXP_SHARE_KEY_ITEM
+    .fieldPocket = POCKET_KEY_ITEMS,
+#else
     .fieldPocket = POCKET_ITEMS,
+#endif
     .battlePocket = BATTLE_POCKET_NONE,
+#ifdef EXP_SHARE_KEY_ITEM
+    .fieldUseFunc = 37, // ItemMenuUseFunc_ExpShare in src/item.c
+#else
     .fieldUseFunc = 0,
+#endif
     .battleUseFunc = 0,
     .partyUse = 0,
     .partyUseParam = {

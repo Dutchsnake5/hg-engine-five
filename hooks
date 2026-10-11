@@ -671,6 +671,10 @@ arm9 StartMenu_HandleKeyInput_hook 0203C508 3
 0002 RegionalCharm_ScriptedEncounter_hook 02247F48 2
 #endif
 
+#ifdef EXP_SHARE_KEY_ITEM
+0012 ExpShare_GainMessage_hook 02245B3E 1
+#endif
+
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
 arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0

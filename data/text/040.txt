@@ -121,3 +121,5 @@ You used the {STRVAR_1 8, 1, 0}.
 Begin auto-battle.
 You turned on the Regional Charm!\rWild Pokémon will now appear in\ntheir regional forms.
 You turned off the Regional Charm.
+You turned on the Exp. Share!\rThe Pokémon in your party that don’t\nbattle will also gain Exp. Points.
+You turned off the Exp. Share.

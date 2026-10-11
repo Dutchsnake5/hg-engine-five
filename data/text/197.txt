@@ -1919,3 +1919,4 @@ The wild {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
 The wild {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
 The opposing {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
 The opposing {STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\nswitched places!
+The rest of your team gained Exp.\nPoints thanks to the Exp. Share!\r

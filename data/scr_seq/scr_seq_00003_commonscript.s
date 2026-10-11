@@ -101,6 +101,7 @@ scrdef scr_seq_0003_072_repels
 scrdef scr_seq_0003_073_autobattle_testing
 scrdef scr_seq_0003_074_remote_pc
 scrdef scr_seq_0003_075_regional_charm
+scrdef scr_seq_0003_076_exp_share
 scrdef_end
 
 scr_seq_0003_002:
@@ -1828,6 +1829,25 @@ _regional_charm_turn_off:
     clearflag FLAG_SYS_REGIONAL_CHARM
     npc_msg 122
 _regional_charm_end:
+    wait_button_or_walk_away
+    closemsg
+    releaseall
+    end
+
+// used from the bag, or with Y once registered (ItemMenuUseFunc_ExpShare in src/item.c, id 2076): turns the Exp. Share
+// on or off. While FLAG_SYS_EXP_SHARE is set, the Pokémon that didn't battle get EXP too (EXP_SHARE_KEY_ITEM in config.h)
+scr_seq_0003_076_exp_share:
+    lockall
+    play_se SEQ_SE_DP_CARD2
+    goto_if_set FLAG_SYS_EXP_SHARE, _exp_share_turn_off
+    setflag FLAG_SYS_EXP_SHARE
+    npc_msg 123
+    goto _exp_share_end
+
+_exp_share_turn_off:
+    clearflag FLAG_SYS_EXP_SHARE
+    npc_msg 124
+_exp_share_end:
     wait_button_or_walk_away
     closemsg
     releaseall

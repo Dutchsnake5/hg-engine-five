@@ -218,5 +218,6 @@
 
 #define BATTLE_MSG_LUNAR_DANCE  (1787)
 #define BATTLE_MSG_HEALING_WISH (1790)
+#define BATTLE_MSG_EXP_SHARE_TEAM (1921) // "The rest of your team gained Exp. Points thanks to the Exp. Share!" (EXP_SHARE_KEY_ITEM)
 
 #endif
