@@ -2727,7 +2727,7 @@
 
 // TRS_ARE_TMS (include/config.h) counts the TR items as TMs; files using these must include config.h
 #define IS_ITEM_TM(item) \
-    ((item) == ITEM_TM00 || ((item) >= ITEM_TM001 && (item) <= ITEM_TM092) || ((item) >= ITEM_TM093 && (item) <= ITEM_TM095) || ((item) >= ITEM_TM096 && (item) <= ITEM_TM100) || ((item) >= ITEM_TM100_SV && (item) <= ITEM_TM229) || (TRS_ARE_TMS_VALUE && IS_ITEM_TR_RANGE(item)))
+    ((item) == ITEM_TM00 || ((item) >= ITEM_TM001 && (item) <= ITEM_TM092) || ((item) >= ITEM_TM093 && (item) <= ITEM_TM095) || ((item) >= ITEM_TM096 && (item) <= ITEM_TM100) || ((item) >= ITEM_TM100_SV && (item) <= ITEM_TM229) || (TRS_ARE_TMS_VALUE && (item) >= ITEM_TR00 && (item) < ITEM_TR00 + TRS_AS_TMS_COUNT))
 
 #define IS_ITEM_HM(item) \
     (((item) >= ITEM_HM01 && (item) <= ITEM_HM08) || (item) == ITEM_HM07_ORAS)
@@ -2870,12 +2870,17 @@ enum ItemGeneration {
 
 #ifdef ITEM_POCKET_EXPANSION
 
-// pixie plate + megas
-#define NUM_BAG_ITEMS        165 + 32 + NUM_MEGA_STONES
-#define NUM_BAG_MEDICINE     40
-#define NUM_BAG_BALLS        24 + 2
-#define NUM_BAG_TMS_HMS      101
-#define NUM_BAG_BERRIES      64
+// 2026-10-11 (this hack): pockets enlarged for the TMs (330 TMs/HMs with TRS_ARE_TMS) and modern berries/medicine.
+// 255 is the most any pocket can be: the bag screen (overlay 15, widened by bytereplacement from 165 to 0xFF entries)
+// can't show more. The bag is saved, so changing any of these changes the save layout: old saves must be converted
+// (Tools\convert_save.py in the project folder), and the save's page count in include/constants/save.h must still
+// cover chunk 0 (it went from 16 to 17 pages here, SAVE_PAGE_MAX 0x2F -> 0x30).
+// was: items 165 + 32 + NUM_MEGA_STONES (245), medicine 40, balls 26, TMs/HMs 101, berries 64
+#define NUM_BAG_ITEMS        255
+#define NUM_BAG_MEDICINE     75
+#define NUM_BAG_BALLS        30
+#define NUM_BAG_TMS_HMS      255
+#define NUM_BAG_BERRIES      100
 #define NUM_BAG_MAIL         12
 #define NUM_BAG_BATTLE_ITEMS 30
 #define NUM_BAG_KEY_ITEMS    50 + 42

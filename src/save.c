@@ -444,6 +444,15 @@ void CancelAsyncSave(SaveData *saveData, struct AsyncWriteManager *writeMan)
 
 // ReadExtraSaveChunk just needs lastGoodSaveSlot offset (0x232F0) at 020284A0
 
+// the offsets and sizes patched into the vanilla save code (bytereplacement) must match this struct
+_Static_assert(__builtin_offsetof(SaveData, saveSlotSpecs) == OFFSET_saveSlotSpecs, "OFFSET_saveSlotSpecs");
+_Static_assert(__builtin_offsetof(SaveData, lastGoodSaveSlot) == OFFSET_lastGoodSaveSlot, "OFFSET_lastGoodSaveSlot");
+_Static_assert(__builtin_offsetof(SaveData, lastGoodSaveNo) == OFFSET_lastGoodSaveNo, "OFFSET_lastGoodSaveNo");
+_Static_assert(__builtin_offsetof(SaveData, sectorCleanFlag) == OFFSET_sectorCleanFlag, "OFFSET_sectorCleanFlag");
+_Static_assert(__builtin_offsetof(SaveData, lastGoodSector) == OFFSET_lastGoodSector, "OFFSET_lastGoodSector");
+_Static_assert(sizeof(SaveData) <= FULL_SAVE_SIZE, "FULL_SAVE_SIZE");
+_Static_assert(DYNAMIC_REGION_SIZE == SAVE_PAGE_MAX * SAVE_SECTOR_SIZE && DYNAMIC_REGION_BYTEWIDE_SIZE == SAVE_PAGE_MAX, "DYNAMIC_REGION_SIZE");
+
 void SaveData_InitSlotSpecs(struct SaveSlotSpec *slotSpecs, struct SaveArrayHeader *headers)
 {
     int i;

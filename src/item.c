@@ -122,95 +122,95 @@ static const u16 sMachineMoves[] = {
 
     // expansion TMs
     MOVE_MEGA_PUNCH, // TM00
-    MOVE_FLASH_CANNON, // TM093
-    MOVE_DARK_PULSE, // TM094
+    MOVE_NONE, // TM093: blank (repeat of TM091)
+    MOVE_NONE, // TM094: blank (repeat of TM079)
     MOVE_LEECH_LIFE, // TM095
     MOVE_EERIE_IMPULSE, // TM096
-    MOVE_FLY, // TM097
-    MOVE_SKILL_SWAP, // TM098
+    MOVE_NONE, // TM097: blank (repeat of HM02)
+    MOVE_NONE, // TM098: blank (repeat of TM048)
     MOVE_IRON_HEAD, // TM099
     MOVE_CONFIDE, // TM100
     MOVE_DRAGON_DANCE, // TM100_SV
     MOVE_POWER_GEM, // TM101
     MOVE_GUNK_SHOT, // TM102
-    MOVE_SUBSTITUTE, // TM103
+    MOVE_NONE, // TM103: blank (repeat of TM090)
     MOVE_IRON_DEFENSE, // TM104
-    MOVE_X_SCISSOR, // TM105
+    MOVE_NONE, // TM105: blank (repeat of TM081)
     MOVE_DRILL_RUN, // TM106
-    MOVE_WILL_O_WISP, // TM107
+    MOVE_NONE, // TM107: blank (repeat of TM061)
     MOVE_CRUNCH, // TM108
     MOVE_TRICK, // TM109
     MOVE_LIQUIDATION, // TM110
-    MOVE_GIGA_DRAIN, // TM111
+    MOVE_NONE, // TM111: blank (repeat of TM019)
     MOVE_AURA_SPHERE, // TM112
     MOVE_TAILWIND, // TM113
-    MOVE_SHADOW_BALL, // TM114
-    MOVE_DRAGON_PULSE, // TM115
-    MOVE_STEALTH_ROCK, // TM116
+    MOVE_NONE, // TM114: blank (repeat of TM030)
+    MOVE_NONE, // TM115: blank (repeat of TM059)
+    MOVE_NONE, // TM116: blank (repeat of TM076)
     MOVE_HYPER_VOICE, // TM117
     MOVE_HEAT_WAVE, // TM118
-    MOVE_ENERGY_BALL, // TM119
-    MOVE_PSYCHIC, // TM120
+    MOVE_NONE, // TM119: blank (repeat of TM053)
+    MOVE_NONE, // TM120: blank (repeat of TM029)
     MOVE_HEAVY_SLAM, // TM121
     MOVE_ENCORE, // TM122
-    MOVE_SURF, // TM123
+    MOVE_NONE, // TM123: blank (repeat of HM03)
     MOVE_ICE_SPINNER, // TM124
-    MOVE_FLAMETHROWER, // TM125
-    MOVE_THUNDERBOLT, // TM126
+    MOVE_NONE, // TM125: blank (repeat of TM035)
+    MOVE_NONE, // TM126: blank (repeat of TM024)
     MOVE_PLAY_ROUGH, // TM127
     MOVE_AMNESIA, // TM128
-    MOVE_CALM_MIND, // TM129
+    MOVE_NONE, // TM129: blank (repeat of TM004)
     MOVE_HELPING_HAND, // TM130
     MOVE_POLLEN_PUFF, // TM131
     MOVE_BATON_PASS, // TM132
     MOVE_EARTH_POWER, // TM133
     MOVE_REVERSAL, // TM134
-    MOVE_ICE_BEAM, // TM135
+    MOVE_NONE, // TM135: blank (repeat of TM013)
     MOVE_ELECTRIC_TERRAIN, // TM136
     MOVE_GRASSY_TERRAIN, // TM137
     MOVE_PSYCHIC_TERRAIN, // TM138
     MOVE_MISTY_TERRAIN, // TM139
     MOVE_NASTY_PLOT, // TM140
-    MOVE_FIRE_BLAST, // TM141
+    MOVE_NONE, // TM141: blank (repeat of TM038)
     MOVE_HYDRO_PUMP, // TM142
-    MOVE_BLIZZARD, // TM143
+    MOVE_NONE, // TM143: blank (repeat of TM014)
     MOVE_FIRE_PLEDGE, // TM144
     MOVE_WATER_PLEDGE, // TM145
     MOVE_GRASS_PLEDGE, // TM146
     MOVE_WILD_CHARGE, // TM147
-    MOVE_SLUDGE_BOMB, // TM148
-    MOVE_EARTHQUAKE, // TM149
-    MOVE_STONE_EDGE, // TM150
+    MOVE_NONE, // TM148: blank (repeat of TM036)
+    MOVE_NONE, // TM149: blank (repeat of TM026)
+    MOVE_NONE, // TM150: blank (repeat of TM071)
     MOVE_PHANTOM_FORCE, // TM151
-    MOVE_GIGA_IMPACT, // TM152
+    MOVE_NONE, // TM152: blank (repeat of TM068)
     MOVE_BLAST_BURN, // TM153
     MOVE_HYDRO_CANNON, // TM154
     MOVE_FRENZY_PLANT, // TM155
     MOVE_OUTRAGE, // TM156
-    MOVE_OVERHEAT, // TM157
-    MOVE_FOCUS_BLAST, // TM158
+    MOVE_NONE, // TM157: blank (repeat of TM050)
+    MOVE_NONE, // TM158: blank (repeat of TM052)
     MOVE_LEAF_STORM, // TM159
     MOVE_HURRICANE, // TM160
-    MOVE_TRICK_ROOM, // TM161
+    MOVE_NONE, // TM161: blank (repeat of TM092)
     MOVE_BUG_BUZZ, // TM162
-    MOVE_HYPER_BEAM, // TM163
+    MOVE_NONE, // TM163: blank (repeat of TM015)
     MOVE_BRAVE_BIRD, // TM164
     MOVE_FLARE_BLITZ, // TM165
-    MOVE_THUNDER, // TM166
+    MOVE_NONE, // TM166: blank (repeat of TM025)
     MOVE_CLOSE_COMBAT, // TM167
-    MOVE_SOLAR_BEAM, // TM168
+    MOVE_NONE, // TM168: blank (repeat of TM022)
     MOVE_DRACO_METEOR, // TM169
     MOVE_STEEL_BEAM, // TM170
     MOVE_TERA_BLAST, // TM171
-    MOVE_ROAR, // TM172
+    MOVE_NONE, // TM172: blank (repeat of TM005)
     MOVE_CHARGE, // TM173
     MOVE_HAZE, // TM174
-    MOVE_TOXIC, // TM175
+    MOVE_NONE, // TM175: blank (repeat of TM006)
     MOVE_SAND_TOMB, // TM176
     MOVE_SPITE, // TM177
     MOVE_GRAVITY, // TM178
     MOVE_SMACK_DOWN, // TM179
-    MOVE_GYRO_BALL, // TM180
+    MOVE_NONE, // TM180: blank (repeat of TM074)
     MOVE_KNOCK_OFF, // TM181
     MOVE_BUG_BITE, // TM182
     MOVE_SUPER_FANG, // TM183
@@ -222,7 +222,7 @@ static const u16 sMachineMoves[] = {
     MOVE_HEAT_CRASH, // TM189
     MOVE_SOLAR_BLADE, // TM190
     MOVE_UPROAR, // TM191
-    MOVE_FOCUS_PUNCH, // TM192
+    MOVE_NONE, // TM192: blank (repeat of TM001)
     MOVE_WEATHER_BALL, // TM193
     MOVE_GRASSY_GLIDE, // TM194
     MOVE_BURNING_JEALOUSY, // TM195
@@ -233,12 +233,12 @@ static const u16 sMachineMoves[] = {
     MOVE_SCALE_SHOT, // TM200
     MOVE_MISTY_EXPLOSION, // TM201
     MOVE_PAIN_SPLIT, // TM202
-    MOVE_PSYCH_UP, // TM203
+    MOVE_NONE, // TM203: blank (repeat of TM077)
     MOVE_DOUBLE_EDGE, // TM204
     MOVE_ENDEAVOR, // TM205
     MOVE_PETAL_BLIZZARD, // TM206
     MOVE_TEMPER_FLARE, // TM207
-    MOVE_WHIRLPOOL, // TM208
+    MOVE_NONE, // TM208: blank (repeat of HM05)
     MOVE_MUDDY_WATER, // TM209
     MOVE_SUPERCELL_SLAM, // TM210
     MOVE_ELECTROWEB, // TM211
@@ -261,107 +261,108 @@ static const u16 sMachineMoves[] = {
     MOVE_PSYCHIC_NOISE, // TM228
     MOVE_UPPER_HAND, // TM229
 
-    // TRs
-    MOVE_SWORDS_DANCE, // TR00
-    MOVE_BODY_SLAM, // TR01
-    MOVE_FLAMETHROWER, // TR02
-    MOVE_HYDRO_PUMP, // TR03
-    MOVE_SURF, // TR04
-    MOVE_ICE_BEAM, // TR05
-    MOVE_BLIZZARD, // TR06
-    MOVE_LOW_KICK, // TR07
-    MOVE_THUNDERBOLT, // TR08
-    MOVE_THUNDER, // TR09
-    MOVE_EARTHQUAKE, // TR10
-    MOVE_PSYCHIC, // TR11
-    MOVE_AGILITY, // TR12
-    MOVE_FOCUS_ENERGY, // TR13
-    MOVE_METRONOME, // TR14
-    MOVE_FIRE_BLAST, // TR15
-    MOVE_WATERFALL, // TR16
-    MOVE_AMNESIA, // TR17
-    MOVE_LEECH_LIFE, // TR18
-    MOVE_TRI_ATTACK, // TR19
-    MOVE_SUBSTITUTE, // TR20
-    MOVE_REVERSAL, // TR21
-    MOVE_SLUDGE_BOMB, // TR22
-    MOVE_SPIKES, // TR23
-    MOVE_OUTRAGE, // TR24
-    MOVE_PSYSHOCK, // TR25
-    MOVE_ENDURE, // TR26
-    MOVE_SLEEP_TALK, // TR27
-    MOVE_MEGAHORN, // TR28
-    MOVE_BATON_PASS, // TR29
-    MOVE_ENCORE, // TR30
-    MOVE_IRON_TAIL, // TR31
-    MOVE_CRUNCH, // TR32
-    MOVE_SHADOW_BALL, // TR33
-    MOVE_FUTURE_SIGHT, // TR34
-    MOVE_UPROAR, // TR35
-    MOVE_HEAT_WAVE, // TR36
-    MOVE_TAUNT, // TR37
-    MOVE_TRICK, // TR38
-    MOVE_SUPERPOWER, // TR39
-    MOVE_SKILL_SWAP, // TR40
-    MOVE_BLAZE_KICK, // TR41
-    MOVE_HYPER_VOICE, // TR42
-    MOVE_OVERHEAT, // TR43
-    MOVE_COSMIC_POWER, // TR44
-    MOVE_MUDDY_WATER, // TR45
-    MOVE_IRON_DEFENSE, // TR46
-    MOVE_DRAGON_CLAW, // TR47
-    MOVE_BULK_UP, // TR48
-    MOVE_CALM_MIND, // TR49
-    MOVE_LEAF_BLADE, // TR50
-    MOVE_DRAGON_DANCE, // TR51
-    MOVE_GYRO_BALL, // TR52
-    MOVE_CLOSE_COMBAT, // TR53
-    MOVE_TOXIC_SPIKES, // TR54
-    MOVE_FLARE_BLITZ, // TR55
-    MOVE_AURA_SPHERE, // TR56
-    MOVE_POISON_JAB, // TR57
-    MOVE_DARK_PULSE, // TR58
-    MOVE_SEED_BOMB, // TR59
-    MOVE_X_SCISSOR, // TR60
-    MOVE_BUG_BUZZ, // TR61
-    MOVE_DRAGON_PULSE, // TR62
-    MOVE_POWER_GEM, // TR63
-    MOVE_FOCUS_BLAST, // TR64
-    MOVE_ENERGY_BALL, // TR65
-    MOVE_BRAVE_BIRD, // TR66
-    MOVE_EARTH_POWER, // TR67
-    MOVE_NASTY_PLOT, // TR68
-    MOVE_ZEN_HEADBUTT, // TR69
-    MOVE_FLASH_CANNON, // TR70
-    MOVE_LEAF_STORM, // TR71
-    MOVE_POWER_WHIP, // TR72
-    MOVE_GUNK_SHOT, // TR73
-    MOVE_IRON_HEAD, // TR74
-    MOVE_STONE_EDGE, // TR75
-    MOVE_STEALTH_ROCK, // TR76
-    MOVE_GRASS_KNOT, // TR77
-    MOVE_SLUDGE_WAVE, // TR78
-    MOVE_HEAVY_SLAM, // TR79
-    MOVE_ELECTRO_BALL, // TR80
-    MOVE_FOUL_PLAY, // TR81
-    MOVE_STORED_POWER, // TR82
-    MOVE_ALLY_SWITCH, // TR83
-    MOVE_SCALD, // TR84
-    MOVE_WORK_UP, // TR85
-    MOVE_WILD_CHARGE, // TR86
-    MOVE_DRILL_RUN, // TR87
-    MOVE_HEAT_CRASH, // TR88
-    MOVE_HURRICANE, // TR89
-    MOVE_PLAY_ROUGH, // TR90
-    MOVE_VENOM_DRENCH, // TR91
-    MOVE_DAZZLING_GLEAM, // TR92
-    MOVE_DARKEST_LARIAT, // TR93
-    MOVE_HIGH_HORSEPOWER, // TR94
-    MOVE_THROAT_CHOP, // TR95
-    MOVE_POLLEN_PUFF, // TR96
-    MOVE_PSYCHIC_FANGS, // TR97
-    MOVE_LIQUIDATION, // TR98
-    MOVE_BODY_PRESS, // TR99
+    // TRs. With TRS_ARE_TMS (include/config.h) the first 27 are TM230-TM256: the TR moves no TM teaches, in their old
+    // TR order. The other 73 TRs taught a move a TM already teaches and are blanked (unused items).
+    MOVE_BODY_SLAM, // TR00 = TM230 (was TR01)
+    MOVE_LOW_KICK, // TR01 = TM231 (was TR07)
+    MOVE_AGILITY, // TR02 = TM232 (was TR12)
+    MOVE_FOCUS_ENERGY, // TR03 = TM233 (was TR13)
+    MOVE_METRONOME, // TR04 = TM234 (was TR14)
+    MOVE_TRI_ATTACK, // TR05 = TM235 (was TR19)
+    MOVE_SPIKES, // TR06 = TM236 (was TR23)
+    MOVE_PSYSHOCK, // TR07 = TM237 (was TR25)
+    MOVE_MEGAHORN, // TR08 = TM238 (was TR28)
+    MOVE_SUPERPOWER, // TR09 = TM239 (was TR39)
+    MOVE_BLAZE_KICK, // TR10 = TM240 (was TR41)
+    MOVE_COSMIC_POWER, // TR11 = TM241 (was TR44)
+    MOVE_LEAF_BLADE, // TR12 = TM242 (was TR50)
+    MOVE_TOXIC_SPIKES, // TR13 = TM243 (was TR54)
+    MOVE_SEED_BOMB, // TR14 = TM244 (was TR59)
+    MOVE_ZEN_HEADBUTT, // TR15 = TM245 (was TR69)
+    MOVE_POWER_WHIP, // TR16 = TM246 (was TR72)
+    MOVE_ELECTRO_BALL, // TR17 = TM247 (was TR80)
+    MOVE_FOUL_PLAY, // TR18 = TM248 (was TR81)
+    MOVE_STORED_POWER, // TR19 = TM249 (was TR82)
+    MOVE_ALLY_SWITCH, // TR20 = TM250 (was TR83)
+    MOVE_WORK_UP, // TR21 = TM251 (was TR85)
+    MOVE_VENOM_DRENCH, // TR22 = TM252 (was TR91)
+    MOVE_DAZZLING_GLEAM, // TR23 = TM253 (was TR92)
+    MOVE_DARKEST_LARIAT, // TR24 = TM254 (was TR93)
+    MOVE_PSYCHIC_FANGS, // TR25 = TM255 (was TR97)
+    MOVE_BODY_PRESS, // TR26 = TM256 (was TR99)
+    MOVE_NONE, // TR27: blank
+    MOVE_NONE, // TR28: blank
+    MOVE_NONE, // TR29: blank
+    MOVE_NONE, // TR30: blank
+    MOVE_NONE, // TR31: blank
+    MOVE_NONE, // TR32: blank
+    MOVE_NONE, // TR33: blank
+    MOVE_NONE, // TR34: blank
+    MOVE_NONE, // TR35: blank
+    MOVE_NONE, // TR36: blank
+    MOVE_NONE, // TR37: blank
+    MOVE_NONE, // TR38: blank
+    MOVE_NONE, // TR39: blank
+    MOVE_NONE, // TR40: blank
+    MOVE_NONE, // TR41: blank
+    MOVE_NONE, // TR42: blank
+    MOVE_NONE, // TR43: blank
+    MOVE_NONE, // TR44: blank
+    MOVE_NONE, // TR45: blank
+    MOVE_NONE, // TR46: blank
+    MOVE_NONE, // TR47: blank
+    MOVE_NONE, // TR48: blank
+    MOVE_NONE, // TR49: blank
+    MOVE_NONE, // TR50: blank
+    MOVE_NONE, // TR51: blank
+    MOVE_NONE, // TR52: blank
+    MOVE_NONE, // TR53: blank
+    MOVE_NONE, // TR54: blank
+    MOVE_NONE, // TR55: blank
+    MOVE_NONE, // TR56: blank
+    MOVE_NONE, // TR57: blank
+    MOVE_NONE, // TR58: blank
+    MOVE_NONE, // TR59: blank
+    MOVE_NONE, // TR60: blank
+    MOVE_NONE, // TR61: blank
+    MOVE_NONE, // TR62: blank
+    MOVE_NONE, // TR63: blank
+    MOVE_NONE, // TR64: blank
+    MOVE_NONE, // TR65: blank
+    MOVE_NONE, // TR66: blank
+    MOVE_NONE, // TR67: blank
+    MOVE_NONE, // TR68: blank
+    MOVE_NONE, // TR69: blank
+    MOVE_NONE, // TR70: blank
+    MOVE_NONE, // TR71: blank
+    MOVE_NONE, // TR72: blank
+    MOVE_NONE, // TR73: blank
+    MOVE_NONE, // TR74: blank
+    MOVE_NONE, // TR75: blank
+    MOVE_NONE, // TR76: blank
+    MOVE_NONE, // TR77: blank
+    MOVE_NONE, // TR78: blank
+    MOVE_NONE, // TR79: blank
+    MOVE_NONE, // TR80: blank
+    MOVE_NONE, // TR81: blank
+    MOVE_NONE, // TR82: blank
+    MOVE_NONE, // TR83: blank
+    MOVE_NONE, // TR84: blank
+    MOVE_NONE, // TR85: blank
+    MOVE_NONE, // TR86: blank
+    MOVE_NONE, // TR87: blank
+    MOVE_NONE, // TR88: blank
+    MOVE_NONE, // TR89: blank
+    MOVE_NONE, // TR90: blank
+    MOVE_NONE, // TR91: blank
+    MOVE_NONE, // TR92: blank
+    MOVE_NONE, // TR93: blank
+    MOVE_NONE, // TR94: blank
+    MOVE_NONE, // TR95: blank
+    MOVE_NONE, // TR96: blank
+    MOVE_NONE, // TR97: blank
+    MOVE_NONE, // TR98: blank
+    MOVE_NONE, // TR99: blank
 };
 
 u16 GetItemIndex(u16 item, u16 type);
@@ -540,6 +541,43 @@ u16 ItemToMachineMoveIndex(u16 itemId)
     }
 
     return 0;
+}
+
+static u16 sMachineNumbers[NELEMS(sMachineMoves)];
+static BOOL sMachineNumbersReady = FALSE;
+
+static void NumberMachines(u16 *next, u16 first, u16 last)
+{
+    for (u16 i = first; i <= last; i++) {
+        sMachineNumbers[i] = sMachineMoves[i] == MOVE_NONE ? 0xFFFF : (*next)++;
+    }
+}
+
+/**
+ * @brief the number a TM shows in the bag (TM000, TM001, ...). TMs are numbered in their original order with the blank
+ *        ones (MOVE_NONE in sMachineMoves: repeats removed on 2026-10-11) left out, so the TMs after a blank one move up.
+ *        0xFFFF for a blank one. HMs aren't numbered here (see GetMachineMoveNumber in src/bag.c)
+ */
+u16 GetTMDisplayNumber(u16 itemId)
+{
+    if (!sMachineNumbersReady) {
+        u16 next = 0;
+        for (u32 i = 0; i < NELEMS(sMachineNumbers); i++) {
+            sMachineNumbers[i] = 0xFFFF;
+        }
+        // in the original number order: TM00, TM001-TM092, TM093-TM095, TM096-TM100, TM100 (SV)-TM229, the TRs
+        NumberMachines(&next, 101, 101);
+        NumberMachines(&next, 0, 91);
+        NumberMachines(&next, 102, 104);
+        NumberMachines(&next, 105, 109);
+        NumberMachines(&next, 110, 239);
+#ifdef TRS_ARE_TMS
+        NumberMachines(&next, 240, 240 + TRS_AS_TMS_COUNT - 1);
+#endif
+        sMachineNumbersReady = TRUE;
+    }
+    u16 index = ItemToMachineMoveIndex(itemId);
+    return index < NELEMS(sMachineNumbers) ? sMachineNumbers[index] : 0xFFFF;
 }
 
 /**

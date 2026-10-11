@@ -167,10 +167,12 @@
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
 
-// TRS_ARE_TMS turns the 100 TRs (ITEM_TR00-ITEM_TR99) into TMs: named TM230-TM329 (TR00 = TM230), reusable like the
-// other TMs, shown and sorted after TM229 in the bag, and drawn with the TM disc in their move's type colour. The items
-// keep their numbers, so a script still gives TM230 with ITEM_TR00. 73 of them teach a move that another TM also teaches.
+// TRS_ARE_TMS turns the TRs into TMs: reusable like the other TMs, shown and sorted after TM229 in the bag, and drawn
+// with the TM disc in their move's type colour. Only the 27 TR moves that no TM teaches are kept (2026-10-11): they are
+// ITEM_TR00-ITEM_TR26 = TM230-TM256 (sMachineMoves in src/item.c). ITEM_TR27-ITEM_TR99 taught a move a TM already teaches
+// and are blank, unused items. A script gives TM230 with ITEM_TR00, ... TM256 with ITEM_TR26.
 #define TRS_ARE_TMS
+#define TRS_AS_TMS_COUNT 27 // ITEM_TR00 .. ITEM_TR00 + 26 are TMs
 #ifdef TRS_ARE_TMS
 #define TRS_ARE_TMS_VALUE 1 // for IS_ITEM_TM / IS_ITEM_TR in include/constants/item.h
 #else

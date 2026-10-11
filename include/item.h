@@ -298,4 +298,7 @@ void *LONG_CALL LoadItemDataOrGfx(u16 itemId, int attrno, int heapID);
 
 s32 LONG_CALL GetItemAttr_PreloadedItemData(struct ItemData *itemData, u16 attrno);
 
+// the number a TM shows (TM000, TM001, ...): in order, without the blank ones (src/item.c)
+u16 GetTMDisplayNumber(u16 itemId);
+
 #endif // POKEDIAMOND_ITEM_H

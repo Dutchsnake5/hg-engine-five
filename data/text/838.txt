@@ -50,8 +50,8 @@ If a Pokémon holding this Berry is hit\nwith a physical move, the holder’s\nD
 If a Pokémon holding this Berry is hit\nwith a special move, the holder’s\nSp. Def stat will be boosted.
 A watering can shaped like a Lotad.\nIt helps promote the healthy growth of\nany Berries planted in good, soft soil.
 The user’s body generates an eerie impulse.\nExposing the target to it harshly lowers\nthe target’s Sp. Atk stat.
-The user soars, then strikes on the\nsecond turn. It can also be used for\nflying to any familiar town.
-The user employs its psychic power\nto exchange abilities with the foe.
+- - -
+- - -
 The foe slams the target with its\nsteel-hard head. It may also make\nthe target flinch.
 The user tells the target a secret, and\nthe target loses its ability to concentrate.\nThis lowers the target’s Sp. Atk stat.
 This pass serves as an ID card for\ngaining access to the Power Plant\nthat lies along Route 13.

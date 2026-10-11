@@ -514,33 +514,15 @@ static u16 GetMachineMoveNumber(u16 itemId)
         return itemId - ITEM_HM01 + 1;
     }
 
-    // TMs
-    if (itemId >= ITEM_TM001 && itemId <= ITEM_TM092) {
-        return itemId - ITEM_TM001 + 1;
-    }
-    if (itemId == ITEM_TM00) {
-        return 0;
-    }
-    if (itemId >= ITEM_TM093 && itemId <= ITEM_TM095) {
-        return itemId - ITEM_TM093 + 93;
-    }
-    if (itemId >= ITEM_TM096 && itemId <= ITEM_TM100) {
-        return itemId - ITEM_TM096 + 96;
-    }
-    if (itemId >= ITEM_TM100_SV && itemId <= ITEM_TM229) {
-        return itemId - ITEM_TM100_SV + 100;
-    }
-
-    // TRs (TM230-TM329 with TRS_ARE_TMS)
+#ifndef TRS_ARE_TMS
+    // TRs, numbered on their own
     if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
-#ifdef TRS_ARE_TMS
-        return itemId - ITEM_TR00 + 230;
-#else
         return itemId - ITEM_TR00;
-#endif
     }
+#endif
 
-    return 0;
+    // TMs (and with TRS_ARE_TMS the TRs kept as TMs): numbered in order, without the blank (removed) ones
+    return GetTMDisplayNumber(itemId);
 }
 
 /**
