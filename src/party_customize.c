@@ -75,14 +75,51 @@ NamingScreenArgs *LONG_CALL NamingScreen_CreateArgs(int heapId, int type, int sp
 void LONG_CALL NamingScreen_DeleteArgs(NamingScreenArgs *args);
 BOOL LONG_CALL PokeListProc_Init(void *proc, int *seq);
 
+#ifdef EGG_MOVE_TUTOR
+/**
+ * @brief the Egg Move Tutor's list: the Pokémon's egg moves that it does not know, ending with LEVEL_UP_LEARNSET_END.
+ *        an evolved Pokémon's egg moves are the ones its line hatches with (learnsets.json gives every member of a
+ *        line the egg moves of its first stage)
+ */
+static u16 *MoveRelearner_GetEligibleEggMoves(struct PartyPokemon *pp, int heapId)
+{
+    u16 known[MAX_MON_MOVES];
+    for (int i = 0; i < MAX_MON_MOVES; i++) {
+        known[i] = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
+    }
+
+    u16 *moves = sys_AllocMemory(heapId, (MAX_EGG_MOVES + 1) * sizeof(u16));
+    u8 total = LoadEggMoves(pp, moves);
+    int count = 0;
+    for (int i = 0; i < total; i++) {
+        u16 move = moves[i];
+        BOOL skip = move == MOVE_NONE;
+        for (int j = 0; j < MAX_MON_MOVES && !skip; j++) {
+            skip = known[j] == move;
+        }
+        if (!skip) {
+            moves[count++] = move;
+        }
+    }
+    moves[count] = LEVEL_UP_LEARNSET_END;
+    return moves;
+}
+#endif
+
 /**
  * @brief the move relearner's list of moves a Pokémon can relearn: level-up moves at or below its level that it does
  *        not know, ending with LEVEL_UP_LEARNSET_END. replaces the vanilla version, which reads the vanilla learnset
- *        format instead of hg-engine's
+ *        format instead of hg-engine's. while EGG_MOVE_TUTOR_FLAG is set (the Egg Move Tutor, commonscript entry 77),
+ *        it is the Pokémon's egg moves that it does not know instead
  * @see   arm9 0x0209176C, pret/pokeheartgold MoveRelearner_GetEligibleLevelUpMoves
  */
 u16 *LONG_CALL MoveRelearner_GetEligibleLevelUpMoves(struct PartyPokemon *pp, int heapId)
 {
+#ifdef EGG_MOVE_TUTOR
+    if (CheckScriptFlag(EGG_MOVE_TUTOR_FLAG)) {
+        return MoveRelearner_GetEligibleEggMoves(pp, heapId);
+    }
+#endif
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u32 form = GetMonData(pp, MON_DATA_FORM, NULL);
     u32 level = GetMonData(pp, MON_DATA_LEVEL, NULL);

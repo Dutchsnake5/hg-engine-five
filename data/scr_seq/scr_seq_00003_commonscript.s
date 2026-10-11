@@ -102,6 +102,7 @@ scrdef scr_seq_0003_073_autobattle_testing
 scrdef scr_seq_0003_074_remote_pc
 scrdef scr_seq_0003_075_regional_charm
 scrdef scr_seq_0003_076_exp_share
+scrdef scr_seq_0003_077_egg_move_tutor
 scrdef_end
 
 scr_seq_0003_002:
@@ -1848,6 +1849,66 @@ _exp_share_turn_off:
     clearflag FLAG_SYS_EXP_SHARE
     npc_msg 124
 _exp_share_end:
+    wait_button_or_walk_away
+    closemsg
+    releaseall
+    end
+
+// the Egg Move Tutor (EGG_MOVE_TUTOR in include/config.h): a person whose script is 2077. Teaches a party Pokémon one of
+// its egg moves for free, with the game's move relearner. FLAG_SYS_EGG_MOVE_TUTOR is set only around the relearner (the
+// check and the screen), which makes it list egg moves instead of level-up moves
+scr_seq_0003_077_egg_move_tutor:
+    play_se SEQ_SE_DP_SELECT
+    lockall
+    faceplayer
+    npc_msg 125
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _egg_move_tutor_bye
+    npc_msg 126
+    closemsg
+    fade_screen 6, 1, 0, 0
+    wait_fade
+    party_select_ui
+    get_party_selection VAR_SPECIAL_x8005
+    restore_overworld
+    fade_screen 6, 1, 1, 0
+    wait_fade
+    compare VAR_SPECIAL_x8005, 255
+    goto_if_eq _egg_move_tutor_bye
+    get_partymon_species VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _egg_move_tutor_egg
+    setflag FLAG_SYS_EGG_MOVE_TUTOR
+    scrcmd_466 VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005
+    clearflag FLAG_SYS_EGG_MOVE_TUTOR
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _egg_move_tutor_none
+    fade_screen 6, 1, 0, 0
+    wait_fade
+    setflag FLAG_SYS_EGG_MOVE_TUTOR
+    move_relearner_init VAR_SPECIAL_x8005
+    move_relearner_get_result VAR_SPECIAL_RESULT
+    clearflag FLAG_SYS_EGG_MOVE_TUTOR
+    restore_overworld
+    fade_screen 6, 1, 1, 0
+    wait_fade
+    compare VAR_SPECIAL_RESULT, 255
+    goto_if_eq _egg_move_tutor_bye
+    npc_msg 129
+    goto _egg_move_tutor_end
+
+_egg_move_tutor_egg:
+    npc_msg 127
+    goto _egg_move_tutor_end
+
+_egg_move_tutor_none:
+    npc_msg 128
+    goto _egg_move_tutor_end
+
+_egg_move_tutor_bye:
+    npc_msg 130
+_egg_move_tutor_end:
     wait_button_or_walk_away
     closemsg
     releaseall

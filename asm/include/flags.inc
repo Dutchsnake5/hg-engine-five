@@ -1915,7 +1915,7 @@
 .equ FLAG_SYS_REMOTE_PC, 2602 // START_MENU_REMOTE_PC_FLAG in include/config.h: shows the PC icon in the touch screen menu
 .equ FLAG_SYS_REGIONAL_CHARM, 2603 // REGIONAL_CHARM_FLAG in include/config.h: the Regional Charm is turned on
 .equ FLAG_SYS_EXP_SHARE, 2604
-.equ FLAG_UNK_A2D, 2605
+.equ FLAG_SYS_EGG_MOVE_TUTOR, 2605 // EGG_MOVE_TUTOR_FLAG in include/config.h: set only while the Egg Move Tutor's relearner is open
 .equ FLAG_UNK_A2E, 2606
 .equ FLAG_UNK_A2F, 2607
 .equ FLAG_UNK_A30, 2608

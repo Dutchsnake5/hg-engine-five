@@ -210,6 +210,13 @@
 #define EXP_SHARE_FLAG 2604
 #define EXP_SHARE_BENCH_PERCENT 50
 
+// EGG_MOVE_TUTOR adds the Egg Move Tutor (commonscript entry 77, so a person with script 2077 is one; free). It opens the
+// game's move relearner with the chosen Pokémon's egg moves (those of its line's first stage) instead of its level-up
+// moves: the entry sets EGG_MOVE_TUTOR_FLAG around the relearner, and MoveRelearner_GetEligibleLevelUpMoves
+// (src/party_customize.c) reads the egg moves while it is set. Needs PARTY_MENU_CUSTOMIZE.
+#define EGG_MOVE_TUTOR
+#define EGG_MOVE_TUTOR_FLAG 2605
+
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 

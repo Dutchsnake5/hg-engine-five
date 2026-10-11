@@ -123,3 +123,9 @@ You turned on the Regional Charm!\rWild Pokémon will now appear in\ntheir regio
 You turned off the Regional Charm.
 You turned on the Exp. Share!\rThe Pokémon in your party that don’t\nbattle will also gain Exp. Points.
 You turned off the Exp. Share.
+I’m the Egg Move Tutor!\rI can teach a Pokémon the moves it\ncould have learned as an Egg.\rShall I teach one of your Pokémon?
+Which Pokémon should learn\nan Egg Move?
+That’s an Egg!\nIt can’t learn moves yet.
+Sorry… There are no Egg Moves I\ncan teach that Pokémon.
+Come back any time you want your\nPokémon to learn more Egg Moves!
+All right. Come back any time!
