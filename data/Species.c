@@ -527,9 +527,9 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .hp = 82,
                 .attack = 83,
                 .defense = 100,
-                .spAttack = 95,
+                .spAttack = 97,
                 .spDefense = 105,
-                .speed = 70,
+                .speed = 68,
             },
             .types = { TYPE_WATER, TYPE_WATER },
             .catchRate = 45,
@@ -1379,7 +1379,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 75,
+                .hp = 80,
                 .attack = 100,
                 .defense = 70,
                 .spAttack = 60,
@@ -1441,7 +1441,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .defense = 40,
                 .spAttack = 55,
                 .spDefense = 50,
-                .speed = 95,
+                .speed = 100,
             },
             .types = { TYPE_ELECTRIC, TYPE_ELECTRIC },
             .catchRate = 190,
@@ -1611,7 +1611,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .attack = 120,
                 .defense = 100,
                 .spAttack = 25,
-                .spDefense = 50,
+                .spDefense = 55,
                 .speed = 80,
             },
             .types = { TYPE_GROUND, TYPE_GROUND },
@@ -2063,10 +2063,10 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 95,
+                .hp = 96,
                 .attack = 70,
                 .defense = 73,
-                .spAttack = 95,
+                .spAttack = 96,
                 .spDefense = 90,
                 .speed = 60,
             },
@@ -2520,9 +2520,9 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .speciesData = {
             .baseStats = {
                 .hp = 60,
-                .attack = 65,
+                .attack = 60,
                 .defense = 70,
-                .spAttack = 85,
+                .spAttack = 90,
                 .spDefense = 75,
                 .speed = 40,
             },
@@ -2633,11 +2633,11 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 45,
-                .attack = 60,
-                .defense = 55,
+                .hp = 50,
+                .attack = 65,
+                .defense = 60,
                 .spAttack = 30,
-                .spDefense = 55,
+                .spDefense = 60,
                 .speed = 40,
             },
             .types = { TYPE_BUG, TYPE_GRASS },
@@ -2748,9 +2748,9 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .speciesData = {
             .baseStats = {
                 .hp = 60,
-                .attack = 55,
+                .attack = 45,
                 .defense = 50,
-                .spAttack = 40,
+                .spAttack = 55,
                 .spDefense = 55,
                 .speed = 45,
             },
@@ -2806,7 +2806,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .baseStats = {
                 .hp = 70,
                 .attack = 45,
-                .defense = 65,
+                .defense = 70,
                 .spAttack = 95,
                 .spDefense = 70,
                 .speed = 105,
@@ -3491,8 +3491,8 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .hp = 65,
                 .attack = 65,
                 .defense = 65,
-                .spAttack = 50,
-                .spDefense = 50,
+                .spAttack = 65,
+                .spDefense = 65,
                 .speed = 90,
             },
             .types = { TYPE_WATER, TYPE_WATER },
@@ -3545,7 +3545,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 90,
+                .hp = 95,
                 .attack = 115,
                 .defense = 90,
                 .spAttack = 60,
@@ -3716,7 +3716,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 55,
+                .hp = 60,
                 .attack = 50,
                 .defense = 45,
                 .spAttack = 135,
@@ -4347,7 +4347,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .attack = 125,
                 .defense = 130,
                 .spAttack = 55,
-                .spDefense = 65,
+                .spDefense = 70,
                 .speed = 45,
             },
             .types = { TYPE_ROCK, TYPE_GROUND },
@@ -5542,8 +5542,8 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .baseStats = {
                 .hp = 85,
                 .attack = 73,
-                .defense = 90,
-                .spAttack = 75,
+                .defense = 95,
+                .spAttack = 80,
                 .spDefense = 115,
                 .speed = 50,
             },
@@ -5996,7 +5996,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 80,
+                .hp = 85,
                 .attack = 85,
                 .defense = 110,
                 .spAttack = 45,
@@ -7079,7 +7079,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 65,
+                .hp = 70,
                 .attack = 50,
                 .defense = 35,
                 .spAttack = 115,
@@ -10618,7 +10618,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .defense = 75,
                 .spAttack = 105,
                 .spDefense = 100,
-                .speed = 80,
+                .speed = 90,
             },
             .types = { TYPE_WATER, TYPE_WATER },
             .catchRate = 45,
@@ -11127,7 +11127,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .speciesData = {
             .baseStats = {
                 .hp = 95,
-                .attack = 85,
+                .attack = 90,
                 .defense = 105,
                 .spAttack = 65,
                 .spDefense = 75,
@@ -13126,7 +13126,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .defense = 95,
                 .spAttack = 95,
                 .spDefense = 95,
-                .speed = 85,
+                .speed = 90,
             },
             .types = { TYPE_WATER, TYPE_DRAGON },
             .catchRate = 45,
@@ -15116,10 +15116,10 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 45,
-                .attack = 45,
+                .hp = 50,
+                .attack = 50,
                 .defense = 35,
-                .spAttack = 20,
+                .spAttack = 40,
                 .spDefense = 30,
                 .speed = 20,
             },
@@ -15173,11 +15173,11 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 50,
-                .attack = 35,
-                .defense = 55,
-                .spAttack = 25,
-                .spDefense = 25,
+                .hp = 65,
+                .attack = 45,
+                .defense = 90,
+                .spAttack = 35,
+                .spDefense = 60,
                 .speed = 15,
             },
             .types = { TYPE_BUG, TYPE_BUG },
@@ -15287,11 +15287,11 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 50,
-                .attack = 35,
-                .defense = 55,
-                .spAttack = 25,
-                .spDefense = 25,
+                .hp = 65,
+                .attack = 45,
+                .defense = 90,
+                .spAttack = 35,
+                .spDefense = 60,
                 .speed = 15,
             },
             .types = { TYPE_BUG, TYPE_BUG },
@@ -15459,9 +15459,9 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .speciesData = {
             .baseStats = {
                 .hp = 60,
-                .attack = 50,
+                .attack = 45,
                 .defense = 50,
-                .spAttack = 60,
+                .spAttack = 65,
                 .spDefense = 70,
                 .speed = 50,
             },
@@ -17684,7 +17684,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .hp = 75,
                 .attack = 50,
                 .defense = 70,
-                .spAttack = 110,
+                .spAttack = 115,
                 .spDefense = 70,
                 .speed = 105,
             },
@@ -19052,7 +19052,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .hp = 75,
                 .attack = 50,
                 .defense = 95,
-                .spAttack = 90,
+                .spAttack = 95,
                 .spDefense = 105,
                 .speed = 75,
             },
@@ -19505,7 +19505,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 78,
+                .hp = 80,
                 .attack = 120,
                 .defense = 85,
                 .spAttack = 60,
@@ -37777,7 +37777,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .attack = 148,
                 .defense = 90,
                 .spAttack = 60,
-                .spDefense = 70,
+                .spDefense = 75,
                 .speed = 101,
             },
             .types = { TYPE_DRAGON, TYPE_DRAGON },

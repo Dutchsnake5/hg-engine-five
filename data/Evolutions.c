@@ -9494,7 +9494,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_RUFFLET] = {
         .entries = {
-            { EVO_LEVEL, 24, SPECIES_BRAVIARY },
+            { EVO_LEVEL, 30, SPECIES_BRAVIARY },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -9522,7 +9522,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_VULLABY] = {
         .entries = {
-            { EVO_LEVEL, 24, SPECIES_MANDIBUZZ },
+            { EVO_LEVEL, 30, SPECIES_MANDIBUZZ },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -10376,7 +10376,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_SKRELP] = {
         .entries = {
-            { EVO_LEVEL, 48, SPECIES_DRAGALGE },
+            { EVO_LEVEL, 40, SPECIES_DRAGALGE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -10404,7 +10404,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_CLAUNCHER] = {
         .entries = {
-            { EVO_LEVEL, 37, SPECIES_CLAWITZER },
+            { EVO_LEVEL, 35, SPECIES_CLAWITZER },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
