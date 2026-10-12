@@ -57,7 +57,7 @@ Boosts the Attack stat,\nbut lowers accuracy.
 Contact with the Pokémon\nmay cause infatuation.
 Ups Sp. Atk if another\nPokémon has Minus.
 Ups Sp. Atk if another\nPokémon has Plus.
-CASTFORM transforms with\nthe weather.
+Castform transforms with\nthe weather.
 Protects the Pokémon\nfrom item theft.
 The Pokémon may heal its\nown status problems.
 Boosts Attack if there is\na status problem.

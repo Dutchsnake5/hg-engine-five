@@ -1646,7 +1646,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Jasmine used to use Rock Pokémon\\nlike ONIX.\\n",
+                .text = "Jasmine used to use Rock Pokémon\\nlike Onix.\\n",
             },
         },
     },
@@ -2243,7 +2243,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I tried to copy BELLSPROUT’s gentle\\nmovements for battle...\\rBut I didn’t train well enough.\\n",
+                .text = "I tried to copy Bellsprout’s gentle\\nmovements for battle...\\rBut I didn’t train well enough.\\n",
             },
         },
     },
@@ -2923,7 +2923,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "You saved all the SLOWPOKE?\\nWhew, you’re mighty!\\rBut my grown-up Pokémon are pretty\\ntough, too!\\r",
+                .text = "You saved all the Slowpoke?\\nWhew, you’re mighty!\\rBut my grown-up Pokémon are pretty\\ntough, too!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -2970,11 +2970,11 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "No!\\nOh, MEOWTH, I’m so sorry!\\n",
+                .text = "No!\\nOh, Meowth, I’m so sorry!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I taught MEOWTH moves for taking\\non any type...\\n",
+                .text = "I taught Meowth moves for taking\\non any type...\\n",
             },
         },
     },
@@ -3317,7 +3317,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "My VENONAT won me the Bug-Catching\\nContest at the National Park.\\n",
+                .text = "My Venonat won me the Bug-Catching\\nContest at the National Park.\\n",
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,
@@ -3861,7 +3861,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Wasn’t there a hit song about a boy\\nriding a LAPRAS?\\n",
+                .text = "Wasn’t there a hit song about a boy\\nriding a Lapras?\\n",
             },
         },
     },
@@ -3971,7 +3971,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "At night, STARYU gather near the\\nwater’s surface.\\r",
+                .text = "At night, Staryu gather near the\\nwater’s surface.\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -3979,7 +3979,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "The clusters of STARYU light up at the\\nsame time. It’s so beautiful,\\fit’s scary.\\n",
+                .text = "The clusters of Staryu light up at the\\nsame time. It’s so beautiful,\\fit’s scary.\\n",
             },
         },
     },
@@ -4921,7 +4921,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "The red GYARADOS?\\nThat sounds scary.\\fIt must be red with rage!\\fMe?\\rI’m not angry or anything, but\\nlet’s battle!\\r",
+                .text = "The red Gyarados?\\nThat sounds scary.\\fIt must be red with rage!\\fMe?\\rI’m not angry or anything, but\\nlet’s battle!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -4929,7 +4929,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Come to think of it, I’ve seen a\\npink BUTTERFREE.\\n",
+                .text = "Come to think of it, I’ve seen a\\npink Butterfree.\\n",
             },
         },
     },
@@ -5263,7 +5263,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Aack! You made me lose a POLIWAG!\\nWhat are you going to do about it?\\r",
+                .text = "Aack! You made me lose a Poliwag!\\nWhat are you going to do about it?\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -5271,11 +5271,11 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "That POLIWAG that got away...\\nIt was huge.\\rI swear it must’ve been 82 feet long!\\n",
+                .text = "That Poliwag that got away...\\nIt was huge.\\rI swear it must’ve been 82 feet long!\\n",
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,
-                .text = "Hey! I’ve been waiting for you!\\r...Oops, maybe I shouldn’t yell so loud.\\nThe POLIWAG ran away...\\r",
+                .text = "Hey! I’ve been waiting for you!\\r...Oops, maybe I shouldn’t yell so loud.\\nThe Poliwag ran away...\\r",
             },
         },
     },
@@ -5612,7 +5612,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "My NIDOKING was outstanding!\\n",
+                .text = "My Nidoking was outstanding!\\n",
             },
             {
                 .type = TRMSG_AFTER,
@@ -5837,7 +5837,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "ARTICUNO, ZAPDOS, and MOLTRES are the\\nthree legendary bird Pokémon.\\rI heard there are other legendary\\nbirds, though.\\n",
+                .text = "Articuno, Zapdos, and Moltres are the\\nthree legendary bird Pokémon.\\rI heard there are other legendary\\nbirds, though.\\n",
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,
@@ -6413,7 +6413,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I heard CLEFAIRY appear at Mt. Moon.\\nBut where could they be?\\n",
+                .text = "I heard Clefairy appear at Mt. Moon.\\nBut where could they be?\\n",
             },
         },
     },
@@ -13679,7 +13679,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "ZUBAT’s Supersonic keeps confusing my\\nPokémon. I’m seriously upset\\fabout that!\\r",
+                .text = "Zubat’s Supersonic keeps confusing my\\nPokémon. I’m seriously upset\\fabout that!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -14809,15 +14809,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Ha ha ha ha!\\fWould you like to fight my pack\\nof PIKACHU?\\r",
+                .text = "Ha ha ha ha!\\fWould you like to fight my pack\\nof Pikachu?\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "My PIKACHU!\\n",
+                .text = "My Pikachu!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "You look like you have many Pokémon,\\nbut PIKACHU is still the best.\\n",
+                .text = "You look like you have many Pokémon,\\nbut Pikachu is still the best.\\n",
             },
         },
     },
@@ -14865,7 +14865,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "SQUIRTLE, CHARMANDER, and\\nBULBASAUR...\\fI think that’s a well-balanced mix.\\n",
+                .text = "Squirtle, Charmander, and\\nBULBASAUR...\\fI think that’s a well-balanced mix.\\n",
             },
         },
     },
@@ -14895,7 +14895,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "Where did I meet this PSYDUCK?\\n",
+                .text = "Where did I meet this Psyduck?\\n",
             },
             {
                 .type = TRMSG_AFTER,
@@ -15218,7 +15218,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I should go to Rock Tunnel to get\\nmyself an ONIX.\\r",
+                .text = "I should go to Rock Tunnel to get\\nmyself an Onix.\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -19622,7 +19622,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "The PC on my desk is the switch\\nthat deactivates the PERSIAN\\falarm system.\\rDon’t you ever touch it, OK?\\n",
+                .text = "The PC on my desk is the switch\\nthat deactivates the Persian\\falarm system.\\rDon’t you ever touch it, OK?\\n",
             },
         },
     },
@@ -22388,7 +22388,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I came to explore Mt. Mortar, but I got\\nseparated from my partner...\\rDid you run into a Trainer who uses a\\nSLOWPOKE? That SLOWPOKE is really good\\fat using Strength.\\n",
+                .text = "I came to explore Mt. Mortar, but I got\\nseparated from my partner...\\rDid you run into a Trainer who uses a\\nSLOWPOKE? That Slowpoke is really good\\fat using Strength.\\n",
             },
         },
     },
@@ -22423,7 +22423,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I came to explore Mt. Mortar, but I got\\nseparated from my partner...\\rDid you run into a Trainer who uses a\\nSEADRA? That SEADRA is really good at\\fusing Waterfall.\\n",
+                .text = "I came to explore Mt. Mortar, but I got\\nseparated from my partner...\\rDid you run into a Trainer who uses a\\nSEADRA? That Seadra is really good at\\fusing Waterfall.\\n",
             },
         },
     },
@@ -22449,15 +22449,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "My PHANPY is the cutest in the world.\\r",
+                .text = "My Phanpy is the cutest in the world.\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "My PHANPY!\\n",
+                .text = "My Phanpy!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Take a look at this--this PHANPY’s\\nabsolutely adorable behavior!\\rIsn’t it wonderfully cute?\\nI just wanna squeeze it!\\n",
+                .text = "Take a look at this--this Phanpy’s\\nabsolutely adorable behavior!\\rIsn’t it wonderfully cute?\\nI just wanna squeeze it!\\n",
             },
         },
     },
@@ -22483,15 +22483,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "My TEDDIURSA is the cutest in\\nthe world.\\r",
+                .text = "My Teddiursa is the cutest in\\nthe world.\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "My TEDDIURSA!\\n",
+                .text = "My Teddiursa!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Take a look at this--this TEDDIURSA’s\\nabsolutely adorable behavior!\\rIsn’t it wonderfully cute?\\nI just wanna squeeze it!\\n",
+                .text = "Take a look at this--this Teddiursa’s\\nabsolutely adorable behavior!\\rIsn’t it wonderfully cute?\\nI just wanna squeeze it!\\n",
             },
         },
     },
@@ -24681,7 +24681,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "The teacher from the swimming class\\nwhere I learned to swim had a face just\\flike a POLIWHIRL.\\r",
+                .text = "The teacher from the swimming class\\nwhere I learned to swim had a face just\\flike a Poliwhirl.\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -24689,7 +24689,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Due to the incredible resemblance,\\nwe called our teacher\\fProfessor POLIWHIRL!\\n",
+                .text = "Due to the incredible resemblance,\\nwe called our teacher\\fProfessor Poliwhirl!\\n",
             },
         },
     },
@@ -28693,7 +28693,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Has anyone ever told you that from\\nbehind you look like a VENONAT?\\n",
+                .text = "Has anyone ever told you that from\\nbehind you look like a Venonat?\\n",
             },
         },
     },
@@ -29292,7 +29292,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Proton: Now, wait just one second!\\rAren’t you the one who got in\\nour way at the SLOWPOKE Well?\\rI see... You’re doing all this because\\nyou want to make me angry. Be careful!\\rBut since you seem to wish it, I’ll show\\nyou the full extent of a Team Rocket\\fExecutive’s wrath!\\r",
+                .text = "Proton: Now, wait just one second!\\rAren’t you the one who got in\\nour way at the Slowpoke Well?\\rI see... You’re doing all this because\\nyou want to make me angry. Be careful!\\rBut since you seem to wish it, I’ll show\\nyou the full extent of a Team Rocket\\fExecutive’s wrath!\\r",
             },
             {
                 .type = TRMSG_LAST_POKE,
