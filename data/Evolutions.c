@@ -2200,7 +2200,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_QUILAVA] = {
         .entries = {
-            { EVO_LEVEL, 36, SPECIES_TYPHLOSION },
+            { EVO_LEVEL, 36, MON_WITH_FORM(SPECIES_TYPHLOSION, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7744,7 +7744,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_DEWOTT] = {
         .entries = {
-            { EVO_LEVEL, 36, SPECIES_SAMUROTT },
+            { EVO_LEVEL, 36, MON_WITH_FORM(SPECIES_SAMUROTT, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -10838,7 +10838,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_DARTRIX] = {
         .entries = {
-            { EVO_LEVEL, 34, SPECIES_DECIDUEYE },
+            { EVO_LEVEL, 34, MON_WITH_FORM(SPECIES_DECIDUEYE, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },

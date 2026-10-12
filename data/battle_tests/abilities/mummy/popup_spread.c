@@ -13,7 +13,8 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_ROCK_HEAD,
             .item = ITEM_NONE,
-            .moves = { MOVE_WILD_CHARGE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            // this hack's Wild Charge has no recoil: Wood Hammer is a contact move with recoil, as the test needs
+            .moves = { MOVE_WOOD_HAMMER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,

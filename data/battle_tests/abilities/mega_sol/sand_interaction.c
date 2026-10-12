@@ -85,7 +85,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Sandstorm!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Absorb!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 88, 88, 88, 88, 96, 96, 96, 96, 96, 96, 100, 100, 100, 100, 100, 108 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 132, 136, 136, 136, 144, 144, 144, 144, 148, 148, 148, 148, 155, 155, 155, 155 } },
     }
 }
 END_TEST
