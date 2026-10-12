@@ -4270,7 +4270,8 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item, u32 form)
 
     // then the other swathes of species
     if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-        || (CheckMegaData(species, item, form))) {
+        || CheckMegaData(species, item, form)
+        || IsMegaSpecies(species, form)) {
         return FALSE;
     }
 
@@ -4658,7 +4659,7 @@ void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
 }
 
 // Modifying this switch case allows you to assign any music to victory over a specific trainer class.
-void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
+void LONG_CALL PlayTrainerVictoryBGM(struct Trainer *trainer)
 {
     switch (trainer->data.trainerClass) {
     case TRAINERCLASS_LEADER_FALKNER:

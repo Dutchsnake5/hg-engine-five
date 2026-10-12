@@ -33,6 +33,9 @@ static int GetStatDropSource(struct BattleStruct *sp)
     case SIDE_EFFECT_TYPE_TOXIC_SPIKES:
     case SIDE_EFFECT_TYPE_STICKY_WEB: // handled in the hazards script
         return sp->state_client;
+    case SIDE_EFFECT_TYPE_CONTACT_PROTECTED:
+        // King's Shield, Obstruct, Silk Trap: the protecting mon lowers the attacker's stat
+        return sp->defence_client;
     default:
         return sp->attack_client;
     }
@@ -144,12 +147,13 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT || GetBattlerAbility(sp, sp->state_client) == ABILITY_COMPETITIVE)
         && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
         && statchange < 0
+        && (HeldItemHoldEffectGet(sp, sp->state_client) != HOLD_EFFECT_PREVENT_STAT_DROPS)
         && (sp->addeffect_type == SIDE_EFFECT_TYPE_STICKY_WEB
+            || sp->addeffect_type == SIDE_EFFECT_TYPE_CONTACT_PROTECTED
             || (sp->state_client != sp->attack_client // can't raise own stats
                 && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0))
             // a drop bounced back by an opposing Mirror Armor counts as being lowered by an opponent
             || (sp->mirrorArmorReflecting && IsClientEnemy(bw, sp->state_client) != IsClientEnemy(bw, sp->battlerIdTemp)))) {
         sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
@@ -356,7 +360,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 IncrementBattleScriptPtr(sp, abilityBlockAddress);
                 return FALSE;
             }
-            if ((flag == 2) && (sp->addeffect_type == ADD_STATUS_DIRECT)) {
+            if ((flag == 2) && (sp->addeffect_type == SIDE_EFFECT_TYPE_DIRECT)) {
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address3);
                 return FALSE;
