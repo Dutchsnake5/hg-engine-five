@@ -87,7 +87,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's Cheri Berry cured its paralysis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Kecleon's Color Change" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's type changed to Electric!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 23, 23, 24, 24, 24, 24, 24, 25, 25, 25, 26, 26, 26, 27, 27, 27 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 25, 25, 25, 26, 26, 27, 27, 27, 27, 27, 28, 28, 28, 29, 29, 30 } },
     }
 }
 END_TEST

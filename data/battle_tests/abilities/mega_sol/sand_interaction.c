@@ -9,7 +9,9 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_GOLEM,
-            .level = 50,
+            // level 55, not 50: this hack's stronger Absorb (30) knocked out a level 50 Golem on the top rolls, and
+            // losing the battle left the next test unable to start
+            .level = 55,
             .form = 0,
             .ability = ABILITY_SAND_VEIL,
             .item = ITEM_NONE,
@@ -85,7 +87,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Sandstorm!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Absorb!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 132, 136, 136, 136, 144, 144, 144, 144, 148, 148, 148, 148, 155, 155, 155, 155 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 124, 124, 124, 132, 132, 132, 132, 136, 136, 136, 136, 144, 144, 144, 144, 148 } },
     }
 }
 END_TEST
