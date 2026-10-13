@@ -1898,7 +1898,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Strength",
         },
         .data = {
-            .effect = MOVE_EFFECT_RAISE_ATK_WHEN_HIT,
+            .effect = MOVE_EFFECT_RAISE_ATTACK_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_NORMAL,
@@ -11003,7 +11003,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_DRAGON,
             .accuracy = 90,
             .pp = 10,
-            .effectChance = 20,
+            .effectChance = 0,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
