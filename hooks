@@ -164,6 +164,11 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_Metronome 0224089C 3
 0012 BtlCmd_TryCopycat 02243A0C 3
 
+#ifdef MOVE_EFFECTIVENESS_DISPLAY
+# the battle menu's text-object cleanup also deletes the effectiveness text
+0012 BattleInput_DeleteTextObjects_Extend 02268684 3
+#endif
+
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
 arm9 TT_TrainerTypeSexGet 020735F8 1

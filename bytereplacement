@@ -569,3 +569,28 @@ arm9 020701AC 08 E0
 
 # sub_02070854 always call GetMonPicHeightBySpeciesGenderForm
 arm9 020708B0 06 E0
+
+#ifdef MOVE_EFFECTIVENESS_DISPLAY
+# BattleInput_NewInit: FontSystem_NewInit(13, ...) -> 21, room for the 8 effectiveness text objects next to the menu's 13
+# (movs r0, #0x0D -> #0x15)
+0012 02266110 15
+# the move buttons' white part is one tile row taller and the tan strip starts 8 px lower
+# (scripts/build_effectiveness_buttons.py), so the type tag and PP numbers move down. The game's y values are uneven
+# (61, 60, 124, 123: right column 1 px higher, bottom row 63 px lower although the buttons are 64 px apart); all four
+# now use the top left button's spacing: 67, 67, 131, 131. x, y pairs (u16) per button.
+# type tags (sTypeIconPositions)
+0012 0226E2BA 43 00
+0012 0226E2BE 43 00
+0012 0226E2C2 83 00
+0012 0226E2C6 83 00
+# PP numbers (sMovePPTextPositions)
+0012 0226E2CA 43 00
+0012 0226E2CE 43 00
+0012 0226E2D2 83 00
+0012 0226E2D6 83 00
+# PP maximums (sMovePPMaxTextPositions)
+0012 0226E30A 43 00
+0012 0226E30E 43 00
+0012 0226E312 83 00
+0012 0226E316 83 00
+#endif

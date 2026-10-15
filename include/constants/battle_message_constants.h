@@ -219,5 +219,22 @@
 #define BATTLE_MSG_LUNAR_DANCE  (1787)
 #define BATTLE_MSG_HEALING_WISH (1790)
 #define BATTLE_MSG_EXP_SHARE_TEAM (1921) // "The rest of your team gained Exp. Points thanks to the Exp. Share!" (EXP_SHARE_KEY_ITEM)
+// MOVE_EFFECTIVENESS_DISPLAY: the full lines (singles move buttons, doubles target screen), then the short ones
+#define BATTLE_MSG_EFF_SUPER_X2        (1922) // "Super ×2"
+#define BATTLE_MSG_EFF_SUPER_X4        (1923)
+#define BATTLE_MSG_EFF_SUPER_X8        (1924)
+#define BATTLE_MSG_EFF_NORMAL_X1       (1925) // "Neutral ×1"
+#define BATTLE_MSG_EFF_NOT_VERY_X05    (1926) // "Resisted ×1/2"
+#define BATTLE_MSG_EFF_NOT_VERY_X025   (1927)
+#define BATTLE_MSG_EFF_NOT_VERY_X0125  (1928)
+#define BATTLE_MSG_EFF_IMMUNE          (1929) // "Immune" (status moves, and the short form)
+#define BATTLE_MSG_EFF_SHORT_X2        (1930) // "×2"
+#define BATTLE_MSG_EFF_SHORT_X4        (1931)
+#define BATTLE_MSG_EFF_SHORT_X8        (1932)
+#define BATTLE_MSG_EFF_SHORT_X1        (1933)
+#define BATTLE_MSG_EFF_SHORT_X05       (1934)
+#define BATTLE_MSG_EFF_SHORT_X025      (1935)
+#define BATTLE_MSG_EFF_SHORT_X0125     (1936)
+#define BATTLE_MSG_EFF_IMMUNE_X0       (1937) // "Immune" (damaging moves; a separate line so it can differ from the status one)
 
 #endif

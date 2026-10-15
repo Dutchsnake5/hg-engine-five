@@ -163,6 +163,7 @@ config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:spa
 BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
 BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 IMPLEMENT_TRANSPARENT_TEXTBOXES := $(call config_enabled,IMPLEMENT_TRANSPARENT_TEXTBOXES)
+MOVE_EFFECTIVENESS_DISPLAY := $(call config_enabled,MOVE_EFFECTIVENESS_DISPLAY)
 
 ## includes
 include data/graphics/pokegra.mk

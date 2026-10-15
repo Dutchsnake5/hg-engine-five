@@ -69,6 +69,9 @@ $(BATTLEHUD_NARC): $(BATTLEHUD_DEPENDENCIES)
 	for file in $(BATTLEHUD_DEPENDENCIES_DIR)/*.NSCR; do \
 		cp $$file $(BATTLEHUD_DIR)/$$(basename $$file .NSCR); \
 	done
+ifneq ($(MOVE_EFFECTIVENESS_DISPLAY),0)
+	$(PYTHON) scripts/build_effectiveness_buttons.py $(BATTLEHUD_DIR) $(GFX)
+endif
 	rm $(BATTLEHUD_DEPENDENCIES_DIR)/*.NCGR
 	$(NARCHIVE) create $@ $(BATTLEHUD_DIR) -nf
 

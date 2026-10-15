@@ -229,6 +229,14 @@
 #define EGG_MOVE_TUTOR
 #define EGG_MOVE_TUTOR_FLAG 2605
 
+// MOVE_EFFECTIVENESS_DISPLAY shows how well each move works against the opponents while picking a move. Singles: a line
+// under the name in each move button ("Super ×2", "Resisted ×0.5", "Immune", ...). Doubles: a short "×2" / "Immune" per
+// opponent in each move button, then the full line under each opponent on the target screen. Damaging moves get a
+// multiplier; status moves only say "Immune" when the target's typing or ability would make them fail. Abilities count
+// (Mold Breaker and co. bypass them as in battle), and an opponent under Illusion is judged as the Pokémon it's
+// disguised as. Logic and drawing: src/battle/move_effectiveness_display.c; text: data/text/197.txt messages 1922-1937.
+#define MOVE_EFFECTIVENESS_DISPLAY
+
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 

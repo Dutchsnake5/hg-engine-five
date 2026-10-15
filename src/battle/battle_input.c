@@ -20,6 +20,7 @@ void LoadMegaButton(struct BI_PARAM *bip);
 BOOL CheckMegaButton(struct BI_PARAM *bip, int tp_ret);
 void EFFECT_MegaTouch(void *tcb, void *work);
 void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put);
+void EffDisplay_FightMenu(void *battleInput);
 u32 GrabCancelXValue(void);
 void SwapOutBottomScreen(struct BI_PARAM *bip);
 
@@ -557,6 +558,9 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put)
     Sub_ScrnOffsetRewrite(bip, bip->scrn_offset, bip->scrn_range, bip->scrnbuf_no, 0);
 
     BGCallback_Waza(bip, select_bg, force_put);
+#ifdef MOVE_EFFECTIVENESS_DISPLAY
+    EffDisplay_FightMenu(bip); // effectiveness lines in the move buttons (src/battle/move_effectiveness_display.c)
+#endif
 }
 
 /**

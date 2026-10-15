@@ -958,3 +958,13 @@ Sprite_SetPalOffsetRespectVramOffset = 0x02024AA8 | 1;
 GXS_LoadOBJPltt = 0x020CFD70;
 Sprite_SetOamMode = 0x02024B78 | 1;
 FontID_String_GetWidth = 0x02002F30 | 1;
+
+/* battle menu text objects (pret pokeheartgold battle_input.c), for MOVE_EFFECTIVENESS_DISPLAY */
+BattleInput_CreateTextObject = 0x02268550 | 1;
+BattleInput_CreateTargetMenuObjects = 0x02267C24 | 1;
+BattleInput_TouchCallback_FightMenu = 0x02267EF0 | 1;
+FontOAM_Delete = 0x02013660 | 1;
+ObjCharTransfer_FreeBlock = 0x02021B5C | 1;
+ov12_0223C1A0 = 0x0223C1A0 | 1;
+FontOAM_GetPosition = 0x02013794 | 1;
+FontOAM_SetPosition = 0x020136B4 | 1;
