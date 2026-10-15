@@ -13,6 +13,7 @@
 void LONG_CALL PlaySE(u16 se);
 void LONG_CALL Sprite_SetAnimCtrlSeq(void *sprite, int seq);
 void LONG_CALL Sprite_TryChangeAnimSeq(void *sprite, int seq);
+void LONG_CALL GXS_LoadOBJPltt(const void *src, u32 offset, u32 size);
 
 // overlay 27's work data and cursor helpers
 #define OV27_FIELD_SYSTEM(work)      (*(void **)((u8 *)(work) + 0x10))
@@ -22,6 +23,11 @@ void LONG_CALL Sprite_TryChangeAnimSeq(void *sprite, int seq);
 #define FIELD_START_MENU_CURSOR(fsys) (*(u8 *)((u8 *)(fsys) + 0xD3))
 #define ov27_FindSlotInDirection ((int (*)(int slot, int direction, void *slots))(0x0225B360 | 1))
 #define ov27_HighlightSlot       ((void (*)(void *work, int slot))(0x0225B398 | 1))
+#define OV27_ICON_LAYOUTS        ((const u8 *)0x0225CFC8) // icon in each slot, 8 per menu mode
+#define OV27_ICON_GRAPHICS       ((const u16 *)0x0225CF94) // per icon: graphics file, label
+#define OV27_ICON_PALETTES(work) ((u8 *)(work) + 0x4CC) // normal palette, then the selected one
+#define OV27_MENU_MODE(work)     (((*(u32 *)((u8 *)(work) + 0x51C)) >> 1) & 0xF)
+#define ICON_NONE 0xD
 #define ov27_SlotToMenuIndex     ((int (*)(void *work, int slot))(0x0225C170 | 1))
 #define SEQ_SE_DP_CURSOR 0x5E0
 #define ANIM_SEQ_PICKED  2
@@ -107,6 +113,27 @@ void StartMenuPC_BounceSelectedIcon(void *work)
         return;
     }
     Sprite_TryChangeAnimSeq(OV27_ICON_SPRITE(work, OV27_CURSOR_SLOT(work)), ANIM_SEQ_PICKED);
+}
+
+/**
+ * @brief replaces overlay 27's highlight of a grid slot, so the PC icon can be the lit one
+ * @see   overlay 27 0x0225B398
+ */
+void StartMenuPC_HighlightSlot(void *work, int slot)
+{
+    const struct FieldExtensionEntries *entries = FieldExtensionEntries_Get();
+    if (entries != NULL) {
+        entries->pcHighlightSlot(work, slot);
+        return;
+    }
+    // overlay 27's own highlight: the selected palette for this slot, the normal one for the other icons
+    const u8 *layout = OV27_ICON_LAYOUTS + OV27_MENU_MODE(work) * 8;
+    for (int i = 0; i < 7; i++) {
+        u8 icon = layout[i];
+        if (icon != ICON_NONE && OV27_ICON_GRAPHICS[icon * 2] != 0xFFFF) {
+            GXS_LoadOBJPltt(OV27_ICON_PALETTES(work) + (i == slot ? 0x20 : 0), i * 0x20, 0x20);
+        }
+    }
 }
 
 BOOL StartMenuPC_IsSelected(void)

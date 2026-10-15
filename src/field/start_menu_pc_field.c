@@ -231,6 +231,8 @@ void StartMenuPCField_DestroyIcon(void *work)
 /**
  * @brief called each frame after overlay 27 checks its icons for touches: report a touch on the PC icon
  */
+static void LightPcIconForPick(void *work);
+
 void StartMenuPCField_CheckTouch(void *work)
 {
     if (sPcIcon.work != work || sPcIcon.sprite == NULL) {
@@ -251,6 +253,8 @@ void StartMenuPCField_CheckTouch(void *work)
     }
     if (TouchscreenHitbox_FindRectAtTouchNew(sPcIconHitbox) == 0) {
         *touchInput = REMOTE_PC_TOUCH_CODE;
+        sPcIcon.picked = PICKED_WAITING;
+        LightPcIconForPick(work);
     }
 }
 
@@ -263,18 +267,52 @@ static BOOL SlotHasIcon(void *work, int slot)
 }
 
 /**
- * @brief show every grid icon unselected, like overlay 27's highlight with no slot picked
+ * @brief overlay 27's highlight of the grid icons: the selected (red) palette for one slot, the normal one for the rest
+ *        (selectedSlot -1: every icon unselected)
  * @see   overlay 27 0x0225B398
  */
-static void UnhighlightAllSlots(void *work)
+static void LoadSlotPalettes(void *work, int selectedSlot)
 {
     const u8 *layout = OV27_ICON_LAYOUTS + OV27_MENU_MODE(work) * 8;
     for (int slot = 0; slot < 7; slot++) {
         u8 icon = layout[slot];
         if (icon != ICON_NONE && OV27_ICON_GRAPHICS[icon * 2] != 0xFFFF) {
-            GXS_LoadOBJPltt(OV27_ICON_PALETTES(work), slot * 0x20, 0x20);
+            GXS_LoadOBJPltt(OV27_ICON_PALETTES(work) + (slot == selectedSlot ? 0x20 : 0), slot * 0x20, 0x20);
         }
     }
+}
+
+static void UnhighlightAllSlots(void *work)
+{
+    LoadSlotPalettes(work, -1);
+}
+
+/**
+ * @brief replaces overlay 27's highlight of a grid slot (hooked at 0x0225B398, via StartMenuPC_HighlightSlot). While
+ *        the PC icon is selected or being picked, the PC is the lit icon: overlay 27 still highlights the slot its cursor
+ *        was last on when an icon is picked by touch, which lit that icon instead of the touched PC
+ */
+void StartMenuPCField_HighlightSlot(void *work, int slot)
+{
+    if (sPcIcon.work == work && sPcIcon.sprite != NULL && (sPcIcon.selected || sPcIcon.picked != PICKED_NONE)) {
+        UnhighlightAllSlots(work);
+        Sprite_SetPalOffsetRespectVramOffset(sPcIcon.sprite, 1);
+        return;
+    }
+    LoadSlotPalettes(work, slot);
+}
+
+/**
+ * @brief the PC icon was picked (A or a touch): it is the lit one, not the grid slot overlay 27 last had its cursor on,
+ *        which overlay 27 lights when an icon is picked. Done from the moment the pick is known, every frame of the
+ *        pick, so the old slot never shows lit
+ */
+static void LightPcIconForPick(void *work)
+{
+    Sprite_SetOamMode(OV27_ICON_SPRITE(work, OV27_CURSOR_SLOT(work)), OAM_MODE_DIMMED);
+    Sprite_SetOamMode(sPcIcon.sprite, OAM_MODE_NORMAL);
+    UnhighlightAllSlots(work);
+    Sprite_SetPalOffsetRespectVramOffset(sPcIcon.sprite, 1);
 }
 
 static void SelectPcIcon(void *work, int direction)
@@ -299,8 +337,7 @@ void StartMenuPCField_BounceSelectedIcon(void *work)
         sPcIcon.picked = PICKED_BOUNCING;
         Sprite_TryChangeAnimSeq(sPcIcon.sprite, ANIM_SEQ_PICKED);
         // and the PC icon stays lit instead of the icon under the cursor, which overlay 27 has just lit
-        Sprite_SetOamMode(OV27_ICON_SPRITE(work, OV27_CURSOR_SLOT(work)), OAM_MODE_DIMMED);
-        Sprite_SetOamMode(sPcIcon.sprite, OAM_MODE_NORMAL);
+        LightPcIconForPick(work);
         return;
     }
     Sprite_TryChangeAnimSeq(OV27_ICON_SPRITE(work, OV27_CURSOR_SLOT(work)), ANIM_SEQ_PICKED);
@@ -320,6 +357,12 @@ void StartMenuPCField_BounceSelectedIcon(void *work)
  */
 void StartMenuPCField_CheckAppear(void *work)
 {
+    // also called every frame while a script runs (overlay 27 skips its other PC icon hooks then); picking the PC starts
+    // its script, and overlay 27 still un-dims the slot its cursor was last on, so keep the PC the lit icon
+    if (sPcIcon.sprite != NULL && sPcIcon.work == work && sPcIcon.picked != PICKED_NONE) {
+        LightPcIconForPick(work);
+        return;
+    }
     if (sPcIcon.sprite != NULL || OV27_MENU_MODE(work) != 0 || !CheckScriptFlag(START_MENU_REMOTE_PC_FLAG)) {
         return;
     }
@@ -346,6 +389,13 @@ void StartMenuPCField_UpdateVisuals(void *work, BOOL menuOpen)
     }
     if (sPcIcon.picked == PICKED_BOUNCING && !OV27_BUSY(work)) {
         sPcIcon.picked = PICKED_NONE;
+        if (!sPcIcon.selected) {
+            Sprite_SetPalOffsetRespectVramOffset(sPcIcon.sprite, 0); // lit only for the pick (a touch)
+        }
+    }
+    if (sPcIcon.picked != PICKED_NONE) {
+        LightPcIconForPick(work);
+        return;
     }
     BOOL cursorShown = menuOpen && (FIELD_MENU_FLAGS(OV27_FIELD_SYSTEM(work)) & 0x3F) != 0;
     if (!cursorShown) {

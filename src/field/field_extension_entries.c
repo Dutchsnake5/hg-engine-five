@@ -22,6 +22,7 @@ BOOL StartMenuPCField_IsSelected(void);
 BOOL StartMenuPCField_HandleKey(void *taskManager, void *fieldSystem, void *startMenu);
 BOOL StartMenuPCField_HandleTouch(void *taskManager, void *fieldSystem, void *startMenu);
 void StartMenuPCField_CheckAppear(void *work);
+void StartMenuPCField_HighlightSlot(void *work, int slot);
 #endif
 
 const struct FieldExtensionEntries gFieldExtensionEntries __attribute__((section(".init"))) = {
@@ -41,5 +42,6 @@ const struct FieldExtensionEntries gFieldExtensionEntries __attribute__((section
     .pcHandleKey = StartMenuPCField_HandleKey,
     .pcHandleTouch = StartMenuPCField_HandleTouch,
     .pcCheckAppear = StartMenuPCField_CheckAppear,
+    .pcHighlightSlot = StartMenuPCField_HighlightSlot,
 #endif
 };
