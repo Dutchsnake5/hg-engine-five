@@ -517,8 +517,8 @@ static const u16 sEffShortMsg[] = {
 };
 
 // colours. Move buttons: palOffset 4, the PP text's palette (sub screen OBJ palette 7), dark text with a lighter shadow
-// like the PP numbers: dark green for super effective, dark grey for neutral, dark red for resisted, light grey for
-// immune. Target screen (orange buttons): palOffset 6, the opponents' names' white text with a dark shadow.
+// like the PP numbers: dark green for super effective, grey for neutral, dark red for resisted, near-black (the PP
+// numbers' colour, the palette's darkest) for immune. Target screen (orange buttons): palOffset 6, the opponents' names' white text with a dark shadow.
 static void EffDisplay_Color(int eff, BOOL onTargetScreen, int *color, int *palOffset)
 {
     if (onTargetScreen) {
@@ -530,11 +530,11 @@ static void EffDisplay_Color(int eff, BOOL onTargetScreen, int *color, int *palO
     if (eff >= EFF_X2) {
         *color = MAKE_TEXT_COLOR(13, 14, 0);
     } else if (eff == EFF_X1) {
-        *color = MAKE_TEXT_COLOR(1, 2, 0);
+        *color = MAKE_TEXT_COLOR(2, 11, 0);
     } else if (eff >= EFF_X0125) {
         *color = MAKE_TEXT_COLOR(8, 2, 0);
     } else {
-        *color = MAKE_TEXT_COLOR(2, 11, 0);
+        *color = MAKE_TEXT_COLOR(1, 2, 0);
     }
 }
 
