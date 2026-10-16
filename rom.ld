@@ -968,3 +968,5 @@ ObjCharTransfer_FreeBlock = 0x02021B5C | 1;
 ov12_0223C1A0 = 0x0223C1A0 | 1;
 FontOAM_GetPosition = 0x02013794 | 1;
 FontOAM_SetPosition = 0x020136B4 | 1;
+Task_FightMenuButtonFeedback = 0x022690A8 | 1;
+Task_TargetMenuButtonFeedback = 0x02269360 | 1;

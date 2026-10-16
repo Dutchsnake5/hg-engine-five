@@ -83,6 +83,7 @@ struct EffDefender {
 };
 
 struct EffTextObj sEffText[EFF_TEXT_MAX] __attribute__((section(".data"))) = { 0 };
+u8 sEffTextOwner[EFF_TEXT_MAX] __attribute__((section(".data"))) = { 0 }; // the menu text (move or Pokémon name) each line belongs to
 u16 sEffChosenMove __attribute__((section(".data"))) = MOVE_NONE;
 
 void LONG_CALL BattleInput_CreateTextObject(void *battleInput, struct EffTextObj *obj, void *str, u32 fontId, int textColor, int palOffset, int palId, int x, int y, int centerText, void *display);
@@ -93,6 +94,8 @@ void LONG_CALL ObjCharTransfer_FreeBlock(void *alloc);
 void LONG_CALL ov12_0223C1A0(void *bsys, u8 *buffer);
 void LONG_CALL FontOAM_GetPosition(void *textObj, int *x, int *y);
 void LONG_CALL FontOAM_SetPosition(void *textObj, int x, int y);
+void LONG_CALL Task_FightMenuButtonFeedback(void *task, void *battleInput);
+void LONG_CALL Task_TargetMenuButtonFeedback(void *task, void *battleInput);
 s32 Party_GetIllusionImitatedIndex(struct Party *party, s32 illusionIndex);
 
 void EffDisplay_FightMenu(void *battleInput);
@@ -538,7 +541,7 @@ static void EffDisplay_Color(int eff, BOOL onTargetScreen, int *color, int *palO
     }
 }
 
-static void EffDisplay_Print(void *battleInput, int slot, int eff, BOOL full, BOOL onTargetScreen, int x, int y)
+static void EffDisplay_Print(void *battleInput, int slot, int owner, int eff, BOOL full, BOOL onTargetScreen, int x, int y)
 {
     struct BattleSystem *bsys = *(struct BattleSystem **)battleInput;
     int color, palOffset;
@@ -550,6 +553,7 @@ static void EffDisplay_Print(void *battleInput, int slot, int eff, BOOL full, BO
     EffDisplay_Color(eff, onTargetScreen, &color, &palOffset);
     str = NewString_ReadMsgData(BattleWorkFightMsgGet(bsys), full ? sEffFullMsg[eff] : sEffShortMsg[eff]);
     BattleInput_CreateTextObject(battleInput, &sEffText[slot], str, 0, color, palOffset, BATTLE_INPUT_PAL_ID, x, y, TRUE, NULL);
+    sEffTextOwner[slot] = owner;
     String_Delete(str);
 }
 
@@ -616,11 +620,11 @@ void EffDisplay_FightMenu(void *battleInput)
 
         EffDisplay_ShiftMenuText(battleInput, i, sEffMoveNameY[i] - sEffGameMoveNameY[i]); // MENUTXT_MOVE_1 + i
         if (left < 0) {
-            EffDisplay_Print(battleInput, i, EffDisplay_Evaluate(bsys, attacker, right, menu->moveNo[i]), TRUE, FALSE, x, y);
+            EffDisplay_Print(battleInput, i, i, EffDisplay_Evaluate(bsys, attacker, right, menu->moveNo[i]), TRUE, FALSE, x, y);
         } else {
             // doubles: one short value per opponent, on the side where it stands
-            EffDisplay_Print(battleInput, i * 2, EffDisplay_Evaluate(bsys, attacker, left, menu->moveNo[i]), FALSE, FALSE, x - EFF_DOUBLES_HALF_WIDTH, y);
-            EffDisplay_Print(battleInput, i * 2 + 1, EffDisplay_Evaluate(bsys, attacker, right, menu->moveNo[i]), FALSE, FALSE, x + EFF_DOUBLES_HALF_WIDTH, y);
+            EffDisplay_Print(battleInput, i * 2, i, EffDisplay_Evaluate(bsys, attacker, left, menu->moveNo[i]), FALSE, FALSE, x - EFF_DOUBLES_HALF_WIDTH, y);
+            EffDisplay_Print(battleInput, i * 2 + 1, i, EffDisplay_Evaluate(bsys, attacker, right, menu->moveNo[i]), FALSE, FALSE, x + EFF_DOUBLES_HALF_WIDTH, y);
         }
     }
 }
@@ -677,8 +681,61 @@ void LONG_CALL BattleInput_CreateTargetMenuObjects_Extend(void *battleInput, int
     // both names move, so they stay level even when only one opponent has a line
     for (int i = 1; i < 4; i += 2) {
         EffDisplay_ShiftMenuText(battleInput, i, EFF_TARGET_NAME_SHIFT);
-        EffDisplay_Print(battleInput, i, eff[i], TRUE, TRUE, sEffTargetLinePos[i][0], sEffTargetLinePos[i][1]);
+        EffDisplay_Print(battleInput, i, i, eff[i], TRUE, TRUE, sEffTargetLinePos[i][0], sEffTargetLinePos[i][1]);
     }
+}
+
+// ---- pressing a button ----------------------------------------------------------------------------------------------
+// The game's press animation (Task_FightMenuButtonFeedback / Task_TargetMenuButtonFeedback, one step per frame) swaps
+// the button to its pressed tiles and moves the button's own text 2 px up, then 1 px back down. The wrappers below run
+// it and then move each effectiveness line by however much its button's name moved, so the line stays with the button.
+#define EFF_NO_POSITION 0x7FFF
+
+static void EffDisplay_GetNameY(void *battleInput, int *y)
+{
+    struct EffTextObj *obj = (struct EffTextObj *)((u8 *)battleInput + BATTLE_INPUT_TEXTOBJ_OFFSET);
+    int x;
+
+    for (int i = 0; i < 4; i++) {
+        y[i] = EFF_NO_POSITION;
+        if (obj[i].textObj != NULL) {
+            FontOAM_GetPosition(obj[i].textObj, &x, &y[i]);
+        }
+    }
+}
+
+static void EffDisplay_FollowNames(void *battleInput, const int *before)
+{
+    int after[4], x, y;
+
+    EffDisplay_GetNameY(battleInput, after); // the menu may be gone now (its text deleted, ours with it)
+    for (int i = 0; i < EFF_TEXT_MAX; i++) {
+        int owner = sEffTextOwner[i];
+
+        if (sEffText[i].textObj == NULL || before[owner] == EFF_NO_POSITION || after[owner] == EFF_NO_POSITION || before[owner] == after[owner]) {
+            continue;
+        }
+        FontOAM_GetPosition(sEffText[i].textObj, &x, &y);
+        FontOAM_SetPosition(sEffText[i].textObj, x, y + after[owner] - before[owner]);
+    }
+}
+
+void LONG_CALL Task_FightMenuButtonFeedback_Extend(void *task, void *battleInput)
+{
+    int before[4];
+
+    EffDisplay_GetNameY(battleInput, before);
+    Task_FightMenuButtonFeedback(task, battleInput);
+    EffDisplay_FollowNames(battleInput, before);
+}
+
+void LONG_CALL Task_TargetMenuButtonFeedback_Extend(void *task, void *battleInput)
+{
+    int before[4];
+
+    EffDisplay_GetNameY(battleInput, before);
+    Task_TargetMenuButtonFeedback(task, battleInput);
+    EffDisplay_FollowNames(battleInput, before);
 }
 
 #endif // MOVE_EFFECTIVENESS_DISPLAY
