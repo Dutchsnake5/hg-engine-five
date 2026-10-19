@@ -635,6 +635,9 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 GetTypeEffectivenessData 0225260C 3
 
 0001 CheckRockSmashItemDrop 02204CF8 2
+#ifdef HEADBUTT_IGNORE_TRAINER_ID
+0001 Headbutt_GetTreeType_Regular_Override 02205074 3
+#endif
 0001 DrawRockSmashIdx 02204E8C 1
 
 0012 BattleMessage_BufferNickname 0223CDD0

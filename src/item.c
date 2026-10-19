@@ -290,7 +290,7 @@ static const u16 sMachineMoves[] = {
     MOVE_DARKEST_LARIAT, // TR24 = TM254 (was TR93)
     MOVE_PSYCHIC_FANGS, // TR25 = TM255 (was TR97)
     MOVE_BODY_PRESS, // TR26 = TM256 (was TR99)
-    MOVE_NONE, // TR27: blank
+    MOVE_HEADBUTT, // TR27
     MOVE_NONE, // TR28: blank
     MOVE_NONE, // TR29: blank
     MOVE_NONE, // TR30: blank

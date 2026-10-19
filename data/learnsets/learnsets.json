@@ -45046,7 +45046,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_UPPER_HAND",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -45229,7 +45230,8 @@
       "MOVE_UPPER_HAND",
       "MOVE_VACUUM_WAVE",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -45431,7 +45433,8 @@
       "MOVE_UPPER_HAND",
       "MOVE_VACUUM_WAVE",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -45607,7 +45610,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WILL_O_WISP",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_PECK",
@@ -45788,7 +45792,8 @@
       "MOVE_UPROAR",
       "MOVE_VACUUM_WAVE",
       "MOVE_WILL_O_WISP",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_PECK",
@@ -45996,7 +46001,8 @@
       "MOVE_U_TURN",
       "MOVE_VACUUM_WAVE",
       "MOVE_WILL_O_WISP",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_PECK",
@@ -46170,7 +46176,8 @@
       "MOVE_WATER_PLEDGE",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -46347,7 +46354,8 @@
       "MOVE_WATER_PLEDGE",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -46551,7 +46559,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -46726,7 +46735,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_UPROAR"
+      "MOVE_UPROAR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_POISON_FANG",
@@ -46903,7 +46913,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_UPROAR"
+      "MOVE_UPROAR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_POISON_FANG",
@@ -47051,7 +47062,8 @@
       "MOVE_TRICK",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_MUD_SLAP",
@@ -47234,7 +47246,8 @@
       "MOVE_TRICK",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_MUD_SLAP",
@@ -47743,7 +47756,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -47919,7 +47933,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -48057,7 +48072,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -48213,7 +48229,8 @@
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
-      "MOVE_TRAILBLAZE"
+      "MOVE_TRAILBLAZE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -48410,7 +48427,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_UPROAR",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -48585,7 +48603,8 @@
       "MOVE_VACUUM_WAVE",
       "MOVE_WEATHER_BALL",
       "MOVE_WILL_O_WISP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -49373,7 +49392,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -49570,7 +49590,8 @@
       "MOVE_TRIPLE_AXEL",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -49804,7 +49825,8 @@
       "MOVE_VACUUM_WAVE",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -50250,7 +50272,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
       "MOVE_VENOSHOCK",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_CHARM",
@@ -50429,7 +50452,8 @@
       "MOVE_TOXIC",
       "MOVE_VENOSHOCK",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_CHARM",
@@ -50588,7 +50612,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -50772,7 +50797,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -50980,7 +51006,8 @@
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -51553,7 +51580,8 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -51718,7 +51746,8 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -51923,7 +51952,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -52113,7 +52143,8 @@
       "MOVE_VACUUM_WAVE",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -52311,7 +52342,8 @@
       "MOVE_VACUUM_WAVE",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -52438,7 +52470,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SING",
@@ -52605,7 +52638,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_VOLT_SWITCH"
+      "MOVE_VOLT_SWITCH",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -52764,7 +52798,8 @@
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
       "MOVE_BATON_PASS",
-      "MOVE_COSMIC_POWER"
+      "MOVE_COSMIC_POWER",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BATON_PASS",
@@ -52932,7 +52967,8 @@
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
       "MOVE_BATON_PASS",
-      "MOVE_COSMIC_POWER"
+      "MOVE_COSMIC_POWER",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BATON_PASS",
@@ -53157,7 +53193,8 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_RECOVER",
@@ -53360,7 +53397,8 @@
       "MOVE_THUNDER_FANG",
       "MOVE_THUNDER_PUNCH",
       "MOVE_TORMENT",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SLAM",
@@ -53538,7 +53576,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -53710,7 +53749,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -53925,7 +53965,8 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -54134,7 +54175,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_UPPER_HAND",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -54349,7 +54391,8 @@
       "MOVE_UPPER_HAND",
       "MOVE_VACUUM_WAVE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -54507,7 +54550,8 @@
       "MOVE_UPROAR",
       "MOVE_VOLT_SWITCH",
       "MOVE_WILD_CHARGE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -54661,7 +54705,8 @@
       "MOVE_UPROAR",
       "MOVE_VOLT_SWITCH",
       "MOVE_WILD_CHARGE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -54834,7 +54879,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_UPROAR",
       "MOVE_VOLT_SWITCH",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SING",
@@ -55008,7 +55054,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_UPROAR",
       "MOVE_VOLT_SWITCH",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SING",
@@ -55695,7 +55742,8 @@
       "MOVE_TOXIC",
       "MOVE_TOXIC_SPIKES",
       "MOVE_VENOSHOCK",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SMOG",
@@ -55874,7 +55922,8 @@
       "MOVE_TOXIC_SPIKES",
       "MOVE_VENOSHOCK",
       "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SMOG",
@@ -56346,7 +56395,8 @@
       "MOVE_WHIRLPOOL",
       "MOVE_ZEN_HEADBUTT",
       "MOVE_DOUBLE_EDGE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -56515,7 +56565,8 @@
       "MOVE_WHIRLPOOL",
       "MOVE_ZEN_HEADBUTT",
       "MOVE_DOUBLE_EDGE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -56683,7 +56734,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WILL_O_WISP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -56864,7 +56916,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WILL_O_WISP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -57049,7 +57102,8 @@
       "MOVE_TOXIC",
       "MOVE_WEATHER_BALL",
       "MOVE_WILL_O_WISP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -57211,7 +57265,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_UPROAR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -57414,7 +57469,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_UPROAR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -57573,7 +57629,8 @@
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
       "MOVE_BATON_PASS",
-      "MOVE_ENCORE"
+      "MOVE_ENCORE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -57739,7 +57796,8 @@
       "MOVE_SWAGGER",
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_GUST",
@@ -57903,7 +57961,8 @@
       "MOVE_THROAT_CHOP",
       "MOVE_TOXIC",
       "MOVE_UPROAR",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_GUST",
@@ -58107,7 +58166,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_U_TURN",
-      "MOVE_VACUUM_WAVE"
+      "MOVE_VACUUM_WAVE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_GUST",
@@ -58295,7 +58355,8 @@
       "MOVE_TOXIC",
       "MOVE_TOXIC_SPIKES",
       "MOVE_TRAILBLAZE",
-      "MOVE_VENOSHOCK"
+      "MOVE_VENOSHOCK",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -58493,7 +58554,8 @@
       "MOVE_TOXIC_SPIKES",
       "MOVE_TRAILBLAZE",
       "MOVE_VENOSHOCK",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -59042,7 +59104,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -59243,7 +59306,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_VENOSHOCK",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -59756,7 +59820,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -59914,7 +59979,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -60422,7 +60488,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -60615,7 +60682,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -60914,7 +60982,8 @@
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TOXIC",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BIND",
@@ -61053,7 +61122,8 @@
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
       "MOVE_X_SCISSOR",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SAND_ATTACK",
@@ -61205,7 +61275,8 @@
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
       "MOVE_X_SCISSOR",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SAND_ATTACK",
@@ -61795,7 +61866,8 @@
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
       "MOVE_WATER_PULSE",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -61979,7 +62051,8 @@
       "MOVE_TOXIC",
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -62153,7 +62226,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -62319,7 +62393,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_WONDER_ROOM"
+      "MOVE_WONDER_ROOM",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HAZE",
@@ -62517,7 +62592,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_WONDER_ROOM"
+      "MOVE_WONDER_ROOM",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HAZE",
@@ -62702,7 +62778,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_U_TURN",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_LEAF_BLADE"
+      "MOVE_LEAF_BLADE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SLAM",
@@ -63059,7 +63136,8 @@
       "MOVE_X_SCISSOR",
       "MOVE_ZEN_HEADBUTT",
       "MOVE_DOUBLE_EDGE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -63270,7 +63348,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -63428,7 +63507,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -63568,7 +63648,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -63720,7 +63801,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -63888,7 +63970,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -64401,7 +64484,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SKULL_BASH",
@@ -64688,7 +64772,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_THUNDER_FANG",
       "MOVE_TOXIC",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -64835,7 +64920,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_THUNDER_FANG",
       "MOVE_TOXIC",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -65016,7 +65102,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_THUNDER_FANG",
       "MOVE_TOXIC",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -65071,7 +65158,8 @@
       "MOVE_STEEL_BEAM",
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -65222,7 +65310,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_TRICK",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -65412,7 +65501,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_TRICK",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_EXPLOSION",
@@ -65595,7 +65685,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_PUNCH",
       "MOVE_THUNDER_WAVE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -65769,7 +65860,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_PUNCH",
       "MOVE_THUNDER_WAVE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -65953,7 +66045,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_PUNCH",
       "MOVE_THUNDER_WAVE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -66533,7 +66626,8 @@
       "MOVE_UPROAR",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -66715,7 +66809,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WILL_O_WISP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -66914,7 +67009,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -67110,7 +67206,8 @@
       "MOVE_UPROAR",
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -67752,7 +67849,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -67911,7 +68009,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -68054,7 +68153,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -68228,7 +68328,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -68399,7 +68500,8 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WORK_UP",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_FOCUS_ENERGY"
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -68584,7 +68686,8 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WORK_UP",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_FOCUS_ENERGY"
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -68784,7 +68887,8 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WORK_UP",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_FOCUS_ENERGY"
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -68941,7 +69045,8 @@
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ROOST"
+      "MOVE_ROOST",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SUPERSONIC",
@@ -69091,7 +69196,8 @@
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ROOST"
+      "MOVE_ROOST",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SUPERSONIC",
@@ -69280,7 +69386,8 @@
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ROOST"
+      "MOVE_ROOST",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SUPERSONIC",
@@ -69798,7 +69905,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
       "MOVE_WORK_UP",
-      "MOVE_DOUBLE_EDGE"
+      "MOVE_DOUBLE_EDGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -69954,7 +70062,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_DOUBLE_EDGE"
+      "MOVE_DOUBLE_EDGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -70277,7 +70386,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_VOLT_SWITCH",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -70417,7 +70527,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_VOLT_SWITCH",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -70568,7 +70679,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_VOLT_SWITCH",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -70966,7 +71078,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_UPROAR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -71134,7 +71247,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_UPROAR",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -71285,7 +71399,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_FOCUS_ENERGY"
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -71440,7 +71555,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_FOCUS_ENERGY"
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -72133,7 +72249,8 @@
       "MOVE_UPROAR",
       "MOVE_U_TURN",
       "MOVE_VOLT_SWITCH",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_TAIL_WHIP",
@@ -72294,7 +72411,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -72462,7 +72580,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -72841,7 +72960,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_MIST",
@@ -72986,7 +73106,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_MIST",
@@ -73156,7 +73277,8 @@
       "MOVE_UPPER_HAND",
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SLAM",
@@ -73680,7 +73802,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -73876,7 +73999,8 @@
       "MOVE_UPROAR",
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_FIRE_PUNCH",
@@ -74037,7 +74161,8 @@
       "MOVE_TOXIC",
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SCREECH",
@@ -74336,7 +74461,8 @@
       "MOVE_TOXIC",
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SAND_ATTACK",
@@ -74494,7 +74620,8 @@
       "MOVE_TOXIC",
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SAND_ATTACK",
@@ -74802,7 +74929,8 @@
       "MOVE_TOXIC_SPIKES",
       "MOVE_TRAILBLAZE",
       "MOVE_VENOM_DRENCH",
-      "MOVE_VENOSHOCK"
+      "MOVE_VENOSHOCK",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -74976,7 +75104,8 @@
       "MOVE_TOXIC_SPIKES",
       "MOVE_TRAILBLAZE",
       "MOVE_VENOM_DRENCH",
-      "MOVE_VENOSHOCK"
+      "MOVE_VENOSHOCK",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -75459,7 +75588,8 @@
       "MOVE_THIEF",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_UPROAR"
+      "MOVE_UPROAR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -75626,7 +75756,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_UPROAR",
-      "MOVE_WONDER_ROOM"
+      "MOVE_WONDER_ROOM",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HYPNOSIS",
@@ -75754,7 +75885,8 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SEISMIC_TOSS",
@@ -76202,7 +76334,8 @@
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
       "MOVE_THUNDER_FANG",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -76348,7 +76481,8 @@
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
       "MOVE_THUNDER_FANG",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -76511,7 +76645,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_THUNDER_FANG",
       "MOVE_TOXIC",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_THRASH",
@@ -76692,7 +76827,8 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -76865,7 +77001,8 @@
       "MOVE_UPPER_HAND",
       "MOVE_VACUUM_WAVE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BITE",
@@ -77096,7 +77233,8 @@
       "MOVE_VACUUM_WAVE",
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BITE",
@@ -77255,7 +77393,8 @@
       "MOVE_THUNDER_FANG",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -77415,7 +77554,8 @@
       "MOVE_THUNDER_FANG",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -77569,7 +77709,8 @@
       "MOVE_TOXIC",
       "MOVE_TOXIC_SPIKES",
       "MOVE_VENOSHOCK",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -77756,7 +77897,8 @@
       "MOVE_TOXIC_SPIKES",
       "MOVE_VENOM_DRENCH",
       "MOVE_VENOSHOCK",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -77930,7 +78072,8 @@
       "MOVE_VENOM_DRENCH",
       "MOVE_VENOSHOCK",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -78125,7 +78268,8 @@
       "MOVE_VENOM_DRENCH",
       "MOVE_VENOSHOCK",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -78678,7 +78822,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_HAZE"
+      "MOVE_HAZE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_SLAM",
@@ -78817,7 +78962,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -78980,7 +79126,8 @@
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -79180,7 +79327,8 @@
       "MOVE_UPPER_HAND",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BITE",
@@ -79513,7 +79661,8 @@
       "MOVE_WHIRLPOOL",
       "MOVE_WORK_UP",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -79726,7 +79875,8 @@
       "MOVE_THUNDER_PUNCH",
       "MOVE_TOXIC",
       "MOVE_UPROAR",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -79898,7 +80048,8 @@
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_THIEF",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_MEGA_DRAIN",
@@ -80075,7 +80226,8 @@
       "MOVE_UPROAR",
       "MOVE_VOLT_SWITCH",
       "MOVE_WEATHER_BALL",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DYNAMIC_PUNCH",
@@ -80252,7 +80404,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WEATHER_BALL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_MACH_PUNCH",
@@ -80458,7 +80611,8 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_PECK",
@@ -80623,7 +80777,8 @@
       "MOVE_THIEF",
       "MOVE_TOXIC",
       "MOVE_UPROAR",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WHIRLWIND",
@@ -80826,7 +80981,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WEATHER_BALL",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -81021,7 +81177,8 @@
       "MOVE_TRIPLE_AXEL",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WORK_UP"
+      "MOVE_WORK_UP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -81207,7 +81364,8 @@
       "MOVE_TOXIC_SPIKES",
       "MOVE_U_TURN",
       "MOVE_VENOSHOCK",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_WING_ATTACK",
@@ -81376,7 +81534,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_THROAT_CHOP",
       "MOVE_TOXIC",
-      "MOVE_TRAILBLAZE"
+      "MOVE_TRAILBLAZE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -81831,7 +81990,8 @@
       "MOVE_WONDER_ROOM",
       "MOVE_WORK_UP",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -82032,7 +82192,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_VOLT_SWITCH"
+      "MOVE_VOLT_SWITCH",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -82234,7 +82395,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_WONDER_ROOM"
+      "MOVE_WONDER_ROOM",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HAZE",
@@ -82435,7 +82597,8 @@
       "MOVE_TRIPLE_AXEL",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -82752,7 +82915,8 @@
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -82931,7 +83095,8 @@
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -83113,7 +83278,8 @@
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -83284,7 +83450,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
       "MOVE_TRICK",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -83451,7 +83618,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -83616,7 +83784,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_UPROAR",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -83776,7 +83945,8 @@
       "MOVE_THUNDER_PUNCH",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -83943,7 +84113,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -84519,7 +84690,8 @@
       "MOVE_TOXIC",
       "MOVE_TRICK",
       "MOVE_WILL_O_WISP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -84647,7 +84819,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -84868,7 +85041,8 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WORK_UP",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -85861,7 +86035,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -86057,7 +86232,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -86245,7 +86421,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -86677,7 +86854,8 @@
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -86810,7 +86988,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -100019,7 +100198,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -100165,7 +100345,8 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -105570,7 +105751,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -105737,7 +105919,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -105879,7 +106062,8 @@
       "MOVE_UPROAR",
       "MOVE_WILD_CHARGE",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -159226,7 +159410,8 @@
       "MOVE_TOXIC",
       "MOVE_UPROAR",
       "MOVE_WILD_CHARGE",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -159360,7 +159545,8 @@
       "MOVE_THROAT_CHOP",
       "MOVE_THUNDER_WAVE",
       "MOVE_X_SCISSOR",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_HEADBUTT",
@@ -164696,7 +164882,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_VOLT_SWITCH",
       "MOVE_WILD_CHARGE",
-      "MOVE_RECYCLE"
+      "MOVE_RECYCLE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_LEECH_SEED",
@@ -164843,7 +165030,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_VOLT_SWITCH",
       "MOVE_WILD_CHARGE",
-      "MOVE_RECYCLE"
+      "MOVE_RECYCLE",
+      "MOVE_HEADBUTT"
     ],
     "EggMoves": [
       "MOVE_LEECH_SEED",

@@ -89,6 +89,15 @@ u8 LONG_CALL EncounterSlot_WildMonSlotRoll_RockSmash(void)
     return rnd >= 80 ? 1 : 0;
 }
 
+#ifdef HEADBUTT_IGNORE_TRAINER_ID
+// replaces the game's Headbutt_GetTreeType_Regular (see HEADBUTT_IGNORE_TRAINER_ID in config.h): which list an ordinary
+// tree uses, no longer from the Trainer ID. 0 = common list, 1 = rare list (-1, no encounter, is never returned).
+s8 LONG_CALL Headbutt_GetTreeType_Regular_Override(u8 whichTree UNUSED, u8 numTrees UNUSED, u32 trainerId UNUSED)
+{
+    return LCRandRange(100) < HEADBUTT_RARE_PERCENT ? 1 : 0;
+}
+#endif
+
 u8 LONG_CALL EncounterSlot_WildMonSlotRoll_Headbutt(void)
 {
     u8 rnd = LCRandRange(100);

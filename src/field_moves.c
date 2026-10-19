@@ -11,6 +11,10 @@
 
 #define PARTY_SLOT_NONE 0xFF
 
+#if defined(HEADBUTT_FROM_BAG) && !defined(HM_MOVES_FROM_BAG)
+#error "HEADBUTT_FROM_BAG needs HM_MOVES_FROM_BAG"
+#endif
+
 u16 ItemToMachineMove(u16 itemId);
 u16 ItemToMachineMoveIndex(u16 itemId);
 BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex);
@@ -26,10 +30,16 @@ static BOOL MonKnowsMove(struct PartyPokemon *pp, u16 move)
 }
 
 /**
- * @brief the HM item that teaches a move, or ITEM_NONE if the move is not taught by an HM
+ * @brief the item that lets a move be used from the bag: the HM that teaches it, the Headbutt TM for Headbutt
+ *        (HEADBUTT_FROM_BAG), or ITEM_NONE
  */
 u16 FieldMove_GetHMItem(u16 move)
 {
+#ifdef HEADBUTT_FROM_BAG
+    if (move == MOVE_HEADBUTT) {
+        return HEADBUTT_TM_ITEM;
+    }
+#endif
     for (u16 item = ITEM_HM01; item <= ITEM_HM08; item++) {
         if (ItemToMachineMove(item) == move) {
             return item;

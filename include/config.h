@@ -172,7 +172,7 @@
 // ITEM_TR00-ITEM_TR26 = TM230-TM256 (sMachineMoves in src/item.c). ITEM_TR27-ITEM_TR99 taught a move a TM already teaches
 // and are blank, unused items. A script gives TM230 with ITEM_TR00, ... TM256 with ITEM_TR26.
 #define TRS_ARE_TMS
-#define TRS_AS_TMS_COUNT 27 // ITEM_TR00 .. ITEM_TR00 + 26 are TMs
+#define TRS_AS_TMS_COUNT 28 // ITEM_TR00 .. ITEM_TR00 + 27 are TMs (TR27 = TM222 Headbutt)
 #ifdef TRS_ARE_TMS
 #define TRS_ARE_TMS_VALUE 1 // for IS_ITEM_TM / IS_ITEM_TR in include/constants/item.h
 #else
@@ -187,6 +187,12 @@
 // Covers the obstacles (Cut, Rock Smash, Strength, Whirlpool, Rock Climb, Waterfall), Surf at the shore and Fly from
 // the party menu.
 #define HM_MOVES_FROM_BAG
+
+// HEADBUTT_FROM_BAG does the same for Headbutt: with HEADBUTT_TM_ITEM (TM222 Headbutt) in the bag, every Headbutt tree
+// offers to headbutt it, used by a party Pokémon that could learn the TM (or the first one if none can), without anyone
+// knowing the move. It isn't added to the party menu. Needs HM_MOVES_FROM_BAG (its check of the party, script command 141).
+#define HEADBUTT_FROM_BAG
+#define HEADBUTT_TM_ITEM ITEM_TR27
 
 // PARTY_MENU_CUSTOMIZE adds a CUSTOMIZE option to the field party menu. It changes a Pokémon's nature (any of the 25),
 // sets its ability to any ability its species and form can have (including the hidden ability), or opens the move
@@ -220,7 +226,7 @@
 // what they always get. Off, nothing changes. The logic is in Task_DistributeExp_Extend (src/battle/battle_script_commands.c).
 #define EXP_SHARE_KEY_ITEM
 #define EXP_SHARE_FLAG 2604
-#define EXP_SHARE_BENCH_PERCENT 50
+#define EXP_SHARE_BENCH_PERCENT 25
 
 // EGG_MOVE_TUTOR adds the Egg Move Tutor (commonscript entry 77, so a person with script 2077 is one; free). It opens the
 // game's move relearner with the chosen Pokémon's egg moves (those of its line's first stage) instead of its level-up
@@ -228,6 +234,14 @@
 // (src/party_customize.c) reads the egg moves while it is set. Needs PARTY_MENU_CUSTOMIZE.
 #define EGG_MOVE_TUTOR
 #define EGG_MOVE_TUTOR_FLAG 2605
+
+// HEADBUTT_IGNORE_TRAINER_ID makes Headbutt trees the same for every player. In the original game the last digit of the
+// Trainer ID decides, tree by tree, whether an ordinary tree uses the common list, the rare list or gives nothing
+// (Headbutt_GetTreeType_Regular, ov01 0x02205074; pret src/field/headbutt.c). With this on, every ordinary tree gives an
+// encounter, from the rare list HEADBUTT_RARE_PERCENT percent of the time and the common list otherwise, rolled at each
+// headbutt. Special trees are unchanged (always their own list).
+#define HEADBUTT_IGNORE_TRAINER_ID
+#define HEADBUTT_RARE_PERCENT 30
 
 // MOVE_EFFECTIVENESS_DISPLAY shows how well each move works against the opponents while picking a move. Singles: a line
 // under the name in each move button ("Super ×2", "Resisted ×0.5", "Immune", ...). Doubles: a short "×2" / "Immune" per
