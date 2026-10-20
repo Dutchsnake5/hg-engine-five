@@ -15,7 +15,8 @@ _000:
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING
     Call BATTLE_SUBSCRIPT_SOUL_HEART
-    // Receiver and Power of Alchemy take over the fainted ally's ability
+    // Receiver and Power of Alchemy take over the fainted ally's ability (this hack's own version; upstream's
+    // BATTLE_SUBSCRIPT_RECEIVER is left uncalled: it runs the switch-in ability check mid-turn and loses the next action)
     TryNewMoveEffect NEW_MOVE_EFFECT_RECEIVER_CHECK, _noReceiver
     AbilityPopup BATTLER_CATEGORY_MSG_TEMP
     TryNewMoveEffect NEW_MOVE_EFFECT_RECEIVER_APPLY, _noReceiver

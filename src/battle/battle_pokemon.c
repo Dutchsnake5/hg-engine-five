@@ -1193,6 +1193,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].wideOpen = 0;
     sp->moveConditionsFlags[client].anyStatLoweredThisTurn = 0;
     sp->moveConditionsFlags[client].statRaisedThisTurn = 0;
+    sp->moveConditionsFlags[client].ejectPackFlag = 0;
     sp->telekinesisTurns[client] = 0;
     sp->electrified &= ~No2Bit(client);
     sp->noRetreat &= ~No2Bit(client);
@@ -1231,6 +1232,11 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].endure = 0;
     sp->moveConditionsFlags[client].grounded = 0;
     sp->moveConditionsFlags[client].mindBlownOrSteelBeam = 0;
+    if (sp->moveConditionsFlags[client].firstTurnOut != 2) {
+        sp->moveConditionsFlags[client].firstTurnOut = 1;
+    }
+
+    sp->ejectPackActivated = FALSE;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;

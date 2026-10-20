@@ -35,7 +35,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_ONIX,
+                        .species = SPECIES_RHYDON, // was Onix, which is faster than Primeape/Ponyta in this hack
                         .level = 48,
                         .form = 0,
                         .ability = ABILITY_MOXIE,
@@ -108,7 +108,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The power of Rolycoly's Fire-type moves rose!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta used Will-O-Wisp!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It's not very effective..." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix used Will-O-Wisp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Rhydon used Will-O-Wisp!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Ponyta..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Rolycoly used Will-O-Wisp!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It's super effective!" },

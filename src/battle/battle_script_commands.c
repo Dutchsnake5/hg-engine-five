@@ -145,7 +145,9 @@ BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys, struct BattleSt
 BOOL btl_scr_cmd_12D_TryNewMoveEffect(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckEffectActivationWithRainbow(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_12C_MirrorArmorReflect(void *bsys, struct BattleStruct *ctx);
-static BOOL BtlCmd_RemoveItem(void *bw, struct BattleStruct *sp);
+static BOOL BtlCmd_RemoveItemTracked(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_12E_TryActivateReceiver(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12F_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -492,6 +494,8 @@ const u8 *BattleScrCmdNames[] = {
     "CheckEffectActivationWithChance",
     "MirrorArmorReflect",
     "TryNewMoveEffect",
+    "TryActivateReceiver",
+    "TryActivateEmergencyExit",
     // "YourCustomCommand",
 };
 
@@ -499,7 +503,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12D
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12F
 
 #define BTL_SCR_CMD_REMOVE_ITEM 202
 
@@ -582,6 +586,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_CheckEffectActivationWithChance,
     [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_MirrorArmorReflect,
     [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryNewMoveEffect,
+    [0x12E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12E_TryActivateReceiver,
+    [0x12F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12F_TryActivateEmergencyExit,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -620,7 +626,7 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
         if (command == BTL_SCR_CMD_REMOVE_ITEM) {
-            ret = BtlCmd_RemoveItem(bw, sp);
+            ret = BtlCmd_RemoveItemTracked(bw, sp);
         } else if (command == BTL_SCR_CMD_CHECK_EFFECT_ACTIVATION && sp->rainbowTurns[IsClientEnemy(bw, sp->attack_client)]) {
             ret = BtlCmd_CheckEffectActivationWithRainbow(bw, sp);
         } else if (command < START_OF_NEW_BTL_SCR_CMDS) {
@@ -2033,6 +2039,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.param[1] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.param[2] = item;
         sp->battlemon[sp->defence_client].item = 0;
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
         // update:  no longer render further items unusable--just set the item to 0 here
         // sp->scw[side].knockoff_item |= No2Bit(sp->sel_mons_no[sp->defence_client]);
     } else {
@@ -3341,6 +3348,72 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
     return FALSE;
 }
 
+BOOL BtlCmd_CheckSpikes(void *bw, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int category = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bw, ctx, category);
+    int fieldSide = (1 & battlerId);
+
+    if (ctx->scw[fieldSide].spikesLayers && IsBattlerOnField(ctx, battlerId)) {
+        ctx->hp_calc_work = (5 - ctx->scw[fieldSide].spikesLayers) * 2;
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, ctx->hp_calc_work);
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckStealthRock(void *bw, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int category = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bw, ctx, category);
+    int fieldSide = (1 & battlerId);
+
+    // TODO deal with terra
+    int type1 = GetBattlerVar(ctx, battlerId, BMON_DATA_TYPE_1, NULL);
+    int type2 = GetBattlerVar(ctx, battlerId, BMON_DATA_TYPE_2, NULL);
+
+    if (ctx->side_condition[fieldSide] & SIDE_STATUS_STEALTH_ROCK && IsBattlerOnField(ctx, battlerId)) {
+        switch (CalculateTypeEffectiveness(TYPE_ROCK, type1, type2)) {
+        case 160:
+            ctx->hp_calc_work = 2;
+            break;
+        case 80:
+            ctx->hp_calc_work = 4;
+            break;
+        case 40:
+            ctx->hp_calc_work = 8;
+            break;
+        case 20:
+            ctx->hp_calc_work = 16;
+            break;
+        case 10:
+            ctx->hp_calc_work = 32;
+            break;
+        case 0:
+            IncrementBattleScriptPtr(ctx, adrs);
+            return FALSE;
+        default:
+            GF_ASSERT(FALSE);
+            break;
+        }
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, ctx->hp_calc_work);
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -3876,6 +3949,22 @@ BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+BOOL BtlCmd_RemoveItem(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    ctx->recycle_item[battlerId] = ctx->battlemon[battlerId].item;
+    ctx->battlemon[battlerId].item = ITEM_NONE;
+
+    ctx->battlemon[battlerId].moveeffect.knockOffFlag = TRUE;
+
+    CopyBattleMonToPartyMon(bsys, ctx, battlerId);
+
+    return FALSE;
+}
 /**
  *  @brief check if a substitute is up and jump to destination if there is one up
  *
@@ -4199,6 +4288,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
     } else {
         IncrementBattleScriptPtr(sp, adrs);
     }
@@ -4300,6 +4390,7 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
         sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
 
         if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
             sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
@@ -4325,6 +4416,7 @@ BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp)
     if (IS_ITEM_BERRY(item) && GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
         sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->defence_client)][sp->sel_mons_no[sp->defence_client]].berryEatenAndCanBelch = TRUE;
     }
+    sp->battlemon[sp->attack_client].moveeffect.knockOffFlag = TRUE;
 
     return FALSE;
 }
@@ -4828,9 +4920,11 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     int fieldSide = IsClientEnemy(bsys, battlerID);
 
     if (ctx->scw[fieldSide].toxicSpikesLayers) {
-        ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
-        ctx->addeffect_type = SIDE_EFFECT_TYPE_TOXIC_SPIKES;
-        ctx->state_client = battlerID;
+        if (IsBattlerOnField(ctx, battlerID)) {
+            ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_TOXIC_SPIKES;
+            ctx->state_client = battlerID;
+        }
         if (HasType(ctx, battlerID, TYPE_POISON)) {
             ctx->side_condition[fieldSide] &= ~SIDE_EFFECT_TYPE_TOXIC_SPIKES;
             ctx->scw[fieldSide].toxicSpikesLayers = 0;
@@ -6124,6 +6218,24 @@ BOOL btl_scr_cmd_12B_CheckEffectActivationWithChance(void *bsys UNUSED, struct B
     return FALSE;
 }
 
+BOOL btl_scr_cmd_12E_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+    int noReceiver = read_battle_script_param(ctx);
+    u32 faintedClient = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    int ability = ctx->battlemon[faintedClient].ability;
+
+    if (AbilityNoReceiver(ability)) {
+        IncrementBattleScriptPtr(ctx, noReceiver);
+    } else {
+        ctx->battlerIdTemp = BATTLER_ALLY(faintedClient);
+    }
+
+    return FALSE;
+}
+
 /**
  *  @brief script command to start or end applying a stat drop bounced back by Mirror Armor.
  *         starting points the stat change at the mon that caused the drop and treats it as coming from the Mirror Armor mon's ability,
@@ -6156,20 +6268,47 @@ BOOL btl_scr_cmd_12C_MirrorArmorReflect(void *bsys UNUSED, struct BattleStruct *
     return FALSE;
 }
 
+BOOL btl_scr_cmd_12F_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+    u32 client_no = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    int noActivation = read_battle_script_param(ctx);
+
+    if (IsBattlerOnField(ctx, client_no)
+        && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
+            || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
+        //&& ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0) // unsure if bug
+        && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
+        // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
+        && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
+        && CanSwitchMon(bsys, ctx, client_no)) {
+        ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
+        ctx->state_client = client_no;
+        ctx->battlerIdTemp = client_no;
+        ctx->hazardQueueTracker = 0; // TODO: script command for this would be better?
+    } else {
+        IncrementBattleScriptPtr(ctx, noActivation);
+    }
+
+    return FALSE;
+}
+
 /**
- *  @brief wrapper around the vanilla RemoveItem command that keeps track of berries eaten by Cud Chew mons
+ *  @brief wrapper around the RemoveItem command that keeps track of berries eaten by Cud Chew mons
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
- *  @return whatever the vanilla command returns
+ *  @return whatever RemoveItem returns
  */
-static BOOL BtlCmd_RemoveItem(void *bw, struct BattleStruct *sp)
+static BOOL BtlCmd_RemoveItemTracked(void *bw, struct BattleStruct *sp)
 {
     int battler = GrabClientFromBattleScriptParam(bw, sp, sp->SkillSeqWork[sp->skill_seq_no + 1]);
     u16 item = sp->battlemon[battler].item;
     u16 recycleItem = sp->recycle_item[battler];
 
-    BOOL ret = BattleScriptCmdTable[BTL_SCR_CMD_REMOVE_ITEM](bw, sp);
+    BOOL ret = BtlCmd_RemoveItem(bw, sp);
 
     if (sp->cudChewEating & No2Bit(battler)) {
         // the berry was eaten again by Cud Chew: give back whatever was held before, and don't count it as a new berry
@@ -6233,6 +6372,41 @@ BOOL BtlCmd_CheckEffectActivationWithRainbow(void *bw, struct BattleStruct *sp)
     (void)chance;
     (void)failAddress;
 #endif
+
+    return FALSE;
+}
+
+BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+
+    int battlerId = 0;
+
+    switch (side) {
+    case BATTLER_CATEGORY_ATTACKER:
+        battlerId = ctx->attack_client;
+        break;
+    case BATTLER_CATEGORY_SWITCHED_MON:
+        battlerId = ctx->reshuffle_client;
+        break;
+    case BATTLER_CATEGORY_FORCED_OUT:
+        battlerId = ctx->defence_client;
+        break;
+    }
+
+    ctx->moveConditionsFlags[battlerId].firstTurnOut = 2;
+    ctx->client_status[battlerId] &= ~1;
+    ctx->no_reshuffle_client &= (No2Bit(battlerId) ^ ~0);
+    ctx->sel_mons_no[battlerId] = ctx->reshuffle_sel_mons_no[battlerId];
+    ctx->reshuffle_sel_mons_no[battlerId] = 6;
+
+    BattleSystem_GetBattleMon(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+    ov12_02256F78(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+
+    ctx->hp_temp = ctx->battlemon[1].hp;
+
+    InitSwitchWork(bsys, ctx, battlerId);
 
     return FALSE;
 }

@@ -169,8 +169,9 @@
 
 // TRS_ARE_TMS turns the TRs into TMs: reusable like the other TMs, shown and sorted after TM229 in the bag, and drawn
 // with the TM disc in their move's type colour. Only the 27 TR moves that no TM teaches are kept (2026-10-11): they are
-// ITEM_TR00-ITEM_TR26 = TM230-TM256 (sMachineMoves in src/item.c). ITEM_TR27-ITEM_TR99 taught a move a TM already teaches
-// and are blank, unused items. A script gives TM230 with ITEM_TR00, ... TM256 with ITEM_TR26.
+// ITEM_TR00-ITEM_TR26 (sMachineMoves in data/MachineMoves.c), shown as TM195-TM221 since the TM renumbering (the shown
+// numbers are worked out by GetTMDisplayNumber, src/item.c). ITEM_TR27 is TM222 Headbutt; ITEM_TR28-ITEM_TR99 taught a
+// move a TM already teaches and are blank, unused items. A script gives TM195 with ITEM_TR00, ... TM221 with ITEM_TR26.
 #define TRS_ARE_TMS
 #define TRS_AS_TMS_COUNT 28 // ITEM_TR00 .. ITEM_TR00 + 27 are TMs (TR27 = TM222 Headbutt)
 #ifdef TRS_ARE_TMS

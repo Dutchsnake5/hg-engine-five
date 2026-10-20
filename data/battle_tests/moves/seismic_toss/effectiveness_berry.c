@@ -24,7 +24,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_ONIX,
+                        .species = SPECIES_RHYDON, // was Onix, which is faster than Primeape/Ponyta in this hack
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_MOXIE,

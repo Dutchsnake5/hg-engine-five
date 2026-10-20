@@ -1,4 +1,4 @@
-// Test: Flip Turn - switches out, but not when absorbed by Dry Skin
+// Test: Flip Turn - no switch on move failure
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
