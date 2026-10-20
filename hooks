@@ -703,3 +703,9 @@ arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
 0012 PlayerTrainerVictoryBGM_hook 0224DA9E 3
 
 arm9 FieldSystem_RestoreMapObjectsFromSave 0203B9F4 1
+#ifdef GAME_SPEED_OPTION
+arm9 GameSpeed_MainLoopWait_hook 02000DF4 0
+arm9 Options_GetTextSpeed_GameSpeed 0202AD20 1
+arm9 Options_SetTextSpeed_GameSpeed 0202AD28 2
+arm9 Options_GetTextFrameDelay_GameSpeed 0202AD3C 1
+#endif

@@ -181,7 +181,7 @@
 #endif
 
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-// #define DELETABLE_HMS
+#define DELETABLE_HMS
 
 // HM_MOVES_FROM_BAG lets the player use an HM's field move without teaching it, as long as the HM is in the bag
 // (badges are still required). The move is used by a party Pokémon that could learn it, or the first one if none can.
@@ -323,7 +323,13 @@
 
 // SKIP_TUTORIAL_INFO will skip the tutorial when starting a new game and go straight to Professor Oak greeting you.
 // uncomment the line out to get this functionality
-// #define SKIP_TUTORIAL_INFO
+#define SKIP_TUTORIAL_INFO
+
+// GAME_SPEED_OPTION replaces the Options screen's TEXT SPEED row with GAME SPEED (x1 / x1.5 / x2). Text is always at the
+// fast speed. The game's main loop normally waits for two screen refreshes per game step (30 steps a second); x1.5 skips
+// the second wait on two of every three steps, x2 on every step (as fast as the DS can go, up to 60). The setting is kept
+// in the save's text speed bits as 4 + choice, so older saves (0-2 there) start at x1. Labels: DSPRE text archive 0045.
+#define GAME_SPEED_OPTION
 
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1

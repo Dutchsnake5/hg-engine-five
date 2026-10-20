@@ -594,3 +594,10 @@ arm9 020708B0 06 E0
 0012 0226E312 83 00
 0012 0226E316 83 00
 #endif
+
+#ifdef GAME_SPEED_OPTION
+# the Safari Zone area picker sizes its text from Options_GetTextSpeed, which now returns the game speed: use fast (2)
+# instead (movs r0, #2 / nop over its two bl Options_GetTextSpeed)
+0108 08000104 02 20 C0 46
+0108 0800308A 02 20 C0 46
+#endif
