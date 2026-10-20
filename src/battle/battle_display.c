@@ -30,6 +30,11 @@ static BOOL ShouldPlayVictoryPoseForBattler(struct BattleSystem *battleSystem, s
         return FALSE;
     }
 
+    // no victory pose with the Options screen's BATTLE SCENE set to OFF, like the other battle animations
+    if (!CheckBattleAnimationsOption(battleSystem)) {
+        return FALSE;
+    }
+
     return !(battleCtx->no_reshuffle_client & No2Bit(battler));
 }
 #endif // PLAY_MON_VICTORY_POSE

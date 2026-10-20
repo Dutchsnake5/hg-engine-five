@@ -358,7 +358,8 @@
 
 // PLAY_MON_VICTORY_POSE enables the victory pose for Pokémon when fainting an opponent.
 // Comment out this define if you want to disable this feature.
-// #define PLAY_MON_VICTORY_POSE
+// (this hack: skipped while the Options screen's BATTLE SCENE is OFF, src/battle/battle_display.c)
+#define PLAY_MON_VICTORY_POSE
 
 // Dumps of the vanilla text (data/text), zone event data (data/eventdata/zone_event), and field scripts (data/scr_seq)
 // are shipped as a reference so that a hack can be diffed against what the game originally shipped with.
