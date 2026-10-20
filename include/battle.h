@@ -223,6 +223,7 @@
 #define STEAL_EFFECT_POISON                 28
 #define STEAL_EFFECT_BAD_POISON             29
 #define STEAL_EFFECT_BURN                   30
+#define STEAL_EFFECT_FROSTBITE              31 // Frost Orb (FROSTBITE)
 
 #define DRAGON_DARTS_NO_DIVERTING            0
 #define DRAGON_DARTS_CAN_DIVERT              1

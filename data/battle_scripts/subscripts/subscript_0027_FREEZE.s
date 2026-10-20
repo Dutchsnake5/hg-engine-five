@@ -3,6 +3,192 @@
 
 .data
 
+#ifdef FROSTBITE
+// frostbite (include/config.h FROSTBITE), on the freeze status bit. Built like the burn subscript (0025): blocked by
+// Magma Armor, Comatose, Purifying Salt, Leaf Guard in sun, Flower Veil, Misty Terrain, Shield Dust, a substitute and
+// Safeguard; Ice types are immune; harsh sunlight doesn't prevent it; Synchronize passes it back; a status-curing berry
+// cures it right away. The Frost Orb (held item path) works like the Flame Orb: silent when it can't, ignores Flower Veil
+_000:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_HELD_ITEM, _moveOrAbility
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_MAGMA_ARMOR, _end
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_COMATOSE, _end
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _end
+    CheckIgnoreWeather _heldItemStatus
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _heldItemStatus
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _end
+
+_heldItemStatus:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _end
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_ICE, _end
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_ICE, _end
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_ICE, _end
+    GoTo _checkGrounded
+
+_moveOrAbility:
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_MAGMA_ARMOR, _blockedByAbility
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_COMATOSE, _blockedByAbility
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _blockedByAbility
+    CheckIgnoreWeather _checkFlowerVeil
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _checkFlowerVeil
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _blockedByAbility
+
+_checkFlowerVeil:
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _flowerVeilGrassCheck
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _flowerVeilGrassCheck
+    GoTo _checkGrounded
+
+_flowerVeilGrassCheck:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _fail
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _fail
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _fail
+
+_checkGrounded:
+    GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _checkMistyTerrain
+    GoTo _checkShieldDust
+
+_checkMistyTerrain:
+    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _mistyTerrain
+
+_checkShieldDust:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _attackMessage
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_SHIELD_DUST, _fail
+
+_attackMessage:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _checkSubstitute
+    PrintAttackMessage
+    Wait
+
+_checkSubstitute:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _checkStatus
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_HELD_ITEM, _checkStatus
+    CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _fail
+
+_checkStatus:
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_FREEZE, _alreadyFrostbitten
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_ICE, _iceType
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_ICE, _iceType
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_ICE, _iceType
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _fail
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_HELD_ITEM, _itemAnimation
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _inflict
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _fail
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _safeguard
+_bypassSafeguard:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _inflict
+    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
+    Wait
+
+    GoTo _inflict
+
+_itemAnimation:
+    PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_HELD_ITEM
+    Wait
+    WaitButtonABTime 15
+
+_inflict:
+    PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_FROZEN
+    Wait
+    UpdateMonData OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_FREEZE
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_HELD_ITEM, _byItem
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _byAbility
+    // {0} got frostbite!
+    PrintMessage 101, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    GoTo _inflicted
+
+_byItem:
+    // {0} got frostbite from the {1}!
+    PrintMessage 1941, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLER_CATEGORY_MSG_TEMP
+    GoTo _inflicted
+
+_byAbility:
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    // {0}’s {1} gave {2} frostbite!
+    PrintMessage 104, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_SIDE_EFFECT_MON
+
+_inflicted:
+    Wait
+    SetHealthbarStatus BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_FROZEN
+    WaitButtonABTime 30
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE, _synchronized
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE
+    TrySynchronizeStatus _cureBerry
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+
+_cureBerry:
+    TryCureStatusBerry BATTLER_CATEGORY_DEFENDER, _end
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+    End
+
+_synchronized:
+    UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE
+    TryCureStatusBerry BATTLER_CATEGORY_SIDE_EFFECT_MON, _end
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+
+_end:
+    End
+
+_fail:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _end
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _end
+    WaitButtonABTime 30
+    Call BATTLE_SUBSCRIPT_BUT_IT_FAILED
+    End
+
+_alreadyFrostbitten:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _end
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _end
+    WaitButtonABTime 30
+    GoTo _noMoreWork
+
+_iceType:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _end
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _end
+    WaitButtonABTime 30
+    // It doesn’t affect {0}...
+    PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    GoTo _noMoreWork
+
+_blockedByAbility:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _end
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _end
+    PrintAttackMessage
+    Wait
+    WaitButtonABTime 30
+    GoTo _noMoreWork
+
+_handleInfiltrator:
+    // infiltrator bypasses safeguard but only on moves that are used (which allows us to check the attacker directly)
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _bypassSafeguard
+    GoTo _postInfiltratorCheck
+
+_handleInfiltratorMoveEffect:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _bypassSafeguard
+    GoTo _end
+
+_safeguard:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _handleInfiltrator
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _handleInfiltratorMoveEffect
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _end
+_postInfiltratorCheck:
+    WaitButtonABTime 30
+    // {0} is protected by Safeguard!
+    PrintMessage 200, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+
+_noMoreWork:
+    Wait
+    WaitButtonABTime 30
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
+    End
+
+_mistyTerrain:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _end
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _end
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_HELD_ITEM, _end
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
+    End
+
+#else
+
 _000:
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_MAGMA_ARMOR, _160
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_COMATOSE, _160
@@ -118,3 +304,5 @@ _190:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _189
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End
+
+#endif // FROSTBITE

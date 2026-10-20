@@ -448,7 +448,11 @@ u32 __attribute__((section(".init"))) CalculateBallShakesInternal(void *bw, stru
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
         debug_printf("Need to apply status modifier\n");
 #endif
+#ifdef FROSTBITE
+        if (sp->battlemon[sp->defence_client].condition & STATUS_SLEEP) { // frostbite counts like burn (x1.5)
+#else
         if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP | STATUS_FREEZE)) {
+#endif
             statusModifier = UQ412__2_5;
         } else {
             statusModifier = UQ412__1_5;

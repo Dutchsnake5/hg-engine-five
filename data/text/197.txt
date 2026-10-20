@@ -99,25 +99,25 @@ The opposing {STRVAR_1 1, 0, 0} is hurt\nby its burn!
 {STRVAR_1 1, 0, 0} is already burned!
 The wild {STRVAR_1 1, 0, 0}\nis already burned!
 The opposing {STRVAR_1 1, 0, 0}\nis already burned!
-{STRVAR_1 1, 0, 0} was\nfrozen solid!
-The wild {STRVAR_1 1, 0, 0} was\nfrozen solid!
-The opposing {STRVAR_1 1, 0, 0} was\nfrozen solid!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nfroze {STRVAR_1 1, 2, 0} solid!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nfroze the wild {STRVAR_1 1, 2, 0} solid!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nfroze the opposing {STRVAR_1 1, 2, 0} solid!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze {STRVAR_1 1, 2, 0}\fsolid!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze the wild\f{STRVAR_1 1, 2, 0} solid!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze {STRVAR_1 1, 2, 0}\fsolid!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze the opposing\f{STRVAR_1 1, 2, 0} solid!
-{STRVAR_1 1, 0, 0} is\nfrozen solid!
-The wild {STRVAR_1 1, 0, 0} is\nfrozen solid!
-The opposing {STRVAR_1 1, 0, 0} is\nfrozen solid!
-{STRVAR_1 1, 0, 0} thawed out!
-The wild {STRVAR_1 1, 0, 0} thawed out!
-The opposing {STRVAR_1 1, 0, 0} thawed out!
-{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
+{STRVAR_1 1, 0, 0} got\nfrostbite!
+The wild {STRVAR_1 1, 0, 0} got\nfrostbite!
+The opposing {STRVAR_1 1, 0, 0} got\nfrostbite!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ngave {STRVAR_1 1, 2, 0} frostbite!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ngave the wild {STRVAR_1 1, 2, 0}\ffrostbite!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ngave the opposing {STRVAR_1 1, 2, 0}\ffrostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave {STRVAR_1 1, 2, 0}\ffrostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave the wild\f{STRVAR_1 1, 2, 0} frostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave {STRVAR_1 1, 2, 0}\ffrostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} gave the opposing\f{STRVAR_1 1, 2, 0} frostbite!
+{STRVAR_1 1, 0, 0} is hurt\nby its frostbite!
+The wild {STRVAR_1 1, 0, 0} is hurt\nby its frostbite!
+The opposing {STRVAR_1 1, 0, 0} is hurt\nby its frostbite!
+{STRVAR_1 1, 0, 0}’s frostbite\nwas healed!
+The wild {STRVAR_1 1, 0, 0}’s\nfrostbite was healed!
+The opposing {STRVAR_1 1, 0, 0}’s\nfrostbite was healed!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nhealed its frostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} healed its\ffrostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} healed its\ffrostbite!
 {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The wild {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The opposing {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
@@ -882,9 +882,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} cured its poison!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nhealed its burn!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} healed its burn!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} healed its burn!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\ndefrosted it!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} defrosted it!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} defrosted it!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nhealed its frostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} healed its\ffrostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} healed its\ffrostbite!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwoke it up!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} woke it up!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} woke it up!
@@ -1209,7 +1209,7 @@ Used the {STRVAR_1 8, 0, 0}!
 {STRVAR_1 1, 0, 0} was cured of\nparalysis.
 {STRVAR_1 1, 0, 0}’s burn was healed.
 {STRVAR_1 1, 0, 0} woke up.
-{STRVAR_1 1, 0, 0} was thawed out.
+{STRVAR_1 1, 0, 0}’s frostbite was healed.
 {STRVAR_1 1, 0, 0} snapped out of its\nconfusion.
 {STRVAR_1 1, 0, 0} got over its\ninfatuation.
 {STRVAR_1 1, 0, 0}’s HP was restored\nby {STRVAR_1 52, 1, 0} point(s).
@@ -1939,3 +1939,6 @@ Immune
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
+{STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!

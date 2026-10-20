@@ -814,6 +814,16 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->server_seq_no = 22;
                     ret = 1;
                 }
+#ifdef FROSTBITE
+                // frostbite (the freeze bit) hurts at the same point of the turn as a burn
+                else if ((sp->battlemon[battlerId].condition & STATUS_FREEZE) && IsBattlerOnField(sp, battlerId)) {
+                    sp->battlerIdTemp = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FROSTBITE_DAMAGE);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+#endif
 
                 sp->scc_work++;
                 break;
@@ -1935,6 +1945,20 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     debug_printf("In THIRD_EVENT_BLOCK_ITEMS\n", NULL);
 #endif
                     // Handle Toxic Orb, Flame Orb, Sticky Barb
+#ifdef FROSTBITE
+                    // Frost Orb: like the Flame Orb (TryHeldItemNegativeEffect), every turn; the subscript stops quietly
+                    // when it can't give frostbite
+                    if (sp->battlemon[battlerId].hp && HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_FRZ_USER) {
+                        sp->state_client = battlerId;
+                        sp->addeffect_type = SIDE_EFFECT_TYPE_HELD_ITEM;
+                        sp->battlerIdTemp = battlerId;
+                        sp->item_work = GetBattleMonItem(sp, battlerId);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FREEZE);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    } else
+#endif
                     if (TryHeldItemNegativeEffect(bw, sp, battlerId) == TRUE) { // come back to this
                         ret = 1;
                     } else {

@@ -119,7 +119,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans's Aspear Berry defrosted it!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans's Aspear Berry healed its frostbite!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gulpin's Lum Berry healed its burn!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 54, 54, 55, 55, 57, 57, 58, 58, 58, 60, 60, 61, 61, 63, 63, 64 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Apicot Berry boosted the opposing Spoink's Sp. Def!" },

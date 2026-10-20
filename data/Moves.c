@@ -241,7 +241,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
         },
-        .description = "The foe is punched\\nwith an icy fist.\\nIt may leave the\\ntarget frozen.\\n",
+        .description = "The foe is punched\\nwith an icy fist.\\nIt may also give\\nthe target frostbite.\\n",
     },
 
     [MOVE_THUNDER_PUNCH] = {
@@ -1591,7 +1591,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
         },
-        .description = "The foe is struck\\nwith an icy-cold\\nbeam of energy.\\nIt may also freeze\\nthe target solid.",
+        .description = "The foe is struck\\nwith an icy-cold\\nbeam of energy.\\nIt may also give\\nthe target frostbite.",
     },
 
     [MOVE_BLIZZARD] = {
@@ -1618,7 +1618,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
         },
-        .description = "A howling blizzard is\\nsummoned to strike\\nthe foe.\\nIt may also freeze\\nthe target solid.",
+        .description = "A howling blizzard is\\nsummoned to strike\\nthe foe.\\nIt may also give\\nthe target frostbite.",
     },
 
     [MOVE_PSYBEAM] = {
@@ -4372,7 +4372,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
         },
-        .description = "The user strikes with\\na simultaneous three-\\nbeam attack. May also\\nparalyze, burn, or\\nfreeze the target.",
+        .description = "The user strikes with\\na simultaneous three-\\nbeam attack. It may\\ncause a burn, para-\\nlysis, or frostbite.",
     },
 
     [MOVE_SUPER_FANG] = {
@@ -4912,7 +4912,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
         },
-        .description = "The user attacks with\\na chilling gust of\\npowdery snow.\\nIt may also freeze\\nthe target.",
+        .description = "The user attacks with\\na chilling gust of\\npowdery snow. It may\\nalso give the target\\nfrostbite.",
     },
 
     [MOVE_PROTECT] = {
@@ -11446,7 +11446,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
         },
-        .description = "The user bites with\\ncold-infused fangs.\\nIt may also make the\\nfoe flinch or freeze.\\n",
+        .description = "The user bites with\\ncold-infused fangs.\\nIt may also make the\\nfoe flinch or give\\nit frostbite.",
     },
 
     [MOVE_FIRE_FANG] = {
@@ -15577,7 +15577,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
         },
-        .description = "The user rapidly cools\\nthe target, possibly\\nleaving them frozen.\\nThis move is super\\neffective on Water.",
+        .description = "The user rapidly cools\\nthe target, possibly\\ngiving it frostbite.\\nThis move is super\\neffective on Water.",
     },
 
     [MOVE_DISARMING_VOICE] = {
@@ -22273,7 +22273,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
         },
-        .description = "The user shoots its\\npsychic power from\\nits eyes to attack.\\nThis may also leave\\nthe target frozen.",
+        .description = "The user shoots its\\npsychic power from\\nits eyes to attack.\\nThis may also give\\nthe target frostbite.",
     },
 
     [MOVE_FIERY_WRATH] = {

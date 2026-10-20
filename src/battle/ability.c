@@ -665,6 +665,10 @@ BOOL LONG_CALL TryGetSynchronizeStatusSubsequence(struct BattleStruct *sp, int *
         *seq_no = BATTLE_SUBSCRIPT_BURN;
     } else if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_PARALYSIS) {
         *seq_no = BATTLE_SUBSCRIPT_PARALYZE;
+#ifdef FROSTBITE
+    } else if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_FREEZE) {
+        *seq_no = BATTLE_SUBSCRIPT_FREEZE;
+#endif
     }
 
     return *seq_no != 0;

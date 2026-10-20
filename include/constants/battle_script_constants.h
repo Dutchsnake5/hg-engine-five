@@ -575,7 +575,9 @@
 
 #define BATTLE_SUBSCRIPT_RECEIVER                                (566)
 
-#define MAX_BASE_SUBSCRIPT_NUM 566
+#define BATTLE_SUBSCRIPT_FROSTBITE_DAMAGE                        (567)
+
+#define MAX_BASE_SUBSCRIPT_NUM 567
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

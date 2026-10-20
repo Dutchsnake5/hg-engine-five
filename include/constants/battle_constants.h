@@ -664,8 +664,13 @@ typedef enum BattleBg {
 #define STATUS_ALL                  0xFF
 #define STATUS_UNUSED_SLOTS         0xFFFFF000
 #define STATUS_NOT_SLEEP            0xFFFFFFF8
+#ifdef FROSTBITE // frostbite (the freeze bit) works like burn here
+#define STATUS_CAN_SYNCHRONIZE      0x78
+#define STATUS_FACADE_BOOST         0xF8
+#else
 #define STATUS_CAN_SYNCHRONIZE      0x58
 #define STATUS_FACADE_BOOST         0xD8
+#endif
 
 #define CONDITION_NONE      0
 #define CONDITION_SLEEP     1

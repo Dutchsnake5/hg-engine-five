@@ -78,6 +78,21 @@ endif
 NARC_FILES += $(BATTLEHUD_NARC)
 
 
+# FROSTBITE (include/config.h): the party menu / summary status icon strip (a/0/3/9 member 64) shows FRB instead of FRZ
+STATUSICONS_DIR := $(BUILD)/a039
+STATUSICONS_NARC := $(BUILD_NARC)/a039.narc
+STATUSICONS_TARGET := $(FILESYS)/a/0/3/9
+
+$(STATUSICONS_NARC): scripts/build_frostbite_icons.py
+	$(NARCHIVE) extract $(STATUSICONS_TARGET) -o $(STATUSICONS_DIR) -nf
+	$(PYTHON) scripts/build_frostbite_icons.py $(STATUSICONS_DIR)
+	$(NARCHIVE) create $@ $(STATUSICONS_DIR) -nf
+
+ifneq ($(FROSTBITE),0)
+NARC_FILES += $(STATUSICONS_NARC)
+endif
+
+
 MOVEDATA_DIR := $(BUILD)/a011
 MOVEDATA_NARC := $(BUILD_NARC)/a011.narc
 MOVEDATA_TARGET := $(FILESYS)/a/0/1/1

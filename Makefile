@@ -164,6 +164,7 @@ BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
 BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 IMPLEMENT_TRANSPARENT_TEXTBOXES := $(call config_enabled,IMPLEMENT_TRANSPARENT_TEXTBOXES)
 MOVE_EFFECTIVENESS_DISPLAY := $(call config_enabled,MOVE_EFFECTIVENESS_DISPLAY)
+FROSTBITE := $(call config_enabled,FROSTBITE)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -418,6 +419,11 @@ endif
 
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
+
+ifneq ($(FROSTBITE),0)
+	@echo "status icons (FRB):"
+	cp $(STATUSICONS_NARC) $(STATUSICONS_TARGET)
+endif
 
 	@echo "move data:"
 	cp $(MOVEDATA_NARC) $(MOVEDATA_TARGET)

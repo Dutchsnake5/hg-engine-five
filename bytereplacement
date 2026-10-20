@@ -601,3 +601,9 @@ arm9 020708B0 06 E0
 0108 08000104 02 20 C0 46
 0108 0800308A 02 20 C0 46
 #endif
+
+#ifdef FROSTBITE
+# the battle HP box's FRZ status icon (gBattleHpBar_RawGraphicComponents tiles 44-46, pret battle_hp_bar_data.h) becomes FRB:
+# BRN's B (its columns 3-8) drawn in place of the Z (columns 15-20), in the FRZ icon's colours
+0012 0226DC60 FF CC CC CC C2 4C 44 44 CF 4C BB BB C2 4C 44 44 C2 4C BB BB C2 4C CB CC C2 4C CB CC 22 BC CB CC CC CC CC CC 4B 44 B4 4C 4B BB 4B 4B 4B CB 4C 4B 4B 44 44 4B 4C 4B BB 4B 4C 4B 44 4B BC BB BB BB CC CC CC FF 44 B4 CC 2C BB 4B CB FC 44 44 CB 2C BB 4B CB 2C CB 4C CB 2C 44 44 CB 2C BB BB CB 22
+#endif

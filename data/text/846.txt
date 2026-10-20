@@ -59,7 +59,7 @@ A powerful low kick that makes the target\nfall over. The heavier the target, th
 The user relaxes and lightens its\nbody to move faster. This sharply\nraises the Speed stat.
 The user takes a deep breath and\nfocuses so that critical hits land\nmore easily.
 The user waggles a finger and\nstimulates its brain into randomly\nusing nearly any move.
-The user strikes with a simultaneous\nthree-beam attack. This may also\nburn, freeze, or paralyze the target.
+The user strikes with a simultaneous\nthree-beam attack. It may also cause\na burn, paralysis, or frostbite.
 The user lays a trap of spikes at the\nopposing team’s feet. The trap hurts\nPokémon that switch into battle.
 The user materializes an odd psychic\nwave to attack the target. This\nattack does physical damage.
 Using its tough and impressive horn,\nthe user rams into the target with\nno letup.

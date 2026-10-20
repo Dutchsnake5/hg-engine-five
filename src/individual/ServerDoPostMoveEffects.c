@@ -858,6 +858,7 @@ case SWOAK_SEQ_THAW_ICE:
 
         ctx->swoam_seq_no++;
 
+#ifndef FROSTBITE // frostbite isn't cured by being hit by Fire moves or Scald
         if (ctx->defence_client != 0xFF)
         {
             if ((ctx->battlemon[ctx->defence_client].condition & STATUS_FREEZE)
@@ -875,6 +876,9 @@ case SWOAK_SEQ_THAW_ICE:
                 return;
             }
         }
+#else
+        (void)movetype;
+#endif
     }
     FALLTHROUGH;
 case SWOAK_SEQ_CHECK_HEALING_ITEMS:
@@ -1395,6 +1399,12 @@ int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStru
     u16 currMove = ctx->current_move_index;
 
     movetype = GetAdjustedMoveType(ctx, ctx->attack_client, currMove); // new normalize checks
+
+#ifdef FROSTBITE
+    // frostbite (the freeze bit) isn't cured by being hit by Fire moves or Scald, like a burn
+    (void)movetype;
+    return FALSE;
+#endif
 
     if (ctx->defence_client != BATTLER_NONE) {
         if ((ctx->battlemon[ctx->defence_client].condition & STATUS_FREEZE)

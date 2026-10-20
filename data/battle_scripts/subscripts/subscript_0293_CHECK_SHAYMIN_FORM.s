@@ -4,6 +4,10 @@
 .data
 
 _000:
+#ifdef FROSTBITE
+    // Shaymin-Sky changes back when frozen; frostbite (the same status bit) leaves it as it is
+    GoTo _097
+#endif
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLER_TARGET, BATTLER_NONE, _097
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_SPECIES, 492, _097
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_FORM, 0, _097

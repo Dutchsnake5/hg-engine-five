@@ -1236,7 +1236,9 @@ void BattleController_CheckRecharge(struct BattleSystem *bsys, struct BattleStru
 
 void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
+#ifndef FROSTBITE
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
+#endif
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
         if (ctx->field_condition & FIELD_CONDITION_UPROAR && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_SOUNDPROOF) {
@@ -1280,6 +1282,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
         }
     }
 
+#ifndef FROSTBITE // frostbite never stops a Pokémon from moving or wears off by chance
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (BattleRand(bsys) % 5 != 0) {
             if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT && ctx->current_move_index != MOVE_FUSION_FLARE) {
@@ -1300,6 +1303,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
             return;
         }
     }
+#endif // FROSTBITE
 }
 
 void BattleController_CheckPP(struct BattleSystem *bsys, struct BattleStruct *ctx)
@@ -1837,6 +1841,12 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
 void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
 {
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
+
+#ifdef FROSTBITE
+    // no move cures frostbite (the freeze bit) when used, like a burn
+    (void)effect;
+    return;
+#endif
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT || effect == MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT || ctx->current_move_index == MOVE_FUSION_FLARE) {

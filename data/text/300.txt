@@ -67,7 +67,7 @@ and it learned {STRVAR_1 6, 1, 0} instead!{WAIT 4}{WAIT 2}\r
 {STRVAR_1 1, 0, 0} was cured of its\npoisoning.\r
 {STRVAR_1 1, 0, 0} was cured of\nparalysis.\r
 {STRVAR_1 1, 0, 0}’s\nburn was healed.\r
-{STRVAR_1 1, 0, 0} was\nthawed out.\r
+{STRVAR_1 1, 0, 0}’s frostbite\nwas healed.\r
 PP was restored.\r
 {STRVAR_1 1, 0, 0}\nregained health.\r
 {STRVAR_1 1, 0, 0}\nbecame healthy.\r

@@ -331,6 +331,21 @@
 // in the save's text speed bits as 4 + choice, so older saves (0-2 there) start at x1. Labels: DSPRE text archive 0045.
 #define GAME_SPEED_OPTION
 
+// FROSTBITE replaces freeze with Legends: Arceus-style frostbite (Drew's design, 2026-10-20; Showdown has no frostbite,
+// so this is a deliberate exception to following Showdown). It reuses the freeze status bit (saves keep working):
+// - no lost turns, no thawing out by chance: it lasts until cured, like burn
+// - 1/16 max HP damage at the end of each turn (Magic Guard prevents it), and the Pokémon's special moves do half damage
+//   (like burn for physical moves)
+// - Ice types are immune; everything that blocks or cures freeze blocks or cures it (Magma Armor, Comatose, Purifying
+//   Salt, Leaf Guard in sun, Flower Veil, Misty Terrain, Safeguard, Shield Dust, Aspear/Lum Berry, Ice Heal, Natural
+//   Cure, Shed Skin, Hydration, Healer, Refresh, Heal Bell...)
+// - no move cures it, like burn: using Scald/Flame Wheel/Flare Blitz... doesn't, and neither does being hit by Scald or a
+//   Fire move (Drew, 2026-10-20)
+// - Synchronize passes it on, Facade doubles while frostbitten, Psycho Shift transfers it; sun doesn't prevent it and
+//   Shaymin-Sky doesn't change back; catch bonus x1.5 like burn
+// - FRB icons (scripts/build_frostbite_icons.py, bytereplacement), "frostbite" text (data/text, data/Moves.c, DSPRE)
+#define FROSTBITE
+
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1
 #define CHAMPIONS_TYPE_CHANGES          1

@@ -1,4 +1,4 @@
-// Test: Flame Wheel - Thaw target
+// Test: Flame Wheel - Thaw target (this hack's FROSTBITE: a Fire move doesn't cure it, so the target stays frostbitten)
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -100,8 +100,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander used Flame Wheel!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 25, 25, 25, 26, 26, 26, 27, 27, 27, 27, 27, 27, 29, 29, 29, 30 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gible thawed out!" }, 
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gible is hurt by its frostbite!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

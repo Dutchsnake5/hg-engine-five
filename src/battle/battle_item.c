@@ -765,6 +765,11 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
         sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
         sp->flingScript = BATTLE_SUBSCRIPT_BURN;
         break;
+    case STEAL_EFFECT_FROSTBITE: // Frost Orb (FROSTBITE)
+        sp->state_client = battlerId;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
+        sp->flingScript = BATTLE_SUBSCRIPT_FREEZE;
+        break;
     case STEAL_EFFECT_ATK_UP: // Liechi Berry
         if (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12) {
             sp->msg_work = STAT_ATTACK;

@@ -19,9 +19,16 @@ _019:
     GoTo _041
 
 _029:
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_PARALYSIS, _039
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_PARALYSIS, _frostbite
     Call BATTLE_SUBSCRIPT_PARALYZE
     GoTo _041
+_frostbite:
+#ifdef FROSTBITE
+    // frostbite (the freeze bit) can be passed on too, since a frostbitten Pokémon can still use Psycho Shift
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_FREEZE, _039
+    Call BATTLE_SUBSCRIPT_FREEZE
+    GoTo _041
+#endif
 
 _039:
     Call BATTLE_SUBSCRIPT_BADLY_POISON

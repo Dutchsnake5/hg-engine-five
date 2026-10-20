@@ -441,7 +441,13 @@ BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
     // BOOL fatefulEncounter = GetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, NULL);
     GF_RTC_CopyTime(&time);
 
+#ifdef FROSTBITE
+    // frostbite (the freeze bit) doesn't stop Shaymin from changing into its Sky Forme
+    (void)status;
+    if (species == SPECIES_SHAYMIN && form == 0 && hp != 0 && (time.hour >= 4 && time.hour < 20)) {
+#else
     if (species == SPECIES_SHAYMIN && form == 0 && hp != 0 && !(status & STATUS_FREEZE) && (time.hour >= 4 && time.hour < 20)) {
+#endif
         return TRUE;
     } else {
         return FALSE;

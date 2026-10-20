@@ -226,5 +226,6 @@
 #define HOLD_EFFECT_WELLSPRING_MASK                    218
 #define HOLD_EFFECT_HEARTHFLAME_MASK                   219
 #define HOLD_EFFECT_POWERING_UP_MOVE_ONCE              220
+#define HOLD_EFFECT_FRZ_USER                           221 // Frost Orb (FROSTBITE)
 
 #endif

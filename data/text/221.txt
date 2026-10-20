@@ -1,1 +1,2 @@
 A charm carrying the air of far-off\nlands. While it’s on, wild Pokémon\nappear in their regional forms.
+An item to be held by a Pokémon.\nIt’s a bizarre orb that will give\nthe holder frostbite during battle.

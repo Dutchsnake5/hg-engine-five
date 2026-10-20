@@ -562,6 +562,18 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
     // 6.8 Burn Modifier
 
+#ifdef FROSTBITE
+    // frostbite (the freeze bit) halves special damage, the way burn halves physical damage
+    if (movesplit == SPLIT_SPECIAL && (sp->battlemon[attacker].condition & STATUS_FREEZE)) {
+        damage = QMul_RoundDown(damage, UQ412__0_5);
+#ifdef DEBUG_DAMAGE_ROLLS
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_5);
+        }
+#endif
+    }
+#endif
+
     if (movesplit == SPLIT_PHYSICAL) {
         // burns halve physical damage.  this is ignored by guts and facade (as of gen 6)
         if ((sp->battlemon[attacker].condition & STATUS_BURN) && (attackerAbility != ABILITY_GUTS) && (moveno != MOVE_FACADE)) {
