@@ -173,7 +173,7 @@
 // numbers are worked out by GetTMDisplayNumber, src/item.c). ITEM_TR27 is TM222 Headbutt; ITEM_TR28-ITEM_TR99 taught a
 // move a TM already teaches and are blank, unused items. A script gives TM195 with ITEM_TR00, ... TM221 with ITEM_TR26.
 #define TRS_ARE_TMS
-#define TRS_AS_TMS_COUNT 28 // ITEM_TR00 .. ITEM_TR00 + 27 are TMs (TR27 = TM222 Headbutt)
+#define TRS_AS_TMS_COUNT 30 // ITEM_TR00 .. ITEM_TR00 + 29 are TMs (TR27 = TM222 Headbutt, TR28 = TM223 Jack Frost, TR29 = TM224 Hoarfrost)
 #ifdef TRS_ARE_TMS
 #define TRS_ARE_TMS_VALUE 1 // for IS_ITEM_TM / IS_ITEM_TR in include/constants/item.h
 #else
@@ -330,6 +330,11 @@
 // the second wait on two of every three steps, x2 on every step (as fast as the DS can go, up to 60). The setting is kept
 // in the save's text speed bits as 4 + choice, so older saves (0-2 there) start at x1. Labels: DSPRE text archive 0045.
 #define GAME_SPEED_OPTION
+
+// CUSTOM_TITLE_LOGO replaces the title screen's HeartGold logo with the hack's (data/graphics/title/title_logo.png,
+// 256 x 120, up to 255 colours + see-through colour 0; packed into a/0/4/6 by scripts/build_title_logo.py). Make the PNG
+// from the full-size artwork with the Desktop's Tools\title_logo\convert_logo.py.
+#define CUSTOM_TITLE_LOGO
 
 // FROSTBITE replaces freeze with Legends: Arceus-style frostbite (Drew's design, 2026-10-20; Showdown has no frostbite,
 // so this is a deliberate exception to following Showdown). It reuses the freeze status bit (saves keep working):

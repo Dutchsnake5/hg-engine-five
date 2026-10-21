@@ -93,6 +93,19 @@ NARC_FILES += $(STATUSICONS_NARC)
 endif
 
 
+TITLELOGO_NARC := $(BUILD_NARC)/a046.narc
+TITLELOGO_TARGET := $(FILESYS)/a/0/4/6
+
+# reads a/0/4/6 from rom.nds itself, never from base/root (which holds the previous build's copy)
+$(TITLELOGO_NARC): scripts/build_title_logo.py data/graphics/title/title_logo.png $(ROMNAME)
+	mkdir -p $(BUILD_NARC)
+	$(PYTHON) scripts/build_title_logo.py $(ROMNAME) data/graphics/title/title_logo.png $@
+
+ifneq ($(CUSTOM_TITLE_LOGO),0)
+NARC_FILES += $(TITLELOGO_NARC)
+endif
+
+
 MOVEDATA_DIR := $(BUILD)/a011
 MOVEDATA_NARC := $(BUILD_NARC)/a011.narc
 MOVEDATA_TARGET := $(FILESYS)/a/0/1/1

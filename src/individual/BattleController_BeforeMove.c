@@ -3210,6 +3210,8 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem
     if ((moveEffect == MOVE_EFFECT_STATUS_PARALYZE && HasType(ctx, defender, TYPE_ELECTRIC))
         // Fire-type burn immunity
         || (moveEffect == MOVE_EFFECT_STATUS_BURN && HasType(ctx, defender, TYPE_FIRE))
+        // Ice-type frostbite immunity (Jack Frost)
+        || (moveEffect == MOVE_EFFECT_STATUS_FROSTBITE && HasType(ctx, defender, TYPE_ICE))
         // Grass-type Leech Seed immunity
         || (moveEffect == MOVE_EFFECT_STATUS_LEECH_SEED && HasType(ctx, defender, TYPE_GRASS))
         // Poison / Steel-type poison / badly poison immunity
@@ -3262,6 +3264,7 @@ BOOL BattleController_CheckSafeguard(struct BattleSystem *bsys UNUSED, struct Ba
         case MOVE_EFFECT_STATUS_POISON:
         case MOVE_EFFECT_STATUS_BADLY_POISON:
         case MOVE_EFFECT_STATUS_BURN:
+        case MOVE_EFFECT_STATUS_FROSTBITE:
         case MOVE_EFFECT_STATUS_CONFUSE:
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
@@ -3298,7 +3301,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
             break;
 
         case MISTY_TERRAIN:
-            if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_CONFUSE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
+            if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_FROSTBITE || moveEffect == MOVE_EFFECT_STATUS_CONFUSE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
                 ctx->battlerIdTemp = defender;
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, moveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP);
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MISTY_TERRAIN_PROTECTION);
@@ -3745,6 +3748,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         case MOVE_EFFECT_STATUS_POISON:
         case MOVE_EFFECT_STATUS_BADLY_POISON:
         case MOVE_EFFECT_STATUS_BURN:
+        case MOVE_EFFECT_STATUS_FROSTBITE:
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
@@ -3845,6 +3849,9 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         && (moveEffect == MOVE_EFFECT_STATUS_BURN)) {
         doesNotAffect = TRUE;
     }
+    if (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_MAGMA_ARMOR) && (moveEffect == MOVE_EFFECT_STATUS_FROSTBITE)) {
+        doesNotAffect = TRUE;
+    }
 
     if (doChecking) {
         switch (moveEffect) {
@@ -3855,6 +3862,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         case MOVE_EFFECT_STATUS_POISON:
         case MOVE_EFFECT_STATUS_BADLY_POISON:
         case MOVE_EFFECT_STATUS_BURN:
+        case MOVE_EFFECT_STATUS_FROSTBITE:
             doesNotAffect = TRUE;
             break;
 
@@ -4864,7 +4872,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         // Leech Seed when target already has Leech Seed
         || (moveEffect == MOVE_EFFECT_STATUS_LEECH_SEED && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED)
         // Status move into target that already has another major status condition (but not the same one)
-        || ((moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN) && ctx->battlemon[defender].condition)
+        || ((moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_FROSTBITE) && ctx->battlemon[defender].condition)
         // Torment when target already has Torment
         || (moveEffect == MOVE_EFFECT_TORMENT && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_EMBARGO)
         // Yawn into target with status condition / already has Yawn
@@ -4914,7 +4922,8 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         || (moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_YAWN)
         || (moveEffect == MOVE_EFFECT_STATUS_PARALYZE && ctx->battlemon[defender].condition & STATUS_PARALYSIS)
         || ((moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON) && ctx->battlemon[defender].condition & STATUS_POISON_ALL)
-        || (moveEffect == MOVE_EFFECT_STATUS_BURN && ctx->battlemon[defender].condition & STATUS_BURN)) {
+        || (moveEffect == MOVE_EFFECT_STATUS_BURN && ctx->battlemon[defender].condition & STATUS_BURN)
+        || (moveEffect == MOVE_EFFECT_STATUS_FROSTBITE && ctx->battlemon[defender].condition & STATUS_FREEZE)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;

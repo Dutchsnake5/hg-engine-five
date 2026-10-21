@@ -9,6 +9,7 @@ _000:
     WaitButtonABTime 30
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_PARALYSIS, Paralyzed
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BURN, Burned
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_FREEZE, Frostbitten
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_SLEEP, Asleep
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_POISON, Poisoned
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BAD_POISON, Poisoned
@@ -21,6 +22,10 @@ Paralyzed:
 Burned:
     // {0} is already burned!
     PrintMessage 98, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    GoTo Continue
+Frostbitten:
+    // {0} already has frostbite!
+    PrintMessage 1944, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     GoTo Continue
 Asleep:
     // {0} is already asleep!

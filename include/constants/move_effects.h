@@ -452,6 +452,7 @@
 #define MOVE_EFFECT_SKY_DROP                                446
 #define MOVE_EFFECT_ORDER_UP                                447
 #define MOVE_EFFECT_ALLY_SWITCH                             448
+#define MOVE_EFFECT_STATUS_FROSTBITE                        449 // Jack Frost (FROSTBITE)
 
 #define MAX_BASE_MOVE_EFFECT_NUM 448
 

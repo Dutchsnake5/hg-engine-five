@@ -944,9 +944,11 @@
 // #define MOVE_CUSTOM_MOVE_1 (NUM_OF_CANONICAL_MOVES)
 // #define MOVE_CUSTOM_MOVE_2 (NUM_OF_CANONICAL_MOVES + 1)
 // ...
+#define MOVE_HOARFROST  (NUM_OF_CANONICAL_MOVES)     // 923: Ice, hits everything adjacent, 30% frostbite (FROSTBITE)
+#define MOVE_JACK_FROST (NUM_OF_CANONICAL_MOVES + 1) // 924: Ice status move, the frostbite Will-O-Wisp (FROSTBITE)
 
 // update this number yourself manually
-#define NUM_OF_CUSTOM_MOVES 0
+#define NUM_OF_CUSTOM_MOVES 2
 
 #define NUM_OF_MOVES (NUM_OF_CANONICAL_MOVES + NUM_OF_CUSTOM_MOVES)
 

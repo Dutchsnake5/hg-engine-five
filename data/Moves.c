@@ -1607,7 +1607,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_ICE,
             .accuracy = 75,
             .pp = 5,
-            .effectChance = 10,
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_ADJACENT_OPPONENTS,
@@ -24920,6 +24920,58 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .contestType = CONTEST_COOL,
         },
         .description = "The user pours toxins\\ninto the target through\\na corrosive chain. This\\nmay also leave the\\ntarget badly poisoned.",
+    },
+    [MOVE_HOARFROST] = {
+        .names = {
+            .name = "Hoarfrost",
+            .capsName = "HOARFROST",
+            .fullName = "Hoarfrost",
+        },
+        .data = {
+            .effect = MOVE_EFFECT_FREEZE_HIT,
+            .split = SPLIT_SPECIAL,
+            .power = 80,
+            .type = TYPE_ICE,
+            .accuracy = 100,
+            .pp = 15,
+            .effectChance = 30,
+        },
+        .battle = {
+            .target = RANGE_ALL_ADJACENT,
+            .priority = 0,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
+        },
+        .contest = {
+            .appeal = APPEAL_FIRST_HEARTS,
+            .contestType = CONTEST_BEAUTY,
+        },
+        .description = "A biting layer of frost\\nspreads over all\\nPokémon in battle.\\nIt may also give them\\nfrostbite.",
+    },
+    [MOVE_JACK_FROST] = {
+        .names = {
+            .name = "Jack Frost",
+            .capsName = "JACK FROST",
+            .fullName = "Jack Frost",
+        },
+        .data = {
+            .effect = MOVE_EFFECT_STATUS_FROSTBITE,
+            .split = SPLIT_STATUS,
+            .power = 0,
+            .type = TYPE_ICE,
+            .accuracy = 85,
+            .pp = 15,
+            .effectChance = 0,
+        },
+        .battle = {
+            .target = RANGE_SINGLE_TARGET,
+            .priority = 0,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
+        },
+        .contest = {
+            .appeal = APPEAL_FIRST_HEARTS,
+            .contestType = CONTEST_BEAUTY,
+        },
+        .description = "The user shoots a\\nsinister, icy wisp\\nat the target to give\\nit frostbite.",
     },
 
     [NUM_OF_MOVES] = {

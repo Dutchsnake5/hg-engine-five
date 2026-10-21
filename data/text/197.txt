@@ -1942,3 +1942,6 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 {STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} already\nhas frostbite!
+The wild {STRVAR_1 1, 0, 0} already\nhas frostbite!
+The opposing {STRVAR_1 1, 0, 0} already\nhas frostbite!

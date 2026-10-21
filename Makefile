@@ -165,6 +165,7 @@ BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 IMPLEMENT_TRANSPARENT_TEXTBOXES := $(call config_enabled,IMPLEMENT_TRANSPARENT_TEXTBOXES)
 MOVE_EFFECTIVENESS_DISPLAY := $(call config_enabled,MOVE_EFFECTIVENESS_DISPLAY)
 FROSTBITE := $(call config_enabled,FROSTBITE)
+CUSTOM_TITLE_LOGO := $(call config_enabled,CUSTOM_TITLE_LOGO)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -423,6 +424,11 @@ endif
 ifneq ($(FROSTBITE),0)
 	@echo "status icons (FRB):"
 	cp $(STATUSICONS_NARC) $(STATUSICONS_TARGET)
+endif
+
+ifneq ($(CUSTOM_TITLE_LOGO),0)
+	@echo "title screen logo:"
+	cp $(TITLELOGO_NARC) $(TITLELOGO_TARGET)
 endif
 
 	@echo "move data:"

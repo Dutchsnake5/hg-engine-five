@@ -82,8 +82,8 @@ The user swings both arms and hits\nthe target. The target’s stat changes\ndon
 The user bites the target with its\npsychic capabilities. This can also\ndestroy Light Screen and Reflect.
 The user attacks by slamming its body into\nthe target. The higher the user’s Defense,\nthe more damage it can inflict on the target.
 The user attacks with its head. It may\nmake the foe flinch. To find Pokémon,\nhit trees.
-- - -
-- - -
+The user shoots a sinister, icy wisp at\nthe target to give it frostbite.
+A biting layer of frost spreads over\nall Pokémon in battle. It may also give\nthem frostbite.
 - - -
 - - -
 - - -

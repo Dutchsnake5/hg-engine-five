@@ -283,8 +283,8 @@ const u16 sMachineMoves[] = {
     MOVE_PSYCHIC_FANGS, // TR25 = TM255 (was TR97)
     MOVE_BODY_PRESS, // TR26 = TM256 (was TR99)
     MOVE_HEADBUTT, // TR27
-    MOVE_NONE, // TR28: blank
-    MOVE_NONE, // TR29: blank
+    MOVE_JACK_FROST, // TR28
+    MOVE_HOARFROST, // TR29
     MOVE_NONE, // TR30: blank
     MOVE_NONE, // TR31: blank
     MOVE_NONE, // TR32: blank

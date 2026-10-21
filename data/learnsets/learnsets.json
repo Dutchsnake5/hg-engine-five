@@ -14909,6 +14909,10 @@
         "Move": "MOVE_AURORA_BEAM"
       },
       {
+        "Level": 27,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 31,
         "Move": "MOVE_AQUA_JET"
       },
@@ -15009,7 +15013,9 @@
       "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_HORN_DRILL",
@@ -15080,6 +15086,10 @@
       {
         "Level": 27,
         "Move": "MOVE_AURORA_BEAM"
+      },
+      {
+        "Level": 27,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 31,
@@ -15190,7 +15200,9 @@
       "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_HORN_DRILL",
@@ -15648,6 +15660,10 @@
         "Move": "MOVE_ICE_BEAM"
       },
       {
+        "Level": 40,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 44,
         "Move": "MOVE_SHELL_SMASH"
       },
@@ -15718,7 +15734,9 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_BUBBLE_BEAM",
@@ -15818,6 +15836,10 @@
       {
         "Level": 5,
         "Move": "MOVE_RAZOR_SHELL"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "MachineMoves": [
@@ -15894,7 +15916,9 @@
       "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_BUBBLE_BEAM",
@@ -15948,6 +15972,10 @@
       {
         "Level": 16,
         "Move": "MOVE_SPITE"
+      },
+      {
+        "Level": 16,
+        "Move": "MOVE_JACK_FROST"
       },
       {
         "Level": 20,
@@ -16062,7 +16090,8 @@
       "MOVE_VENOSHOCK",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZAP_CANNON"
+      "MOVE_ZAP_CANNON",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -16140,6 +16169,10 @@
       {
         "Level": 16,
         "Move": "MOVE_SPITE"
+      },
+      {
+        "Level": 16,
+        "Move": "MOVE_JACK_FROST"
       },
       {
         "Level": 20,
@@ -16261,7 +16294,8 @@
       "MOVE_VENOSHOCK",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZAP_CANNON"
+      "MOVE_ZAP_CANNON",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -16347,6 +16381,10 @@
       {
         "Level": 16,
         "Move": "MOVE_SPITE"
+      },
+      {
+        "Level": 16,
+        "Move": "MOVE_JACK_FROST"
       },
       {
         "Level": 20,
@@ -16489,7 +16527,8 @@
       "MOVE_VENOSHOCK",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZAP_CANNON"
+      "MOVE_ZAP_CANNON",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -21988,12 +22027,20 @@
         "Move": "MOVE_SING"
       },
       {
+        "Level": 20,
+        "Move": "MOVE_JACK_FROST"
+      },
+      {
         "Level": 24,
         "Move": "MOVE_FAKE_TEARS"
       },
       {
         "Level": 28,
         "Move": "MOVE_ICE_PUNCH"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 34,
@@ -22114,7 +22161,9 @@
       "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_ICE_PUNCH",
@@ -23168,6 +23217,10 @@
         "Move": "MOVE_ICE_BEAM"
       },
       {
+        "Level": 45,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 50,
         "Move": "MOVE_RAIN_DANCE"
       },
@@ -23277,7 +23330,9 @@
       "MOVE_WEATHER_BALL",
       "MOVE_WHIRLPOOL",
       "MOVE_ZAP_CANNON",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_HORN_DRILL",
@@ -25526,6 +25581,10 @@
         "Move": "MOVE_FREEZE_DRY"
       },
       {
+        "Level": 35,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 40,
         "Move": "MOVE_ROOST"
       },
@@ -25627,7 +25686,9 @@
       "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_WHIRLWIND"
+      "MOVE_WHIRLWIND",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -36010,7 +36071,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_ZAP_CANNON"
+      "MOVE_ZAP_CANNON",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_SCREECH",
@@ -38519,6 +38581,10 @@
         "Move": "MOVE_AGILITY"
       },
       {
+        "Level": 48,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 54,
         "Move": "MOVE_SCREECH"
       },
@@ -38623,7 +38689,9 @@
       "MOVE_UPPER_HAND",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_BITE",
@@ -39446,6 +39514,10 @@
         "Move": "MOVE_TAKE_DOWN"
       },
       {
+        "Level": 40,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 45,
         "Move": "MOVE_EARTHQUAKE"
       },
@@ -39518,7 +39590,9 @@
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
-      "MOVE_TRAILBLAZE"
+      "MOVE_TRAILBLAZE",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -39602,6 +39676,10 @@
         "Move": "MOVE_TAKE_DOWN"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 51,
         "Move": "MOVE_EARTHQUAKE"
       },
@@ -39681,7 +39759,9 @@
       "MOVE_TERA_BLAST",
       "MOVE_THROAT_CHOP",
       "MOVE_TOXIC",
-      "MOVE_TRAILBLAZE"
+      "MOVE_TRAILBLAZE",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -40227,6 +40307,10 @@
       {
         "Level": 25,
         "Move": "MOVE_DRILL_PECK"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "MachineMoves": [
@@ -40310,7 +40394,9 @@
       "MOVE_TRAILBLAZE",
       "MOVE_TRIPLE_AXEL",
       "MOVE_WATER_PULSE",
-      "MOVE_WEATHER_BALL"
+      "MOVE_WEATHER_BALL",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_AURORA_BEAM",
@@ -42272,12 +42358,20 @@
         "Move": "MOVE_SING"
       },
       {
+        "Level": 20,
+        "Move": "MOVE_JACK_FROST"
+      },
+      {
         "Level": 24,
         "Move": "MOVE_FAKE_TEARS"
       },
       {
         "Level": 28,
         "Move": "MOVE_ICE_PUNCH"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 32,
@@ -42367,7 +42461,9 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_ICE_PUNCH",
@@ -62052,7 +62148,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -62227,7 +62324,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -62394,7 +62492,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_HAZE",
@@ -62593,7 +62692,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_HAZE",
@@ -63261,6 +63361,10 @@
         "Move": "MOVE_DOUBLE_TEAM"
       },
       {
+        "Level": 10,
+        "Move": "MOVE_JACK_FROST"
+      },
+      {
         "Level": 15,
         "Move": "MOVE_ICE_SHARD"
       },
@@ -63275,6 +63379,10 @@
       {
         "Level": 30,
         "Move": "MOVE_FROST_BREATH"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 35,
@@ -63349,7 +63457,9 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -63414,12 +63524,20 @@
         "Move": "MOVE_PROTECT"
       },
       {
+        "Level": 20,
+        "Move": "MOVE_JACK_FROST"
+      },
+      {
         "Level": 25,
         "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 30,
         "Move": "MOVE_FROST_BREATH"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 35,
@@ -63508,7 +63626,9 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -63582,6 +63702,10 @@
         "Move": "MOVE_AURORA_BEAM"
       },
       {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 33,
         "Move": "MOVE_ENCORE"
       },
@@ -63649,7 +63773,9 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_CURSE",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -63733,6 +63859,10 @@
         "Move": "MOVE_AURORA_BEAM"
       },
       {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 35,
         "Move": "MOVE_ENCORE"
       },
@@ -63802,7 +63932,9 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_CURSE",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -63890,6 +64022,10 @@
         "Move": "MOVE_AURORA_BEAM"
       },
       {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 35,
         "Move": "MOVE_ENCORE"
       },
@@ -63971,7 +64107,9 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_CURSE",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_FISSURE",
@@ -65777,6 +65915,10 @@
         "Move": "MOVE_SUPERPOWER"
       },
       {
+        "Level": 54,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 60,
         "Move": "MOVE_LOCK_ON"
       },
@@ -65861,7 +66003,9 @@
       "MOVE_THUNDER_PUNCH",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -73458,7 +73602,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WEATHER_BALL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -73643,7 +73788,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WEATHER_BALL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -74162,7 +74308,8 @@
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_SCREECH",
@@ -76186,7 +76333,8 @@
       "MOVE_UPROAR",
       "MOVE_WATER_PULSE",
       "MOVE_WILL_O_WISP",
-      "MOVE_WONDER_ROOM"
+      "MOVE_WONDER_ROOM",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -78897,6 +79045,10 @@
         "Move": "MOVE_WOOD_HAMMER"
       },
       {
+        "Level": 41,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 45,
         "Move": "MOVE_BLIZZARD"
       },
@@ -78963,7 +79115,9 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -79038,6 +79192,10 @@
       {
         "Level": 43,
         "Move": "MOVE_WOOD_HAMMER"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 49,
@@ -79127,7 +79285,9 @@
       "MOVE_TRAILBLAZE",
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -79218,6 +79378,10 @@
       {
         "Level": 48,
         "Move": "MOVE_NASTY_PLOT"
+      },
+      {
+        "Level": 48,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 54,
@@ -79328,7 +79492,9 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_X_SCISSOR",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_BITE",
@@ -81091,6 +81257,10 @@
         "Move": "MOVE_ICE_FANG"
       },
       {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 35,
         "Move": "MOVE_SNOWSCAPE"
       },
@@ -81178,7 +81348,9 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WORK_UP",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -81451,6 +81623,10 @@
         "Move": "MOVE_TAKE_DOWN"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 51,
         "Move": "MOVE_EARTHQUAKE"
       },
@@ -81535,7 +81711,9 @@
       "MOVE_THROAT_CHOP",
       "MOVE_TOXIC",
       "MOVE_TRAILBLAZE",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_EDGE",
@@ -82396,7 +82574,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_HAZE",
@@ -82494,6 +82673,10 @@
         "Move": "MOVE_FROST_BREATH"
       },
       {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 35,
         "Move": "MOVE_CONFUSE_RAY"
       },
@@ -82504,6 +82687,10 @@
       {
         "Level": 47,
         "Move": "MOVE_WILL_O_WISP"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_JACK_FROST"
       },
       {
         "Level": 54,
@@ -82598,7 +82785,9 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WILL_O_WISP",
-      "MOVE_HEADBUTT"
+      "MOVE_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -96768,7 +96957,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_MEMENTO"
@@ -96930,7 +97120,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_MEMENTO"
@@ -101119,7 +101310,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_MIST",
@@ -101258,7 +101450,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_MIST",
@@ -104286,6 +104479,10 @@
         "Move": "MOVE_FREEZE_DRY"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 40,
         "Move": "MOVE_LIGHT_SCREEN"
       },
@@ -104362,7 +104559,9 @@
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
       "MOVE_TRIPLE_AXEL",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_EXPLOSION",
@@ -116809,6 +117008,10 @@
         "Move": "MOVE_FREEZE_DRY"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 40,
         "Move": "MOVE_ICE_BEAM"
       },
@@ -116891,7 +117094,9 @@
       "MOVE_TOXIC",
       "MOVE_WEATHER_BALL",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_HAZE"
+      "MOVE_HAZE",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -116963,6 +117168,10 @@
       {
         "Level": 36,
         "Move": "MOVE_FREEZE_DRY"
+      },
+      {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 42,
@@ -117052,7 +117261,9 @@
       "MOVE_TOXIC",
       "MOVE_WEATHER_BALL",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_HAZE"
+      "MOVE_HAZE",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -118973,6 +119184,10 @@
         "Move": "MOVE_TAKE_DOWN"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 39,
         "Move": "MOVE_BLIZZARD"
       },
@@ -119029,7 +119244,9 @@
       "MOVE_SWAGGER",
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_MIST",
@@ -119121,6 +119338,10 @@
       {
         "Level": 51,
         "Move": "MOVE_ICICLE_CRASH"
+      },
+      {
+        "Level": 51,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "MachineMoves": [
@@ -119183,7 +119404,9 @@
       "MOVE_SWAGGER",
       "MOVE_TAKE_DOWN",
       "MOVE_TERA_BLAST",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_MIST",
@@ -123363,6 +123586,10 @@
         "Move": "MOVE_ICE_HAMMER"
       },
       {
+        "Level": 37,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 42,
         "Move": "MOVE_IRON_DEFENSE"
       },
@@ -123445,7 +123672,9 @@
       "MOVE_TOXIC",
       "MOVE_UPPER_HAND",
       "MOVE_WORK_UP",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_FOCUS_PUNCH",
@@ -132436,6 +132665,10 @@
         "Move": "MOVE_GYRO_BALL"
       },
       {
+        "Level": 36,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 39,
         "Move": "MOVE_SWORDS_DANCE"
       },
@@ -132516,7 +132749,9 @@
       "MOVE_TOXIC",
       "MOVE_TRIPLE_AXEL",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -132568,6 +132803,10 @@
       {
         "Level": 1,
         "Move": "MOVE_ICICLE_CRASH"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "MachineMoves": [
@@ -132646,7 +132885,9 @@
       "MOVE_TOXIC",
       "MOVE_TRIPLE_AXEL",
       "MOVE_WORK_UP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_COUNTER",
@@ -132719,6 +132960,10 @@
       {
         "Level": 32,
         "Move": "MOVE_ICE_BEAM"
+      },
+      {
+        "Level": 32,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 36,
@@ -132804,7 +133049,9 @@
       "MOVE_TERA_BLAST",
       "MOVE_TOXIC",
       "MOVE_WEATHER_BALL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_ROAR",
@@ -132849,6 +133096,10 @@
       {
         "Level": 1,
         "Move": "MOVE_IMPRISON"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_HOARFROST"
       }
     ],
     "MachineMoves": [
@@ -132923,7 +133174,9 @@
       "MOVE_TRIPLE_AXEL",
       "MOVE_WEATHER_BALL",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_ROAR",
@@ -142883,7 +143136,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_MEMENTO"
@@ -144345,6 +144599,10 @@
         "Move": "MOVE_FREEZE_DRY"
       },
       {
+        "Level": 42,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 49,
         "Move": "MOVE_SLAM"
       },
@@ -144406,7 +144664,9 @@
       "MOVE_THUNDER_FANG",
       "MOVE_THUNDER_PUNCH",
       "MOVE_THUNDER_WAVE",
-      "MOVE_WILD_CHARGE"
+      "MOVE_WILD_CHARGE",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -144551,6 +144811,10 @@
         "Move": "MOVE_FREEZE_DRY"
       },
       {
+        "Level": 42,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 49,
         "Move": "MOVE_SUPER_FANG"
       },
@@ -144606,7 +144870,9 @@
       "MOVE_SURF",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -147464,6 +147730,10 @@
         "Move": "MOVE_FREEZE_DRY"
       },
       {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 48,
         "Move": "MOVE_PSYCHIC"
       },
@@ -147540,7 +147810,9 @@
       "MOVE_TRICK_ROOM",
       "MOVE_UPROAR",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_CONFUSE_RAY",
@@ -148529,6 +148801,10 @@
         "Move": "MOVE_ICE_PUNCH"
       },
       {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 32,
         "Move": "MOVE_UPROAR"
       },
@@ -148593,7 +148869,9 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WORK_UP",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_FOCUS_PUNCH"
+      "MOVE_FOCUS_PUNCH",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -148652,6 +148930,10 @@
       {
         "Level": 28,
         "Move": "MOVE_ICE_PUNCH"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_HOARFROST"
       },
       {
         "Level": 32,
@@ -148732,7 +149014,9 @@
       "MOVE_WILL_O_WISP",
       "MOVE_WORK_UP",
       "MOVE_ZEN_HEADBUTT",
-      "MOVE_FOCUS_PUNCH"
+      "MOVE_FOCUS_PUNCH",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",
@@ -148853,7 +149137,8 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
       "MOVE_WONDER_ROOM",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_JACK_FROST"
     ],
     "EggMoves": [
       "MOVE_MEMENTO"
@@ -166435,6 +166720,10 @@
         "Move": "MOVE_BLIZZARD"
       },
       {
+        "Level": 41,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
         "Level": 46,
         "Move": "MOVE_DOUBLE_EDGE"
       },
@@ -166490,7 +166779,9 @@
       "MOVE_STONE_EDGE",
       "MOVE_SUBSTITUTE",
       "MOVE_TAKE_DOWN",
-      "MOVE_TERA_BLAST"
+      "MOVE_TERA_BLAST",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -167233,6 +167524,277 @@
       "MOVE_WISH",
       "MOVE_NIGHT_SLASH",
       "MOVE_DEFOG"
+    ]
+  },
+  "SPECIES_DARMANITAN_ZEN_MODE_GALARIAN": {
+    "MachineMoves": [
+      "MOVE_ATTRACT",
+      "MOVE_BODY_PRESS",
+      "MOVE_BODY_SLAM",
+      "MOVE_BRICK_BREAK",
+      "MOVE_BULK_UP",
+      "MOVE_BULLDOZE",
+      "MOVE_CONFIDE",
+      "MOVE_DIG",
+      "MOVE_DOUBLE_TEAM",
+      "MOVE_EARTHQUAKE",
+      "MOVE_ENCORE",
+      "MOVE_ENDURE",
+      "MOVE_FACADE",
+      "MOVE_FIRE_BLAST",
+      "MOVE_FIRE_FANG",
+      "MOVE_FIRE_PUNCH",
+      "MOVE_FIRE_SPIN",
+      "MOVE_FLAMETHROWER",
+      "MOVE_FLAME_CHARGE",
+      "MOVE_FLARE_BLITZ",
+      "MOVE_FLING",
+      "MOVE_FOCUS_BLAST",
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_FRUSTRATION",
+      "MOVE_FUTURE_SIGHT",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_GRASS_KNOT",
+      "MOVE_GUARD_SWAP",
+      "MOVE_GYRO_BALL",
+      "MOVE_HEAT_WAVE",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_HYPER_BEAM",
+      "MOVE_INCINERATE",
+      "MOVE_IRON_DEFENSE",
+      "MOVE_IRON_HEAD",
+      "MOVE_MEGA_KICK",
+      "MOVE_MEGA_PUNCH",
+      "MOVE_MYSTICAL_FIRE",
+      "MOVE_OVERHEAT",
+      "MOVE_PAYBACK",
+      "MOVE_POWER_SWAP",
+      "MOVE_POWER_UP_PUNCH",
+      "MOVE_PROTECT",
+      "MOVE_PSYCHIC",
+      "MOVE_REST",
+      "MOVE_RETURN",
+      "MOVE_REVERSAL",
+      "MOVE_ROAR",
+      "MOVE_ROCK_SLIDE",
+      "MOVE_ROCK_SMASH",
+      "MOVE_ROCK_TOMB",
+      "MOVE_ROUND",
+      "MOVE_SECRET_POWER",
+      "MOVE_SLEEP_TALK",
+      "MOVE_SMACK_DOWN",
+      "MOVE_SNORE",
+      "MOVE_SOLAR_BEAM",
+      "MOVE_STONE_EDGE",
+      "MOVE_STRENGTH",
+      "MOVE_SUBSTITUTE",
+      "MOVE_SUNNY_DAY",
+      "MOVE_SUPERPOWER",
+      "MOVE_SWAGGER",
+      "MOVE_TAUNT",
+      "MOVE_THIEF",
+      "MOVE_TORMENT",
+      "MOVE_TOXIC",
+      "MOVE_TRICK",
+      "MOVE_UPROAR",
+      "MOVE_U_TURN",
+      "MOVE_WILL_O_WISP",
+      "MOVE_WORK_UP",
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_FOCUS_PUNCH",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
+    ],
+    "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_HAMMER_ARM"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_HAMMER_ARM"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_EMBER"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_TACKLE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_TAUNT"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 12,
+        "Move": "MOVE_INCINERATE"
+      },
+      {
+        "Level": 16,
+        "Move": "MOVE_WORK_UP"
+      },
+      {
+        "Level": 20,
+        "Move": "MOVE_FIRE_FANG"
+      },
+      {
+        "Level": 24,
+        "Move": "MOVE_HEADBUTT"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_FIRE_PUNCH"
+      },
+      {
+        "Level": 32,
+        "Move": "MOVE_UPROAR"
+      },
+      {
+        "Level": 38,
+        "Move": "MOVE_BELLY_DRUM"
+      },
+      {
+        "Level": 44,
+        "Move": "MOVE_FLARE_BLITZ"
+      },
+      {
+        "Level": 44,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_THRASH"
+      },
+      {
+        "Level": 56,
+        "Move": "MOVE_SUPERPOWER"
+      }
+    ]
+  },
+  "SPECIES_ROTOM_FROST": {
+    "MachineMoves": [
+      "MOVE_ALLY_SWITCH",
+      "MOVE_CHARGE",
+      "MOVE_CHARGE_BEAM",
+      "MOVE_CONFIDE",
+      "MOVE_CONFUSE_RAY",
+      "MOVE_DARK_PULSE",
+      "MOVE_DOUBLE_TEAM",
+      "MOVE_DREAM_EATER",
+      "MOVE_EERIE_IMPULSE",
+      "MOVE_ELECTRIC_TERRAIN",
+      "MOVE_ELECTROWEB",
+      "MOVE_ELECTRO_BALL",
+      "MOVE_ENDURE",
+      "MOVE_FACADE",
+      "MOVE_FLASH",
+      "MOVE_FOUL_PLAY",
+      "MOVE_FRUSTRATION",
+      "MOVE_HELPING_HAND",
+      "MOVE_HEX",
+      "MOVE_HIDDEN_POWER",
+      "MOVE_HYPER_VOICE",
+      "MOVE_LIGHT_SCREEN",
+      "MOVE_NASTY_PLOT",
+      "MOVE_NATURAL_GIFT",
+      "MOVE_NIGHT_SHADE",
+      "MOVE_PAIN_SPLIT",
+      "MOVE_POLTERGEIST",
+      "MOVE_PROTECT",
+      "MOVE_PSYCH_UP",
+      "MOVE_RAIN_DANCE",
+      "MOVE_REFLECT",
+      "MOVE_REST",
+      "MOVE_RETURN",
+      "MOVE_ROUND",
+      "MOVE_SECRET_POWER",
+      "MOVE_SHADOW_BALL",
+      "MOVE_SHOCK_WAVE",
+      "MOVE_SLEEP_TALK",
+      "MOVE_SNATCH",
+      "MOVE_SNORE",
+      "MOVE_SPITE",
+      "MOVE_STORED_POWER",
+      "MOVE_SUBSTITUTE",
+      "MOVE_SUNNY_DAY",
+      "MOVE_SWAGGER",
+      "MOVE_SWIFT",
+      "MOVE_TELEKINESIS",
+      "MOVE_TERA_BLAST",
+      "MOVE_THIEF",
+      "MOVE_THUNDER",
+      "MOVE_THUNDERBOLT",
+      "MOVE_THUNDER_WAVE",
+      "MOVE_TOXIC",
+      "MOVE_TRICK",
+      "MOVE_UPROAR",
+      "MOVE_VOLT_SWITCH",
+      "MOVE_WILL_O_WISP",
+      "MOVE_JACK_FROST",
+      "MOVE_HOARFROST"
+    ],
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_DOUBLE_TEAM"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_ASTONISH"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_THUNDER_SHOCK"
+      },
+      {
+        "Level": 10,
+        "Move": "MOVE_CONFUSE_RAY"
+      },
+      {
+        "Level": 15,
+        "Move": "MOVE_CHARGE"
+      },
+      {
+        "Level": 20,
+        "Move": "MOVE_ELECTRO_BALL"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_THUNDER_WAVE"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_SHOCK_WAVE"
+      },
+      {
+        "Level": 35,
+        "Move": "MOVE_HEX"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_SUBSTITUTE"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_HOARFROST"
+      },
+      {
+        "Level": 45,
+        "Move": "MOVE_TRICK"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_DISCHARGE"
+      },
+      {
+        "Level": 55,
+        "Move": "MOVE_UPROAR"
+      }
     ]
   }
 }

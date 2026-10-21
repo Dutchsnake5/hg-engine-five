@@ -409,6 +409,10 @@ static int EffDisplay_Status(struct BattleSystem *bsys, struct BattleStruct *sp,
             || EffDefender_HasAbility(sp, attacker, d, move, ABILITY_WATER_BUBBLE) || EffDefender_HasAbility(sp, attacker, d, move, ABILITY_THERMAL_EXCHANGE)
             || EffDisplay_StatusConditionBlocked(sp, attacker, d, move);
         break;
+    case MOVE_EFFECT_STATUS_FROSTBITE: // Jack Frost (FROSTBITE)
+        blocked = EffDefender_HasType(d, TYPE_ICE) || EffDefender_HasAbility(sp, attacker, d, move, ABILITY_MAGMA_ARMOR)
+            || EffDisplay_StatusConditionBlocked(sp, attacker, d, move);
+        break;
     case MOVE_EFFECT_STATUS_CONFUSE:
     case MOVE_EFFECT_CONFUSE_ALL_ADJACENT:
     case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
