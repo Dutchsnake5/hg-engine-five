@@ -2,7 +2,13 @@
 """Puts the hack's logo on the title screen and turns HeartGold's orange sunburst behind it jade green
 (CUSTOM_TITLE_LOGO).
 
-    build_title_logo.py <rom.nds> <logo png> <output narc>
+    build_title_logo.py <rom.nds> <logo png> <output narc> [<model .nsbmd> <animation .nsbca>]
+
+With a model and animation (CUSTOM_TITLE_SCENE): the cloud sea is recoloured to a forest canopy (palettes
+hou_cloud01_pl and hou_kumo03_pl in member 25), the bottom screen's Ho-Oh is hidden (its 15 shapes' draw
+commands in member 25 become NOPs; the sky, clouds and their scrolling stay) and the given model + joint
+animation replace the sparkle trail (members 38 and 39), which the title screen draws at the same place with
+the same camera. The model and animation come from the Desktop's Title Scene tools (build_celebi.py).
 
 The HeartGold title screen draws its logo from archive a/0/4/6 (pret: demo/title/titledemo.narc): member 3 = the
 256 x 120 picture as 8bpp tiles (NCGR), member 4 = its 256-colour palette (NCLR, loaded as a sub-screen extended
@@ -24,6 +30,7 @@ import ndspy.rom
 from PIL import Image
 
 rom_path, png, out_path = sys.argv[1:4]
+scene = sys.argv[4:6]
 narc = ndspy.narc.NARC(ndspy.rom.NintendoDSRom.fromFile(rom_path).getFileByName('a/0/4/6'))
 
 im = Image.open(png)
@@ -87,5 +94,120 @@ for row in (3, 4):
     for col in range(32):
         struct.pack_into('<H', nscr, 0x24 + (row * 32 + col) * 2, 0)
 narc.files[0] = bytes(nscr)
+
+
+
+def sbc_oplen(data, p):
+    """byte length of the NNS G3D render command at p"""
+    cmd, flag = data[p] & 0x1F, data[p] >> 5
+    if cmd in (0x00, 0x01, 0x0B):
+        return 1
+    if cmd == 0x02:
+        return 3
+    if cmd in (0x03, 0x04, 0x05):
+        return 2
+    if cmd == 0x06:
+        return 4 + (1 if flag in (1, 2) else 2 if flag == 3 else 0)
+    if cmd in (0x07, 0x08):
+        return 2 + (1 if flag in (1, 2) else 2 if flag == 3 else 0)
+    if cmd == 0x09:
+        return 3 + 3 * data[p + 2]
+    if cmd == 0x0A:
+        return 9
+    if cmd in (0x0C, 0x0D):
+        return 3
+    sys.exit('unknown render command 0x%02x' % data[p])
+
+
+def hide_shapes(data, shape_ids):
+    """NOPs out the SHP commands of the given shapes in the first model's render commands"""
+    data = bytearray(data)
+    assert data[:4] == b'BMD0'
+    mdl = struct.unpack_from('<I', data, 16)[0]
+    dic = mdl + 8
+    m = mdl + struct.unpack_from('<I', data, dic + struct.unpack_from('<H', data, dic + 6)[0] + 4)[0]
+    p, end = (m + o for o in struct.unpack_from('<II', data, m + 4))
+    hidden = 0
+    while p < end and data[p] & 0x1F != 0x01:
+        n = sbc_oplen(data, p)
+        if data[p] & 0x1F == 0x05 and data[p + 1] in shape_ids:
+            data[p] = data[p + 1] = 0
+            hidden += 1
+        p += n
+    return bytes(data), hidden
+
+
+def tex0_palettes(data):
+    """{palette name: (offset in the file, number of colours)} of an .nsbmd's TEX0 block"""
+    nblk = struct.unpack_from('<H', data, 14)[0]
+    for off in struct.unpack_from('<%dI' % nblk, data, 16):
+        if data[off:off + 4] == b'TEX0':
+            break
+    else:
+        sys.exit('no TEX0 block')
+    t = off
+    size_pltt, _, ofs_dict = struct.unpack_from('<HHH', data, t + 0x30)
+    ofs_data = struct.unpack_from('<I', data, t + 0x38)[0]
+    d = t + ofs_dict
+    n = data[d + 1]
+    ent = d + struct.unpack_from('<H', data, d + 6)[0]
+    unit, ofs_name = struct.unpack_from('<HH', data, ent)
+    items = []
+    for i in range(n):
+        po = struct.unpack_from('<H', data, ent + 4 + i * unit)[0] << 3
+        name = data[ent + ofs_name + 16 * i: ent + ofs_name + 16 * (i + 1)].split(b'\0')[0].decode()
+        items.append((po, name))
+    end = size_pltt << 3
+    out = {}
+    for k, (po, name) in enumerate(sorted(items)):
+        nxt = sorted(items)[k + 1][0] if k + 1 < len(items) else end
+        out[name] = (t + ofs_data + po, (nxt - po) // 2)
+    return out
+
+
+FOREST = [(0.0, (1, 3, 1)), (0.4, (2, 7, 3)), (0.7, (4, 11, 4)), (1.0, (9, 17, 6))]   # deep shade .. sunlit leaves
+
+
+def forest(c, lo, hi):
+    """a cloud colour -> forest canopy: its brightness, stretched over the palette's own range lo..hi so the soft
+    cloud shading becomes contrasty leaf clumps, picks a green from FOREST"""
+    r, g, b = (c >> s_ & 31 for s_ in (0, 5, 10))
+    lum = (0.3 * r + 0.59 * g + 0.11 * b) / 31
+    lum = min(1.0, max(0.0, (lum - lo) / ((hi - lo) or 1)))
+    for (a, ca), (b_, cb) in zip(FOREST, FOREST[1:]):
+        if lum <= b_:
+            f = (lum - a) / (b_ - a)
+            rr, gg, bb = (round(ca[i] + (cb[i] - ca[i]) * f) for i in range(3))
+            return rr | gg << 5 | bb << 10
+    rr, gg, bb = FOREST[-1][1]
+    return rr | gg << 5 | bb << 10
+
+
+def luminance(c):
+    return (0.3 * (c & 31) + 0.59 * (c >> 5 & 31) + 0.11 * (c >> 10 & 31)) / 31
+
+
+if scene:
+    HOOH_SHAPES = set(range(5, 20))     # polygon5-19 = Ho-Oh; 0-4 = clouds, starry band, sky dome
+    narc.files[25], n = hide_shapes(narc.files[25], HOOH_SHAPES)
+    if n != 15:
+        sys.exit('member 25: expected Ho-Oh\'s 15 draw commands, found %d' % n)
+    # the cloud sea (hou_cloud01) and the wisps drifting over it (hou_kumo03) become a forest canopy seen from above;
+    # the orange streaks in the sky (hou_cloud02) and the sky stay
+    m25 = bytearray(narc.files[25])
+    pals = tex0_palettes(m25)
+    for name in ('hou_cloud01_pl', 'hou_kumo03_pl'):
+        if name not in pals:
+            sys.exit('member 25: no palette %s' % name)
+        po, count = pals[name]
+        cols = [struct.unpack_from('<H', m25, po + 2 * i)[0] for i in range(count)]
+        lums = [luminance(c) for c in cols]
+        for i, c in enumerate(cols):
+            struct.pack_into('<H', m25, po + 2 * i, forest(c, min(lums), max(lums)))
+    narc.files[25] = bytes(m25)
+    model, anim = (open(f, 'rb').read() for f in scene)
+    if model[:4] != b'BMD0' or anim[:4] != b'BCA0':
+        sys.exit('%s / %s: not an .nsbmd / .nsbca' % tuple(scene))
+    narc.files[38], narc.files[39] = model, anim
 
 open(out_path, 'wb').write(narc.save())

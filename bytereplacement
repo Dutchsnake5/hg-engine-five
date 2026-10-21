@@ -613,3 +613,9 @@ arm9 020708B0 06 E0
 # jade green RGB(8, 26, 14), to match the logo and the recoloured sunburst (scripts/build_title_logo.py)
 0060 021E67E0 48 3B 00 00
 #endif
+
+#ifdef CUSTOM_TITLE_SCENE
+# title screen: pressing A/START/the touch screen plays Celebi's cry (251) instead of Ho-Oh's (250): the movs r0, #0xFA
+# before PlayCry in pret TitleScreen_Main
+0060 021E5AA4 FB 20
+#endif

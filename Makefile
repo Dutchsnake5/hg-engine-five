@@ -166,6 +166,8 @@ IMPLEMENT_TRANSPARENT_TEXTBOXES := $(call config_enabled,IMPLEMENT_TRANSPARENT_T
 MOVE_EFFECTIVENESS_DISPLAY := $(call config_enabled,MOVE_EFFECTIVENESS_DISPLAY)
 FROSTBITE := $(call config_enabled,FROSTBITE)
 CUSTOM_TITLE_LOGO := $(call config_enabled,CUSTOM_TITLE_LOGO)
+CUSTOM_TITLE_SCENE := $(call config_enabled,CUSTOM_TITLE_SCENE)
+CUSTOM_INTRO := $(call config_enabled,CUSTOM_INTRO)
 
 ## includes
 include data/graphics/pokegra.mk

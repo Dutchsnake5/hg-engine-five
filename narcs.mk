@@ -97,9 +97,14 @@ TITLELOGO_NARC := $(BUILD_NARC)/a046.narc
 TITLELOGO_TARGET := $(FILESYS)/a/0/4/6
 
 # reads a/0/4/6 from rom.nds itself, never from base/root (which holds the previous build's copy)
-$(TITLELOGO_NARC): scripts/build_title_logo.py data/graphics/title/title_logo.png $(ROMNAME)
+TITLESCENE_FILES := data/graphics/title/celebi.nsbmd data/graphics/title/celebi.nsbca
+ifeq ($(CUSTOM_TITLE_SCENE),0)
+TITLESCENE_FILES :=
+endif
+
+$(TITLELOGO_NARC): scripts/build_title_logo.py data/graphics/title/title_logo.png $(ROMNAME) $(TITLESCENE_FILES) $(CONFIG_H)
 	mkdir -p $(BUILD_NARC)
-	$(PYTHON) scripts/build_title_logo.py $(ROMNAME) data/graphics/title/title_logo.png $@
+	$(PYTHON) scripts/build_title_logo.py $(ROMNAME) data/graphics/title/title_logo.png $@ $(TITLESCENE_FILES)
 
 ifneq ($(CUSTOM_TITLE_LOGO),0)
 NARC_FILES += $(TITLELOGO_NARC)
@@ -163,10 +168,19 @@ OPENDEMO_TARGET := $(FILESYS)/a/2/6/2
 OPENDEMO_DEPENDENCIES_DIR := rawdata/op_demo
 OPENDEMO_DEPENDENCIES := $(wildcard $(OPENDEMO_DEPENDENCIES_DIR)/*)
 
-$(OPENDEMO_NARC): $(OPENDEMO_DEPENDENCIES)
+OPENDEMO_CUSTOM := scripts/build_intro.py data/graphics/intro/celebi_flying.png data/graphics/sprites/rowlet/male/front.png data/graphics/sprites/oshawott/male/front.png $(CONFIG_H)
+ifeq ($(CUSTOM_INTRO),0)
+OPENDEMO_CUSTOM :=
+endif
+
+$(OPENDEMO_NARC): $(OPENDEMO_DEPENDENCIES) $(OPENDEMO_CUSTOM)
 	$(NARCHIVE) extract $(OPENDEMO_TARGET) -o $(OPENDEMO_DIR) -nf
 	cp -r $(OPENDEMO_DEPENDENCIES_DIR)/. $(OPENDEMO_DIR)
 	$(NARCHIVE) create $@ $(OPENDEMO_DIR) -nf
+ifneq ($(CUSTOM_INTRO),0)
+	@# CUSTOM_INTRO: Celebi in scene 1, Rowlet and Oshawott in scene 4 (members taken from rom.nds, so rebuilding never stacks)
+	$(PYTHON) scripts/build_intro.py $(ROMNAME) . $@ $@
+endif
 
 NARC_FILES += $(OPENDEMO_NARC)
 

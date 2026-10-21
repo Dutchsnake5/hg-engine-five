@@ -336,6 +336,16 @@
 // from the full-size artwork with the Desktop's Tools\title_logo\convert_logo.py.
 #define CUSTOM_TITLE_LOGO
 
+// CUSTOM_TITLE_SCENE (needs CUSTOM_TITLE_LOGO) replaces Ho-Oh on the title screen's bottom screen with Celebi: Ho-Oh's
+// shapes are hidden in the scene model (sky and clouds stay) and data/graphics/title/celebi.nsbmd/.nsbca take the
+// sparkle trail's place. Built on the Desktop with Title Scene\tools (build_celebi.py), then copied here.
+#define CUSTOM_TITLE_SCENE
+
+// CUSTOM_INTRO changes the opening movie (scripts/build_intro.py, archive a/2/6/2): the legendary flying out of the sun
+// is Celebi (data/graphics/intro/celebi_flying.png) instead of Ho-Oh, and the starters scene shows Rowlet and Oshawott
+// instead of Chikorita and Totodile (their battle front sprites, as the originals); Cyndaquil stays.
+#define CUSTOM_INTRO
+
 // FROSTBITE replaces freeze with Legends: Arceus-style frostbite (Drew's design, 2026-10-20; Showdown has no frostbite,
 // so this is a deliberate exception to following Showdown). It reuses the freeze status bit (saves keep working):
 // - no lost turns, no thawing out by chance: it lasts until cured, like burn
