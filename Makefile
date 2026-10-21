@@ -169,6 +169,14 @@ CUSTOM_TITLE_LOGO := $(call config_enabled,CUSTOM_TITLE_LOGO)
 CUSTOM_TITLE_SCENE := $(call config_enabled,CUSTOM_TITLE_SCENE)
 CUSTOM_INTRO := $(call config_enabled,CUSTOM_INTRO)
 FOREST_UI := $(call config_enabled,FOREST_UI)
+# the DS menu icon (FOREST_UI) and title (CUSTOM_TITLE_LOGO): scripts/build_banner.py, ds-rom builds only
+BANNER_FLAGS :=
+ifneq ($(FOREST_UI),0)
+BANNER_FLAGS += --icon
+endif
+ifneq ($(CUSTOM_TITLE_LOGO),0)
+BANNER_FLAGS += --title
+endif
 
 ## includes
 include data/graphics/pokegra.mk
@@ -378,6 +386,7 @@ all: $(OUTPUT) $(OVERLAY_OUTPUTS) $(TOOLS) $(BASE)/arm9.bin
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
 ifeq ($(ROM_TOOL),$(DSROM))
+	$(PYTHON) scripts/build_banner.py $(ROMNAME) $(BASE)_dsrom/banner $(BANNER_FLAGS)
 	$(DSROM_BRIDGE) pack --rom $(BUILDROM)
 else
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin

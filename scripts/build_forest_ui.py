@@ -58,19 +58,20 @@ def recolour(nclr, first=0, count=None):
     return bytes(nclr)
 
 
-mode = sys.argv[1]
-rom = ndspy.rom.NintendoDSRom.fromFile(sys.argv[2])
-if mode == 'intro':
-    narc = ndspy.narc.NARC(rom.getFileByName('a/1/2/0'))
-    for m in (1, 30):
-        narc.files[m] = recolour(narc.files[m])
-    out = sys.argv[3]
-elif mode == 'textbox':
-    orig = ndspy.narc.NARC(rom.getFileByName('a/0/3/8'))
-    narc = ndspy.narc.NARC(open(sys.argv[4], 'rb').read()) if len(sys.argv) > 4 else orig
-    narc.files[26] = recolour(orig.files[26], 11, 3)
-    out = sys.argv[3]
-else:
-    sys.exit('mode must be intro or textbox')
-with open(out, 'wb') as f:
-    f.write(narc.save())
+if __name__ == '__main__':
+    mode = sys.argv[1]
+    rom = ndspy.rom.NintendoDSRom.fromFile(sys.argv[2])
+    if mode == 'intro':
+        narc = ndspy.narc.NARC(rom.getFileByName('a/1/2/0'))
+        for m in (1, 30):
+            narc.files[m] = recolour(narc.files[m])
+        out = sys.argv[3]
+    elif mode == 'textbox':
+        orig = ndspy.narc.NARC(rom.getFileByName('a/0/3/8'))
+        narc = ndspy.narc.NARC(open(sys.argv[4], 'rb').read()) if len(sys.argv) > 4 else orig
+        narc.files[26] = recolour(orig.files[26], 11, 3)
+        out = sys.argv[3]
+    else:
+        sys.exit('mode must be intro or textbox')
+    with open(out, 'wb') as f:
+        f.write(narc.save())

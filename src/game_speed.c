@@ -16,6 +16,12 @@
 
 #define TEXT_FRAME_DELAY_FAST  1
 
+// the code overlay of the application the main loop runs (pret src/main.c: _02111868.mainOverlayId). overlay 60
+// (pret intro_title) is the opening movie and the title screen: they stay at x1, since sped up they run ahead of their
+// music, and at x2 the title screen's 3D scene (Celebi) shows gaps between its parts in melonDS (2026-10-21)
+#define MAIN_OVERLAY_ID        (*(volatile u32 *)0x02111868)
+#define OVERLAY_INTRO_TITLE    60
+
 void *LONG_CALL Save_PlayerData_GetOptionsAddr(void *saveData);
 
 static u32 GameSpeed_FromOptions(u16 *options)
@@ -65,6 +71,10 @@ void GameSpeed_MainLoopWait(void)
     static u8 sStepPhase = 0;
     u32 speed = GameSpeed_FromOptions(Save_PlayerData_GetOptionsAddr(SaveBlock2_get()));
     BOOL skip;
+
+    if (MAIN_OVERLAY_ID == OVERLAY_INTRO_TITLE) {
+        speed = GAME_SPEED_X1;
+    }
 
     if (speed == GAME_SPEED_X2) {
         skip = TRUE;
