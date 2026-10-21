@@ -168,6 +168,7 @@ FROSTBITE := $(call config_enabled,FROSTBITE)
 CUSTOM_TITLE_LOGO := $(call config_enabled,CUSTOM_TITLE_LOGO)
 CUSTOM_TITLE_SCENE := $(call config_enabled,CUSTOM_TITLE_SCENE)
 CUSTOM_INTRO := $(call config_enabled,CUSTOM_INTRO)
+FOREST_UI := $(call config_enabled,FOREST_UI)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -550,6 +551,12 @@ ifneq ($(IMPLEMENT_TRANSPARENT_TEXTBOXES),0)
 
 	@echo "textbox:"
 	cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET)
+endif
+
+ifneq ($(FOREST_UI),0)
+	@echo "forest green intro and textbox frame:"
+	cp $(FORESTUI_INTRO_NARC) $(FORESTUI_INTRO_TARGET)
+	cp $(FORESTUI_TEXTBOX_NARC) $(TEXTBOX_TARGET)
 endif
 
 ifneq ($(strip $(SCR_SEQ_OBJS)),)

@@ -687,6 +687,28 @@ $(TEXTBOX_NARC): $(TEXTBOX_DEPENDENCIES)
 
 NARC_FILES += $(TEXTBOX_NARC)
 
+# FOREST_UI: Oak's speech backgrounds (a/1/2/0) and the default message box frame's strip (a/0/3/8 member 26) turn from
+# gold to forest green; both read from rom.nds itself, never from base/root (which holds the previous build's copy)
+FORESTUI_INTRO_NARC := $(BUILD_NARC)/a120_forest.narc
+FORESTUI_INTRO_TARGET := $(FILESYS)/a/1/2/0
+FORESTUI_TEXTBOX_NARC := $(BUILD_NARC)/a038_forest.narc
+FORESTUI_TEXTBOX_BASE :=
+ifneq ($(IMPLEMENT_TRANSPARENT_TEXTBOXES),0)
+FORESTUI_TEXTBOX_BASE := $(TEXTBOX_NARC)
+endif
+
+$(FORESTUI_INTRO_NARC): scripts/build_forest_ui.py $(ROMNAME) $(CONFIG_H)
+	mkdir -p $(BUILD_NARC)
+	$(PYTHON) scripts/build_forest_ui.py intro $(ROMNAME) $@
+
+$(FORESTUI_TEXTBOX_NARC): scripts/build_forest_ui.py $(ROMNAME) $(FORESTUI_TEXTBOX_BASE) $(CONFIG_H)
+	mkdir -p $(BUILD_NARC)
+	$(PYTHON) scripts/build_forest_ui.py textbox $(ROMNAME) $@ $(FORESTUI_TEXTBOX_BASE)
+
+ifneq ($(FOREST_UI),0)
+NARC_FILES += $(FORESTUI_INTRO_NARC) $(FORESTUI_TEXTBOX_NARC)
+endif
+
 
 BALL_SPA_DIR := $(BUILD)/ball_spa
 BALL_SPA_NARC := $(BUILD_NARC)/ball_spa.narc

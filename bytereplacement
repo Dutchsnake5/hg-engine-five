@@ -558,10 +558,16 @@ arm9 020649AC 64 E2 0F 02
 arm9 020649B0 64 E2 0F 02
 arm9 020649B4 64 E2 0F 02
 
-#ifdef SKIP_TUTORIAL_INFO
-0053 080016BA D4 05
-#else
+# the first step's jump table entry: original value (SKIP_TUTORIAL_INFO used to point it at state 44)
 0053 080016BA FC 00
+
+#ifdef SKIP_TUTORIAL_INFO
+# keep the first step (Sound_SetSceneAndPlayBGM(2, ...) loads the sound set for Oak's speech; skipping it left Marill's
+# ball sound SEQ_SE_DP_BOWA2 unloaded and silent) and send it to the no-info-needed step (state 44) instead of the
+# tutorial menu (state 7)
+0053 080017DC 2C 20
+#else
+0053 080017DC 07 20
 #endif
 
 # GetBoxmonSpriteCharAndPlttNarcIds always call GetMonSpriteCharAndPlttNarcIdsEx

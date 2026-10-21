@@ -346,6 +346,11 @@
 // instead of Chikorita and Totodile (their battle front sprites, as the originals); Cyndaquil stays.
 #define CUSTOM_INTRO
 
+// FOREST_UI turns HeartGold's gold interface colours forest green (scripts/build_forest_ui.py): Oak's speech backgrounds
+// (archive a/1/2/0 palettes 1 and 30) and the strip of the default message box frame, Type 1 (a/0/3/8 palette 26,
+// colours 11-13), which Oak's speech also uses. The other frame types are unchanged.
+#define FOREST_UI
+
 // FROSTBITE replaces freeze with Legends: Arceus-style frostbite (Drew's design, 2026-10-20; Showdown has no frostbite,
 // so this is a deliberate exception to following Showdown). It reuses the freeze status bit (saves keep working):
 // - no lost turns, no thawing out by chance: it lasts until cured, like burn

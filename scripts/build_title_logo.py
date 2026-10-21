@@ -37,6 +37,15 @@ im = Image.open(png)
 if im.mode != 'P' or im.size != (256, 120):
     sys.exit('%s: needs a 256 x 120 indexed (palette) PNG, got %s %s' % (png, im.mode, im.size))
 pix = im.tobytes()
+t = im.info.get('transparency')
+if isinstance(t, int) and t != 0:
+    # an image editor saved the see-through colour somewhere other than slot 0: swap it into slot 0
+    pal = im.getpalette() or []
+    pal += [0] * (768 - len(pal))
+    pal[0:3], pal[t * 3:t * 3 + 3] = pal[t * 3:t * 3 + 3], pal[0:3]
+    pix = bytes(0 if v == t else t if v == 0 else v for v in pix)
+    im = Image.frombytes('P', im.size, pix)
+    im.putpalette(pal)
 if max(pix) > 127:
     sys.exit('%s: uses colour %d; the logo may only use colours 1-127 (128-255 colour the sunburst)' % (png, max(pix)))
 if any(pix[y * 256 + x] for y in range(8) for x in range(8)):
