@@ -345,6 +345,7 @@ struct SAVE_MISC_DATA *LONG_CALL Sav2_Misc_get(void *saveData);
 struct ScriptState *LONG_CALL SavArray_Flags_get(void *saveData);
 struct PlayerProfile *LONG_CALL Sav2_PlayerData_GetProfileAddr(void *saveData);
 u16 LONG_CALL PlayerProfile_GetTrainerID_VisibleHalf(void *profile);
+u32 LONG_CALL PlayerProfile_GetTrainerID(void *profile);
 u8 *LONG_CALL SaveData_GetRepelPtr(void *saveData);
 void *LONG_CALL SaveData_GetEventPtr(void *saveData);
 void *LONG_CALL SaveData_GetDexPtr(void *saveData);

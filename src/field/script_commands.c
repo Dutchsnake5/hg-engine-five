@@ -47,7 +47,21 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
         ZeroMonData(pokemon);
         int val = sub_02017FE4(1, offset);
 
+        extern u32 gForceShinyNextMon, gForceShinyOtId;
+        if (CheckScriptFlag(ODD_EGG_SHINY_FLAG) == 1) // a shiny egg (the Odd Egg's 14% roll)
+        {
+            gForceShinyOtId = PlayerProfile_GetTrainerID(profile);
+            gForceShinyNextMon = TRUE;
+            ClearScriptFlag(ODD_EGG_SHINY_FLAG);
+        }
+
         SetEggStats(pokemon, species, 1, profile, 3, val);
+        gForceShinyNextMon = FALSE;
+
+#ifdef GIFT_EGG_HATCH_CYCLES
+        u8 cycles = GIFT_EGG_HATCH_CYCLES; // an egg's friendship holds the egg cycles it has left
+        SetMonData(pokemon, MON_DATA_FRIENDSHIP, &cycles);
+#endif
 
         SetMonData(pokemon, MON_DATA_FORM, &form); // add form capability
 
@@ -95,6 +109,11 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx)
     ZeroMonData(togepi);
 
     SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 13));
+
+#ifdef GIFT_EGG_HATCH_CYCLES
+    u8 cycles = GIFT_EGG_HATCH_CYCLES; // an egg's friendship holds the egg cycles it has left
+    SetMonData(togepi, MON_DATA_FRIENDSHIP, &cycles);
+#endif
 
     // SetMonData(togepi, MON_DATA_FORM, &form); // add form capability
 

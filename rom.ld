@@ -903,6 +903,7 @@ BufferBoxMonSpeciesName = 0x0200BF1C | 1;
 #roamers
 PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;
 PlayerProfile_GetTrainerID_VisibleHalf = 0x02028F88 | 1;
+PlayerProfile_GetTrainerID = 0x02028F84 | 1;
 SetRoamerData = 0x0202DAB8 | 1;
 Roamers_GetRoamMonStats = 0x0202DA54 | 1;
 Roamer_GetLocation = 0x0202D9F8 | 1;

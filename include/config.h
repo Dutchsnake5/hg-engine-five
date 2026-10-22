@@ -236,6 +236,17 @@
 #define EGG_MOVE_TUTOR
 #define EGG_MOVE_TUTOR_FLAG 2605
 
+// ODD_EGG_SHINY_FLAG: a script sets it just before GivePokemonEgg to make that Egg shiny (the Day-Care Man's Odd Egg on
+// Route 34, DSPRE script 0265, sets it on a 14% roll as in Crystal). ScrCmd_GiveEgg (src/field/script_commands.c) makes
+// CreateBoxMonData pick a shiny personality value for the player's Trainer ID, then clears the flag.
+#define ODD_EGG_SHINY_FLAG 2606
+
+// GIFT_EGG_HATCH_CYCLES: Eggs that scripts give out (GivePokemonEgg: Primo's eggs, the Odd Egg, ...; and Elm's Togepi
+// Egg) start with this many egg cycles left instead of their species' usual 5-40. A cycle passes every 256 steps and
+// an Egg at 0 hatches when the next one passes, so 0 = it hatches within about 256 steps. Bred Day-Care Eggs keep their
+// species' cycles. Comment the line out to keep the normal hatch times for gifts too.
+#define GIFT_EGG_HATCH_CYCLES 0
+
 // HEADBUTT_IGNORE_TRAINER_ID makes Headbutt trees the same for every player. In the original game the last digit of the
 // Trainer ID decides, tree by tree, whether an ordinary tree uses the common list, the rare list or gives nothing
 // (Headbutt_GetTreeType_Regular, ov01 0x02205074; pret src/field/headbutt.c). With this on, every ordinary tree gives an

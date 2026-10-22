@@ -1232,6 +1232,11 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
 
 extern u32 space_for_setmondata;
 
+// when gForceShinyNextMon is set, the next CreateBoxMonData picks a personality value that is shiny for the trainer id
+// gForceShinyOtId (ScrCmd_GiveEgg sets both for the Odd Egg; see ODD_EGG_SHINY_FLAG in config.h)
+u32 gForceShinyNextMon = FALSE;
+u32 gForceShinyOtId = 0;
+
 /**
  *  @brief create BoxPokemon given the parameters
  *
@@ -1260,6 +1265,14 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
 
     if (!rndflag) {
         rnd = (gf_rand() | (gf_rand() << 16));
+    }
+    if (gForceShinyNextMon) {
+        // shiny when (otid high ^ otid low ^ pid high ^ pid low) < SHINY_ODDS: keep the random low half (gender,
+        // ability slot) and solve for the high half
+        u32 low = rnd & 0xFFFF;
+        u32 high = ((gForceShinyOtId >> 16) ^ (gForceShinyOtId & 0xFFFF) ^ low ^ (gf_rand() % SHINY_ODDS)) & 0xFFFF;
+        rnd = (high << 16) | low;
+        gForceShinyNextMon = FALSE;
     }
     SetBoxMonData(boxmon, MON_DATA_PERSONALITY, (u8 *)&rnd);
 
