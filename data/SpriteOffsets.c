@@ -52299,7 +52299,7 @@ const SpriteFrameData __data[] = {
         },
         .spriteYOffset = -1,
         .shadowXOffset = 0,
-        .shadowSize = 2,
+        .shadowSize = 3,
     },
     [SPECIES_DECIDUEYE_HISUIAN] = {
         .frontHeader = {
