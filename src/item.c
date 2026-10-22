@@ -192,8 +192,20 @@ u16 ItemToMachineMoveIndex(u16 itemId)
 
 static u16 sMachineNumbers[NUM_MACHINE_MOVES];
 static BOOL sMachineNumbersReady = FALSE;
-// the TM/HM/TR moves (data/MachineMoves.c, built into the code addon archive), read once for the numbering
+// the TM/HM/TR moves (data/MachineMoves.c, built into the code addon archive), read once and kept: the overworld
+// asks for HM moves many times a second (HM_MOVES_FROM_BAG's field-move checks), and reading the archive each time made
+// the overworld run at 20 game steps a second instead of 30 (found 2026-10-21)
 static u16 sMachineTable[NUM_MACHINE_MOVES];
+static BOOL sMachineTableReady = FALSE;
+
+static const u16 *MachineTable(void)
+{
+    if (!sMachineTableReady) {
+        ReadFromNarcMemberByIdPair(sMachineTable, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_MOVES, 0, sizeof(sMachineTable));
+        sMachineTableReady = TRUE;
+    }
+    return sMachineTable;
+}
 
 static void NumberMachines(u16 *next, u16 first, u16 last)
 {
@@ -211,7 +223,7 @@ u16 GetTMDisplayNumber(u16 itemId)
 {
     if (!sMachineNumbersReady) {
         u16 next = 0;
-        ReadFromNarcMemberByIdPair(sMachineTable, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_MOVES, 0, sizeof(sMachineTable));
+        MachineTable();
         for (u32 i = 0; i < NELEMS(sMachineNumbers); i++) {
             sMachineNumbers[i] = 0xFFFF;
         }
@@ -244,17 +256,14 @@ u16 ItemToMachineMove(u16 itemId)
     if (index >= NUM_MACHINE_MOVES) {
         return MOVE_NONE;
     }
-    u16 move = 0;
-    ReadFromNarcMemberByIdPair(&move, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_MOVES, sizeof(u16) * (index), sizeof(u16));
-    return move;
+    return MachineTable()[index];
 }
 
 BOOL MoveIsHM(u16 moveId)
 {
     for (u8 i = 0; i < NUM_HMS; i++) {
-        u16 moveTmp;
         u16 index = i + ITEM_HM01 - ITEM_TM001;
-        ReadFromNarcMemberByIdPair(&moveTmp, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_MOVES, sizeof(u16) * (index), sizeof(u16));
+        u16 moveTmp = MachineTable()[index];
         if (moveTmp == moveId) {
 #if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
             return FALSE;
