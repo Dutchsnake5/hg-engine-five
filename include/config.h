@@ -173,7 +173,7 @@
 // numbers are worked out by GetTMDisplayNumber, src/item.c). ITEM_TR27 is TM222 Headbutt; ITEM_TR28-ITEM_TR99 taught a
 // move a TM already teaches and are blank, unused items. A script gives TM195 with ITEM_TR00, ... TM221 with ITEM_TR26.
 #define TRS_ARE_TMS
-#define TRS_AS_TMS_COUNT 30 // ITEM_TR00 .. ITEM_TR00 + 29 are TMs (TR27 = TM222 Headbutt, TR28 = TM223 Jack Frost, TR29 = TM224 Hoarfrost)
+#define TRS_AS_TMS_COUNT 51 // ITEM_TR00 .. ITEM_TR00 + 50 are TMs (TR27 = TM222 Headbutt, TR28 = TM223 Jack Frost, TR29 = TM224 Hoarfrost, TR30-TR50 = TM225-TM245 strong moves added 2026-10-23)
 #ifdef TRS_ARE_TMS
 #define TRS_ARE_TMS_VALUE 1 // for IS_ITEM_TM / IS_ITEM_TR in include/constants/item.h
 #else

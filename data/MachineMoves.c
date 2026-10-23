@@ -285,27 +285,27 @@ const u16 sMachineMoves[] = {
     MOVE_HEADBUTT, // TR27
     MOVE_JACK_FROST, // TR28
     MOVE_HOARFROST, // TR29
-    MOVE_NONE, // TR30: blank
-    MOVE_NONE, // TR31: blank
-    MOVE_NONE, // TR32: blank
-    MOVE_NONE, // TR33: blank
-    MOVE_NONE, // TR34: blank
-    MOVE_NONE, // TR35: blank
-    MOVE_NONE, // TR36: blank
-    MOVE_NONE, // TR37: blank
-    MOVE_NONE, // TR38: blank
-    MOVE_NONE, // TR39: blank
-    MOVE_NONE, // TR40: blank
-    MOVE_NONE, // TR41: blank
-    MOVE_NONE, // TR42: blank
-    MOVE_NONE, // TR43: blank
-    MOVE_NONE, // TR44: blank
-    MOVE_NONE, // TR45: blank
-    MOVE_NONE, // TR46: blank
-    MOVE_NONE, // TR47: blank
-    MOVE_NONE, // TR48: blank
-    MOVE_NONE, // TR49: blank
-    MOVE_NONE, // TR50: blank
+    MOVE_MOONBLAST, // TR30
+    MOVE_AQUA_TAIL, // TR31
+    MOVE_WAVE_CRASH, // TR32
+    MOVE_CRABHAMMER, // TR33
+    MOVE_RAZOR_SHELL, // TR34
+    MOVE_DYNAMIC_PUNCH, // TR35
+    MOVE_CROSS_CHOP, // TR36
+    MOVE_HAMMER_ARM, // TR37
+    MOVE_HIGH_JUMP_KICK, // TR38
+    MOVE_MEGA_KICK, // TR39
+    MOVE_BOOMBURST, // TR40
+    MOVE_SKY_ATTACK, // TR41
+    MOVE_DRILL_PECK, // TR42
+    MOVE_ZAP_CANNON, // TR43
+    MOVE_ICICLE_CRASH, // TR44
+    MOVE_WOOD_HAMMER, // TR45
+    MOVE_DRAGON_RUSH, // TR46
+    MOVE_FIRST_IMPRESSION, // TR47
+    MOVE_HEAD_SMASH, // TR48
+    MOVE_BELCH, // TR49
+    MOVE_SHADOW_PUNCH, // TR50
     MOVE_NONE, // TR51: blank
     MOVE_NONE, // TR52: blank
     MOVE_NONE, // TR53: blank

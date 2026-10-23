@@ -84,27 +84,27 @@ The user attacks by slamming its body into\nthe target. The higher the user’s 
 The user attacks with its head. It may\nmake the foe flinch. To find Pokémon,\nhit trees.
 The user shoots a sinister, icy wisp at\nthe target to give it frostbite.
 A biting layer of frost spreads over\nall Pokémon in battle. It may also give\nthem frostbite.
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
+Borrowing the power of the moon, the\nuser attacks the target. This may also\nlower the target’s Sp. Atk stat.
+The user attacks by swinging its tail\nas if it were a vicious wave in a raging\nstorm.
+The user shrouds itself in water and\nslams into the target. This also\ndamages the user quite a lot.
+The foe is hammered with a large\npincer. This move has a high\ncritical-hit ratio.
+The foe is cut by sharp shells. It may\nalso lower the foe’s Defense.
+The foe is punched with the user’s\nfull, concentrated power. It confuses\nthe foe if it hits.
+The user delivers a double chop with\nits forearms crossed. It has a high\ncritical-hit ratio.
+The user swings and hits with its\nstrong and heavy fist. It lowers the\nuser’s Speed, however.
+The foe is attacked with a knee kick\nfrom a jump. If it misses, the user is\nhurt instead.
+The foe is attacked by a kick launched\nwith muscle-packed power.
+The user attacks everything around it\nwith the destructive power of a\nterrible explosive sound.
+A second-turn attack move with a high\ncritical-hit ratio. It may also make\nthe target flinch.
+A corkscrewing attack with the sharp\nbeak acting as a drill.
+The user fires an electric blast like a\ncannon to inflict damage and cause\nparalysis.
+Icicles are dropped on the foe. It may\nalso make the foe flinch.
+The user slams its rugged body into\nthe foe to attack. The user also\nsustains serious damage.
+The user tackles the foe while\nexhibiting overwhelming menace. The\nuser takes serious damage, too.
+Although this move has great power, it\nworks only on the first turn each time\nthe user enters battle.
+The user delivers a life-endangering\nattack at full power. The user also\ntakes terrible damage.
+The user lets out a damaging belch at\nthe target. The user must eat a held\nBerry to use this move.
+The user throws a punch at the foe\nfrom the shadows. The punch lands\nwithout fail.
 - - -
 - - -
 - - -
