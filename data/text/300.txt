@@ -247,3 +247,7 @@ NEUTRAL
 {STRVAR_1 1, 0, 0} can only have\none Ability.\r
 NICKNAME
 {STRVAR_1 1, 0, 0} can’t be renamed.\nAnother TRAINER named it.\r
+RE-LEARN
+TMs/HMs
+Learn a move how?
+No TM or HM in the Bag can\nteach {STRVAR_1 1, 0, 0} a new move.\r

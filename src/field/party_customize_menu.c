@@ -15,7 +15,8 @@
 
 #ifdef PARTY_MENU_CUSTOMIZE
 
-// the "Customize" menus of the party menu: change a Pokémon's nature, pick any of its species' abilities, relearn moves,
+// the "Customize" menus of the party menu: change a Pokémon's nature, pick any of its species' abilities, relearn moves
+// or learn them from the bag's TMs/HMs,
 // or give it a new nickname like the Name Rater does. they live in the field extension instead of the always-loaded
 // code; src/party_customize.c loads the field extension while the party menu is open and calls in through the field
 // extension's entry table (include/field_extension_entries.h)
@@ -39,6 +40,10 @@
 #define MSG_ONLY_ONE_ABILITY    246
 #define MSG_NICKNAME            247
 #define MSG_NAMED_BY_OTHER_TRAINER 248
+#define MSG_RELEARN             249
+#define MSG_MACHINES            250
+#define MSG_PROMPT_LEARN_HOW    251
+#define MSG_NO_MACHINE_MOVES    252
 
 // natures are ordered raised stat * 5 + lowered stat, with stats in this order
 enum {
@@ -66,6 +71,8 @@ static void PartyMonContextMenuAction_NatureNeutral(struct PartyMenu *partyMenu,
 static void PartyMonContextMenuAction_Ability(struct PartyMenu *partyMenu, int *pState);
 static void PartyMonContextMenuAction_SetAbility(struct PartyMenu *partyMenu, int *pState);
 static void PartyMonContextMenuAction_Moves(struct PartyMenu *partyMenu, int *pState);
+static void PartyMonContextMenuAction_Relearn(struct PartyMenu *partyMenu, int *pState);
+static void PartyMonContextMenuAction_Machines(struct PartyMenu *partyMenu, int *pState);
 static void PartyMonContextMenuAction_Nickname(struct PartyMenu *partyMenu, int *pState);
 
 // choices made in earlier steps of a submenu: list position -> value
@@ -332,21 +339,49 @@ static void PartyMonContextMenuAction_SetAbility(struct PartyMenu *partyMenu, in
     FinishWithMessage(partyMenu, MSG_ABILITY_CHANGED, pState);
 }
 
+/**
+ * @brief MOVES: relearn a level-up move, or learn a move from a TM or HM in the bag
+ */
 static void PartyMonContextMenuAction_Moves(struct PartyMenu *partyMenu, int *pState)
 {
-    u16 *moves = MoveRelearner_GetEligibleLevelUpMoves(PartyMenu_GetSelectedMon(partyMenu), HEAP_ID_PARTY_MENU);
+    BeginList(partyMenu, 3, MSG_PROMPT_LEARN_HOW);
+    AddButton(partyMenu, MSG_RELEARN, PartyMonContextMenuAction_Relearn);
+    AddButton(partyMenu, MSG_MACHINES, PartyMonContextMenuAction_Machines);
+    AddQuitButton(partyMenu);
+    ShowList(partyMenu, 3, pState);
+}
+
+/**
+ * @brief open the move relearner with the moves eligibleMoves() lists, or print noMovesMsgId if there are none.
+ *        the party menu closes; the start menu opens the move relearner and then reopens the party menu
+ */
+static void OpenMoveList(struct PartyMenu *partyMenu, u16 *(*eligibleMoves)(struct PartyPokemon *, int), u32 action, int noMovesMsgId, int *pState)
+{
+    u16 *moves = eligibleMoves(PartyMenu_GetSelectedMon(partyMenu), HEAP_ID_PARTY_MENU);
     BOOL any = moves[0] != LEVEL_UP_LEARNSET_END;
     sys_FreeMemoryEz(moves);
     if (!any) {
-        FinishWithMessage(partyMenu, MSG_NO_MOVES_TO_RELEARN, pState);
+        FinishWithMessage(partyMenu, noMovesMsgId, pState);
         return;
     }
-    // close the party menu; the start menu opens the move relearner and then reopens the party menu
     PartyMenu_DeleteContextMenuAndList(partyMenu);
     PartyMenu_DisableMainScreenBlend_AfterYesNo();
     partyMenu->args->partySlot = partyMenu->partyMonIndex;
-    partyMenu->args->selectedAction = PARTY_MENU_ACTION_RETURN_RELEARN_MOVES;
+    partyMenu->args->selectedAction = action;
     *pState = PARTY_MENU_STATE_BEGIN_EXIT;
+}
+
+static void PartyMonContextMenuAction_Relearn(struct PartyMenu *partyMenu, int *pState)
+{
+    OpenMoveList(partyMenu, MoveRelearner_GetEligibleLevelUpMoves, PARTY_MENU_ACTION_RETURN_RELEARN_MOVES, MSG_NO_MOVES_TO_RELEARN, pState);
+}
+
+/**
+ * @brief the moves of the TMs and HMs in the bag that the Pokémon can learn, taught with the move tutor's wording
+ */
+static void PartyMonContextMenuAction_Machines(struct PartyMenu *partyMenu, int *pState)
+{
+    OpenMoveList(partyMenu, PartyCustomize_GetEligibleMachineMoves, PARTY_MENU_ACTION_RETURN_MACHINE_MOVES, MSG_NO_MACHINE_MOVES, pState);
 }
 
 /**
@@ -397,6 +432,8 @@ BOOL PartyCustomizeMenu_IsCustomizeButton(u32 action)
         || action == (u32)PartyMonContextMenuAction_Ability
         || action == (u32)PartyMonContextMenuAction_SetAbility
         || action == (u32)PartyMonContextMenuAction_Moves
+        || action == (u32)PartyMonContextMenuAction_Relearn
+        || action == (u32)PartyMonContextMenuAction_Machines
         || action == (u32)PartyMonContextMenuAction_Nickname;
 }
 

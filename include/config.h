@@ -196,8 +196,10 @@
 #define HEADBUTT_TM_ITEM ITEM_TR27
 
 // PARTY_MENU_CUSTOMIZE adds a CUSTOMIZE option to the field party menu. It changes a Pokémon's nature (any of the 25),
-// sets its ability to any ability its species and form can have (including the hidden ability), or opens the move
-// relearner. It also fixes the move relearner's list of moves to read hg-engine's level-up learnsets.
+// sets its ability to any ability its species and form can have (including the hidden ability), or, under MOVES, opens
+// the move relearner (RE-LEARN: level-up moves) or the same screen with the moves of the TMs/HMs in the bag that the
+// Pokémon can learn (TMs/HMs; move tutor wording, nothing used up). It also fixes the move relearner's list of moves to
+// read hg-engine's level-up learnsets.
 // left out of battle test builds, which need the room in the always-loaded code
 #ifndef DEBUG_BATTLE_SCENARIOS
 #define PARTY_MENU_CUSTOMIZE

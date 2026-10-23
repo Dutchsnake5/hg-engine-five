@@ -457,6 +457,8 @@ u16 *LONG_CALL MoveRelearner_GetEligibleLevelUpMoves(struct PartyPokemon *pp, in
 // the party menu closes with these to have the start menu open the move relearner or the naming screen
 #define PARTY_MENU_ACTION_RETURN_RELEARN_MOVES 0x30
 #define PARTY_MENU_ACTION_RETURN_NICKNAME      0x31
+#define PARTY_MENU_ACTION_RETURN_MACHINE_MOVES 0x32
+u16 *PartyCustomize_GetEligibleMachineMoves(struct PartyPokemon *pp, int heapId);
 void LONG_CALL sub_0207E54C(struct PartyMenu *partyMenu, int numItems, int selection, int state);
 struct PartyMenuContextMenuCursor *LONG_CALL PartyMenu_CreateContextMenuCursor(struct PartyMenu *partyMenu, const struct PartyMenuContextMenu *template, int selection, int heapID, int state);
 void LONG_CALL PartyMenu_DisableMainScreenBlend_AfterYesNo(void);

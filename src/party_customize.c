@@ -33,7 +33,10 @@ typedef struct MoveRelearnerArgs {
     u8 padding_1A[2];
 } MoveRelearnerArgs;
 
+#define MOVE_RELEARNER_TYPE_TUTOR   0 // the move tutor's wording ("Teach which move...", "... learned ...")
 #define MOVE_RELEARNER_TYPE_RELEARN 1
+// the move relearner counts its moves in a byte
+#define MOVE_RELEARNER_MAX_MOVES    254
 
 // see arm9 0x020830D8
 typedef struct NamingScreenArgs {
@@ -158,13 +161,62 @@ u16 *LONG_CALL MoveRelearner_GetEligibleLevelUpMoves(struct PartyPokemon *pp, in
 }
 
 
+u16 ItemToMachineMove(u16 itemId);
+u16 ItemToMachineMoveIndex(u16 itemId);
+
+/**
+ * @brief CUSTOMIZE > MOVES > TMs/HMs: the moves of the TMs and HMs in the bag that a Pokémon can learn from them and
+ *        does not know, in TM pocket order, ending with LEVEL_UP_LEARNSET_END. the TMs are not used up
+ */
+u16 *PartyCustomize_GetEligibleMachineMoves(struct PartyPokemon *pp, int heapId)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 form = GetMonData(pp, MON_DATA_FORM, NULL);
+    u16 known[MAX_MON_MOVES];
+    for (int i = 0; i < MAX_MON_MOVES; i++) {
+        known[i] = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
+    }
+
+    // which TMs/HMs the Pokémon can learn, read once (GetMonMachineMoveCompat reads it again for every move)
+    u32 compat[MACHINE_LEARNSETS_BITFIELD_COUNT];
+    ReadFromNarcMemberByIdPair(compat, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_LEARNSETS,
+        PokeOtherFormMonsNoGet(species, form) * MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32), sizeof(compat));
+
+    BAG_DATA *bag = Sav2_Bag_get(SaveBlock2_get());
+    u16 *moves = sys_AllocMemory(heapId, (MOVE_RELEARNER_MAX_MOVES + 1) * sizeof(u16));
+    int count = 0;
+    for (int i = 0; i < NUM_BAG_TMS_HMS && count < MOVE_RELEARNER_MAX_MOVES; i++) {
+        u16 item = bag->TMsHMs[i].id;
+        if (item == ITEM_NONE || bag->TMsHMs[i].quantity == 0 || !(IS_ITEM_TM(item) || IS_ITEM_HM(item))) {
+            continue;
+        }
+        u16 index = ItemToMachineMoveIndex(item);
+        u16 move = ItemToMachineMove(item);
+        if (move == MOVE_NONE || index >= NUM_MACHINE_MOVES || !((compat[index / 32] >> (index % 32)) & 1)) {
+            continue;
+        }
+        BOOL skip = FALSE;
+        for (int j = 0; j < MAX_MON_MOVES && !skip; j++) {
+            skip = known[j] == move;
+        }
+        for (int j = 0; j < count && !skip; j++) {
+            skip = moves[j] == move;
+        }
+        if (!skip) {
+            moves[count++] = move;
+        }
+    }
+    moves[count] = LEVEL_UP_LEARNSET_END;
+    return moves;
+}
+
 static BOOL Task_StartMenu_ReturnFromMoveRelearner(TaskManager *taskManager);
 static BOOL Task_StartMenu_ReturnFromNamingScreen(TaskManager *taskManager);
 static void StartMenu_OpenNamingScreen(FieldSystem *fieldSystem, StartMenuTaskData *startMenu, u8 slot);
 
 /**
- * @brief wraps the start menu's handling of the party menu closing, to open the move relearner or the naming screen
- *        from Customize
+ * @brief wraps the start menu's handling of the party menu closing, to open the move relearner (with the level-up moves
+ *        or the bag's TM/HM moves) or the naming screen from Customize
  * @see   arm9 0x0203CA9C Task_StartMenu_HandleReturn_Pokemon
  */
 BOOL LONG_CALL Task_StartMenu_HandleReturn_Pokemon_Extend(TaskManager *taskManager)
@@ -174,7 +226,7 @@ BOOL LONG_CALL Task_StartMenu_HandleReturn_Pokemon_Extend(TaskManager *taskManag
     PartyMenuArgs *partyMenuArgs = startMenu->exitTaskEnvironment;
     u32 action = partyMenuArgs->selectedAction;
 
-    if (action != PARTY_MENU_ACTION_RETURN_RELEARN_MOVES && action != PARTY_MENU_ACTION_RETURN_NICKNAME) {
+    if (action != PARTY_MENU_ACTION_RETURN_RELEARN_MOVES && action != PARTY_MENU_ACTION_RETURN_MACHINE_MOVES && action != PARTY_MENU_ACTION_RETURN_NICKNAME) {
         return Task_StartMenu_HandleReturn_Pokemon(taskManager);
     }
 
@@ -191,8 +243,13 @@ BOOL LONG_CALL Task_StartMenu_HandleReturn_Pokemon_Extend(TaskManager *taskManag
     relearner->mon = pp;
     relearner->profile = Sav2_PlayerData_GetProfileAddr(fieldSystem->savedata);
     relearner->options = Save_PlayerData_GetOptionsAddr(fieldSystem->savedata);
-    relearner->eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(pp, HEAPID_WORLD);
-    relearner->type = MOVE_RELEARNER_TYPE_RELEARN;
+    if (action == PARTY_MENU_ACTION_RETURN_MACHINE_MOVES) {
+        relearner->eligibleMoves = PartyCustomize_GetEligibleMachineMoves(pp, HEAPID_WORLD);
+        relearner->type = MOVE_RELEARNER_TYPE_TUTOR;
+    } else {
+        relearner->eligibleMoves = MoveRelearner_GetEligibleLevelUpMoves(pp, HEAPID_WORLD);
+        relearner->type = MOVE_RELEARNER_TYPE_RELEARN;
+    }
     // the list is freed after the relearner closes, so it is valid whenever the relearner reads it
     MoveRelearner_LaunchApp(fieldSystem, relearner);
 
