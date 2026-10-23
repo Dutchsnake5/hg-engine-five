@@ -3146,7 +3146,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .speciesData = {
             .baseStats = {
-                .hp = 85,
+                .hp = 90,
                 .attack = 50,
                 .defense = 80,
                 .spAttack = 105,

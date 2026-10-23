@@ -772,7 +772,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_PSYDUCK] = {
         .entries = {
-            { EVO_LEVEL, 30, SPECIES_GOLDUCK },
+            { EVO_LEVEL, 28, SPECIES_GOLDUCK },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -940,7 +940,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_MACHOP] = {
         .entries = {
-            { EVO_LEVEL, 28, SPECIES_MACHOKE },
+            { EVO_LEVEL, 16, SPECIES_MACHOKE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
