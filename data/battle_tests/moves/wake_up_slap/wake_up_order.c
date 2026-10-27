@@ -44,7 +44,9 @@ const struct TestBattleScenario BattleTests[] = {
                             .form = 0,
                             .ability = ABILITY_IRON_BARBS,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            // the other slots are filled so Sleep Talk can't call one of Meganium's level-up moves
+                            // (empty slots keep them, at 0 PP): with the reworked learnsets that included Moonblast
+                            .moves = { MOVE_SLEEP_TALK, MOVE_SPLASH, MOVE_CELEBRATE, MOVE_HOLD_HANDS },
                             .hp = FULL_HP,
                             .status = STATUS_SLEEP,
                             .condition2 = 0,
