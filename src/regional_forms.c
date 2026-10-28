@@ -6,7 +6,9 @@
 #include "pokemon.h"
 
 // The Regional Charm (REGIONAL_CHARM in include/config.h): while it is turned on, a random wild Pokémon whose species
-// has a regional form appears in it. AddWildPartyPokemon (src/field/enemy_party.c) asks for the form here.
+// has a regional form appears in it (AddWildPartyPokemon, src/field/enemy_party.c), and a Pokémon in its ordinary form
+// evolves into the regional form of its evolution (GetMonEvolutionInternal, src/individual/GetMonEvolutionInternal.c).
+// This file is in the always-loaded area so both the field and the evolution overlays can use it.
 
 #ifdef REGIONAL_CHARM
 
@@ -87,15 +89,16 @@ static const struct RegionalForm sRegionalForms[] = {
 #define MAX_FORMS_PER_SPECIES          32 // rows of PokeFormDataTbl
 
 /**
- * @brief the form number of a regional form of a species, picked at random when it has several
+ * @brief the form number of a regional form of a species
  *
  * The form number is looked up in the form table instead of being written down, because which forms a species has
  * before its regional one depends on config.h (Raichu's Mega forms, for example).
  *
- * @param species base species of a wild Pokémon
- * @return form number to give it, or 0 when its species has no regional form
+ * @param species base species
+ * @param pick chooses among several regional forms (Meowth, Tauros): form number pick % count
+ * @return form number, or 0 when the species has no regional form
  */
-u8 RegionalForms_PickWildForm(u16 species)
+u8 RegionalForms_GetForm(u16 species, u32 pick)
 {
     u8 forms[MAX_REGIONAL_FORMS_PER_SPECIES];
     u32 count = 0;
@@ -119,7 +122,18 @@ u8 RegionalForms_PickWildForm(u16 species)
     if (count == 0) {
         return 0;
     }
-    return forms[gf_rand() % count];
+    return forms[pick % count];
+}
+
+/**
+ * @brief the form number of a regional form of a wild Pokémon's species, picked at random when it has several
+ *
+ * @param species base species of a wild Pokémon
+ * @return form number to give it, or 0 when its species has no regional form
+ */
+u8 RegionalForms_PickWildForm(u16 species)
+{
+    return RegionalForms_GetForm(species, gf_rand());
 }
 
 #endif // REGIONAL_CHARM

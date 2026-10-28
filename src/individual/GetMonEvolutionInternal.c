@@ -24,6 +24,10 @@
 
 extern u16 gEvolutionSceneOverride[2][2];
 
+#ifdef REGIONAL_CHARM
+u8 RegionalForms_GetForm(u16 species, u32 pick); // src/regional_forms.c
+#endif
+
 /**
  *  @brief get the evolution species for a pokemon.  generalized depending on context
  *         also set form depending on the evolution structure read from armips/data/evodata.s
@@ -410,6 +414,16 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
 
     if (target) {
         u32 form = (evoTable[i].target & 0xF800) >> 11;
+
+#ifdef REGIONAL_CHARM
+        // the Regional Charm is on: a Pokémon in its ordinary form evolves into the regional form of its evolution
+        // (Pikachu into Alolan Raichu, Cubone into Alolan Marowak). an evolution the data gives a form to, or one from
+        // a Pokémon that already has a form, is left alone. the personality value picks when there are several, so
+        // the evolution scene and the result agree
+        if (form == 0 && GetMonData(pokemon, MON_DATA_FORM, NULL) == 0 && CheckScriptFlag(REGIONAL_CHARM_FLAG)) {
+            form = RegionalForms_GetForm(target, pid);
+        }
+#endif
 
         if (form) {
             gEvolutionSceneOverride[0][0] = GetMonData(pokemon, MON_DATA_SPECIES, NULL);

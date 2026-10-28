@@ -216,8 +216,10 @@
 
 // REGIONAL_CHARM makes the Regional Charm key item (ITEM_REGIONAL_CHARM) work. Using it from the bag, or from Y once
 // registered, turns REGIONAL_CHARM_FLAG on or off (commonscript entry 75). While the flag is set, every random wild
-// Pokémon that has a regional form (Alolan, Galarian, Hisuian, Paldean; see src/field/regional_forms.c) appears in it,
-// picking one at random when there are several. Scripted encounters, roamers and Pal Park are left alone.
+// Pokémon that has a regional form (Alolan, Galarian, Hisuian, Paldean; see src/regional_forms.c) appears in it,
+// picking one at random when there are several. Scripted encounters, roamers and Pal Park are left alone. A Pokémon in
+// its ordinary form that evolves while the flag is set becomes the regional form of its evolution, if it has one
+// (Pikachu → Alolan Raichu, Cubone → Alolan Marowak, Koffing → Galarian Weezing).
 // Its icon is data/graphics/item/regional_charm.png.
 #define REGIONAL_CHARM
 #define REGIONAL_CHARM_FLAG 2603

@@ -422,7 +422,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 extern u32 space_for_setmondata;
 
 #ifdef REGIONAL_CHARM
-u8 RegionalForms_PickWildForm(u16 species); // src/field/regional_forms.c
+u8 RegionalForms_PickWildForm(u16 species); // src/regional_forms.c
 extern u32 gRegionalCharmScriptedEncounter; // asm/regional_charm_hooks.s
 #endif
 

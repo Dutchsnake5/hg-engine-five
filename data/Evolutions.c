@@ -16716,6 +16716,34 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
+    [SPECIES_BURMY_SANDY] = {
+        .entries = {
+            { EVO_LEVEL_FEMALE, 20, MON_WITH_FORM(SPECIES_WORMADAM, 1) },
+            { EVO_LEVEL_MALE, 20, SPECIES_MOTHIM },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+        },
+    },
+
+    [SPECIES_BURMY_TRASH] = {
+        .entries = {
+            { EVO_LEVEL_FEMALE, 20, MON_WITH_FORM(SPECIES_WORMADAM, 2) },
+            { EVO_LEVEL_MALE, 20, SPECIES_MOTHIM },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_NONE, 0, SPECIES_NONE },
+        },
+    },
+
     [SPECIES_SHELLOS_EAST_SEA] = {
         .entries = {
             { EVO_LEVEL, 30, SPECIES_GASTRODON },
