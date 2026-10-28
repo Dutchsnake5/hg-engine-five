@@ -1945,3 +1945,6 @@ The opposing {STRVAR_1 1, 0, 0} got frostbite\nfrom the {STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0} already\nhas frostbite!
 The wild {STRVAR_1 1, 0, 0} already\nhas frostbite!
 The opposing {STRVAR_1 1, 0, 0} already\nhas frostbite!
+{STRVAR_1 1, 0, 0} is drowsing!
+The wild {STRVAR_1 1, 0, 0} is drowsing!
+The opposing {STRVAR_1 1, 0, 0} is drowsing!

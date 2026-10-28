@@ -1,0 +1,29 @@
+version: Original
+title:
+  japanese: |-
+    Pokémon
+    Timeless Jade Version
+    Five_4321
+  english: |-
+    Pokémon
+    Timeless Jade Version
+    Five_4321
+  french: |-
+    Pokémon
+    Timeless Jade Version
+    Five_4321
+  german: |-
+    Pokémon
+    Timeless Jade Version
+    Five_4321
+  italian: |-
+    Pokémon
+    Timeless Jade Version
+    Five_4321
+  spanish: |-
+    Pokémon
+    Timeless Jade Version
+    Five_4321
+images:
+  bitmap_path: bitmap.png
+  palette_path: palette.png

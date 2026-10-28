@@ -577,7 +577,12 @@
 
 #define BATTLE_SUBSCRIPT_FROSTBITE_DAMAGE                        (567)
 
-#define MAX_BASE_SUBSCRIPT_NUM 567
+#define BATTLE_SUBSCRIPT_SEND_OUT_PENDING_SWITCHES               (568)
+#define BATTLE_SUBSCRIPT_PASTEL_VEIL                             (569)
+#define BATTLE_SUBSCRIPT_COMATOSE                                (570)
+#define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY              (571)
+
+#define MAX_BASE_SUBSCRIPT_NUM 571
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

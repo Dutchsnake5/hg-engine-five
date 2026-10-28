@@ -154,6 +154,13 @@ def pack(dsrom_bin, rom, dsrom_dir, base, filesys):
 
     subprocess.run([resolve_bin(dsrom_bin), "build", "-c", os.path.join(dsrom_dir, "config.yaml"), "-o", rom], check=True)
 
+# Timeless Jade: header.yaml keeps the internal title POKEMON HG (DSPRE, emulators' save-type detection and cheat
+# databases go by it), and banner.yaml has the hack's DS menu title; scripts/build_banner.py writes the same titles and
+# the icon into the banner folder before this copy.
+def copy_config_files(dsrom_dir):
+    shutil.copyfile("header.yaml",os.path.join(dsrom_dir, "header.yaml"))
+    shutil.copyfile("banner.yaml",os.path.join(dsrom_dir, "banner", "banner.yaml"))
+    shutil.copyfile("path_order.txt",os.path.join(dsrom_dir, "path_order.txt"))
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -173,6 +180,7 @@ def main():
     if args.command == "extract":
         extract(args.dsrom_bin, args.rom, args.dsrom_dir, args.base, args.filesys)
     elif args.command == "pack":
+        copy_config_files(args.dsrom_dir)
         pack(args.dsrom_bin, args.rom, args.dsrom_dir, args.base, args.filesys)
 
 

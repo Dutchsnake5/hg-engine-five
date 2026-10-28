@@ -102,8 +102,8 @@ _byItem:
 
 _byAbility:
     AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
-    // {0}’s {1} gave {2} frostbite!
-    PrintMessage 104, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    // {0} got frostbite! (the popup names the ability, as upstream does for burn/poison/paralysis since 2026-10)
+    PrintMessage 101, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
 
 _inflicted:
     Wait

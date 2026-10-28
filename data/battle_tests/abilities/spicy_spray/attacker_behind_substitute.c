@@ -91,7 +91,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machamp made a substitute!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machamp used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax's Spicy Spray burned Machamp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machamp was burned!" },
     }
 }
 END_TEST
