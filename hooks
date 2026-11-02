@@ -644,6 +644,11 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 #ifdef HEADBUTT_IGNORE_TRAINER_ID
 0001 Headbutt_GetTreeType_Regular_Override 02205074 3
 #endif
+#ifdef SEASONAL_MAPS
+0001 AreaDataManager_Alloc_Seasonal 021FB888 1
+0001 AreaLightManager_New_Seasonal 021EA220 2
+arm9 Seasons_GrassStepSound_hook 0205CD50 0
+#endif
 0001 DrawRockSmashIdx 02204E8C 1
 
 0012 BattleMessage_BufferNickname 0223CDD0

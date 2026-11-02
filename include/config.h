@@ -109,6 +109,11 @@
 // Comment the line out to disable this functionality (Gen 6+)
 #define IMPLEMENT_SEASONS
 
+// SEASONAL_MAPS (needs IMPLEMENT_SEASONS; proof of concept, 2026-10-31) gives some outdoor map texture sets spring,
+// autumn and winter versions, swapped in by the current season (src/seasons.c; the textures are made by
+// scripts/build_seasons.py). Not yet carried into DSPRE: its Save ROM repacks the map textures from its own folder.
+// #define SEASONAL_MAPS
+
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
 // Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
 // Uncomment this line to enable this functionality

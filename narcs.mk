@@ -111,6 +111,22 @@ NARC_FILES += $(TITLELOGO_NARC)
 endif
 
 
+# seasonal map textures (SEASONAL_MAPS): reads a/0/4/4 from rom.nds itself, appends spring/autumn/winter sets
+SEASONS_NARC := $(BUILD_NARC)/a044.narc
+SEASONS_TARGET := $(FILESYS)/a/0/4/4
+SEASONS_BUILDING_NARC := $(BUILD_NARC)/a070.narc
+SEASONS_BUILDING_TARGET := $(FILESYS)/a/0/7/0
+
+# the roof colours (data/seasons/roof_colors.json) are made once by scripts/season_roofs.py from the building models
+$(SEASONS_NARC): scripts/build_seasons.py scripts/season_recolor.py scripts/season_sheet.py src/seasons.c data/seasons/roof_colors.json data/seasons/roof_masks.json data/seasons/roof_overrides.json scripts/season_roofpaint.py $(wildcard data/seasons/flower_sheet.* data/seasons/roofs/*.png) $(ROMNAME)
+	mkdir -p $(BUILD_NARC)
+	$(PYTHON) scripts/build_seasons.py $(ROMNAME) src/seasons.c data/seasons/roof_colors.json $@ $(SEASONS_BUILDING_NARC)
+
+ifneq ($(SEASONAL_MAPS),0)
+NARC_FILES += $(SEASONS_NARC)
+endif
+
+
 MOVEDATA_DIR := $(BUILD)/a011
 MOVEDATA_NARC := $(BUILD_NARC)/a011.narc
 MOVEDATA_TARGET := $(FILESYS)/a/0/1/1
@@ -650,12 +666,15 @@ $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
 # move the swav/sbnk over
 # swar rebuilding is handled by sdattool
 # reorder cries 387+ to be numerical order in the FileBlock.json and InfoBlock.json
-$(SDAT_BUILD):$(SDAT_SWAR_OBJS)
+$(SDAT_BUILD):$(SDAT_SWAR_OBJS) $(if $(filter-out 0,$(SEASONAL_MAPS)),scripts/season_snow_step.py data/seasons/snow_step.swav)
 	$(SDATTOOL) -u $(SDAT_TARGET) $(SDAT_DIR)
 	cp -rf $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
 	@# trigger rebuild here
 	rm -rf $(SDAT_FILES_DIR)/WAVARC/*.swar
 	$(PYTHON) scripts/rebuild_json.py
+ifneq ($(SEASONAL_MAPS),0)
+	$(PYTHON) scripts/season_snow_step.py $(SDAT_DIR) data/seasons/snow_step.swav
+endif
 	$(SDATTOOL) -b $@ $(SDAT_DIR)
 
 NARC_FILES += $(SDAT_BUILD)

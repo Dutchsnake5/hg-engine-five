@@ -169,6 +169,7 @@ CUSTOM_TITLE_LOGO := $(call config_enabled,CUSTOM_TITLE_LOGO)
 CUSTOM_TITLE_SCENE := $(call config_enabled,CUSTOM_TITLE_SCENE)
 CUSTOM_INTRO := $(call config_enabled,CUSTOM_INTRO)
 FOREST_UI := $(call config_enabled,FOREST_UI)
+SEASONAL_MAPS := $(call config_enabled,SEASONAL_MAPS)
 # the DS menu icon (FOREST_UI) and title (CUSTOM_TITLE_LOGO): scripts/build_banner.py, ds-rom builds only
 BANNER_FLAGS :=
 ifneq ($(FOREST_UI),0)
@@ -441,6 +442,12 @@ endif
 ifneq ($(CUSTOM_TITLE_LOGO),0)
 	@echo "title screen logo:"
 	cp $(TITLELOGO_NARC) $(TITLELOGO_TARGET)
+endif
+
+ifneq ($(SEASONAL_MAPS),0)
+	@echo "seasonal map textures:"
+	cp $(SEASONS_NARC) $(SEASONS_TARGET)
+	cp $(SEASONS_BUILDING_NARC) $(SEASONS_BUILDING_TARGET)
 endif
 
 	@echo "move data:"

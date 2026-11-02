@@ -13,15 +13,46 @@
 // bytes at the end of the manager (AREA_MANAGER_BUILDING_TEX), and bytereplacement makes AreaDataManager_Load read the
 // texture set from there (ov01 0x021FBA82: adds r1, #0x14 -> #0x28, i.e. offset 0x89C + 0x28). In winter, outdoor area
 // lighting is brightened and cooled (AreaLightManager_New, ov01 0x021EA220, is replaced too), because the map's lights
-// cap how white the lit trees and roofs can get however white their textures are.
+// cap how white the lit trees and roofs can get however white their textures are. Walking into tall grass in winter
+// plays the snow footstep instead of the rustle (arm9 0x0205CD50, asm/season_hooks.s).
 
 #ifdef SEASONAL_MAPS
 
 u32 LONG_CALL GrabCurrentSeason(void); // src/pokemon.c: 0 spring, 1 summer, 2 autumn, 3 winter (the clock's month mod 4)
+void LONG_CALL PlaySE(u16 seq);
+
+#define SEQ_SE_DP_YUKIASHI 1566 // Diamond/Pearl's snow footstep
+#define SEQ_SE_GS_KUSA2    2167 // the tall grass rustle
 
 // the map texture sets with seasonal versions; scripts/build_seasons.py reads this list
+// (sets 2-20: every town and route in Johto and Kanto; dense forests (Ilex 74, Viridian 103), the Safari Zone and Pal
+// Park (75), caves, towers and places that already have a fixed season (Mt. Silver's snow 96, the autumn forest 88)
+// are left out)
 static const u16 sSeasonalMapTexSets[] = {
-    2, // New Bark, Cherrygrove, Routes 29-31 and more
+    2,   // New Bark, Cherrygrove, Routes 26, 27, 29-31, Battle Tower area
+    3,   // Violet, Route 32, Ruins of Alph
+    4,   // Azalea, Route 33
+    5,   // Goldenrod, Route 34
+    6,   // Ecruteak, Routes 35-37
+    7,   // Olivine, Cianwood, Routes 38-41
+    8,   // Mahogany, Lake of Rage, Routes 42-44
+    9,   // Blackthorn, Routes 45, 46
+    10,  // Viridian, Indigo Plateau, Mt. Silver outside, Routes 2, 22, 28
+    11,  // Vermilion, Routes 6, 11
+    12,  // Saffron
+    13,  // Cerulean, Routes 4, 5, 9, 10, 24, 25
+    14,  // Lavender, Routes 8, 10, 12-15
+    15,  // Celadon, Routes 7, 16
+    16,  // Fuchsia, Routes 16-18, 20
+    17,  // Pewter, Routes 2, 3
+    18,  // Pallet, Cinnabar, Routes 1, 19-21
+    19,  // Routes 47, 48, Safari Zone Gate
+    20,  // Ruins of Alph
+    71,  // National Park
+    92,  // Battle Frontier
+    93,  // Frontier Access
+    97,  // Mt. Moon Square
+    102, // Mt. Silver Cave (grassy outside)
 };
 
 #define SEASONAL_FIRST_MEMBER   106 // the map texture archive's original member count
@@ -50,17 +81,25 @@ static void Seasons_AdjustAreaData(u16 *buildingTex, u16 *mapTexSet, BOOL outdoo
     static const u8 variant[4] = { 0, 0xFF, 1, 2 }; // spring, summer (original), autumn, winter
     u32 season = Seasons_Current() & 3;
     u32 v = variant[season];
+    u32 i;
 
-    sWinterArea = outdoor && season == 3;
-    if (v == 0xFF || !outdoor) {
+    sWinterArea = FALSE;
+    if (!outdoor) {
         return;
     }
-    for (u32 i = 0; i < NELEMS(sSeasonalMapTexSets); i++) {
+    for (i = 0; i < NELEMS(sSeasonalMapTexSets); i++) {
         if (sSeasonalMapTexSets[i] == *mapTexSet) {
-            *mapTexSet = SEASONAL_FIRST_MEMBER + i * 3 + v;
             break;
         }
     }
+    if (i == NELEMS(sSeasonalMapTexSets)) {
+        return; // not a seasonal area (forests, the Safari Zone, caves...): its buildings, light and sounds stay too
+    }
+    sWinterArea = season == 3;
+    if (v == 0xFF) {
+        return;
+    }
+    *mapTexSet = SEASONAL_FIRST_MEMBER + i * 3 + v;
     if (v != 0 && *buildingTex < SEASONAL_FIRST_BUILDING) {
         *buildingTex = SEASONAL_FIRST_BUILDING + *buildingTex * 2 + (v - 1); // autumn, winter
     }
@@ -86,6 +125,12 @@ void *LONG_CALL AreaDataManager_Alloc_Seasonal(u8 areaDataBank)
         sub[2] = (u32)NARC_New(0x94, 4);
     }
     return manager;
+}
+
+// walking into tall grass: in winter the grass is under snow, so it crunches like snow (asm/season_hooks.s)
+void LONG_CALL Seasons_GrassStepSound(void)
+{
+    PlaySE(sWinterArea ? SEQ_SE_DP_YUKIASHI : SEQ_SE_GS_KUSA2);
 }
 
 // area lighting (pret field/area_light): a manager of 0x14 bytes (entry count, entries, active entry, model attributes,

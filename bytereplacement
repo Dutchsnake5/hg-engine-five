@@ -625,3 +625,8 @@ arm9 020708B0 06 E0
 # before PlayCry in pret TitleScreen_Main
 0060 021E5AA4 FB 20
 #endif
+
+#ifdef SEASONAL_MAPS
+# AreaDataManager_Load reads the building texture set from the manager's added field 0x8C4 (src/seasons.c)
+0001 021FBA82 28 31
+#endif
