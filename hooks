@@ -647,7 +647,7 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 #ifdef SEASONAL_MAPS
 0001 AreaDataManager_Alloc_Seasonal 021FB888 1
 0001 AreaLightManager_New_Seasonal 021EA220 2
-arm9 Seasons_GrassStepSound_hook 0205CD50 0
+arm9 Seasons_GrassStepSound_hook 0205CD3C 0
 #endif
 0001 DrawRockSmashIdx 02204E8C 1
 

@@ -1,5 +1,8 @@
 #include "config.h"
 #include "types.h"
+#include "save.h"
+#include "system.h"
+#include "constants/buttons.h"
 
 // Seasonal map textures (SEASONAL_MAPS in include/config.h, proof of concept). HeartGold picks an area's map texture
 // set from its area data (archive a/0/4/2, 8 bytes: building texture set, map texture set, light archive, outdoor
@@ -14,15 +17,18 @@
 // texture set from there (ov01 0x021FBA82: adds r1, #0x14 -> #0x28, i.e. offset 0x89C + 0x28). In winter, outdoor area
 // lighting is brightened and cooled (AreaLightManager_New, ov01 0x021EA220, is replaced too), because the map's lights
 // cap how white the lit trees and roofs can get however white their textures are. Walking into tall grass in winter
-// plays the snow footstep instead of the rustle (arm9 0x0205CD50, asm/season_hooks.s).
+// plays the snow footstep instead of the rustle (arm9 0x0205CD3C, asm/season_hooks.s).
 
 #ifdef SEASONAL_MAPS
 
 u32 LONG_CALL GrabCurrentSeason(void); // src/pokemon.c: 0 spring, 1 summer, 2 autumn, 3 winter (the clock's month mod 4)
 void LONG_CALL PlaySE(u16 seq);
+BOOL LONG_CALL MetatileBehavior_IsTallGrass(u8 behavior);
 
 #define SEQ_SE_DP_YUKIASHI 1566 // Diamond/Pearl's snow footstep
 #define SEQ_SE_GS_KUSA2    2167 // the tall grass rustle
+#define SEQ_SE_DP_SELECT   1500 // menu beep (DEBUG_SEASON_SELECT)
+#define SEQ_SE_DP_PINPON   1521 // two-tone chime (DEBUG_SEASON_SELECT: back to the clock)
 
 // the map texture sets with seasonal versions; scripts/build_seasons.py reads this list
 // (sets 2-20: every town and route in Johto and Kanto; dense forests (Ilex 74, Viridian 103), the Safari Zone and Pal
@@ -71,10 +77,58 @@ u8 gSeasonOverride;
 
 static u32 Seasons_Current(void)
 {
+#ifdef DEBUG_SEASON_SELECT
+    u32 forced = GetScriptVar(SEASON_DEBUG_VAR);
+    if (!gSeasonOverride && forced >= 1 && forced <= 4) {
+        return forced - 1;
+    }
+#endif
     return gSeasonOverride ? (u32)(gSeasonOverride - 1) : GrabCurrentSeason();
 }
 
+#ifdef DEBUG_SEASON_SELECT
+// SELECT + R held while the overworld loads: next season (clock -> spring -> summer -> autumn -> winter -> clock)
+static void Seasons_DebugSelect(void)
+{
+    u32 forced;
+
+    if ((gSystem.heldKeys & (PAD_BUTTON_SELECT | PAD_BUTTON_R)) != (PAD_BUTTON_SELECT | PAD_BUTTON_R)) {
+        return;
+    }
+    forced = GetScriptVar(SEASON_DEBUG_VAR);
+    forced = forced >= 4 ? 0 : forced + 1;
+    SetScriptVar(SEASON_DEBUG_VAR, forced);
+    PlaySE(forced ? SEQ_SE_DP_SELECT : SEQ_SE_DP_PINPON);
+}
+#endif
+
 static BOOL sWinterArea; // the last area loaded is outdoors in winter: its lighting gets brightened
+
+#define MAP_TEX_NARC      44 // a/0/4/4
+#define BUILDING_TEX_NARC 70 // a/0/7/0
+#define NARC_FILE_COUNT   0x50 // u16 member count in the game's open-archive struct (pret NARC_GetFileCount)
+
+static u16 Seasons_NarcCount(u32 narcId)
+{
+    void *narc = NARC_New(narcId, 4);
+    u16 count = *(u16 *)((u8 *)narc + NARC_FILE_COUNT);
+    NARC_Delete(narc);
+    return count;
+}
+
+// TRUE when both texture archives really have the seasonal members (checked once). A ROM saved by a tool that rebuilt
+// them without those members (DSPRE's Save ROM before sync_build.py copied them into its folders) stays in summer
+// instead of loading members that aren't there.
+static BOOL Seasons_Available(void)
+{
+    static u8 state; // 0 = not checked yet, 1 = available, 2 = missing
+    if (state == 0) {
+        BOOL maps = Seasons_NarcCount(MAP_TEX_NARC) >= SEASONAL_FIRST_MEMBER + NELEMS(sSeasonalMapTexSets) * 3;
+        BOOL buildings = Seasons_NarcCount(BUILDING_TEX_NARC) >= SEASONAL_FIRST_BUILDING * 3;
+        state = (maps && buildings) ? 1 : 2;
+    }
+    return state == 1;
+}
 
 static void Seasons_AdjustAreaData(u16 *buildingTex, u16 *mapTexSet, BOOL outdoor)
 {
@@ -84,7 +138,7 @@ static void Seasons_AdjustAreaData(u16 *buildingTex, u16 *mapTexSet, BOOL outdoo
     u32 i;
 
     sWinterArea = FALSE;
-    if (!outdoor) {
+    if (!outdoor || !Seasons_Available()) {
         return;
     }
     for (i = 0; i < NELEMS(sSeasonalMapTexSets); i++) {
@@ -113,6 +167,9 @@ void *LONG_CALL AreaDataManager_Alloc_Seasonal(u8 areaDataBank)
     *(u32 **)(manager + AREA_MANAGER_SUB) = sub;
     sub[0] = areaDataBank;
     sub[1] = 0;
+#ifdef DEBUG_SEASON_SELECT
+    Seasons_DebugSelect();
+#endif
     ReadWholeNarcMemberByIdPair(manager + AREA_MANAGER_DATA, AREA_DATA_NARC, areaDataBank);
     *(u16 *)(manager + AREA_MANAGER_BUILDING_TEX) = *(u16 *)(manager + AREA_MANAGER_DATA); // the building set
     Seasons_AdjustAreaData((u16 *)(manager + AREA_MANAGER_BUILDING_TEX), (u16 *)(manager + AREA_MANAGER_DATA + 2), manager[AREA_MANAGER_OUTDOOR]);
@@ -128,9 +185,11 @@ void *LONG_CALL AreaDataManager_Alloc_Seasonal(u8 areaDataBank)
 }
 
 // walking into tall grass: in winter the grass is under snow, so it crunches like snow (asm/season_hooks.s)
-void LONG_CALL Seasons_GrassStepSound(void)
+void LONG_CALL Seasons_GrassStepSound(u32 fromBehavior, u32 toBehavior)
 {
-    PlaySE(sWinterArea ? SEQ_SE_DP_YUKIASHI : SEQ_SE_GS_KUSA2);
+    if (MetatileBehavior_IsTallGrass(fromBehavior) == TRUE || MetatileBehavior_IsTallGrass(toBehavior) == TRUE) {
+        PlaySE(sWinterArea ? SEQ_SE_DP_YUKIASHI : SEQ_SE_GS_KUSA2);
+    }
 }
 
 // area lighting (pret field/area_light): a manager of 0x14 bytes (entry count, entries, active entry, model attributes,

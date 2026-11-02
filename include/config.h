@@ -112,7 +112,15 @@
 // SEASONAL_MAPS (needs IMPLEMENT_SEASONS; proof of concept, 2026-10-31) gives some outdoor map texture sets spring,
 // autumn and winter versions, swapped in by the current season (src/seasons.c; the textures are made by
 // scripts/build_seasons.py). Not yet carried into DSPRE: its Save ROM repacks the map textures from its own folder.
-// #define SEASONAL_MAPS
+#define SEASONAL_MAPS
+
+// DEBUG_SEASON_SELECT (needs SEASONAL_MAPS) lets you pick the season in game: hold SELECT + R while the overworld
+// loads (walking through a door, after a battle, closing the bag or party menu) to step it on: clock -> spring ->
+// summer -> autumn -> winter -> clock. Each step plays a beep, a chime when it goes back to following the clock.
+// The choice is kept in save variable SEASON_DEBUG_VAR (0 = follow the clock, 1-4 = spring...winter), so it survives
+// saving; the HG Save Editor can set it too. Comment it out for release.
+#define DEBUG_SEASON_SELECT
+#define SEASON_DEBUG_VAR 0x4034 // used by no script or event file
 
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
 // Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)

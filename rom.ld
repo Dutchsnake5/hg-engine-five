@@ -389,6 +389,7 @@ MapObjectMan_PauseAllMovement = 0x0205F574 | 1;
 MapObjectMan_UnpauseAllMovement = 0x0205F5A4 | 1;
 MapObject_IsSingleMovementActive = 0x0205F648 | 1;
 GetMetatileBehaviorAt = 0x02054918 | 1;
+MetatileBehavior_IsTallGrass = 0x0205B6E8 | 1;
 GetPlayerXCoord = 0x0205C67C | 1;
 GetPlayerYCoord = 0x0205C688 | 1;
 
