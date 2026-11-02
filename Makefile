@@ -448,6 +448,7 @@ ifneq ($(SEASONAL_MAPS),0)
 	@echo "seasonal map textures:"
 	cp $(SEASONS_NARC) $(SEASONS_TARGET)
 	cp $(SEASONS_BUILDING_NARC) $(SEASONS_BUILDING_TARGET)
+	cp $(SEASONS_EFFECT_NARC) $(SEASONS_EFFECT_TARGET)
 endif
 
 	@echo "move data:"
