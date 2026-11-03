@@ -84,12 +84,15 @@ if os.path.exists(sheet):
     out = {'map': narc.files, 'building': bnarc.files}
     SH.apply_sheet(out, sheet, os.path.join(here, '..', 'data', 'seasons', 'flower_sheet.json'), orig, roofs, member_of)
 
-# hand-painted map textures (data/seasons/maptex/<season>/, scripts/season_roofpaint.py), on top of everything else
+# hand-painted map textures (data/seasons/maptex/<season>/, scripts/season_roofpaint.py), on top of everything else;
+# before them, the very tall grass in winter takes the hand-painted wild grass's colours
 map_problems = []
 map_pairs = RP.load_map_pairs()
 for i, s in enumerate(sets):
     for v, season in enumerate(RP.MAP_SEASONS):
         k = first + i * 3 + v
+        if season == 'winter':
+            narc.files[k] = R.regrass_btx(narc.files[k], RP.winter_grass_ramp(narc.files[s], s), summer=narc.files[s])
         d, problems = RP.apply_map_all(narc.files[k], s, season, map_pairs)
         narc.files[k] = d
         map_problems += ['%s map set %d: %s' % (season, s, p) for p in problems]
@@ -111,9 +114,14 @@ def recolor_effect(data, season):
     return bytes(out)
 
 
+# in winter the grass you walk through takes the hand-painted wild grass's colours (set 2's painting) where there is one
+effect_ramp = RP.winter_grass_ramp(narc.files[2], 2)
 for m in effect_members:
     for season in (R.SPRING, R.AUTUMN, R.WINTER):
-        enarc.files.append(recolor_effect(enarc.files[m], season))
+        if season == R.WINTER and effect_ramp:
+            enarc.files.append(R.regrass_btx(enarc.files[m], effect_ramp, None))
+        else:
+            enarc.files.append(recolor_effect(enarc.files[m], season))
 snow = open(os.path.join(os.path.dirname(roof_path), 'snow_ground.bin'), 'rb').read()
 if len(snow) % 128:
     sys.exit('build_seasons.py: data/seasons/snow_ground.bin is not 128 bytes per map')

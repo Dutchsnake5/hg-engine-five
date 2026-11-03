@@ -229,6 +229,35 @@ def load_map_pairs(path=None):
     return json.load(open(path)) if os.path.exists(path) else {}
 
 
+GRASS_TEX, GRASS_PAL = 'egrass', 'egrass_pl'   # the wild grass whose winter painting the tall grass follows
+
+
+def winter_grass_ramp(summer, mset, folder=None):
+    """season_recolor.grass_ramp of map set mset's hand-painted winter wild grass (summer = the set's summer texture
+    set), from set 2's painting when this set has none; None without a painting."""
+    from PIL import Image
+    folder = os.path.join(folder or MAP_REPO_DIR, 'winter')
+    for n in (mset, 2):
+        path = os.path.join(folder, file_name(n, GRASS_TEX, GRASS_PAL))
+        if os.path.exists(path):
+            break
+    else:
+        return None
+    if GRASS_PAL not in _palettes(summer):
+        return None
+    w, h, px = texture_rgba(summer, GRASS_TEX, GRASS_PAL)
+    img = Image.open(path).convert('RGBA')
+    if img.size != (w, h):
+        return None
+    votes = {}
+    for a, b in zip(px, img.getdata()):
+        if a[3] and b[3] >= 128:
+            votes.setdefault(a[:3], {}).setdefault(b[:3], 0)
+            votes[a[:3]][b[:3]] += 1
+    pairs = [(tuple(x / 255 for x in a), tuple(x / 255 for x in max(v, key=v.get))) for a, v in votes.items()]
+    return R.grass_ramp(pairs)
+
+
 def apply_map_all(data, mset, season, pairs, folder=None, skip=None, extra=None):
     """A seasonal map texture member (season 'spring' / 'autumn' / 'winter') with every painting for map texture set
     mset applied: (bytes, problems)."""

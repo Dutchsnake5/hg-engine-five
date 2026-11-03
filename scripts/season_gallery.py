@@ -64,6 +64,9 @@ def seasonal_texset(kind, n, data, season, paintings=True):
         d = R.recolor_btx(data, season, 'map', frost=n in R.FROST_SETS)
         if season == R.AUTUMN:
             d = T.autumn_trees(data, d)   # trees in several colours (src/seasons.c moves each tree onto one)
+        if season == R.WINTER:   # the very tall grass in the hand-painted wild grass's colours
+            import season_roofpaint as RP
+            d = R.regrass_btx(d, RP.winter_grass_ramp(data, n), summer=data)
         d = SHEET.get((kind, n, season), d)
         return map_paintings(d, n, season) if paintings else d
     elif season == R.SPRING:

@@ -572,3 +572,53 @@ def recolor_btx(data, season, kind='map', roofs=None, masks=None, frost=False):
             cur.setdefault(off, ([], [struct.unpack_from('<H', out, off + 2 * k)[0] for k in range(n)]))[0].append(name)
         snow_roof_texels(out, masks, cur)
     return bytes(out)
+
+
+# ---------------------------------------------------------------- winter tall grass like the painted wild grass
+TALL_GRASS = ('l_grass',)   # very tall grass (National Park); the field effects are recoloured whole (build_seasons.py)
+
+
+def _lum(rgb):
+    return 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]
+
+
+def grass_ramp(pairs):
+    """pairs: [(summer rgb, painted rgb)] (0-1 floats) of the wild grass -> [(summer brightness, painted rgb)], sorted."""
+    return sorted((_lum(a), b) for a, b in pairs)
+
+
+def regrass(c, ramp):
+    """A green colour (BGR555) as the hand-painted winter wild grass shows the same brightness (between the two painted
+    shades whose summer colours are nearest in brightness); other colours unchanged."""
+    if not ramp or not _is_green(c):
+        return c
+    L = _lum(_rgb(c & 0x7FFF))
+    if L <= ramp[0][0]:
+        rgb = ramp[0][1]
+    elif L >= ramp[-1][0]:
+        rgb = ramp[-1][1]
+    else:
+        for (l0, a), (l1, b) in zip(ramp, ramp[1:]):
+            if l0 <= L <= l1:
+                t = (L - l0) / (l1 - l0) if l1 > l0 else 0
+                rgb = tuple(a[i] + (b[i] - a[i]) * t for i in range(3))
+                break
+    return (c & 0x8000) | _bgr555(*rgb)
+
+
+def regrass_btx(data, ramp, prefixes=TALL_GRASS, summer=None):
+    """A BTX0/BMD0 copy whose palettes named with prefixes (all of them for prefixes=None) get regrass(). summer: the
+    same file before the season's recolouring (palettes at the same places): its green colours are the ones mapped,
+    the rest keep data's colour."""
+    out = bytearray(data)
+    src = summer if summer is not None else data
+    if not ramp:
+        return bytes(out)
+    for off, n, name in palettes(out):
+        if prefixes is None or name.startswith(prefixes):
+            for k in range(n):
+                c = struct.unpack_from('<H', src, off + 2 * k)[0]
+                if _is_green(c):
+                    struct.pack_into('<H', out, off + 2 * k, regrass(c, ramp))
+    return bytes(out)
+
