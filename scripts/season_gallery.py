@@ -24,6 +24,7 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.environ.get('SCRIPT_INSPECTOR', '/mnt/c/Users/Drew/Desktop/HG ROM Hack Project/ScriptInspector'))
 import maprender as M  # noqa: E402
 import season_recolor as R  # noqa: E402
+import season_trees as T  # noqa: E402
 
 PROJECT = os.environ.get('DSPRE_PROJECT', '/mnt/c/Users/Drew/Desktop/HG ROM Hack Project/DSPRE/rom_DSPRE_contents')
 SEASONS = [('spring', R.SPRING), ('summer', R.SUMMER), ('autumn', R.AUTUMN), ('winter', R.WINTER)]
@@ -40,12 +41,37 @@ def seasonal_sets():
     return [int(x) for x in re.findall(r'\d+', re.sub(r'//[^\n]*', '', body))]
 
 
-def seasonal_texset(kind, n, data, season):
-    """A map or building texture set as the game loads it in a seasonal area."""
+MAP_PAIRS = None
+
+
+def map_paintings(d, n, season, skip=None, folder=None):
+    """A seasonal map texture member with the hand-painted map textures for set n applied (except the file skip)."""
+    import season_roofpaint as RP
+    global MAP_PAIRS
+    if MAP_PAIRS is None:
+        MAP_PAIRS = RP.load_map_pairs()
+    name = {R.SPRING: 'spring', R.AUTUMN: 'autumn', R.WINTER: 'winter'}[season]
+    sdir = os.path.join(folder or RP.MAP_REPO_DIR, name)
+    out = bytearray(d)
+    if os.path.isdir(sdir):
+        for f in sorted(os.listdir(sdir)):
+            p = RP.parse_name(f)
+            if p and p[0] == n and f != skip:
+                RP.apply_painting(out, os.path.join(sdir, f), MAP_PAIRS)
+    return bytes(out)
+
+
+def seasonal_texset(kind, n, data, season, paintings=True):
+    """A map or building texture set as the game loads it in a seasonal area (paintings=False: without the
+    hand-painted map textures)."""
     if season == R.SUMMER:
         return data
     if kind == 'mapTextures':
         d = R.recolor_btx(data, season, 'map')
+        if season == R.AUTUMN:
+            d = T.autumn_trees(data, d)   # trees in several colours (src/seasons.c moves each tree onto one)
+        d = SHEET.get((kind, n, season), d)
+        return map_paintings(d, n, season) if paintings else d
     elif season == R.SPRING:
         return data
     else:
@@ -81,6 +107,8 @@ class SeasonRenderer(M.Renderer):
         bld_set, map_set = M.u16(ad, 0), M.u16(ad, 2)
         self.active = map_set in self.seasonal and len(ad) > 6 and ad[6] != 0
         _, blds, mdl = M.split_map_file(self.file('maps', '%04d' % map_id))
+        if self.active and self.season == R.AUTUMN:
+            mdl = T.patch_model(mdl)
         canvas = M.Canvas()
         jobs = []
         model, own = M.load_model(mdl)
@@ -119,8 +147,11 @@ def load_sheet():
             if season == R.SUMMER or (kind == 'building' and season == R.SPRING):
                 continue
             idx[(kind, s, name)] = len(idx) + 100000
-            out[kind][idx[(kind, s, name)]] = R.recolor_btx(d, season, kind, ROOFS.get(str(s), {}) if kind == 'building' else None,
-                                                           MASKS if kind == 'building' else None)
+            m = R.recolor_btx(d, season, kind, ROOFS.get(str(s), {}) if kind == 'building' else None,
+                              MASKS if kind == 'building' else None)
+            if kind == 'map' and season == R.AUTUMN:
+                m = T.autumn_trees(d, m)   # as build_seasons.py: the trees go in before the sheet
+            out[kind][idx[(kind, s, name)]] = m
     SH.apply_sheet(out, sheet, sheet[:-4] + '.json', orig, ROOFS, lambda kind, s, season: idx.get((kind, s, season)))
     for (kind, s, name), i in idx.items():
         SHEET[('mapTextures' if kind == 'map' else 'buildingTextures', s, SEASON_OF[name])] = out[kind][i]

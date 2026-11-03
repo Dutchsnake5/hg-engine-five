@@ -13,7 +13,7 @@ SPRING, SUMMER, AUTUMN, WINTER = 0, 1, 2, 3
 WINTER_RAMP = [(0x94, 0x8B, 0xAC), (0xA4, 0xB4, 0xD5), (0xBD, 0xC5, 0xE6), (0xCD, 0xDE, 0xF6), (0xE6, 0xF6, 0xFF), (0xFF, 0xFF, 0xFF)]
 WINTER_SHADE = 0.34   # tree greens darker than this stay dark green under the snow
 WINTER_DUST = 0.6     # winter sand and dirt paths: how far they blend toward DUST_WHITE
-STONE_DUST = 0.15     # winter stone paths (greyish palettes): only a slight whitening (Drew, 2026-10-31)
+STONE_DUST = 0.15     # winter stone paths (greyish palettes): only a slight whitening (2026-10-31)
 STONE_SAT = 0.15      # a path palette whose colours average below this saturation is stone
 DUST_WHITE = (0xF0 / 255, 0xF8 / 255, 1.0)
 
@@ -110,7 +110,7 @@ def _shade(c, sat, val):
 
 
 def wilt(cols, season, ground):
-    """Autumn/winter flowers turn into plain grass (Drew, 2026-10-31: they should just look like grass, not a blob).
+    """Autumn/winter flowers turn into plain grass (2026-10-31: they should just look like grass, not a blob).
     Ground flowers (dots in the grass) melt into the ground. Flower beds and planters: every leaf and petal colour
     becomes one of three shades of the ground colour, by brightness, so the bed reads as grassy ground; the season's
     recolour then treats them exactly like the ground around them."""
@@ -133,14 +133,14 @@ def wilt(cols, season, ground):
 
 MAPLES = ('tree_en',)   # Ecruteak's red/gold maples: snow on their leaves in winter (the other seasons keep them)
 PATHS = ('road', 'fieldkk', 'bf_road')
-BEACHES = ('beach',)   # Drew, 2026-10-31: sand stays as it is in every season; only the grass edges change   # winter: palettes whose names start like this are paths and dirt fields (dusted)
+BEACHES = ('beach',)   # 2026-10-31: sand stays as it is in every season; only the grass edges change   # winter: palettes whose names start like this are paths and dirt fields (dusted)
 
 
 DUST_CONTRAST = 1.6   # winter paths: the dusting flattens a palette to 40% of its contrast; spread it back this much
 
 
 def dusted(cols):
-    """Winter paths (Drew, 2026-10-31: snow-dusted): each colour blended toward a cool snow white, then the darker ones
+    """Winter paths (2026-10-31: snow-dusted): each colour blended toward a cool snow white, then the darker ones
     spread back down from the palette's brightest (DUST_CONTRAST) so stones and sand grain still show while the
     brightest keeps its dusted shade. Greens (grass edges) get snow. Unused-looking entries (white, black, magenta)
     are left out of that."""
@@ -257,7 +257,7 @@ def _texel_io(out, off, bpp, imask):
 
 
 def snow_roof_texels(out, masks, pal_cols):
-    """Winter roofs, texel by texel (Drew, 2026-10-31). Only roof texels change (data/seasons/roof_masks.json: faces
+    """Winter roofs, texel by texel (2026-10-31). Only roof texels change (data/seasons/roof_masks.json: faces
     that face up in the upper part of a model, minus texels a wall or low face also shows), so logos, awnings, ribs and
     rims that share a colour with the roof keep it. Per palette: colours shown only on roof texels and entries no
     texture uses become up to SNOW_SHADES snow colours (Platinum's ramp), and the roof texels are spread over them by

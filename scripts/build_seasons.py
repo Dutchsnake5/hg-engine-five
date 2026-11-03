@@ -13,7 +13,10 @@ automatic snow. Then hand-edited cells of data/seasons/flower_sheet.png (scripts
 - field effects (a/1/0/3): for the n-th member in sSeasonalEffectMembers (the tall grass shake, leaves and the grass
   over the player's legs), SEASONAL_FIRST_EFFECT + 3n (spring), + 3n + 1 (autumn), + 3n + 2 (winter), every palette
   colour recoloured like the map's grass. After them, data/seasons/snow_ground.bin (scripts/season_snow_ground.py)
-  with a header: u16 map file count, u16 0 (the plain ground tiles that play the snow footstep in winter)."""
+  with a header: u16 map file count, u16 0 (the plain ground tiles that play the snow footstep in winter).
+- hand-painted map textures (data/seasons/maptex/<season>/) go on last.
+- autumn map sets: the tree textures become four colour versions stacked in one taller texture (scripts/season_trees.py);
+  src/seasons.c puts each tree of a loaded map model on one of them."""
 import json
 import os
 import re
@@ -42,9 +45,13 @@ rom = ndspy.rom.NintendoDSRom.fromFile(rom_path)
 narc = ndspy.narc.NARC(rom.getFileByName('a/0/4/4'))
 if len(narc.files) != first:
     sys.exit('build_seasons.py: a/0/4/4 has %d members, src/seasons.c expects %d' % (len(narc.files), first))
+import season_trees as T  # noqa: E402
 for s in sets:
     for season in (R.SPRING, R.AUTUMN, R.WINTER):
-        narc.files.append(R.recolor_btx(narc.files[s], season, 'map'))
+        d = R.recolor_btx(narc.files[s], season, 'map')
+        if season == R.AUTUMN:
+            d = T.autumn_trees(narc.files[s], d)   # trees in several colours (scripts/season_trees.py)
+        narc.files.append(d)
 bnarc = ndspy.narc.NARC(rom.getFileByName('a/0/7/0'))
 if len(bnarc.files) != first_building:
     sys.exit('build_seasons.py: a/0/7/0 has %d members, src/seasons.c expects %d' % (len(bnarc.files), first_building))
@@ -76,6 +83,18 @@ if os.path.exists(sheet):
     orig = {'map': list(narc.files[:first]), 'building': list(bnarc.files[:first_building])}
     out = {'map': narc.files, 'building': bnarc.files}
     SH.apply_sheet(out, sheet, os.path.join(here, '..', 'data', 'seasons', 'flower_sheet.json'), orig, roofs, member_of)
+
+# hand-painted map textures (data/seasons/maptex/<season>/, scripts/season_roofpaint.py), on top of everything else
+map_problems = []
+map_pairs = RP.load_map_pairs()
+for i, s in enumerate(sets):
+    for v, season in enumerate(RP.MAP_SEASONS):
+        k = first + i * 3 + v
+        d, problems = RP.apply_map_all(narc.files[k], s, season, map_pairs)
+        narc.files[k] = d
+        map_problems += ['%s map set %d: %s' % (season, s, p) for p in problems]
+if map_problems:
+    sys.exit('build_seasons.py: hand-painted map textures that don\'t fit:\n  ' + '\n  '.join(map_problems))
 
 # field effect grass (the shake in tall grass, leaves, the grass over the player's legs): textures and models alike
 enarc = ndspy.narc.NARC(rom.getFileByName('a/1/0/3'))

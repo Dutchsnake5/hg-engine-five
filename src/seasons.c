@@ -305,8 +305,6 @@ void *LONG_CALL AreaLightManager_New_Seasonal(void *modelAttributes, u32 archive
     return m;
 }
 
-#endif // SEASONAL_MAPS
-
 // the player's step sounds (arm9 sub_0205CC94, pret unk_0205CB48.s), replaced whole (hooked at its first instruction):
 // the original's puddle, shallow water, mud and grass sounds, plus in winter the snow footstep on plain ground that is
 // snow (grass under it in summer, from the snow ground table); dirt roads, paths and sand stay silent and grass keeps
@@ -394,3 +392,344 @@ void LONG_CALL PlayerAvatar_StepSounds_Seasonal(void *avatar)
     }
     PlayerAvatar_StepEffects(object, avatar);
 }
+
+// autumn trees in several colours: each seasonal autumn map texture set holds its tree textures (scripts/season_trees.py
+// TREE_TEXTURES) as SEASON_TREE_VERSIONS colour versions stacked from top to bottom (64 x 256, 64 rows each), and every
+// tree quad of a map model is moved onto one version (texture coordinate V + 64 * version) when the model is loaded
+// into one of the four map model buffers, before its textures are bound. Pieces of trees in one row that touch (a tree
+// can be the end of one quad and the start of the next) share their group's version; whole trees each get their own.
+// scripts/season_trees.py patch_model does the same for previews; keep the two in step.
+#define SEASON_TREE_VERSIONS  4
+#define SEASON_TREE_STRIP_RIGHT 2      // a strip version's right-hand tree has version (k + 2) % 4
+#define MAP_MODEL_BUFFERS     0x02209B70 // ov01: four buffers of 0xF000 bytes (pret ov01_021FAC44)
+#define MAP_MODEL_BUFFER_SIZE 0xF000
+#define MAX_TREE_QUADS        192        // the most in any map model: 160
+#define TREE_ROW              (4 << 12)  // bases this close (model units, fx12) stand in one row
+#define TREE_TOUCH            (2 << 12)  // and pieces this close side by side touch
+#define NNS_G3dGetMdlSet      ((void *(*)(void *))0x020C3B40)         // ARM code
+#define NNS_G3dBindMdlSet     ((void (*)(void *, void *))0x020BED00)  // ARM code
+#define DC_FlushRange         ((void (*)(const void *, u32))0x020D2894) // ARM code
+
+struct TreeQuad {
+    u32 *tc[4]; // the quad's texture coordinate words
+    s32 x0, x1, zb; // x range and base z, model units (fx12)
+    s32 xa, xb; // x where the texture coordinate U is smallest / largest
+    s16 ua, ub; // those U (1/16 texels)
+    u8 parent, piece, strip, ntc; // piece: a strip piece or a part of the single-tree texture, not a whole tree
+};
+
+static const char sTreeTextures[][16] = { "tree01gs", "tree01_re", "treekn", "treekn_re" };
+static const u8 sTreeIsStrip[] = { 0, 1, 0, 1 };
+
+// parameter words of the packed display list commands (0xFF = not one the map models use)
+static const u8 sGxParams[0x73] = {
+    [0x00] = 0, [0x01 ... 0x0F] = 0xFF, [0x10] = 1, [0x11] = 0, [0x12] = 1, [0x13] = 1, [0x14] = 1, [0x15] = 0,
+    [0x16] = 16, [0x17] = 12, [0x18] = 16, [0x19] = 12, [0x1A] = 9, [0x1B] = 3, [0x1C] = 3, [0x1D ... 0x1F] = 0xFF,
+    [0x20] = 1, [0x21] = 1, [0x22] = 1, [0x23] = 2, [0x24] = 1, [0x25] = 1, [0x26] = 1, [0x27] = 1, [0x28] = 1,
+    [0x29] = 1, [0x2A] = 1, [0x2B] = 1, [0x2C ... 0x2F] = 0xFF, [0x30] = 1, [0x31] = 1, [0x32] = 1, [0x33] = 1,
+    [0x34] = 32, [0x35 ... 0x3F] = 0xFF, [0x40] = 1, [0x41] = 0, [0x42 ... 0x4F] = 0xFF, [0x50] = 1,
+    [0x51 ... 0x5F] = 0xFF, [0x60] = 1, [0x61 ... 0x6F] = 0xFF, [0x70] = 3, [0x71] = 2, [0x72] = 1,
+};
+
+static s32 SignExtend(u32 v, u32 bits)
+{
+    return (s32)(v << (32 - bits)) >> (32 - bits);
+}
+
+static s32 FloorDiv(s64 a, s64 b)
+{
+    s64 q = a / b;
+    return (s32)((a % b != 0 && ((a < 0) != (b < 0))) ? q - 1 : q);
+}
+
+// an NNS dictionary: its entries, entry size and the start of its 16-byte names
+static u8 *NnsDict(u8 *dict, u32 *count, u32 *entrySize, u8 **names)
+{
+    u8 *p = dict + *(u16 *)(dict + 6);
+    *count = dict[1];
+    *entrySize = *(u16 *)p;
+    *names = p + *(u16 *)(p + 2);
+    return p + 4;
+}
+
+static u32 Seasons_TreeVersion(s32 x, s32 z, u32 seed)
+{
+    u32 h = ((u32)(x >> 12) * 0x9E3779B1u) ^ ((u32)(z >> 12) * 0x85EBCA77u) ^ (seed * 0xC2B2AE3Du);
+    h ^= h >> 16; // murmur3's finaliser: positions are whole units, so mix well
+    h *= 0x85EBCA6Bu;
+    h ^= h >> 13;
+    h *= 0xC2B2AE35u;
+    h ^= h >> 16;
+    return (h >> 16) % SEASON_TREE_VERSIONS;
+}
+
+// the quads of one tree shape's display list
+static u32 Seasons_TreeQuads(u32 *dl, u32 size, BOOL strip, s32 scale, struct TreeQuad *quads, u32 n)
+{
+    u32 *p = dl, *end = (u32 *)((u8 *)dl + size);
+    u32 *tc = NULL, prim = 0xFF, nv = 0;
+    s32 x = 0, z = 0, xs[4], zs[4];
+    u32 *tcs[4];
+
+    while (p < end && n < MAX_TREE_QUADS) {
+        u32 cmds = *p++;
+        for (u32 i = 0; i < 4; i++) {
+            u32 c = (cmds >> (8 * i)) & 0xFF;
+            u32 np = c < NELEMS(sGxParams) ? sGxParams[c] : 0xFF;
+            u32 w0 = np ? p[0] : 0;
+            if (np == 0xFF) {
+                return n;
+            }
+            if (c == 0x40) {
+                prim = w0 & 3;
+                nv = 0;
+            } else if (c == 0x22) {
+                tc = p;
+            } else if (c >= 0x23 && c <= 0x28) {
+                if (c == 0x23) {
+                    x = SignExtend(w0, 16);
+                    z = SignExtend(p[1], 16);
+                } else if (c == 0x24) {
+                    x = SignExtend(w0, 10) << 6;
+                    z = SignExtend(w0 >> 20, 10) << 6;
+                } else if (c == 0x25) {
+                    x = SignExtend(w0, 16);
+                } else if (c == 0x26) {
+                    x = SignExtend(w0, 16);
+                    z = SignExtend(w0 >> 16, 16);
+                } else if (c == 0x27) {
+                    z = SignExtend(w0 >> 16, 16);
+                } else {
+                    x += SignExtend(w0, 10);
+                    z += SignExtend(w0 >> 20, 10);
+                }
+                if (prim == 1 && tc != NULL) {
+                    tcs[nv] = tc;
+                    xs[nv] = (s32)(((s64)x * scale) >> 12);
+                    zs[nv] = (s32)(((s64)z * scale) >> 12);
+                    if (++nv == 4) {
+                        struct TreeQuad *q = &quads[n++];
+                        s32 umin = 0x7FFF, umax = -0x8000;
+                        q->ntc = 0;
+                        q->x0 = q->x1 = xs[0];
+                        q->zb = zs[0];
+                        for (u32 v = 0; v < 4; v++) {
+                            s32 u = SignExtend(*tcs[v], 16);
+                            u32 t;
+                            for (t = 0; t < q->ntc && q->tc[t] != tcs[v]; t++) {
+                            }
+                            if (t == q->ntc) {
+                                q->tc[q->ntc++] = tcs[v];
+                            }
+                            if (xs[v] < q->x0) q->x0 = xs[v];
+                            if (xs[v] > q->x1) q->x1 = xs[v];
+                            if (zs[v] > q->zb) q->zb = zs[v];
+                            if (u < umin) {
+                                umin = u;
+                                q->xa = xs[v];
+                            }
+                            if (u > umax) {
+                                umax = u;
+                                q->xb = xs[v];
+                            }
+                        }
+                        q->ua = umin;
+                        q->ub = umax;
+                        q->strip = strip;
+                        q->piece = strip || umin != 0 || umax != 64 * 16;
+                        nv = 0;
+                    }
+                }
+            }
+            p += np;
+        }
+    }
+    return n;
+}
+
+static u32 TreeRoot(struct TreeQuad *q, u32 i)
+{
+    while (q[i].parent != i) {
+        q[i].parent = q[q[i].parent].parent;
+        i = q[i].parent;
+    }
+    return i;
+}
+
+static void Seasons_AutumnTrees(u8 *bmd)
+{
+    u8 isTree[32] = { 0 }, isStrip[32] = { 0 };
+    u8 *mdl0, *model, *mats, *shapes, *names, *entries, *p, *end;
+    u32 count, esize, n = 0, mat = 0xFFFF, i, j, any = 0;
+    s32 scale;
+    struct TreeQuad *quads;
+
+    if (*(u32 *)bmd != 0x30444D42) { // 'BMD0'
+        return;
+    }
+    mdl0 = bmd + *(u32 *)(bmd + 0x10);
+    entries = NnsDict(mdl0 + 8, &count, &esize, &names);
+    model = mdl0 + *(u32 *)entries;
+    scale = *(s32 *)(model + 0x1C);
+    mats = model + *(u32 *)(model + 8);
+    entries = NnsDict(mats + *(u16 *)mats, &count, &esize, &names);
+    for (i = 0; i < count; i++) {
+        for (j = 0; j < NELEMS(sTreeTextures); j++) {
+            u32 c;
+            for (c = 0; c < 16 && names[16 * i + c] == (u8)sTreeTextures[j][c]; c++) {
+            }
+            if (c == 16) {
+                u8 *e = entries + esize * i, *list = mats + *(u16 *)e;
+                for (u32 k = 0; k < e[2]; k++) {
+                    isTree[list[k] >> 3] |= 1 << (list[k] & 7);
+                    if (sTreeIsStrip[j]) {
+                        isStrip[list[k] >> 3] |= 1 << (list[k] & 7);
+                    }
+                    any = 1;
+                }
+            }
+        }
+    }
+    if (!any) {
+        return;
+    }
+    quads = sys_AllocMemoryLo(4, sizeof(struct TreeQuad) * MAX_TREE_QUADS);
+    if (quads == NULL) {
+        return;
+    }
+    shapes = model + *(u32 *)(model + 0xC);
+    entries = NnsDict(shapes, &count, &esize, &names);
+    {
+        u8 done[32] = { 0 };
+        p = model + *(u32 *)(model + 4);
+        end = mats;
+        while (p < end) {
+            u32 c = p[0] & 0x1F, var = p[0] >> 5;
+            if (c == 0x00) {
+                p += 1;
+            } else if (c == 0x01) {
+                break;
+            } else if (c == 0x02) {
+                p += 3;
+            } else if (c == 0x03) {
+                p += 2;
+            } else if (c == 0x04) {
+                mat = p[1];
+                p += 2;
+            } else if (c == 0x05) {
+                u32 s = p[1];
+                if (mat < 256 && (isTree[mat >> 3] >> (mat & 7) & 1) && !(done[s >> 3] >> (s & 7) & 1) && s < count) {
+                    u8 *hdr = shapes + *(u32 *)(entries + esize * s);
+                    done[s >> 3] |= 1 << (s & 7);
+                    n = Seasons_TreeQuads((u32 *)(hdr + *(u32 *)(hdr + 8)), *(u32 *)(hdr + 12),
+                                          isStrip[mat >> 3] >> (mat & 7) & 1, scale, quads, n);
+                }
+                p += 2;
+            } else if (c == 0x06) {
+                p += 4 + (var & 1) + ((var >> 1) & 1);
+            } else if (c == 0x07 || c == 0x08) {
+                p += 2 + (var & 1) + ((var >> 1) & 1);
+            } else if (c == 0x09) {
+                p += 3 + p[2] * 3;
+            } else if (c == 0x0B) {
+                p += 1;
+            } else if (c == 0x0C || c == 0x0D) {
+                p += 3;
+            } else {
+                break;
+            }
+        }
+    }
+    // groups: pieces in one row that touch, at least one of them a piece of a tree
+    for (i = 0; i < n; i++) {
+        quads[i].parent = i;
+    }
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            struct TreeQuad *a = &quads[i], *b = &quads[j];
+            s32 dz = a->zb - b->zb;
+            if ((a->piece || b->piece) && dz <= TREE_ROW && dz >= -TREE_ROW && a->x0 <= b->x1 + TREE_TOUCH && b->x0 <= a->x1 + TREE_TOUCH) {
+                u32 ri = TreeRoot(quads, i), rj = TreeRoot(quads, j);
+                if (ri != rj) {
+                    quads[ri > rj ? ri : rj].parent = ri < rj ? ri : rj;
+                }
+            }
+        }
+    }
+    {
+        u8 root[MAX_TREE_QUADS], first[MAX_TREE_QUADS];
+        // each group's version comes from its leftmost piece (then the one furthest back)
+        for (i = 0; i < n; i++) {
+            root[i] = TreeRoot(quads, i);
+            first[i] = 0xFF;
+        }
+        for (i = 0; i < n; i++) {
+            u32 r = root[i], b = first[r];
+            if (b == 0xFF || quads[i].x0 < quads[b].x0 || (quads[i].x0 == quads[b].x0 && quads[i].zb < quads[b].zb)) {
+                first[r] = i;
+            }
+        }
+        for (i = 0; i < n; i++) {
+            struct TreeQuad *q = &quads[i];
+            u32 b = first[root[i]], k = Seasons_TreeVersion(quads[b].x0, quads[b].zb, *(u32 *)model);
+            u16 base = 0xFFFF;
+            if (!q->strip && q->ub != q->ua) {
+                // a single tree in a group with strip pieces: the nearest strip's texture, carried on to the tree's
+                // middle, says whether it is one of the strip's left trees or right trees
+                s32 xc = q->xa + FloorDiv((s64)(32 * 16 - q->ua) * (q->xb - q->xa), q->ub - q->ua);
+                s32 bestDist = 0x7FFFFFFF;
+                u32 best = 0xFF;
+                for (j = 0; j < n; j++) {
+                    struct TreeQuad *t = &quads[j];
+                    if (t->strip && root[j] == root[i] && t->xb != t->xa) {
+                        s32 lo = t->xa < t->xb ? t->xa : t->xb, hi = t->xa < t->xb ? t->xb : t->xa;
+                        s32 dist = lo - xc > xc - hi ? lo - xc : xc - hi;
+                        if (dist < 0) {
+                            dist = 0;
+                        }
+                        if (dist < bestDist) {
+                            bestDist = dist;
+                            best = j;
+                        }
+                    }
+                }
+                if (best != 0xFF) {
+                    struct TreeQuad *t = &quads[best];
+                    s32 u = t->ua + FloorDiv((s64)(xc - t->xa) * (t->ub - t->ua), t->xb - t->xa);
+                    k = (k + SEASON_TREE_STRIP_RIGHT * (FloorDiv(u, 32 * 16) & 1)) % SEASON_TREE_VERSIONS;
+                }
+            }
+            for (j = 0; j < q->ntc; j++) {
+                u16 t = *q->tc[j] >> 16;
+                if (t < base) {
+                    base = t;
+                }
+            }
+            base = (base / 1024) * 1024;
+            for (j = 0; j < q->ntc; j++) {
+                u32 w = *q->tc[j];
+                *q->tc[j] = (w & 0xFFFF) | ((u32)(u16)((w >> 16) - base + k * 1024) << 16);
+            }
+        }
+    }
+    sys_FreeMemoryEz(quads);
+    DC_FlushRange(bmd, *(u32 *)(bmd + 8));
+}
+
+// arm9 0x0201F64C (pret GF3dRender_BindModelSet), replaced: autumn map models get their trees moved first
+BOOL LONG_CALL GF3dRender_BindModelSet_Seasonal(void *header, void *tex)
+{
+    void *mdlSet;
+
+    if (sAreaVariant == 1 && (u32)header >= MAP_MODEL_BUFFERS && (u32)header < MAP_MODEL_BUFFERS + 4 * MAP_MODEL_BUFFER_SIZE) {
+        Seasons_AutumnTrees(header);
+    }
+    mdlSet = NNS_G3dGetMdlSet(header);
+    if (tex != NULL) {
+        NNS_G3dBindMdlSet(mdlSet, tex);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+#endif // SEASONAL_MAPS

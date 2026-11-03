@@ -11,7 +11,13 @@ painting in data/seasons/roofs/ to the winter building texture set after the aut
 - a new colour takes a palette entry no texture shown with that palette uses (after the painting), so other
   buildings sharing the palette never change; too many new colours is an error (`check` lists them);
 - fully transparent pixels become colour 0 when the texture has a see-through colour 0.
-Default painting folder for Drew: C:\\Users\\Drew\\Desktop\\HG ROM Hack Project\\Seasons\\roofs."""
+Default painting folder for Drew: C:\\Users\\Drew\\Desktop\\HG ROM Hack Project\\Seasons\\roofs.
+
+Map textures (ground, trees, flowers, water edges) can be painted the same way, per season: data/seasons/maptex/<season>/
+<map texture set>_<texture>_<palette>.png (season = spring, autumn or winter), applied to that season's seasonal map
+texture member after the automatic recolour, the flower sheet and the autumn trees. Which textures share a palette
+comes from data/seasons/map_pairs.json (`season_roofpaint.py mappairs <DSPRE unpacked/maps dir>` rewrites it).
+    season_roofpaint.py mapcheck <rom.nds> [maptex dir]"""
 import os
 import re
 import shutil
@@ -24,6 +30,10 @@ import season_recolor as R  # noqa: E402
 
 REPO_DIR = os.path.join(HERE, '..', 'data', 'seasons', 'roofs')
 DESKTOP_DIR = '/mnt/c/Users/Drew/Desktop/HG ROM Hack Project/Seasons/roofs'
+MAP_REPO_DIR = os.path.join(HERE, '..', 'data', 'seasons', 'maptex')
+MAP_DESKTOP_DIR = '/mnt/c/Users/Drew/Desktop/HG ROM Hack Project/Seasons/maptex'
+MAP_PAIRS = os.path.join(HERE, '..', 'data', 'seasons', 'map_pairs.json')
+MAP_SEASONS = ('spring', 'autumn', 'winter')
 
 
 def file_name(bset, tex, pal):
@@ -162,8 +172,54 @@ def apply_all(data, bset, pairs, folder=None):
     return bytes(out), problems
 
 
+def model_pairs(bmd):
+    """{(texture, palette)} that the materials of a map model (BMD0 bytes) draw with."""
+    import season_trees as T
+    d = bytearray(bmd)
+    if d[:4] != b'BMD0':
+        return set()
+    mdl0 = struct.unpack_from('<I', d, 0x10)[0]
+    m = mdl0 + struct.unpack_from('<I', d, T._dict(d, mdl0 + 8)[0][1])[0]
+    base = m + struct.unpack_from('<I', d, m + 8)[0]
+    ofs_tex, ofs_pal = struct.unpack_from('<HH', d, base)
+    by_mat = {}
+    for which, ofs in ((0, ofs_tex), (1, ofs_pal)):
+        for name, e, _ in T._dict(d, base + ofs):
+            lst, num = struct.unpack_from('<HB', d, e)
+            for mat in d[base + lst:base + lst + num]:
+                by_mat.setdefault(mat, [None, None])[which] = name.decode('latin1')
+    return {(t, p) for t, p in by_mat.values() if t and p}
+
+
+def load_map_pairs(path=None):
+    """{palette: [textures drawn with it on any map]} (data/seasons/map_pairs.json)."""
+    import json
+    path = path or MAP_PAIRS
+    return json.load(open(path)) if os.path.exists(path) else {}
+
+
+def apply_map_all(data, mset, season, pairs, folder=None):
+    """A seasonal map texture member (season 'spring' / 'autumn' / 'winter') with every painting for map texture set
+    mset applied: (bytes, problems)."""
+    return apply_all(data, mset, pairs, os.path.join(folder or MAP_REPO_DIR, season))
+
+
 def main():
     cmd = sys.argv[1]
+    if cmd == 'mappairs':
+        import json
+        sys.path.insert(0, os.environ.get('SCRIPT_INSPECTOR', '/mnt/c/Users/Drew/Desktop/HG ROM Hack Project/ScriptInspector'))
+        import maprender as M
+        pairs = {}
+        folder = sys.argv[2]
+        for f in sorted(os.listdir(folder)):
+            if f.isdigit():
+                _, _, mdl = M.split_map_file(open(os.path.join(folder, f), 'rb').read())
+                for t, p in model_pairs(mdl):
+                    pairs.setdefault(p, set()).add(t)
+        json.dump({p: sorted(ts) for p, ts in sorted(pairs.items())}, open(MAP_PAIRS, 'w'), indent=0)
+        print('%d palettes -> %s' % (len(pairs), MAP_PAIRS))
+        return
     if cmd == 'install':
         src = sys.argv[2]
         os.makedirs(REPO_DIR, exist_ok=True)
@@ -191,6 +247,35 @@ def main():
         save_png(path, *texture_rgba(winter, tex, pal))
         save_png(path[:-4] + '_summer.png', *texture_rgba(base, tex, pal))
         print(path)
+    elif cmd == 'mapcheck':
+        import re as _re
+        import season_trees as T
+        folder = sys.argv[3] if len(sys.argv) > 3 else MAP_REPO_DIR
+        narc = ndspy.narc.NARC(rom.getFileByName('a/0/4/4')).files
+        src = open(os.path.join(HERE, '..', 'src', 'seasons.c'), encoding='utf-8').read()
+        body = _re.search(r'sSeasonalMapTexSets\[\] = \{(.*?)\};', src, _re.S).group(1)
+        seasonal = [int(x) for x in _re.findall(r'\d+', _re.sub(r'//[^\n]*', '', body))]
+        pairs = load_map_pairs()
+        bad = 0
+        for season in MAP_SEASONS:
+            sdir = os.path.join(folder, season)
+            if not os.path.isdir(sdir):
+                continue
+            code = {'spring': R.SPRING, 'autumn': R.AUTUMN, 'winter': R.WINTER}[season]
+            for s in sorted({parse_name(f)[0] for f in os.listdir(sdir) if parse_name(f)}):
+                if s not in seasonal:
+                    print('%s: set %d is not seasonal (sSeasonalMapTexSets)' % (season, s))
+                    bad += 1
+                    continue
+                d = R.recolor_btx(narc[s], code, 'map')
+                if code == R.AUTUMN:
+                    d = T.autumn_trees(narc[s], d)
+                _, problems = apply_map_all(d, s, season, pairs, folder)
+                for p in problems:
+                    print('%s set %d: %s' % (season, s, p))
+                    bad += 1
+        print('%d problem(s)' % bad)
+        sys.exit(1 if bad else 0)
     elif cmd == 'check':
         folder = sys.argv[3] if len(sys.argv) > 3 else REPO_DIR
         sets = sorted({parse_name(f)[0] for f in os.listdir(folder) if parse_name(f)})

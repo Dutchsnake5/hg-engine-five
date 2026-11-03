@@ -651,6 +651,7 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0001 FieldEffect_LoadModel_Seasonal 021F18D4 3
 0001 FieldEffect_LoadAnim_Seasonal 021F1908 3
 arm9 PlayerAvatar_StepSounds_Seasonal 0205CC94 1
+arm9 GF3dRender_BindModelSet_Seasonal 0201F64C 2
 #endif
 0001 DrawRockSmashIdx 02204E8C 1
 

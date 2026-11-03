@@ -120,7 +120,7 @@ SEASONS_EFFECT_NARC := $(BUILD_NARC)/a103.narc
 SEASONS_EFFECT_TARGET := $(FILESYS)/a/1/0/3
 
 # the roof colours (data/seasons/roof_colors.json) are made once by scripts/season_roofs.py from the building models
-$(SEASONS_NARC): scripts/build_seasons.py scripts/season_recolor.py scripts/season_sheet.py src/seasons.c data/seasons/roof_colors.json data/seasons/roof_masks.json data/seasons/roof_overrides.json data/seasons/snow_ground.bin scripts/season_roofpaint.py $(wildcard data/seasons/flower_sheet.* data/seasons/roofs/*.png) $(ROMNAME)
+$(SEASONS_NARC): scripts/build_seasons.py scripts/season_recolor.py scripts/season_trees.py scripts/season_sheet.py src/seasons.c data/seasons/roof_colors.json data/seasons/roof_masks.json data/seasons/roof_overrides.json data/seasons/snow_ground.bin scripts/season_roofpaint.py $(wildcard data/seasons/flower_sheet.* data/seasons/roofs/*.png data/seasons/maptex/*/*.png data/seasons/maptex data/seasons/maptex/*) data/seasons/map_pairs.json $(ROMNAME)
 	mkdir -p $(BUILD_NARC)
 	$(PYTHON) scripts/build_seasons.py $(ROMNAME) src/seasons.c data/seasons/roof_colors.json $@ $(SEASONS_BUILDING_NARC) $(SEASONS_EFFECT_NARC)
 
