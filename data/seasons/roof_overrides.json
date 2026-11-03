@@ -1,5 +1,12 @@
 {
  "_about": "Per building texture exceptions to the automatic winter roof snow (scripts/season_roofs.py, season_recolor.py). Key = texture name (Season Preview > Buildings shows it). Options: snow (false = no snow on this texture), shades (how many snow colours, default 4), keep (colours as rrggbb that stay as they are), lum ([darkest, brightest] snow brightness, default [0.7, 1.0]), trim (false = grey/white trim and the dark outline get snow too), awnings ('roof' = low faces facing up are roof, 'wall' = they block it; default: sloped ones are neither), grow (texels the roof may spread into same colours, default 2), gaps (false = don't fill small gaps), note (why). Hand-painted textures in data/seasons/roofs/ go on top of all this.",
  "_example": {"note": "copy an entry like this under a texture name", "shades": 3, "keep": ["298b73"]},
- "en_gym_w": {"snow": false, "note": "Ecruteak gym wall: hand-painted from the hand-painted Mahogany gym wall; the automatic snow used up the palette entries its purples need"}
+ "en_gym_w": {"snow": false, "note": "Ecruteak gym wall: hand-painted from the hand-painted Mahogany gym wall; the automatic snow used up the palette entries its purples need"},
+ "uba_eda": {"snow": false, "note": "Ilex Forest: fallen branches lying flat, not a roof"},
+ "ubashadow_a.1": {"snow": false, "note": "Ilex Forest: the canopy shadow laid over the floor, not a roof (snow made pale squares)"},
+ "ubashadow_b.1": {"snow": false, "note": "Ilex Forest: the canopy shadow laid over the floor, not a roof (snow made pale squares)"},
+ "ubashadow_c.1": {"snow": false, "note": "Ilex Forest: the canopy shadow laid over the floor, not a roof (snow made pale squares)"},
+ "ubashadow_d.1": {"snow": false, "note": "Ilex Forest: the canopy shadow laid over the floor, not a roof (snow made pale squares)"},
+ "ubashadow_e.1": {"snow": false, "note": "Ilex Forest: the canopy shadow laid over the floor, not a roof (snow made pale squares)"},
+ "ubashadow_f.1": {"snow": false, "note": "Ilex Forest: the canopy shadow laid over the floor, not a roof (snow made pale squares)"}
 }

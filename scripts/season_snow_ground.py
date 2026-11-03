@@ -63,7 +63,7 @@ def main():
     renderer = M.Renderer(G.PROJECT)
     maps = {}   # map file -> map texture set
     for h, name, area, map_set in G.outdoor_headers(arm9):
-        if map_set not in sets:
+        if map_set not in sets or map_set in R.FROST_SETS:   # forests get frost, not snow: no snow footsteps
             continue
         _, _, _, cells = M.header_chunks(G.PROJECT, arm9, h)
         for _c, _r, mp in cells:

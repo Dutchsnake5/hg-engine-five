@@ -12,9 +12,12 @@ import struct
 
 import season_recolor as R
 
-TREE_TEXTURES = (b'tree01gs', b'tree01_re', b'treekn', b'treekn_re')
-STRIPS = (b'tree01_re', b'treekn_re')   # two trees side by side per 64 texels
-STRIP_SINGLE = {b'tree01_re': b'tree01gs', b'treekn_re': b'treekn'}   # the strip = this tree at x 16 and 48
+TREE_TEXTURES = (b'tree01gs', b'tree01_re', b'treekn', b'treekn_re',
+                 b'd05tree01', b'd05tree01_re',   # Ilex Forest
+                 b'dtf_f09', b'dtf_f10')          # Viridian Forest
+STRIPS = (b'tree01_re', b'treekn_re', b'd05tree01_re', b'dtf_f10')   # two trees side by side per 64 texels
+STRIP_SINGLE = {b'tree01_re': b'tree01gs', b'treekn_re': b'treekn', b'd05tree01_re': b'd05tree01',
+                b'dtf_f10': b'dtf_f09'}   # the strip = this tree at x 16 and 48
 VARIANTS = 4
 # (hue from, hue to) in degrees, dark foliage to light, then saturation and brightness factors
 STYLES = [
@@ -27,13 +30,27 @@ OUTLINE_HUE, OUTLINE_SAT = 18, 0.40
 STRIP_RIGHT = 2   # the strip's right-hand tree takes version (k + STRIP_RIGHT) % VARIANTS
 
 
-def leaf_colour(c, style):
+def shade_colours(cols):
+    """Palette indices of cool shading colours on the lower leaves: Ilex's and Viridian's trees shade their foliage with
+    navy blues, the darkest of which is the outline. Those should follow the leaves (they made a grey-brown band as
+    outline colour)."""
+    hsv = {i: colorsys.rgb_to_hsv(*R._rgb(c & 0x7FFF)) for i, c in enumerate(cols) if i}
+    cool = [i for i, (h, s, v) in hsv.items() if 180 <= h * 360 <= 270 and s > 0.2 and not R._green_hsv(h * 360, s)]
+    if len(cool) < 2:
+        return set()
+    darkest = min(cool, key=lambda i: hsv[i][2])
+    return {i for i in cool if i != darkest}
+
+
+def leaf_colour(c, style, shade=False):
     """A summer foliage colour (BGR555) in an autumn colour: hue by brightness (darker = redder), like the leaves of
-    one tree catching the light; the dark outline greys get the same hue, darkened."""
+    one tree catching the light; the dark outline greys get one brown; shade (see shade_colours) = a deep leaf colour."""
     r, g, b = R._rgb(c & 0x7FFF)
     h, s, v = colorsys.rgb_to_hsv(r, g, b)
     (h0, h1), sf, vf = STYLES[style]
-    if R._green_hsv(h * 360, s):
+    if shade:
+        r, g, b = colorsys.hsv_to_rgb(h0 / 360, min(1.0, sf), min(1.0, v * vf * 0.88))
+    elif R._green_hsv(h * 360, s):
         t = max(0.0, min(1.0, (v - 0.40) / 0.40))
         hue = (h0 + ((h1 - h0) % 360) * t) % 360
         r, g, b = colorsys.hsv_to_rgb(hue / 360, min(1.0, sf), min(1.0, v * vf))
@@ -152,9 +169,10 @@ def autumn_trees(summer, autumn):
         s_pal = st + struct.unpack_from('<I', summer, st + 0x38)[0] + (struct.unpack_from('<H', summer, s_pals[pal_name])[0] << 3)
         cols = struct.unpack_from('<16H', summer, s_pal)
         pal = [0] * 256
+        shades = shade_colours(cols)
         for k in range(VARIANTS):
             for i in range(1, 16):
-                pal[k * 16 + i] = leaf_colour(cols[i], k)
+                pal[k * 16 + i] = leaf_colour(cols[i], k, i in shades)
         right = [False] * (64 * 64)
         if n in STRIPS:
             right = strip_owner(summer, st, s_texes, n, idx)

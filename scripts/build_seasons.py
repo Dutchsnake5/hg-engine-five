@@ -48,7 +48,7 @@ if len(narc.files) != first:
 import season_trees as T  # noqa: E402
 for s in sets:
     for season in (R.SPRING, R.AUTUMN, R.WINTER):
-        d = R.recolor_btx(narc.files[s], season, 'map')
+        d = R.recolor_btx(narc.files[s], season, 'map', frost=s in R.FROST_SETS)
         if season == R.AUTUMN:
             d = T.autumn_trees(narc.files[s], d)   # trees in several colours (scripts/season_trees.py)
         narc.files.append(d)
@@ -59,7 +59,7 @@ import season_roofpaint as RP  # noqa: E402
 paint_problems = []
 for s in range(first_building):
     for season in (R.AUTUMN, R.WINTER):
-        d = R.recolor_btx(bnarc.files[s], season, 'building', roofs.get(str(s), {}), masks)
+        d = R.recolor_btx(bnarc.files[s], season, 'building', roofs.get(str(s), {}), masks, frost=s in R.FROST_BUILDING_SETS)
         if season == R.WINTER and d[:4] == b'BTX0':
             d, problems = RP.apply_all(d, s, masks['_pairs'])   # hand-painted roofs (data/seasons/roofs/)
             paint_problems += ['building set %d: %s' % (s, p) for p in problems]

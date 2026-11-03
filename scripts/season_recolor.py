@@ -34,12 +34,13 @@ def _bgr555(r, g, b):
     return f(r) | (f(g) << 5) | (f(b) << 10)
 
 
-def recolor(c, season, foliage=False):
-    """One BGR555 colour for a season (foliage: a red or gold leaf colour that should follow the season like green)."""
+def recolor(c, season, foliage=False, forest=False):
+    """One BGR555 colour for a season (foliage: a red or gold leaf colour that should follow the season like green;
+    forest: a forest floor's teal and cyan shades count as green too, see FOREST_HUES)."""
     r, g, b = _rgb(c & 0x7FFF)
     h, s, v = colorsys.rgb_to_hsv(r, g, b)
     deg = h * 360
-    green = _green_hsv(deg, s) or (foliage and season == WINTER)
+    green = _green_hsv(deg, s) or (foliage and season == WINTER) or (forest and _forest_shade(deg, s))
     if season == AUTUMN and green:
         # dark foliage -> red-orange, light ground -> straw gold
         nh = (12 + 38 * v) / 360
@@ -139,14 +140,115 @@ BEACHES = ('beach',)   # 2026-10-31: sand stays as it is in every season; only t
 DUST_CONTRAST = 1.6   # winter paths: the dusting flattens a palette to 40% of its contrast; spread it back this much
 
 
-def dusted(cols):
+DIRT_SAT = 0.25   # in a stone path palette, colours this saturated are the dirt around the stones
+
+# forests (2026-11-03: Ilex and Viridian Forest, "all seasons, light winter"): in winter only the trees get snow; the
+# floor gets a light frost, so the sunlight patches on the dark forest floor stay soft instead of turning into white
+# blotches. Map texture sets, as in src/seasons.c sSeasonalMapTexSets; trees by palette name (not their *_un shadows).
+FROST_SETS = (74, 103)
+FROST_BUILDING_SETS = (72, 101)   # their building texture sets (Ilex's canopy shadows, ubashadow_*)
+FROST_BUILDING_FLOOR = ('ubashadow', 'uba_eda')   # Ilex's floor laid as building models: canopy shade, fallen branches (uba_b21… = light on the pond, blue like the water: unchanged)
+FOREST_HUES = (150, 215)   # a forest floor's shade and canopy light are teal to sky blue: there those hues follow the season too
+FOREST_NOT_FLOOR = ('pond', 'sea', 'tou_', 'water')   # water and the shrine keep their blues
+
+
+# Ilex's shade is see-through (alpha 16/31) and lies over the floor and the pond: a flat shade over nearly every tile
+# (ubashadow, one colour) and, on the pond, shade pieces with light patches on the same base colour (uba_b21 …). In
+# spring and autumn the shade becomes a near-grey (a blue-grey haze turned the gold floor teal); both pond pieces take
+# it, their light colours shift with it, and the pond's water is shifted the other way, so the water blends exactly as
+# in summer (only the brightest blues clip a little). Without that the pond showed boxes where the pieces meet.
+STICKS = ('uba_eda',)   # Ilex's fallen branches
+STICK_SWAP = {AUTUMN: WINTER, WINTER: AUTUMN}
+STICK_EDGE_SAT, STICK_EDGE_DIM = 0.6, 0.8
+FLAT_SHADE = ('ubashadow_pl',)
+POND_SHADE = ('uba_b2', 'uba_c2', 'uba_d2', 'uba_f2')
+POND_WATER = ('pond_on', 'pond_edge', 'pond_un')
+FLAT_SHADE_SUMMER = 0x45CA   # 52738b
+FLAT_SAT, FLAT_DIM = 0.15, 0.95
+OVERLAY_ALPHA = 16 / 31
+
+
+def flat_shade(season):
+    return _desaturated(recolor(FLAT_SHADE_SUMMER, season, forest=True), FLAT_SAT, FLAT_DIM)
+
+
+def _shifted(c, to, frm, k):
+    """c moved by k * (to - frm), per channel, clipped."""
+    a, t, f = _rgb(c & 0x7FFF), _rgb(to), _rgb(frm)
+    return (c & 0x8000) | _bgr555(*(min(1.0, max(0.0, a[i] + k * (t[i] - f[i]))) for i in range(3)))
+
+
+def _is_water(c):
+    h, s, v = _hsv(c)
+    return 185 <= h * 360 <= 235 and s > 0.4
+
+
+OVERLAY_SAT = 0.4   # how much of the season's colour the forest's canopy overlays keep
+
+
+OVERLAY_DIM = 0.8   # and a little darker: lighter than the pond, they showed as pale squares on the water
+
+
+def _desaturated(c, f, dim=1.0):
+    h, s, v = _hsv(c)
+    return (c & 0x8000) | _bgr555(*colorsys.hsv_to_rgb(h, s * f, v * dim))
+
+
+def _forest_shade(deg, s):
+    return FOREST_HUES[0] <= deg <= FOREST_HUES[1] and s > 0.08
+FROST_TREES = ('tree', 'd05tree', 'dtf_f09', 'dtf_f10')
+FROST_SAT = 0.88     # forest floor in winter: saturation kept (every colour alike, so the floor keeps summer's soft
+FROST_HUE = 172      # contrast between its sunlit squares and its shade), hue nudged toward a cool teal by FROST_PULL,
+FROST_PULL = 0.25    # brightness times FROST_DIM: shade with a little frost, never lighter than summer (lighter made
+FROST_DIM = 0.94     # the floor's sunlit squares stand out)
+SHADE_SNOW = 0.82    # forest trees in winter: their snow as bright as this share of open country's, a little bluer
+
+
+def frosted(c):
+    """One colour of a forest floor in winter: a light, even frost (see FROST_SETS)."""
+    h, s, v = colorsys.rgb_to_hsv(*_rgb(c & 0x7FFF))
+    deg = h * 360
+    d = ((FROST_HUE - deg + 180) % 360) - 180
+    nh = ((deg + d * FROST_PULL) % 360) / 360
+    r, g, b = colorsys.hsv_to_rgb(nh, s * FROST_SAT, v * FROST_DIM)
+    return (c & 0x8000) | _bgr555(r, g, b)
+
+
+FOREST_SNOW_LINE = 0.52   # forest trees in winter: foliage darker than this stays a cool dark green (snow-dusted
+                          # evergreens, as on Platinum's snowy trees), the lighter part takes the shaded snow
+
+
+def shaded_snow(c):
+    """A forest tree colour in winter: snow on the lit part of the foliage, dimmed and cooled (snow in the shade of a
+    forest); the shaded foliage stays green."""
+    h, s, v = colorsys.rgb_to_hsv(*_rgb(c & 0x7FFF))
+    if _green_hsv(h * 360, s) and v < FOREST_SNOW_LINE:
+        r, g, b = colorsys.hsv_to_rgb(150 / 360, min(s, 0.5) * 0.85, v * 0.92)
+        return (c & 0x8000) | _bgr555(r, g, b)
+    w = recolor(c, WINTER)
+    r, g, b = _rgb(w & 0x7FFF)
+    return (w & 0x8000) | _bgr555(r * (SHADE_SNOW - 0.03), g * SHADE_SNOW, min(1.0, b * (SHADE_SNOW + 0.06)))
+
+
+def is_frost_tree(names):
+    return any(nm.startswith(FROST_TREES) and '_un' not in nm for nm in names)
+
+
+def is_stone(cols):
+    """A path palette of grey stones (cobbles, paving) rather than sand or dirt."""
+    path = [c for c in cols if not _is_green(c) and c & 0x7FFF not in (0x7FFF, 0, 0x7C1F)]
+    return bool(path) and sum(_hsv(c)[1] for c in path) / len(path) < STONE_SAT
+
+
+def dusted(cols, dirt=None):
     """Winter paths (2026-10-31: snow-dusted): each colour blended toward a cool snow white, then the darker ones
     spread back down from the palette's brightest (DUST_CONTRAST) so stones and sand grain still show while the
     brightest keeps its dusted shade. Greens (grass edges) get snow. Unused-looking entries (white, black, magenta)
-    are left out of that."""
+    are left out of that. Stone palettes only get a slight whitening, except the dirt between and around the stones
+    (DIRT_SAT): it takes the colour the same dirt gets in the set's dirt paths (dirt = {summer colour: winter colour},
+    from recolor_btx), so a cobbled path's edge pieces match the dirt road beside them."""
     lum = lambda v: 0.3 * v[0] + 0.59 * v[1] + 0.11 * v[2]
-    path = [c for c in cols if not _is_green(c) and c & 0x7FFF not in (0x7FFF, 0, 0x7C1F)]
-    stone = bool(path) and sum(_hsv(c)[1] for c in path) / len(path) < STONE_SAT
+    stone = is_stone(cols)
     amount = STONE_DUST if stone else WINTER_DUST
     rgb = {k: [x + (w - x) * amount for x, w in zip(_rgb(c & 0x7FFF), DUST_WHITE)]
            for k, c in enumerate(cols) if not _is_green(c)}
@@ -158,6 +260,11 @@ def dusted(cols):
             out.append(recolor(c, WINTER))
         elif c & 0x7FFF in (0x7FFF, 0, 0x7C1F):
             out.append((c & 0x8000) | _bgr555(*rgb[k]))
+        elif stone and _hsv(c)[1] > DIRT_SAT:
+            if dirt and c & 0x7FFF in dirt:
+                out.append((c & 0x8000) | (dirt[c & 0x7FFF] & 0x7FFF))
+            else:
+                out.append((c & 0x8000) | _bgr555(*[x + (w - x) * WINTER_DUST for x, w in zip(_rgb(c & 0x7FFF), DUST_WHITE)]))
         else:
             d = 0 if stone else (lum(rgb[k]) - top) * (DUST_CONTRAST - 1)
             out.append((c & 0x8000) | _bgr555(*(x + d for x in rgb[k])))
@@ -388,26 +495,75 @@ def snow_roof_texels(out, masks, pal_cols):
                 _texel_io(out, off, bpp, imask)[1](i, rank[k])
 
 
-def recolor_btx(data, season, kind='map', roofs=None, masks=None):
+def recolor_btx(data, season, kind='map', roofs=None, masks=None, frost=False):
     """A copy of a BTX0 file for a season. kind 'map': greens follow the season (recolor()), flowers wilt in autumn and
     winter. kind 'building': only flower planters wilt (autumn, winter) and, in winter, roofs get snow texel by texel
-    (masks = load_masks(data/seasons/roof_masks.json), snow_roof_texels). roofs is unused (kept for old callers)."""
+    (masks = load_masks(data/seasons/roof_masks.json), snow_roof_texels). roofs is unused (kept for old callers).
+    frost: a forest (FROST_SETS): in winter only its trees get snow, the rest a light frost."""
     out = bytearray(data)
     if out[:4] != b'BTX0':
         return bytes(out)   # an empty placeholder member
+    # several names can share one palette (Violet's path edges roadkk_ro/x2/z1/z2, tree01 and tree01_re, the tall
+    # grass edges): recolour each palette once, treated as its names together say (it was once per name, so a
+    # shared palette got dusted or recoloured two to four times)
+    shared = {}
     for off, n, name in palettes(out):
+        shared.setdefault(off, [n, []])[1].append(name)
+        shared[off][0] = max(shared[off][0], n)
+    # winter paths: dirt and sand palettes first, so the stone ones can give their dirt the same colours
+    dirt = {}
+    order = list(shared.items())
+    if kind == 'map' and season == WINTER:
+        def stone_path(item):
+            off, (n, names) = item
+            return any(nm.startswith(PATHS) for nm in names) and is_stone(
+                [struct.unpack_from('<H', out, off + 2 * k)[0] for k in range(n)])
+        order.sort(key=stone_path)
+    for off, (n, names) in order:
         cols = [struct.unpack_from('<H', out, off + 2 * k)[0] for k in range(n)]
-        wilting = season in (AUTUMN, WINTER) and _flowery(name, cols)
+        flowery = [nm for nm in names if _flowery(nm, cols)]
+        # forests in winter: flowers get the same frost as the floor (wilting would turn their tiles into open-country
+        # grass, pale squares on the darker forest floor)
+        wilting = season in (AUTUMN, WINTER) and bool(flowery) and not (frost and season == WINTER)
         if wilting:
-            cols = wilt(cols, season, ground=name.startswith('flower'))
-        if kind == 'map' and season == WINTER and name.startswith(PATHS):
-            cols = dusted(cols)
-        elif kind == 'map' and name.startswith(BEACHES):
+            cols = wilt(cols, season, ground=any(nm.startswith('flower') for nm in flowery))
+        if kind == 'map' and season == WINTER and frost:
+            cols = [shaded_snow(c) for c in cols] if is_frost_tree(names) else [frosted(c) for c in cols]
+        elif kind == 'map' and season == WINTER and any(nm.startswith(PATHS) for nm in names):
+            before = cols
+            cols = dusted(cols, dirt)
+            if not is_stone(before):
+                for a, b in zip(before, cols):
+                    if not _is_green(a):
+                        dirt.setdefault(a & 0x7FFF, b)
+        elif kind == 'map' and any(nm.startswith(BEACHES) for nm in names):
             cols = [recolor(c, season) if _is_green(c) else c for c in cols]
-        elif kind == 'map' and name.startswith(MAPLES):
+        elif kind == 'map' and any(nm.startswith(MAPLES) for nm in names):
             cols = [recolor(c, season, _is_leaf(c)) for c in cols]
         elif kind == 'map' or wilting:
-            cols = [recolor(c, season) for c in cols]
+            forest = frost and not any(nm.startswith(FOREST_NOT_FLOOR) for nm in names)
+            cols = [recolor(c, season, forest=forest) for c in cols]
+            if frost and season in (SPRING, AUTUMN) and any(nm.startswith(POND_WATER) for nm in names):
+                # the pond under Ilex's flat shade: make up for the shade's new colour so the water blends as in summer
+                k = OVERLAY_ALPHA / (1 - OVERLAY_ALPHA)
+                cols = [_shifted(c, FLAT_SHADE_SUMMER, flat_shade(season), k) if _is_water(c) else c for c in cols]
+        elif kind == 'building' and frost and season in (SPRING, AUTUMN) and any(nm in FLAT_SHADE for nm in names):
+            cols = [flat_shade(season)] * len(cols)
+        elif kind == 'building' and frost and season in (SPRING, AUTUMN) and any(nm.startswith(POND_SHADE) for nm in names):
+            cols = [_shifted(c, flat_shade(season), FLAT_SHADE_SUMMER, 1.0) for c in cols]
+        elif frost and any(nm.startswith(FROST_BUILDING_FLOOR) for nm in names):
+            # a forest's canopy light and shadows (building models laid on the floor): the floor's colours in every season
+            look = season
+            if any(nm.startswith(STICKS) for nm in names) and season in STICK_SWAP:
+                look = STICK_SWAP[season]   # the fallen branches: autumn and winter colourings swapped (by request)
+            if look == WINTER:   # only the floor's own shades: the fallen branches' wood stays brown
+                floor = (lambda c: _desaturated(recolor(c, AUTUMN, forest=True), STICK_EDGE_SAT, STICK_EDGE_DIM)) \
+                    if season == AUTUMN else frosted   # the branches' edge in autumn: the floor's gold, not frosted teal
+                cols = [floor(c) if _is_green(c) or _forest_shade(_hsv(c)[0] * 360, _hsv(c)[1]) else c for c in cols]
+            else:   # translucent over the floor and the pond alike: keep the season's hue but little of its colour,
+                    # so it shades the gold floor without tinting the water (full gold greyed the pond)
+                cols = [flat_shade(look) if c & 0x7FFF == FLAT_SHADE_SUMMER else   # their shade = the flat shade's
+                        _desaturated(recolor(c, look, forest=True), OVERLAY_SAT, OVERLAY_DIM) for c in cols]
         for k, c in enumerate(cols):
             struct.pack_into('<H', out, off + 2 * k, c)
     if kind == 'building' and season == WINTER and masks:

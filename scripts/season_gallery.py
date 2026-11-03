@@ -51,14 +51,8 @@ def map_paintings(d, n, season, skip=None, folder=None):
     if MAP_PAIRS is None:
         MAP_PAIRS = RP.load_map_pairs()
     name = {R.SPRING: 'spring', R.AUTUMN: 'autumn', R.WINTER: 'winter'}[season]
-    sdir = os.path.join(folder or RP.MAP_REPO_DIR, name)
-    out = bytearray(d)
-    if os.path.isdir(sdir):
-        for f in sorted(os.listdir(sdir)):
-            p = RP.parse_name(f)
-            if p and p[0] == n and f != skip:
-                RP.apply_painting(out, os.path.join(sdir, f), MAP_PAIRS)
-    return bytes(out)
+    out, _ = RP.apply_map_all(d, n, name, MAP_PAIRS, folder, skip)
+    return out
 
 
 def seasonal_texset(kind, n, data, season, paintings=True):
@@ -67,7 +61,7 @@ def seasonal_texset(kind, n, data, season, paintings=True):
     if season == R.SUMMER:
         return data
     if kind == 'mapTextures':
-        d = R.recolor_btx(data, season, 'map')
+        d = R.recolor_btx(data, season, 'map', frost=n in R.FROST_SETS)
         if season == R.AUTUMN:
             d = T.autumn_trees(data, d)   # trees in several colours (src/seasons.c moves each tree onto one)
         d = SHEET.get((kind, n, season), d)
@@ -75,7 +69,7 @@ def seasonal_texset(kind, n, data, season, paintings=True):
     elif season == R.SPRING:
         return data
     else:
-        d = R.recolor_btx(data, season, 'building', ROOFS.get(str(n), {}), MASKS)
+        d = R.recolor_btx(data, season, 'building', ROOFS.get(str(n), {}), MASKS, frost=n in R.FROST_BUILDING_SETS)
         if season == R.WINTER and d[:4] == b'BTX0':
             import season_roofpaint as RP
             d, _ = RP.apply_all(d, n, MASKS['_pairs'])   # hand-painted roofs (data/seasons/roofs/)

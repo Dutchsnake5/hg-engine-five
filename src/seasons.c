@@ -62,6 +62,8 @@ static const u16 sSeasonalMapTexSets[] = {
     93,  // Frontier Access
     97,  // Mt. Moon Square
     102, // Mt. Silver Cave (grassy outside)
+    74,  // Ilex Forest (winter: frost on the floor, snow on the trees: season_recolor FROST_SETS)
+    103, // Viridian Forest (likewise). Added last so every earlier set keeps its members
 };
 
 #define SEASONAL_FIRST_MEMBER   106 // the map texture archive's original member count
@@ -116,7 +118,8 @@ static void Seasons_DebugSelect(void)
 }
 #endif
 
-static BOOL sWinterArea; // the last area loaded is outdoors in winter: its lighting gets brightened
+static BOOL sWinterArea; // the last area loaded is outdoors in winter (snow footsteps)
+static BOOL sWinterLight; // ... and its lighting gets brightened: not in the forests (Ilex, Viridian), which keep their shade
 static u8 sAreaVariant = 0xFF; // the last area's seasonal variant (0 spring, 1 autumn, 2 winter), 0xFF = original
 static u16 sSnowGroundMap = 0xFFFF; // map file whose row of the snow ground table is in sSnowGround
 static u8 sSnowGround[128];
@@ -157,6 +160,7 @@ static void Seasons_AdjustAreaData(u16 *buildingTex, u16 *mapTexSet, BOOL outdoo
     u32 i;
 
     sWinterArea = FALSE;
+    sWinterLight = FALSE;
     sAreaVariant = 0xFF;
     if (!outdoor || !Seasons_Available()) {
         return;
@@ -170,6 +174,7 @@ static void Seasons_AdjustAreaData(u16 *buildingTex, u16 *mapTexSet, BOOL outdoo
         return; // not a seasonal area (forests, the Safari Zone, caves...): its buildings, light and sounds stay too
     }
     sWinterArea = season == 3;
+    sWinterLight = sWinterArea && *mapTexSet != 74 && *mapTexSet != 103;   // season_recolor FROST_SETS
     sAreaVariant = v;
     if (v == 0xFF) {
         return;
@@ -290,7 +295,7 @@ void *LONG_CALL AreaLightManager_New_Seasonal(void *modelAttributes, u32 archive
     m->modelAttributes = modelAttributes;
     m->count = AreaLight_ReadFile(AREA_LIGHT_FILES[archiveID < 5 ? archiveID : 0], &m->entries);
     m->active = 0;
-    if (sWinterArea) {
+    if (sWinterLight) {
         Seasons_BrightenLight(m);
     }
     s32 now = RTC_TimeToSec() / 2;
@@ -418,8 +423,8 @@ struct TreeQuad {
     u8 parent, piece, strip, ntc; // piece: a strip piece or a part of the single-tree texture, not a whole tree
 };
 
-static const char sTreeTextures[][16] = { "tree01gs", "tree01_re", "treekn", "treekn_re" };
-static const u8 sTreeIsStrip[] = { 0, 1, 0, 1 };
+static const char sTreeTextures[][16] = { "tree01gs", "tree01_re", "treekn", "treekn_re", "d05tree01", "d05tree01_re", "dtf_f09", "dtf_f10" };
+static const u8 sTreeIsStrip[] = { 0, 1, 0, 1, 0, 1, 0, 1 };   // Ilex Forest's trees (d05), Viridian Forest's (dtf_f09/10)
 
 // parameter words of the packed display list commands (0xFF = not one the map models use)
 static const u8 sGxParams[0x73] = {

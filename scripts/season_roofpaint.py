@@ -62,6 +62,17 @@ def _bgr(rgb):
     return (r >> 3) | ((g >> 3) << 5) | ((b >> 3) << 10)
 
 
+def shown_with(pals, pal, pairs):
+    """Every texture shown with palette pal under any of its names (pals = _palettes(data): names that share an
+    offset are one palette)."""
+    off = pals[pal][0]
+    out = []
+    for name, (o, _) in pals.items():
+        if o == off:
+            out += [t for t in pairs.get(name, []) if t not in out]
+    return out
+
+
 def texture_rgba(data, tex, pal):
     """(w, h, [(r, g, b, a)]) of a texture with a palette, decoded from the texel indices (palette formats only)."""
     info = {n: (p, o) for n, p, o in R.textures(data)}
@@ -93,20 +104,29 @@ def save_png(path, w, h, px):
     im.save(path)
 
 
-def apply_painting(data, path, pairs):
-    """data (bytearray, a building texture set) with one painting applied; returns a list of problems (empty = ok).
-    pairs = {palette: [textures shown with it]} (roof_masks.json '_pairs')."""
-    from PIL import Image
+def painted_texture(data, path):
+    """(texture, palette) a painting file is for in this texture set, or (None, None)."""
     m = re.match(r'^\d{3}_(.+)\.png$', os.path.basename(path))
+    if not m:
+        return None, None
     pals = _palettes(data)
-    info = {n: (p, o) for n, p, o in R.textures(data)}
+    info = {n for n, p, o in R.textures(data)}
     # texture and palette: the longest texture name that fits, the rest is the palette
     stem = m.group(1)
-    tex = pal = None
     for t in sorted(info, key=len, reverse=True):
         if stem.startswith(t + '_') and stem[len(t) + 1:] in pals:
-            tex, pal = t, stem[len(t) + 1:]
-            break
+            return t, stem[len(t) + 1:]
+    return None, None
+
+
+def apply_painting(data, path, pairs, repainted=()):
+    """data (bytearray, a building texture set) with one painting applied; returns a list of problems (empty = ok).
+    pairs = {palette: [textures shown with it]} (roof_masks.json '_pairs'). repainted: textures that paintings of the
+    same batch replace (their present texels don't hold palette entries: apply_all paints a set's textures together)."""
+    from PIL import Image
+    pals = _palettes(data)
+    info = {n: (p, o) for n, p, o in R.textures(data)}
+    tex, pal = painted_texture(data, path)
     if tex is None:
         return ['%s: no texture + palette in this set matches the file name' % os.path.basename(path)]
     param, off = info[tex]
@@ -127,10 +147,10 @@ def apply_painting(data, path, pairs):
         want.append(None if a < 128 else _bgr((r, g, b)))
     if any(x is None for x in want) and not tr0:
         return ['%s: has see-through pixels but the texture has no see-through colour' % tex]
-    # entries the other textures shown with this palette use
+    # entries the other textures shown with this palette use (with any name it goes by: names can share a palette)
     used = set()
-    for t in pairs.get(pal, []):
-        if t == tex or t not in info:
+    for t in shown_with(pals, pal, pairs):
+        if t == tex or t not in info or t in repainted:
             continue
         p2, o2 = info[t]
         f2 = (p2 >> 26) & 7
@@ -159,16 +179,27 @@ def apply_painting(data, path, pairs):
     return []
 
 
-def apply_all(data, bset, pairs, folder=None):
-    """A building texture set's winter member with every painting for it applied: (bytes, problems)."""
+def apply_all(data, bset, pairs, folder=None, skip=None, extra=None):
+    """A texture set member with every painting for set bset in folder applied together: (bytes, problems). Textures
+    that share a palette and are all painted fit if their paintings' colours fit together (a texture being repainted
+    doesn't keep the entries its old texels used). skip: leave out that file name (or names); extra: more painting
+    files (one path or a list: checking new paintings against the installed ones; they replace installed paintings of
+    the same textures)."""
     folder = folder or REPO_DIR
     out = bytearray(data)
-    problems = []
+    skip = {skip} if isinstance(skip, str) else set(skip or ())
+    extra = [extra] if isinstance(extra, str) else list(extra or ())
+    replaced = {painted_texture(out, f) for f in extra}
+    files = []
     if os.path.isdir(folder):
-        for f in sorted(os.listdir(folder)):
-            p = parse_name(f)
-            if p and p[0] == bset:
-                problems += apply_painting(out, os.path.join(folder, f), pairs)
+        files = [os.path.join(folder, f) for f in sorted(os.listdir(folder))
+                 if parse_name(f) and parse_name(f)[0] == bset and f not in skip
+                 and painted_texture(out, os.path.join(folder, f)) not in replaced]
+    files += extra
+    repainted = {painted_texture(out, f)[0] for f in files} - {None}
+    problems = []
+    for f in files:
+        problems += apply_painting(out, f, pairs, repainted)
     return bytes(out), problems
 
 
@@ -198,10 +229,10 @@ def load_map_pairs(path=None):
     return json.load(open(path)) if os.path.exists(path) else {}
 
 
-def apply_map_all(data, mset, season, pairs, folder=None):
+def apply_map_all(data, mset, season, pairs, folder=None, skip=None, extra=None):
     """A seasonal map texture member (season 'spring' / 'autumn' / 'winter') with every painting for map texture set
     mset applied: (bytes, problems)."""
-    return apply_all(data, mset, pairs, os.path.join(folder or MAP_REPO_DIR, season))
+    return apply_all(data, mset, pairs, os.path.join(folder or MAP_REPO_DIR, season), skip, extra)
 
 
 def main():
@@ -240,7 +271,7 @@ def main():
         out = sys.argv[6] if len(sys.argv) > 6 else DESKTOP_DIR
         base = bnarc[bset]
         pal = pal or next((p for p, ts in masks['_pairs'].items() if tex in ts and p in _palettes(base)), None)
-        winter = R.recolor_btx(base, R.WINTER, 'building', None, masks)
+        winter = R.recolor_btx(base, R.WINTER, 'building', None, masks, frost=bset in R.FROST_BUILDING_SETS)
         winter, _ = apply_all(winter, bset, masks['_pairs'])
         os.makedirs(out, exist_ok=True)
         path = os.path.join(out, file_name(bset, tex, pal))
@@ -267,7 +298,7 @@ def main():
                     print('%s: set %d is not seasonal (sSeasonalMapTexSets)' % (season, s))
                     bad += 1
                     continue
-                d = R.recolor_btx(narc[s], code, 'map')
+                d = R.recolor_btx(narc[s], code, 'map', frost=s in R.FROST_SETS)
                 if code == R.AUTUMN:
                     d = T.autumn_trees(narc[s], d)
                 _, problems = apply_map_all(d, s, season, pairs, folder)
@@ -281,7 +312,7 @@ def main():
         sets = sorted({parse_name(f)[0] for f in os.listdir(folder) if parse_name(f)})
         bad = 0
         for s in sets:
-            winter = R.recolor_btx(bnarc[s], R.WINTER, 'building', None, masks)
+            winter = R.recolor_btx(bnarc[s], R.WINTER, 'building', None, masks, frost=s in R.FROST_BUILDING_SETS)
             _, problems = apply_all(winter, s, masks['_pairs'], folder)
             for p in problems:
                 print('set %d: %s' % (s, p))
