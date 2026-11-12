@@ -1717,6 +1717,7 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
         }
         break;
     case ABILITY_GRIM_NEIGH:
+    case ABILITY_ZEAL:
     case ABILITY_AS_ONE_SPECTRIER:
         if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
             if (ctx->battlemon[ctx->attack_client].states[STAT_SPECIAL_ATTACK] < 12) {
@@ -2264,6 +2265,7 @@ void LONG_CALL Activate_KO_Count(void *bsys UNUSED, struct BattleStruct *ctx)
         case ABILITY_AS_ONE_GLASTRIER:
         case ABILITY_MOXIE: // TODO jpwiki says it works on allies, Aero says it doesnt
         case ABILITY_GRIM_NEIGH:
+        case ABILITY_ZEAL:
         case ABILITY_AS_ONE_SPECTRIER: {
             ctx->oneTurnFlag[ctx->attack_client].numberOfKOs++;
         } break;

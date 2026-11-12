@@ -1912,7 +1912,15 @@ extern u16 BitingMoveTable[10];
 
 extern u16 PulseMoveTable[7];
 
+extern u16 LauncherMoveTable[44];
+
 extern u16 SlicingMoveTable[31];
+
+extern u16 KickingMoveTable[16];
+
+extern u16 WingMoveTable[9];
+
+extern u16 FieldMoveTable[10];
 
 extern u16 sLowKickWeightToPower[6][2];
 

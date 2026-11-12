@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_STARLY,
-            .level = 50,
+            .level = 60, // was 50: this hack's Sableye (base HP 85) has a 32 HP substitute, which Lv50 Pluck (max 31) didn't break
             .form = 0,
             .ability = ABILITY_KEEN_EYE,
             .item = ITEM_NONE,

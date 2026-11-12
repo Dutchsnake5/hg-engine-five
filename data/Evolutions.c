@@ -13554,7 +13554,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_TAROUNTULA] = {
         .entries = {
-            { EVO_LEVEL, 15, SPECIES_SPIDOPS },
+            { EVO_LEVEL, 20, SPECIES_SPIDOPS },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },

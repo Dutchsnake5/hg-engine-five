@@ -1948,3 +1948,6 @@ The opposing {STRVAR_1 1, 0, 0} already\nhas frostbite!
 {STRVAR_1 1, 0, 0} is drowsing!
 The wild {STRVAR_1 1, 0, 0} is drowsing!
 The opposing {STRVAR_1 1, 0, 0} is drowsing!
+{STRVAR_1 1, 0, 0}’s\nSp. Atk was not lowered!
+The wild {STRVAR_1 1, 0, 0}’s\nSp. Atk was not lowered!
+The opposing {STRVAR_1 1, 0, 0}’s\nSp. Atk was not lowered!

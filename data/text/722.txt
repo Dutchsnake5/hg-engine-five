@@ -169,14 +169,14 @@ Restores HP as well when\nthe Pokémon eats a Berry.
 It changes type to that\nof the move it’s about to use.
 Halves the damage from\nphysical moves.
 Steals the held item of\na Pokémon it hits.
-Protects the Pokémon from\nsome ball and bomb moves.
+Blocks ball, bomb, beam,\ncannon, and shot moves.
 Sharply boosts Sp. Atk\nwhen a stat is lowered.
 Boosts the power of\nbiting moves.
 Normal-type moves become\nIce-type and powered up.
 Prevents itself and\nallies from falling asleep.
 Changes between Blade and\nShield Forme with attacks.
 Flying-type moves gain\npriority when its HP is full.
-Powers up aura and\npulse moves.
+Boosts pulses most, then\nballs, beams, cannons.
 Boosts the Defense stat\non Grassy Terrain.
 Passes its held item to\nan ally that has used theirs.
 Powers up moves that\nmake direct contact.
@@ -318,3 +318,8 @@ Powers up fire moves.
 Placeholder
 Burns the attacker upon\ntaking damage.
 Halves the damage from\ncontact moves.
+Boosts the power of\nkicking moves.
+Lowers the foe’s\nSp. Atk stat.
+Powers up moves that\ncan be used in the field.
+When knocking out a\ntarget, raises Sp. Atk.
+Powers up wing- and\nwind-based moves.

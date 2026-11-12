@@ -333,7 +333,13 @@
 #define ABILITY_TEMP4            317
 #define ABILITY_SPICY_SPRAY      318
 #define ABILITY_AURA_GUARD       319
+// Timeless Jade's own abilities
+#define ABILITY_STEEL_TOES       320 // kicking moves x1.2 (KickingMoveTable)
+#define ABILITY_CONDESCEND       321 // Intimidate for Sp. Atk
+#define ABILITY_VERSATILE        322 // field moves x1.5 (FieldMoveTable)
+#define ABILITY_ZEAL             323 // KOs raise Sp. Atk (Grim Neigh)
+#define ABILITY_TEMPEST_WINGS    324 // wing and wind moves x1.3 (WingMoveTable + WindMoveTable)
 
-#define NUM_ABILITIES ABILITY_AURA_GUARD + 1
+#define NUM_ABILITIES ABILITY_TEMPEST_WINGS + 1
 
 #endif

@@ -717,6 +717,28 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 continue;
             }
 
+            // handle Steel Toes (as Iron Fist, for kicks)
+            if ((AttackingMon.ability == ABILITY_STEEL_TOES)
+                && IsElementInArray(KickingMoveTable, (u16 *)&moveno, NELEMS(KickingMoveTable), sizeof(KickingMoveTable[0]))) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
+                continue;
+            }
+
+            // handle Tempest Wings
+            if ((AttackingMon.ability == ABILITY_TEMPEST_WINGS)
+                && (IsMoveWindMove(moveno)
+                    || IsElementInArray(WingMoveTable, (u16 *)&moveno, NELEMS(WingMoveTable), sizeof(WingMoveTable[0])))) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
+                continue;
+            }
+
+            // handle Versatile
+            if ((AttackingMon.ability == ABILITY_VERSATILE)
+                && IsElementInArray(FieldMoveTable, (u16 *)&moveno, NELEMS(FieldMoveTable), sizeof(FieldMoveTable[0]))) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
+                continue;
+            }
+
             if ((AttackingMon.ability == ABILITY_RECKLESS)
                 && ((moveEffect == MOVE_EFFECT_CRASH_ON_MISS)
                     || (moveEffect == MOVE_EFFECT_RECOIL_QUARTER)
@@ -804,6 +826,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((AttackingMon.ability == ABILITY_MEGA_LAUNCHER)
                 && IsElementInArray(PulseMoveTable, (u16 *)&moveno, NELEMS(PulseMoveTable), sizeof(PulseMoveTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
+                continue;
+            }
+
+            // Mega Launcher also boosts cannon, shot, ball, bomb and beam moves, by less
+            if ((AttackingMon.ability == ABILITY_MEGA_LAUNCHER)
+                && IsElementInArray(LauncherMoveTable, (u16 *)&moveno, NELEMS(LauncherMoveTable), sizeof(LauncherMoveTable[0]))) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                 continue;
             }
 
