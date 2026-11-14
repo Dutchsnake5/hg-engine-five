@@ -323,3 +323,5 @@ Condescend
 Versatile
 Zeal
 Tempest Wings
+Soul Grasp
+Desert Spirit

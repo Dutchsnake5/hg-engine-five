@@ -328,4 +328,6 @@ const AbilityFlags UNUSED sAbilityFlags[] = {
     [ABILITY_VERSATILE] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_ZEAL] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_TEMPEST_WINGS] = { .disabledByNeutralizingGas = TRUE },
+    [ABILITY_SOUL_GRASP] = { .disabledByNeutralizingGas = TRUE },
+    [ABILITY_DESERT_SPIRIT] = { .ignoredByMoldBreaker = TRUE, .disabledByNeutralizingGas = TRUE },
 };

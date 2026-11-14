@@ -582,6 +582,7 @@
 #define BATTLE_SUBSCRIPT_COMATOSE                                (570)
 #define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY              (571)
 #define BATTLE_SUBSCRIPT_CONDESCEND                              (572)
+#define BATTLE_SUBSCRIPT_DESERT_SPIRIT                           (573)
 
 #define MAX_BASE_SUBSCRIPT_NUM 571
 

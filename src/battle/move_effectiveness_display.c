@@ -215,6 +215,7 @@ static BOOL EffDisplay_FloatsOverGround(struct BattleStruct *sp, int attacker, s
     }
     return EffDefender_HasAbility(sp, attacker, d, move, ABILITY_LEVITATE)
         || EffDefender_HasAbility(sp, attacker, d, move, ABILITY_EELEVATE)
+        || EffDefender_HasAbility(sp, attacker, d, move, ABILITY_DESERT_SPIRIT)
         || hold == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT
         || sp->battlemon[def].moveeffect.magnetRiseTurns
         || sp->telekinesisTurns[def];

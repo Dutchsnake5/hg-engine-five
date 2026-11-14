@@ -3,7 +3,11 @@
 
 .data
 
-// Condescend: Intimidate for Sp. Atk (same blocking abilities; Rattled, Guard Dog and Adrenaline Orb only react to Intimidate)
+// Condescend: Intimidate for Sp. Atk. Every ability that blocks Intimidate blocks it too: Inner Focus, Oblivious, Scrappy,
+// Own Tempo, Hyper Cutter and Guard Dog here, Clear Body and the other stat-drop blockers in UPDATE_STAT_STAGE.
+// Rattled and the Adrenaline Orb react to it as Showdown has them react to Intimidate: Rattled raises Speed after the
+// Sp. Atk drop, the Adrenaline Orb raises Speed whether or not the drop was blocked by an ability; neither happens when
+// Sp. Atk is already at -6 (nothing to lower).
 _000:
     AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     WaitButtonABTime 15
@@ -20,15 +24,27 @@ _013:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_OBLIVIOUS, _block
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_SCRAPPY, _block
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_OWN_TEMPO, _block
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_HYPER_CUTTER, _block
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_GUARD_DOG, _block
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_SP_ATTACK_DOWN_1_STAGE
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY
+    // already at -6: the drop only prints "won't go any lower", and Rattled and the Adrenaline Orb stay quiet
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STAT_CHANGE_SPATK, 0, _atMinimum
     Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_RATTLED, _rattled
+
+_adrenalineOrb:
+    Call BATTLE_SUBSCRIPT_ADRENALINE_ORB
 
 _038:
     UpdateVar OPCODE_ADD, BSCRIPT_VAR_BATTLER_SPEED_TEMP, 1
     GoToIfValidMon BSCRIPT_VAR_BATTLER_SPEED_TEMP, _013
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_ATTACKER, BSCRIPT_VAR_LAST_BATTLER_ID
     End
+
+_atMinimum:
+    Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
+    GoTo _038
 
 _block:
     Wait
@@ -38,4 +54,11 @@ _block:
     PrintMessage 1950, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     Wait
     WaitButtonABTime 30
-    GoTo _038
+    GoTo _adrenalineOrb
+
+_rattled:
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_STAT_CHANGE
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_SPEED_UP_1_STAGE
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY
+    Call BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE
+    GoTo _adrenalineOrb

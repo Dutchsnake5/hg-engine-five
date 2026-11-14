@@ -2259,6 +2259,7 @@ BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, Batt
         if (!(sp->field_condition & FIELD_CONDITION_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
             if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
                 && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
+                && GetBattlerAbility(sp, battlerId) != ABILITY_DESERT_SPIRIT
                 && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
                 if (msg == NULL) {
                     return TRUE;
@@ -2335,6 +2336,7 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
 
     if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
              && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
+             && GetBattlerAbility(sp, battlerId) != ABILITY_DESERT_SPIRIT
              && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
              && !HasType(sp, battlerId, TYPE_FLYING))
             || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
@@ -4267,7 +4269,7 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
 
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
-    } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+    } else if ((isGrounded || isGravityOn || isIngrained) && (ctx->battlemon[battlerId].ability == ABILITY_LEVITATE || ctx->battlemon[battlerId].ability == ABILITY_DESERT_SPIRIT)) {
         return ABILITY_NONE;
     } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
         return ABILITY_BEAST_BOOST;
@@ -4837,10 +4839,16 @@ void LONG_CALL PlayTrainerVictoryBGM(struct Trainer *trainer)
     }
 }
 
-BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_client UNUSED, int defence_client, int index)
+BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_client, int defence_client, int index)
 {
     int itemEffect = HeldItemHoldEffectGet(ctx, defence_client);
     BOOL ret = TRUE;
+
+    // Soul Grasp: Ghost-type moves hit Normal types (Scrappy the other way round)
+    if (TypeEffectivenessTable[index][0] == TYPE_GHOST && TypeEffectivenessTable[index][1] == TYPE_NORMAL
+        && GetBattlerAbility(ctx, attack_client) == ABILITY_SOUL_GRASP) {
+        ret = FALSE;
+    }
 
     if (itemEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED
         || (ctx->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)

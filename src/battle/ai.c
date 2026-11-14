@@ -41,7 +41,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     typeLocal = GetAdjustedMoveTypeBasics(sp, move, atkAbility, type); // not just normalize, now others
 
     if ((atkAbility != ABILITY_MOLD_BREAKER)
-        && (defAbility == ABILITY_LEVITATE || defAbility == ABILITY_EELEVATE)
+        && (defAbility == ABILITY_LEVITATE || defAbility == ABILITY_EELEVATE || defAbility == ABILITY_DESERT_SPIRIT)
         && (typeLocal == TYPE_GROUND)
         && ((sp->field_condition & FIELD_CONDITION_GRAVITY) == 0)
         && (held_effect != HOLD_EFFECT_SPEED_DOWN_GROUNDED)
@@ -69,6 +69,11 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
                     i++;
                     continue;
                 }
+            }
+            // Soul Grasp: Ghost-type moves hit Normal types
+            if (atkAbility == ABILITY_SOUL_GRASP && TypeEffectivenessTable[i][0] == TYPE_GHOST && TypeEffectivenessTable[i][1] == TYPE_NORMAL) {
+                i++;
+                continue;
             }
             // TODO: Handle Primal Weathers so that the AI knows about them
             if (TypeEffectivenessTable[i][0] == typeLocal) {

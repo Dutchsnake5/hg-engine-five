@@ -339,7 +339,9 @@
 #define ABILITY_VERSATILE        322 // field moves x1.5 (FieldMoveTable)
 #define ABILITY_ZEAL             323 // KOs raise Sp. Atk (Grim Neigh)
 #define ABILITY_TEMPEST_WINGS    324 // wing and wind moves x1.3 (WingMoveTable + WindMoveTable)
+#define ABILITY_SOUL_GRASP       325 // Ghost moves hit Normal types (Scrappy the other way round)
+#define ABILITY_DESERT_SPIRIT    326 // Flygon's: Levitate + Ground added as a third type on entry
 
-#define NUM_ABILITIES ABILITY_TEMPEST_WINGS + 1
+#define NUM_ABILITIES ABILITY_DESERT_SPIRIT + 1
 
 #endif

@@ -1951,3 +1951,6 @@ The opposing {STRVAR_1 1, 0, 0} is drowsing!
 {STRVAR_1 1, 0, 0}’s\nSp. Atk was not lowered!
 The wild {STRVAR_1 1, 0, 0}’s\nSp. Atk was not lowered!
 The opposing {STRVAR_1 1, 0, 0}’s\nSp. Atk was not lowered!
+Ground type was added\nto {STRVAR_1 1, 0, 0}!
+Ground type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Ground type was added\nto the opposing {STRVAR_1 1, 0, 0}!
