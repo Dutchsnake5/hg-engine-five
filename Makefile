@@ -131,11 +131,24 @@ ifeq ($(AUTO_TEST),Y)
     ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 1
 endif
 
+# debug builds (this hack): make DEBUG_BUILD=Y turns on the debug-only options in include/config.h and writes
+# test_debug.nds, so test.nds (what DSPRE is synced from) stays the normal build. "Build debug ROM.bat" in the project
+# folder runs it. Compiled objects remember which kind of build made them (build/build_mode) and are rebuilt when it
+# changes, so a normal build never picks up debug code
+ifeq ($(DEBUG_BUILD),Y)
+    CFLAGS += -DDEBUG_BUILD
+    ASFLAGS += -DDEBUG_BUILD
+    BUILDROM = test_debug.nds
+endif
+
 ####################### Output #######################
 C_SUBDIR = src
 ASM_SUBDIR = asm
 INCLUDE_SUBDIR = include
 BUILD := build
+BUILD_MODE := $(if $(filter Y,$(DEBUG_BUILD)),debug,normal)$(if $(filter Y,$(AUTO_TEST)),-autotest,)
+BUILD_MODE_STAMP := $(BUILD)/build_mode
+$(shell mkdir -p $(BUILD); [ "`cat $(BUILD_MODE_STAMP) 2>/dev/null`" = "$(BUILD_MODE)" ] || echo "$(BUILD_MODE)" > $(BUILD_MODE_STAMP))
 BUILD_NARC := $(BUILD)/narc
 BASE := base
 FILESYS := $(BASE)/root
@@ -335,7 +348,7 @@ $(CODE_BUILD_DIRS):
 # generate .d dependency files that are included as part of compiling if it does not exist
 define SRC_OBJ_INC_DEFINE
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
-$1: $2 $(LEARNSETS_HEADER) $(BATTLETESTS_HEADER) | $(dir $1)
+$1: $2 $(LEARNSETS_HEADER) $(BATTLETESTS_HEADER) $(BUILD_MODE_STAMP) | $(dir $1)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
 	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
 
@@ -348,7 +361,7 @@ endif
 
 define ASM_OBJ_INC_DEFINE
 # these should have similar dependency scanning, but we do not currently use them in a way conducive to it
-$1: $2 | $(dir $1)
+$1: $2 $(BUILD_MODE_STAMP) | $(dir $1)
 	$(AS) $(ASFLAGS) -c $2 -o $1
 endef
 
