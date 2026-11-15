@@ -66,15 +66,8 @@ u8 Options_GetTextFrameDelay_GameSpeed(u16 *options UNUSED)
  *        GameSpeed_MainLoopWait_hook). the game waits here, unless the step already took longer than a refresh, and again
  *        at the end of the loop. skipping this wait runs the next game step one refresh later instead of two
  */
-#ifdef DSPICO_DEBUG_LINK
-void DSpicoLink_Poll(void);
-#endif
-
 void GameSpeed_MainLoopWait(void)
 {
-#ifdef DSPICO_DEBUG_LINK
-    DSpicoLink_Poll(); // once per game step: the DSpico USB debug link (src/dspico_link.c)
-#endif
     static u8 sStepPhase = 0;
     u32 speed = GameSpeed_FromOptions(Save_PlayerData_GetOptionsAddr(SaveBlock2_get()));
     BOOL skip;

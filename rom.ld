@@ -978,6 +978,3 @@ FontOAM_GetPosition = 0x02013794 | 1;
 FontOAM_SetPosition = 0x020136B4 | 1;
 Task_FightMenuButtonFeedback = 0x022690A8 | 1;
 Task_TargetMenuButtonFeedback = 0x02269360 | 1;
-CARD_LockRom = 0x020DC96C;
-CARD_UnlockRom = 0x020DC988;
-OS_GetLockID = 0x020D15C4;

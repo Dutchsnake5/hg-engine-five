@@ -361,18 +361,10 @@
 // in the save's text speed bits as 4 + choice, so older saves (0-2 there) start at x1. Labels: DSPRE text archive 0045.
 #define GAME_SPEED_OPTION
 
-// DSPICO_DEBUG_LINK (needs GAME_SPEED_OPTION, whose main-loop hook polls it) is a live debug link over the DSpico
-// flashcart's USB port (src/dspico_link.c): the PC (Tools\dspico_link.py in the project folder) can read and write
-// memory and call game functions while the game runs on the DS, and the game can send log lines. It only switches on
-// on a DSpico with the ROM copied there by "Copy to DSpico.bat" (which patches out the ARM7's "card removed" check);
-// everywhere else it does nothing. About 2 KB of the always-loaded code area.
-//
 // DEBUG_BUILD is never defined here: "Build debug ROM.bat" in the project folder builds with make DEBUG_BUILD=Y
 // (Makefile: -DDEBUG_BUILD, output test_debug.nds instead of test.nds) and puts the debug code into DSPRE's ROM as
-// MelonDS\test_debug.nds. A normal make leaves every debug option off: DEBUG_SEASON_SELECT (above) and this one.
-#ifdef DEBUG_BUILD
-#define DSPICO_DEBUG_LINK
-#endif
+// MelonDS\test_debug.nds. A normal make leaves every debug option off (DEBUG_SEASON_SELECT above). The DSpico USB
+// debug link (DSPICO_DEBUG_LINK) is parked on the dspico-debug-link branch.
 
 // CUSTOM_TITLE_LOGO replaces the title screen's HeartGold logo with the hack's (data/graphics/title/title_logo.png,
 // 256 x 120, up to 255 colours + see-through colour 0; packed into a/0/4/6 by scripts/build_title_logo.py). Make the PNG
